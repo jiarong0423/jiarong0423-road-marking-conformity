@@ -4,6 +4,8 @@
 
 Entry for the OpenCV AI Competition 2026. One author. 23 September 2026.
 
+Video: https://youtu.be/jNofo20hvyY · Code and evidence: https://github.com/jiarong0423/jiarong0423-road-marking-conformity
+
 ---
 
 ## 1. Problem
@@ -93,7 +95,7 @@ AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v12
 
 The container pins `opencv-python-headless==5.0.0.93` and `numpy==2.5.3` (`aws/Dockerfile`). The local interpreter that produced `results/` has numpy 2.4.4; the container was tested separately with 2.5.3 (below).
 
-**Measured in the v12 container** (arm64, 2 CPUs, locally): a 2000 px photo takes 14.3 s and the new measurements refuse (they need full resolution); a full-resolution photo (JPEG 90, 2.2 MB) takes 52.5 s and returns the red-line gap 0.668 m on F31. That exceeds API Gateway's 30 s limit, so the deployment raises Lambda memory to 10 GB (more vCPUs). Error paths return clear answers: malformed JSON or a missing photo 400, over 3 MB 413, a non-road photo `NOT_A_ROAD_PHOTOGRAPH`. Status of the live function: see [`deployment.md`](deployment.md).
+**Measured in the v12 container** (arm64, 2 CPUs, locally): a 2000 px photo takes 14.3 s and the new measurements refuse (they need full resolution); a full-resolution photo (JPEG 90, 2.2 MB) takes 52.5 s and returns the red-line gap 0.668 m on F31. That exceeds API Gateway's 30 s limit, so the deployment raises Lambda memory to 10 GB (more vCPUs). Error paths return clear answers: malformed JSON or a missing photo 400, over 3 MB 413, a non-road photo `NOT_A_ROAD_PHOTOGRAPH`. Live since 23 September: image v12 at 3008 MB, which serves the new response fields; the full-resolution path needs the 10 GB memory setting, not yet applied. See [`deployment.md`](deployment.md).
 
 ## 7. Regulations used
 

@@ -211,7 +211,7 @@
 <text x="902" y="961" class="m xs">memory 3 GB → 10 GB (pending)</text>
 <rect class="box" x="1136" y="906" width="230" height="62" rx="6"/>
 <text x="1148" y="928" class="t lbl">Container image</text>
-<text x="1148" y="946" class="m xs">v11 live → v12 built and tested</text>
+<text x="1148" y="946" class="m xs">v12 live since 23 Sep</text>
 <text x="1148" y="961" class="m xs">code only, no data or keys</text>
 <path class="ar" d="M866,937 L886,937"/>
 <path class="ard" d="M1136,937 L1116,937"/>

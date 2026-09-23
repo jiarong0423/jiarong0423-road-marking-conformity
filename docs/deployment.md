@@ -68,8 +68,8 @@ which is a sentence about a person rather than an audit.
 | | |
 |---|---|
 | account / region | <account>, ap-southeast-2 |
-| function | `road-marking-gate`, container, arm64, 2048 MB, 60 s |
-| image | `road-marking-gate:v2`, `public.ecr.aws/lambda/python:3.12` |
+| function | `road-marking-gate`, container, arm64, **3008 MB** (10240 MB planned: a full-resolution photo takes 52.5 s on 2 CPUs, over the gateway's 30 s), 60 s |
+| image | `road-marking-gate:v12` (live since 2026-09-23 06:32 UTC), `public.ecr.aws/lambda/python:3.12`, numpy pinned 2.5.3 |
 | OpenCV | `opencv-python-headless==5.0.0.93`, reported by the running function as 5.0.0 |
 | public entry | API Gateway HTTP API `3p4k7s4bx7`, proxy to the function |
 | role | `road-marking-gate-role`, basic execution only |

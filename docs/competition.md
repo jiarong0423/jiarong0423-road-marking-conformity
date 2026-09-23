@@ -679,7 +679,7 @@ the claim is judgeable at all.
 | Architecture diagram showing OpenCV 5 and AWS components | **yes, as of this file** | §1; it was absent from the repository before today |
 | Working web endpoint | **yes** | `https://3p4k7s4bx7.execute-api.ap-southeast-2.amazonaws.com` returned 200 for GET and for a POST in this session; runs pre-fix code; 31 s against a 30 s gateway timeout |
 | Evaluation evidence including failure cases | **strong on failures, weak on ground truth** | `docs/reproducibility-2026-09-21.md`, `docs/what-changed-2026-09-21.md`, `docs/comparisons-2026-09-21.md`, `results/figure_registry.json` with its withdrawn section; no held-out set, no measured truth for the taper |
-| Video, maximum five minutes, showing team, application, architecture, results | **absent** | nothing recorded |
+| Video, maximum five minutes, showing team, application, architecture, results | **yes (2026-09-23)** | https://youtu.be/jNofo20hvyY, 3 min 27 s, voiceover and burned-in subtitles |
 | Tests | **yes** | 32 pass, run 2026-09-21 |
 | COOL: core workload on Graviton | **yes** | arm64 verified against the live function |
 | COOL: reproducible measurement against a baseline | **absent** | §8 specifies the benchmark |

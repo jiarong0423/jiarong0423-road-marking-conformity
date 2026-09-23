@@ -2,6 +2,8 @@
 
 *A rider, a phone, and OpenCV 5 against one stretch of road in New Taipei.*
 
+**Video (3 min 27 s):** https://youtu.be/jNofo20hvyY
+
 ![85 metres of County Road 116](docs/figures/schematic-85m.png)
 
 ## The road

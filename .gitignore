@@ -20,3 +20,7 @@ models/mlsd/mbv2_mlsd*.py
 
 # 診斷圖:由 isolation/scripts/*.py 的 draw 步驟重建,不進版控
 isolation/out/
+
+# Video build outputs (regenerate with video/make_video.py); the API excerpt is a run output
+video/out/
+video/assets/*.json
