@@ -8,7 +8,7 @@
 - 公開 repo 更新方式:`git commit-tree HEAD^{tree} -p public-release` → 推 `public` remote 的 main,**不推本地完整歷史**。推前掃個人路徑/密鑰/街景圖。
 - 街景衍生圖不公開(Google 條款),本地 `output/streetview-derived/`;中文原稿在 `output/zh-originals/`。
 
-- **結案盤點(2026-09-23 17:15)**:本地、GitHub、AWS 三方一致;212 測試過、73 數字對上、106 張證據 sha256 一致。無背景程序、無測試容器、預覽伺服器已停。本地保留(不版控):`output/`(Devpost 上傳檔、中文原稿、街景衍生圖)、`video/out/`(影片 63 MB)。Docker 有 v1–v13 映像約 5 GB,可 `docker image prune` 清。`/etc/hosts` 的三行 googleapis 已被使用者註解掉(為了 Vertex 配音),若別的專案推 Google Sheet 出問題先看這裡。
+- **結案盤點(2026-09-23 17:15)**:本地、GitHub、AWS 三方一致;212 測試過、73 數字對上、106 張證據 sha256 一致。無背景程序、無測試容器、預覽伺服器已停。本地的 Devpost 上傳檔、中文原稿、街景衍生圖、`video/out/` 已於 17:20 刪除(使用者指示);要重做:影片 `video/make_video.py`、街景圖 `isolation/overlay-2025/sv_taper.py`、中文版在 git 歷史 `3a00a5a` 之前。Docker 有 v1–v13 映像約 5 GB,可 `docker image prune` 清。`/etc/hosts` 的三行 googleapis 已被使用者註解掉(為了 Vertex 配音),若別的專案推 Google Sheet 出問題先看這裡。
 
 ---
 
