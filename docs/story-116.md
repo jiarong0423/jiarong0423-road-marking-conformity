@@ -1,121 +1,121 @@
-# 一個捷運工程的交維設計，怎麼把用路人擠出去 —— 116 縣道（樹林中正路）
+# How a metro works' traffic plan squeezed riders out: County Road 116 (Zhongzheng Road, Shulin)
 
-白話寫，每個數字後面括號是來源檔與誤差。這不是在判誰違規。哪條紅線是現行、設計速率算哪一個，要看文件，文末列出要申請的。
-影像辨識抓出來的每一張圖都附方法，總表在 `docs/materials-2026-09-23.md`。
+Written in plain language. Each number is followed, in brackets, by its source file and uncertainty. This is not a judgement of who broke the rules. Which red line is the official one and which design speed applies are questions for documents; the ones to request are listed at the end.
+Every figure produced by image recognition carries its method; the index is [`materials-2026-09-23.md`](materials-2026-09-23.md).
 
-## 主訴（騎士原話，2026-09-22）
+## The rider's complaint (in the rider's words, 22 September 2026)
 
-> 塗銷前：很急著變道、車道縮減，機車騎水溝蓋，**挑戰七個**。
-> 塗銷後：路面柏油挖除，夜間視覺不清楚；主幹道夜間視線不良，在**柏油凹陷處**接著遇到**七個水溝蓋**。
+> Before the island was painted over: you had to change lanes in a hurry, the lane shrank, and on a scooter you ended up riding the drain grates. **Seven of them.**
+> After: the asphalt was dug out, and at night you can't see well. On the main road at night the view is poor, and right where the **asphalt dips** you meet **seven drain grates**, one after another.
 
-兩個時期，不變的都是那七個水溝蓋。塗銷前，騎士是被急著變道逼上去的；塗銷後，是順著挖除後的凹陷被帶過去的，而且是在夜間看不清楚的情況下。
+Across the two periods, the constant is those seven grates. Before, the rider was pushed onto them by the rush to change lanes. After, the dug-out dip leads the rider onto them, at night, without being able to see.
 
-## 時間軸
+## Timeline
 
-| 時間 | 這段路 | 來源 |
+| When | This stretch | Source |
 |---|---|---|
-| 2022-11 | 開工當月。雙向道、虛線車道線，路面標「50」。沒有實線，也沒有槽化線 | 街景 pano gnxxb317…（`results/solid_line_extent.json#/epochs`） |
-| 2024-09 | 施工中。雙黃線；49 m 以前還沒有實線，錐筒和槽化線從 49 m 開始 | 街景 pano iKUYZ2…、pdYBYT…（±5 m） |
-| 2025-05-06 → 2026-09-30 | 道路挖掘許可 **新北捷五所字第1140874494號**（捷運管遷），柏油，長 750 m、寬 3 m、深 1.2 m | `results/excavation_live_2026-09-22.json` |
-| 2025-06 | 雙白實線從 0 m 開始，槽化線從 35.5 m 開始，85 m 處接主線上坡。路面有黃色「30」。**槽化線完整，還沒塗銷** | `output/seq`、`output/seq/+0015.7.jpg`（±5 m） |
-| 2025-06 之後約一年 | 槽化線被塗銷約三分之二（54.9–68.3%）；紅線往外重畫到側溝帶上 | `results/erasure_ratio.json`；本文〈紅線〉一節 |
-| 2026-09-20 | 使用者走一趟，拍 42 張（15:56–16:01） | `evidence/field-2026-09-20/MANIFEST.csv` |
-| 2026-09-23 | 清晨 06:30–06:34 拍 64 張，七個溝蓋各拍俯、前、側三種 | `evidence/field-2026-09-23/README.md` |
+| Nov 2022 | Month the works began. Two-way road, dashed lane lines, "50" painted on the road. No solid line, no painted island | Street View pano gnxxb317… (`results/solid_line_extent.json#/epochs`) |
+| Sep 2024 | Under works. Double yellow line; no solid line before 49 m; cones and the island start at 49 m | Street View panos iKUYZ2…, pdYBYT… (±5 m) |
+| 6 May 2025 → 30 Sep 2026 | Road excavation permit **New Taipei Metro Works 1140874494** (utility relocation for the metro): asphalt, 750 m long, 3 m wide, 1.2 m deep | `results/excavation_live_2026-09-22.json` |
+| Jun 2025 | Double white solid line from 0 m, island from 35.5 m, main road climbs from 85 m. A yellow "30" is painted on the road. **The island is intact, not yet painted over** | `output/seq`, `output/seq/+0015.7.jpg` (±5 m) |
+| About a year after Jun 2025 | About two thirds of the island painted over (54.9–68.3%); the red line repainted further out, onto the drain strip | `results/erasure_ratio.json`; the "Red line" section below |
+| 20 Sep 2026 | I walked the stretch and took 42 photos (15:56–16:01) | `evidence/field-2026-09-20/MANIFEST.csv` |
+| 23 Sep 2026 | 64 photos at dawn (06:30–06:34): top, front and side shots of each of the seven grates | `evidence/field-2026-09-23/README.md` |
 
-## 這 85 公尺
+## These 85 metres
 
-**從實線起點到橋頭約 85 公尺。** 整段限速 30。
+**From the start of the solid line to the bridge is about 85 metres.** The whole stretch is limited to 30 km/h.
 
-- **前 35 m 是實線，不准變換車道。** 比 2024-09 提早了約 40 m（35–50 m）。（`solid_line_extent.json#/extents`、`#/epochs`）
-- **後 50 m 是槽化線，車道往內縮。** 市區道路及附屬工程設計規範表 4.2.7 的「直行車道偏移漸變」：30 km/h 要 **5:1**，50 km/h 要 16:1。（`docs/evidence.md` L19）
+- **The first 35 m is a solid line: no changing lanes.** It starts about 40 m earlier (35–50 m) than it did in September 2024. (`solid_line_extent.json#/extents`, `#/epochs`)
+- **The next 50 m is the painted island, and the lane narrows.** The Urban Road Design Specification, table 4.2.7 ("through-lane shift"), asks for **5:1** at 30 km/h and 16:1 at 50 km/h. (`docs/evidence.md` L19)
 
-| | 漸變率 | 對照 30 km/h 的 5:1 | 來源 |
+| | Taper | Against 5:1 at 30 km/h | Source |
 |---|---|---|---|
-| **塗銷前**（2025-06 街景） | **4.0–5.1:1** | 在門檻上，或略為不足 | ![平面示意圖](figures/schematic-85m.png)（街景影像依 Google 條款不公開，改用本專案自繪示意圖） |
-| **塗銷後**（2026-09-20，F40） | **約 12:1**（11.7–12.3） | 符合 | ![塗銷後](figures/taper-2026-after-erasure.jpg) |
+| **Before painting over** (Street View, June 2025) | **4.0–5.1 : 1** | at the limit, or just short | ![Plan view](figures/schematic-85m.png) (Street View imagery is not published under Google's terms; this schematic is drawn from my own measurements) |
+| **After** (20 Sep 2026, photo F40) | **about 12 : 1** (11.7–12.3) | passes | ![After](figures/taper-2026-after-erasure.jpg) |
 
-- 塗銷前的數字是直接在 2025 街景上量的：兩種辨識方法都認可外框才採用；地平線用兩種獨立方法各算一次（電桿的垂直消失點、街景已知的俯仰角），結果相差約 1°；換畫質、裁切，讀數幾乎不動。
-- 另一條獨立路線也對得上：塗銷後是 12:1、塗銷掉約三分之二，反推塗銷前約 4.3:1。
-- 還沒解的：外框和車道方向理應平行，在街景上量出來差 2.8–3.9°。算進這個誤差，塗銷前的範圍會跨過 5:1，所以只寫「在門檻上或略為不足」，不寫「明顯不足」。
-- **塗銷是改善。** 塗銷後的 12:1 符合規定，這和騎士說的「現行改完有比較好，就是塗銷」一致。
-- **撤回舊數字**：舊版寫的「約 10:1（9.2–11.9）」，是自動挑邊時把不同的線混成一組量出來的，換個畫質就重現不出來。9.2 來自 F17，那張朝陸橋拍，遠端已經在上坡，不能用平面幾何算。（`isolation/taper-recheck/NOTES.md`）
+- The before figure was measured directly on the 2025 Street View images: an edge is used only when two recognisers agree; the horizon was computed two independent ways (the vertical vanishing point from poles, and Street View's known camera pitch), which agree within about 1°; re-saving or cropping barely moves the reading.
+- A second, independent route agrees: 12:1 after, with about two thirds painted over, implies about 4.3:1 before.
+- Not yet resolved: the island's edge should run parallel to the lane, but on Street View it is 2.8–3.9° off. With that error included, the before range crosses 5:1, so this says "at the limit or just short", not "clearly short".
+- **Painting over was an improvement.** After, 12:1 passes, which matches the rider's words: "it's better since they painted over it."
+- **Withdrawn:** an earlier version said "about 10:1 (9.2–11.9)". That came from the program grouping different painted lines together, and could not be reproduced once the image was re-saved. The 9.2 was from F17, which looks up the bridge ramp where the ground is not flat, so plane geometry does not apply. (`isolation/taper-recheck/NOTES.md`)
 
-## 紅線：舊紅線才是真正的路邊
+## The red line: the old one was the real road edge
 
-![①舊紅線 ②側溝帶與溝蓋 ③新紅線 ④緣石](figures/redline-gutter-kerb-P22.jpg)
+![1 old red line, 2 drain strip and grate, 3 new red line, 4 kerb](figures/redline-gutter-kerb-P22.jpg)
 
-現場有兩條紅線：① 柏油邊緣上磨掉的**舊紅線**，③ 畫在 ② 側溝帶上、穿過溝蓋的**新紅線**，兩者相距 **0.60–0.68 m**。（09-20 F30–F32 量 0.63–0.68 m，`results/redline_gap_F3x.json`；09-23 溝蓋 2 俯拍量約 0.60 m，`isolation/field-2026-09-23/NOTES.md`。尺是紅線本身的線寬 10 cm，已經用標準卡片驗證新漆線寬 95–97 mm。）④ 緣石在更外側，是凸起的一條水泥。
+There are two red lines: (1) the **old red line**, worn, at the edge of the asphalt, and (3) the **new red line**, painted on (2) the drain strip and straight across the grates. They are **0.60–0.68 m** apart. (F30–F32 on 20 September measure 0.63–0.68 m, `results/redline_gap_F3x.json`; top-down shots at grate 2 on 23 September measure about 0.60 m, `isolation/field-2026-09-23/NOTES.md`. The ruler is the red line's own 10 cm width, checked with a bank card at 95–97 mm.) (4) The kerb is further out, a raised concrete strip.
 
-法規怎麼說（全國法規資料庫原文，逐字核對）：
+What the rules say (checked word for word against the national law database; the Chinese originals are in [`evidence.md`](evidence.md)):
 
-- **設置規則 §169**：「禁止臨時停車線……以劃設於道路**緣石**正面或頂面為原則，無緣石之道路得標繪於路面上，距路面邊緣以三○公分為度。」（`docs/evidence.md` L2）
-  現場**有**緣石，新紅線卻沒畫在緣石上；它畫的側溝帶，也不是柏油路面。
-- **設置規則 §183**：「路面邊線，用以指示路肩或路面外側邊緣之界線……但交岔路口及**劃設有禁止停車線、禁止臨時停車線處**……得免設之。」（L20）
-  畫了紅線的地方可以不畫白色邊線，所以**紅線本身就在標示路面的外緣**。
-- **市區道路及附屬工程設計標準 §2 第一款**：「車道：指**以標線**或實體**劃定**道路之部分……」（L21）
-  標線畫到哪裡，車道就到哪裡。
+- **Road Traffic Signs, Markings and Signals Rules §169:** a no-temporary-stopping line "is drawn, as a rule, on the front or top face of the **kerb**; on a road without a kerb it may be marked on the road surface, about 30 cm from the edge." (`docs/evidence.md` L2)
+  Here there **is** a kerb, yet the new red line is not on it, and the drain strip it is painted on is not the asphalt surface either.
+- **Same rules §183:** the road edge line "indicates the edge of the shoulder or the outer edge of the road surface … it may be omitted … where a no-stopping or no-temporary-stopping line is drawn." (L20)
+  Where there is a red line, no white edge line is needed, so **the red line itself marks the road's outer edge**.
+- **Urban Road and Ancillary Works Design Standard §2(1):** "A lane is the part of the road delimited **by markings** or by physical means …" (L21)
+  Wherever the markings go, the lane goes.
 
-**所以**（這是本專案的判讀，不是法條原文）：紅線往外畫了 0.6 m，就把側溝帶和它上面的溝蓋劃進了「路」。能騎的柏油一寸都沒有變寬，變寬的只有紙上的車道。騎士照著標線騎，就會騎到溝蓋上。
+**So** (this is my reading, not the text of the law): moving the red line out by 0.6 m put the drain strip and its grates inside the "road". The asphalt a scooter can ride did not get any wider; only the lane on paper did. A rider who follows the markings rides onto the grates.
 
-## 溝蓋：紅線就畫在溝蓋上
+## The grates: the red line is painted right over them
 
-![影像辨識：新紅線中軸穿過溝蓋](figures/red-line-over-grates.jpg)
+![Image recognition: the new red line's axis crosses the grates](figures/red-line-over-grates.jpg)
 
-- **七個溝蓋**：街景沿路每 8 m 往溝帶看，格柵蓋在約 8、16、28、44、58、74、82 m（±5 m）。（`solid_line_extent.json#/drain_covers`）09-23 現場依時間軸逐一拍到這七個。（`evidence/field-2026-09-23/README.md`）
-- **影像辨識**：09-23 的 16 張俯拍涵蓋溝蓋 1 到 6，**16 張全部顯示新紅線的中軸線穿過溝蓋**，離溝蓋中心 1–14 cm。溝蓋 7 沒有俯拍。這項結論不需要比例尺。（方法印在圖底，程式 `isolation/field-2026-09-23/cv_evidence.py`）
-- **開放圓孔**：溝蓋 4、5 旁邊有沒加蓋的圓孔，直徑約 8–11 cm，離紅線中軸 4–13.5 cm。
+- **Seven grates:** looking at the drain strip every 8 m along the road in Street View, the grates are at about 8, 16, 28, 44, 58, 74 and 82 m (±5 m). (`solid_line_extent.json#/drain_covers`) On 23 September I photographed all seven, placed along the road by timestamp. (`evidence/field-2026-09-23/README.md`)
+- **Image recognition:** the 16 top-down photos of 23 September cover grates 1 to 6. **In all 16, the new red line's axis crosses the grate**, 1–14 cm from its centre. Grate 7 has no top-down photo. This result needs no scale. (Method printed under the figure; script `isolation/field-2026-09-23/cv_evidence.py`)
+- **Open holes:** beside grates 4 and 5 there are uncovered round drain holes, about 8–11 cm across, 4–13.5 cm from the red line's axis.
 
-### 下雨更滑、有落差
+### Slippery when wet, and a step
 
-- **公路法 §72 第四項**（115/08/17 修正公布）：人、手孔蓋「設置或維修後應予修復並確實**回填與鄰接路面齊平**，其人、手孔蓋等路面上之設施**抗滑值基準不得低於交通部所定之基準**」，保固期內「以**三公尺直規**檢測單點**高低差不得超過正負零點六公分**」。（L22）交通部所定的抗滑值基準是 **50 BPN**，適用於面積達 900 平方公分、沒有下地的蓋子。（公路用地使用規則 §14-1，中央社 2026-06-20 報導，原文未取回）這裡每個溝蓋每邊都超過 50 cm。
-- **新北市道路挖掘作業審查原則 6.0**：新舊路面銜接處，3 m 直規單點高低差 ±0.6 cm。（`docs/source-ntpc-excavation-6.0.txt`）
-- 這兩條管的是同一件事：蓋子和路面要齊平、不能滑。修法的新聞報導以機車雨天打滑自摔為背景。（中央社 2025-12-02、2026-06-20；立法理由原文未取回）
-- **我們沒量到的**：溝蓋濕的時候有多滑、比路面低多少，照片量不出來。落差要用 3 m 直規現場量；抗滑要用擺錘試驗。§72 講的是人、手孔蓋，側溝格柵算不算、這段路歸公路法還是市區道路管，都還沒查證。
-- **看得到的**：側拍裡，柏油和側溝帶的接縫有一條沿路延伸的凹溝，就是騎士說的「柏油凹陷」。（09-23 溝蓋 2、3 的側拍 P14–P18、P25–P27）
+- **Highway Act §72(4)** (amended and promulgated 17 August 2026): manholes and handholes "shall, after installation or maintenance, be repaired and **backfilled flush with the adjacent road surface**, and the **skid resistance** of covers and other surface fittings shall not be below the standard set by the Ministry of Transportation"; within the warranty period, "a single-point **step measured with a 3 m straightedge shall not exceed ±0.6 cm**." (L22) The ministry's skid-resistance standard is **50 BPN** for covers of at least 900 cm² that are not sunk below the surface. (Highway Land Use Rules §14-1, as reported by the Central News Agency on 20 June 2026; the rule's text was not retrieved.) Each grate here is over 50 cm a side.
+- **New Taipei road excavation review rules 6.0:** new-to-old pavement joints, a single-point step measured with a 3 m straightedge within ±0.6 cm. (`docs/source-ntpc-excavation-6.0.txt`)
+- Both rules are about the same thing: covers must sit flush and must not be slippery. News coverage of the amendment framed it around scooters skidding and falling in the rain. (Central News Agency, 2 December 2025 and 20 June 2026; the legislative reasons were not retrieved.)
+- **What I did not measure:** how slippery the grates are when wet and how far below the road they sit. Photos cannot tell; the step needs a 3 m straightedge on site and the grip needs a pendulum skid tester. Whether §72 covers drain grates, and whether this stretch is governed by the Highway Act or by urban-road rules, has not been confirmed.
+- **What you can see:** in the side shots, along the joint between the asphalt and the drain strip there is a groove running with the road: the "asphalt dip" in the rider's words. (Side shots P14–P18 and P25–P27, grates 2 and 3, 23 September)
 
-## 早晨逆光、夜間
+## Low sun in the morning, and night
 
-- **逆光**：往橋頭的方向，一年約有 **86 天**（11 月中到 1 月底），早上 **07:00–08:00** 太陽低低地（仰角 15° 以下）出現在正前方 ±25° 以內，正好是通勤時段。反方向全年沒有這種情況。（`isolation/glare/sun_glare.py`；道路方位取自街景拍攝方向，可能差幾度；逆光門檻是本專案自訂的，不是標準）
-  09-23 清晨拍攝時，太陽在前進方向左邊 47°，還不算正面逆光。
-- **夜間**：騎士陳述視線不良。目前沒有夜間照片，也沒有路燈資料。
+- **Glare:** heading to the bridge, on about **86 days** a year (mid-November to the end of January) between **07:00 and 08:00**, the sun is low (below 15°) and within ±25° of straight ahead: commuting time. Heading the other way, never. (`isolation/glare/sun_glare.py`; the road bearing is taken from the Street View heading and may be off by a few degrees; the glare threshold is my own choice, not a standard.)
+  At dawn on 23 September, when the photos were taken, the sun was 47° to the left of the direction of travel, so not head-on.
+- **Night:** the rider reports poor visibility. There are no night photos yet, and no street-lighting data.
 
-## 機車在這裡
+## On a scooter here
 
-右邊過不去（紅線、溝蓋、圓孔）；左邊在實線段不能跨（§167「禁止變換車道線」，`evidence.md` L1）；能往左併的只有槽化線那 50 m，而且那段路一直在縮。
+The right is closed (red line, grates, open holes). The left cannot be crossed on the solid stretch (§167, no-lane-change line, `evidence.md` L1). The only place to move left is the 50 m of island, and it keeps narrowing.
 
-| 車速 | 實線段 | 槽化線段 | 扣反應 2.5 s 後剩 |
+| Speed | Solid stretch | Island stretch | Left after 2.5 s reaction |
 |---|---|---|---|
-| **30 km/h**（限速） | 4.3 s | 5.9 s | **3.4 s** |
-| 50 km/h（開工前速限） | 2.6 s | 3.6 s | 1.1 s |
+| **30 km/h** (the limit) | 4.3 s | 5.9 s | **3.4 s** |
+| 50 km/h (the limit before the works) | 2.6 s | 3.6 s | 1.1 s |
 
-（`results/merge_window.json`；反應時間 AASHTO 2.5 s，`results/reaction.json#/piev_s`。3.4 s **已經扣過**反應時間。）
+(`results/merge_window.json`; reaction time AASHTO 2.5 s, `results/reaction.json#/piev_s`. The 3.4 s **already has the reaction time taken off**.)
 
-## 疊在一起
+## Stacked together
 
-每一項單獨看，都卡在門檻邊緣：
+Each one, on its own, sits at the edge of a limit:
 
-1. **左邊**：塗銷前的漸變率約 4–5:1，剛好在 30 km/h 的 5:1 上；實線不能跨，能併的只剩 3.4 s。
-2. **右邊**：紅線往外畫了 0.6 m，把 7 個溝蓋和開放圓孔劃進了「路」。§169 要紅線畫在緣石上，§183 讓紅線代表路面外緣，設計標準 §2 說標線劃到哪、車道就到哪。
-3. **腳下**：溝蓋要齊平、要防滑，法律有明文（公路法 §72），但這裡有沒有做到，沒有人量過。
-4. **旁邊**：捷運管線施工，許可範圍 750 m。
-5. **時段**：冬天早上的通勤時段迎著低角度陽光；夜間看不清楚。
+1. **Left:** before painting over, the taper was about 4–5:1, right at 5:1 for 30 km/h; the solid line can't be crossed, and only 3.4 s are left to merge.
+2. **Right:** the red line moved out 0.6 m and put seven grates and open drain holes inside the "road". §169 puts a red line on the kerb, §183 makes the red line the road's outer edge, and Design Standard §2 says the lane goes where the markings go.
+3. **Underfoot:** the law says covers must be flush and not slippery (Highway Act §72), but whether these are has never been measured.
+4. **Beside:** metro utility works, a 750 m permit.
+5. **Time of day:** on winter commuting mornings, the low sun ahead; at night, poor visibility.
 
-但這些全部疊在同一段 85 公尺、同一個騎士身上：左邊不能跨、右邊是溝蓋、中間在收窄、眼前逆光。**這不是某一條規定被違反，是設計把好幾個要閃避的東西疊在同一段路上。**
+But all of it lands on the same 85 metres and the same rider: no crossing on the left, grates on the right, the lane narrowing in the middle, and the sun in your eyes. **No single rule is broken here. The design stacks several things to avoid onto the same stretch of road.**
 
-## 做不到、沒做的，老實寫
+## What I can't do, or haven't done
 
-- 溝蓋的落差和濕滑：照片量不出來，要現場用 3 m 直規和擺錘試驗。
-- 夜間：沒有照片。
-- 塗銷前的漸變率：外框方向的自我檢查差 2.8–3.9°，沒有解開。
-- 溝蓋尺寸：用剝落的紅線當尺，每張不一致（55–88 cm），不引用。
-- 違停：只在照片裡看得到，沒有計數。
-- 有效路寬（機車實際能騎的寬度）：還沒有數字。
+- The step and the wet grip of the grates: photos cannot measure them; they need a 3 m straightedge and a pendulum tester on site.
+- Night: no photos.
+- The taper before painting over: the edge-direction self-check is 2.8–3.9° off, unresolved.
+- Grate sizes: with the worn red line as a ruler the readings disagree (55–88 cm), so they are not cited.
+- Illegal parking: visible in photos, not counted.
+- Effective lane width (how much a scooter can actually use): no number yet.
 
-## 要申請的文件
+## Documents to request
 
-1. 新北市交通局：116 縣道中正路（樹林段）**標線改繪核定函及劃設圖說** —— 決定哪條紅線是現行，以及實線為什麼提早。
-2. 新北市政府（捷運工程局／工務局）：許可 1140874494 的**交通維持計畫與施工圖說** —— 決定設計速率、溝渠是否延伸到這段。
-3. 樹林區公所工務課：側溝工程**竣工圖說與蓋板檢驗報告** —— 溝蓋的規格、抗滑值、與路面的高低差。
-4. 主管機關：這一段歸**公路法**還是**市區道路**管理 —— 決定公路法 §72 適不適用。
+1. New Taipei City Traffic Department: the **approved marking-change letter and marking drawings** for County Road 116, Zhongzheng Road (Shulin section), to settle which red line is official and why the solid line starts earlier.
+2. New Taipei City Government (Department of Rapid Transit Systems / Public Works): the **traffic management plan and construction drawings** for permit 1140874494, to settle the design speed and whether the drainage works extend to this stretch.
+3. Shulin District Office, Public Works Section: the **as-built drawings of the drain works and the cover test reports**, for the covers' specification, skid resistance and step against the road.
+4. The responsible authority: whether this stretch is governed by the **Highway Act** or by **urban-road** rules, which decides whether Highway Act §72 applies.
 
-（法源：政府資訊公開法，`isolation/EXTERNAL_34.md`）
+(Legal basis: the Freedom of Government Information Act; see `isolation/EXTERNAL_34.md`.)

@@ -36,7 +36,7 @@ In 16 out of 16 top-down photos, OpenCV finds the new red line running across a 
 
 **The rest of the stack.** On winter mornings (mid-November to the end of January, 7–8 am) the low sun sits right in your eyes heading for the bridge. The Highway Act (§72) asks for covers that sit flush to within 6 mm and aren't slippery. I haven't measured either the step or the grip. That's written down as a gap, not claimed.
 
-The full story, with a source for every number: [`docs/story-116.md`](docs/story-116.md) (Chinese). Every figure made by image recognition has its method printed underneath and is indexed in [`docs/materials-2026-09-23.md`](docs/materials-2026-09-23.md).
+The full story, with a source for every number: [`docs/story-116.md`](docs/story-116.md). Every figure made by image recognition has its method printed underneath and is indexed in [`docs/materials-2026-09-23.md`](docs/materials-2026-09-23.md).
 
 ## What the system does
 
