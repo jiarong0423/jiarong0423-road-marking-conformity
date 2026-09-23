@@ -109,7 +109,16 @@ The Chinese originals are quoted word for word from the national law database in
 
 Two clauses quoted by an AI assistant during this work (Design Standard §14 and §16 on gutters and flush covers) do not exist in the official text and are not used.
 
-## 8. Limitations and data rights
+## 8. Responsible use
+
+- **It describes, it does not accuse.** The output never says a rule was broken. It reports what was measured, against which written limit, how sure the measurement is, and what it could not measure; deciding which rule applies is left to the documents it asks for.
+- **It refuses rather than guesses.** A photo that is not a road gets no measurement. A measurement that changes when the photo is re-saved is not reported. Every refusal says why.
+- **Privacy.** Uploaded photos are processed in memory and not stored; nothing from a request is written to logs beyond Lambda's standard request record. In the published evidence, five licence plates are blurred, no photo carries a GPS fix, and close-ups show pavement only.
+- **Data rights.** Google Street View imagery was used to measure the island before it was repainted, but no Street View image or derived image is published, per Google's terms; the published schematic is drawn from the project's own measurements. The published photos are the author's own.
+- **Operation.** POST requires an access token; the API is throttled (1 request/s, bursts of 3); the account's Lambda concurrency is capped at 10; logs are kept 14 days; a budget alert is set. The token is not in the repository.
+- **Human in the loop.** The system's last step is a list of documents for a person to request and boxes for a person to look at; it takes no action on its own.
+
+## 9. Limitations and data rights
 
 - One road, one author, 106 photos. The method is general; the evidence is local.
 - The before-repainting taper was measured on Google Street View imagery. Google's terms prohibit sharing screenshots or data derived from Street View, so no Street View image is in this repository; the published schematic is drawn from the project's own measurements.

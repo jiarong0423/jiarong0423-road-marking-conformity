@@ -1,3 +1,13 @@
+# 接續點(2026-09-23 收尾)
+
+**比賽交付已齊**:公開 repo `jiarong0423/jiarong0423-road-marking-conformity`(英文 README/故事/技術報告/素材總表/圖)、影片 https://youtu.be/jNofo20hvyY (3:27)、AWS v13 上線。
+- AWS:v13 含通行碼閘門(`~/road116_access_token.txt`,不進 repo,提交表單給評審)、3008 MB(帳號上限)、限速 1/s burst 3、Function URL 已刪、日誌 14 天、$5 預算警報。重跑 `MEMORY=3008 ./aws/harden.sh <email>`,冪等。
+- 未解:記憶體上限 3008 → 原圖線上逾時,新量測雲端跑不出來;要 AWS Support 提額(未申請)。已寫信給 competition@opencv.org 詢問(2026-09-23 15:45),待回覆。
+- 公開 repo 更新方式:`git commit-tree HEAD^{tree} -p public-release` → 推 `public` remote 的 main,**不推本地完整歷史**。推前掃個人路徑/密鑰/街景圖。
+- 街景衍生圖不公開(Google 條款),本地 `output/streetview-derived/`;中文原稿在 `output/zh-originals/`。
+
+---
+
 # 接續點(2026-09-22 夜,/clear 前盤點)
 
 開場先讀:`AXIS.md`(主軸+主訴)→ `docs/story-116.md`(故事)→ 本檔。錯誤紀錄只在 `isolation/`,不進報告。

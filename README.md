@@ -52,6 +52,13 @@ pip install -r requirements.txt
 /opt/anaconda3/bin/python3 -B scripts/check_figures.py            # every published number vs. its source
 ```
 
+Deploy your own copy (AWS CLI and Docker with buildx; arm64 image):
+
+```sh
+AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v13
+MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v13, set access token, throttling, logs, budget
+```
+
 Technical report: [`docs/technical-report.md`](docs/technical-report.md). Deployment: [`docs/deployment.md`](docs/deployment.md). OpenCV calls behind each piece of evidence: [`docs/opencv5.md`](docs/opencv5.md).
 
 ## What's in here
