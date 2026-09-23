@@ -1,0 +1,214 @@
+{
+  "source": "evidence/field-2026-09-20/IMG_20260920_155843.jpg",
+  "original_edge": "hand-drawn by the site owner, registered to F17 by SIFT homography",
+  "vanishing_point": [
+    5882.4,
+    -238.8
+  ],
+  "n_stripes": 23,
+  "erased_share_median": 0.64,
+  "erased_share_sd": 0.113,
+  "per_stripe": [
+    {
+      "cc": 96,
+      "image": 0.244,
+      "ground": 0.225,
+      "erased": 0.775,
+      "kept": true
+    },
+    {
+      "cc": 123,
+      "image": 0.234,
+      "ground": 0.218,
+      "erased": 0.782,
+      "kept": true
+    },
+    {
+      "cc": 142,
+      "image": 0.314,
+      "ground": 0.291,
+      "erased": 0.709,
+      "kept": true
+    },
+    {
+      "cc": 159,
+      "image": 0.375,
+      "ground": 0.348,
+      "erased": 0.652,
+      "kept": true
+    },
+    {
+      "cc": 170,
+      "image": 0.379,
+      "ground": 0.352,
+      "erased": 0.648,
+      "kept": true
+    },
+    {
+      "cc": 183,
+      "image": 0.375,
+      "ground": 0.349,
+      "erased": 0.651,
+      "kept": true
+    },
+    {
+      "cc": 204,
+      "image": 0.742,
+      "ground": 0.712,
+      "erased": 0.288,
+      "kept": false
+    },
+    {
+      "cc": 208,
+      "image": 0.231,
+      "ground": 0.216,
+      "erased": 0.784,
+      "kept": true
+    },
+    {
+      "cc": 209,
+      "image": 0.372,
+      "ground": 0.339,
+      "erased": 0.661,
+      "kept": true
+    },
+    {
+      "cc": 215,
+      "image": 0.975,
+      "ground": 0.971,
+      "erased": 0.029,
+      "kept": false
+    },
+    {
+      "cc": 229,
+      "image": 0.386,
+      "ground": 0.36,
+      "erased": 0.64,
+      "kept": true
+    },
+    {
+      "cc": 239,
+      "image": 0.663,
+      "ground": 0.53,
+      "erased": 0.47,
+      "kept": true
+    },
+    {
+      "cc": 247,
+      "image": 0.246,
+      "ground": 0.23,
+      "erased": 0.77,
+      "kept": true
+    },
+    {
+      "cc": 251,
+      "image": 0.373,
+      "ground": 0.341,
+      "erased": 0.659,
+      "kept": true
+    },
+    {
+      "cc": 261,
+      "image": 0.385,
+      "ground": 0.358,
+      "erased": 0.642,
+      "kept": true
+    },
+    {
+      "cc": 265,
+      "image": 0.701,
+      "ground": 0.543,
+      "erased": 0.457,
+      "kept": true
+    },
+    {
+      "cc": 274,
+      "image": 0.39,
+      "ground": 0.363,
+      "erased": 0.637,
+      "kept": true
+    },
+    {
+      "cc": 282,
+      "image": 0.723,
+      "ground": 0.689,
+      "erased": 0.311,
+      "kept": false
+    },
+    {
+      "cc": 287,
+      "image": 0.86,
+      "ground": 0.64,
+      "erased": 0.36,
+      "kept": true
+    },
+    {
+      "cc": 292,
+      "image": 0.406,
+      "ground": 0.379,
+      "erased": 0.621,
+      "kept": true
+    },
+    {
+      "cc": 302,
+      "image": 0.798,
+      "ground": 0.771,
+      "erased": 0.229,
+      "kept": false
+    },
+    {
+      "cc": 318,
+      "image": 0.826,
+      "ground": 0.626,
+      "erased": 0.374,
+      "kept": true
+    },
+    {
+      "cc": 319,
+      "image": 0.408,
+      "ground": 0.377,
+      "erased": 0.623,
+      "kept": true
+    },
+    {
+      "cc": 328,
+      "image": 0.461,
+      "ground": 0.429,
+      "erased": 0.571,
+      "kept": true
+    },
+    {
+      "cc": 346,
+      "image": 0.446,
+      "ground": 0.414,
+      "erased": 0.586,
+      "kept": true
+    },
+    {
+      "cc": 363,
+      "image": 0.422,
+      "ground": 0.391,
+      "erased": 0.609,
+      "kept": true
+    },
+    {
+      "cc": 415,
+      "image": 0.423,
+      "ground": 0.391,
+      "erased": 0.609,
+      "kept": true
+    },
+    {
+      "cc": 428,
+      "image": 0.885,
+      "ground": 0.868,
+      "erased": 0.132,
+      "kept": false
+    }
+  ],
+  "filter": "kept = within 3 robust sigma (1.4826*MAD) of the median. 23 of 28 kept. Recomputing from all 28 rows gives median 0.622, sd 0.197; the headline figures are the kept subset and this was not recorded before.",
+  "median_all_rows": 0.622,
+  "sd_all_rows": 0.197,
+  "hand_line_sensitivity": "displacing the drawn edge +-20 px in the 1024-wide frame it was annotated on (+-60 px full res) moves the median from 54.9% to 68.3%. That 13-point range is about twice the statistical sd and is not inside it. 'about two thirds' is supported; '64%' is not.",
+  "source_note": "F17 in results/field_index_2026-09-20.csv. Recorded as an absolute path under the author's home directory until 2026-09-21; the same file is in the repository and the hash is in evidence/field-2026-09-20/MANIFEST.csv."
+}

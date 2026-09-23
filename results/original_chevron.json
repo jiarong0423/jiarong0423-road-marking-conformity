@@ -1,0 +1,113 @@
+{
+  "source": "Street View Static API, 2025-06, fov and pitch fixed by the request; scale from the §171 50 cm stripe repeat",
+  "captures": [
+    {
+      "file": "before_close",
+      "ok": true,
+      "fov": 50,
+      "pitch": -42,
+      "stripes": 8,
+      "period_camera_heights": 0.32569,
+      "implied_camera_height_m": 1.54,
+      "band_width_m": 0.49,
+      "band_width_sd_m": 0.38,
+      "stripe_pitch_check_m": 0.5
+    },
+    {
+      "file": "before_p-25",
+      "ok": true,
+      "fov": 75,
+      "pitch": -25,
+      "stripes": 25,
+      "period_camera_heights": 0.38816,
+      "implied_camera_height_m": 1.29,
+      "band_width_m": 0.99,
+      "band_width_sd_m": 24.59,
+      "stripe_pitch_check_m": 0.5
+    },
+    {
+      "file": "before_p-40",
+      "ok": true,
+      "fov": 75,
+      "pitch": -40,
+      "stripes": 26,
+      "period_camera_heights": 0.24067,
+      "implied_camera_height_m": 2.08,
+      "band_width_m": 1.0,
+      "band_width_sd_m": 10.98,
+      "stripe_pitch_check_m": 0.5
+    },
+    {
+      "file": "f40_p-20",
+      "ok": true,
+      "fov": 40,
+      "pitch": -20,
+      "stripes": 38,
+      "period_camera_heights": 0.27602,
+      "implied_camera_height_m": 1.81,
+      "band_width_m": 1.67,
+      "band_width_sd_m": 90.8,
+      "stripe_pitch_check_m": 0.5
+    },
+    {
+      "file": "f40_p-35",
+      "ok": true,
+      "fov": 40,
+      "pitch": -35,
+      "stripes": 13,
+      "period_camera_heights": 0.24708,
+      "implied_camera_height_m": 2.02,
+      "band_width_m": 1.07,
+      "band_width_sd_m": 0.52,
+      "stripe_pitch_check_m": 0.5
+    },
+    {
+      "file": "f60_p-20",
+      "ok": true,
+      "fov": 60,
+      "pitch": -20,
+      "stripes": 18,
+      "period_camera_heights": 1.23528,
+      "implied_camera_height_m": 0.4,
+      "band_width_m": 0.27,
+      "band_width_sd_m": 11.94,
+      "stripe_pitch_check_m": 0.5
+    },
+    {
+      "file": "f60_p-35",
+      "ok": true,
+      "fov": 60,
+      "pitch": -35,
+      "stripes": 31,
+      "period_camera_heights": 0.24197,
+      "implied_camera_height_m": 2.07,
+      "band_width_m": 1.27,
+      "band_width_sd_m": 2.35,
+      "stripe_pitch_check_m": 0.5
+    },
+    {
+      "file": "f90_p-20",
+      "ok": true,
+      "fov": 90,
+      "pitch": -20,
+      "stripes": 30,
+      "period_camera_heights": 0.21559,
+      "implied_camera_height_m": 2.32,
+      "band_width_m": 1.16,
+      "band_width_sd_m": 15.27,
+      "stripe_pitch_check_m": 0.5
+    },
+    {
+      "file": "f90_p-35",
+      "ok": true,
+      "fov": 90,
+      "pitch": -35,
+      "stripes": 21,
+      "period_camera_heights": 0.3928,
+      "implied_camera_height_m": 1.27,
+      "band_width_m": 0.67,
+      "band_width_sd_m": 23.69,
+      "stripe_pitch_check_m": 0.5
+    }
+  ]
+}

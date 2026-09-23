@@ -1,0 +1,66 @@
+{
+  "withdrawn": "WITHDRAWN 2026-09-20. Line groups were sorted into road and edge by which angle window they fell in, which assumes the camera faced along the road. The 18.3 km/h here is not a measurement.",
+  "site": "116 縣道 (樹林中正路), 25.00269,121.42374, heading 128",
+  "required_taper_deg": {
+    "50": 3.5,
+    "40": 5.5,
+    "30": 9.8,
+    "20": 21.2
+  },
+  "regulation": "§171 chevron, §182 lane line, taper L = W·V²/155",
+  "epochs": [
+    {
+      "file": "e1_2022-11.jpg",
+      "f_px": 502.3,
+      "pitch": -18.0,
+      "segments": 0,
+      "road": null,
+      "edge": null,
+      "stripe": null,
+      "epoch": "2022-11",
+      "note": "開工當月, 速限 50"
+    },
+    {
+      "file": "e2_2024-09.jpg",
+      "f_px": 502.3,
+      "pitch": -18.0,
+      "segments": 8,
+      "road": 24.0,
+      "edge": null,
+      "stripe": 80.77,
+      "stripe_to_road_deg": 56.77,
+      "epoch": "2024-09",
+      "note": "圍籬進場"
+    },
+    {
+      "file": "e3_2025-06.jpg",
+      "f_px": 502.3,
+      "pitch": -18.0,
+      "segments": 61,
+      "road": 4.59,
+      "edge": 15.59,
+      "stripe": 61.82,
+      "taper_relative_deg": 11.0,
+      "taper_rate": 0.1944,
+      "equivalent_kmh": 28.2,
+      "stripe_to_road_deg": 57.24,
+      "stripe_to_edge_deg": 46.23,
+      "epoch": "2025-06",
+      "note": "槽化線, 速限 30"
+    },
+    {
+      "file": "IMG_20260920_155843.jpg",
+      "f_px": 2840.0,
+      "pitch": -9.28,
+      "segments": 100,
+      "road": 15.06,
+      "edge": 39.95,
+      "stripe": null,
+      "taper_relative_deg": 24.9,
+      "taper_rate": 0.4641,
+      "equivalent_kmh": 18.3,
+      "epoch": "2026-09",
+      "note": "2026-05 標線調整後"
+    }
+  ]
+}

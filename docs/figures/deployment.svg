@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 820" width="1320" height="820" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <style>
+    .bg{fill:#fbfbf9}
+    .box{fill:#fff;stroke:#2b2b2b;stroke-width:1.6}
+    .aws{fill:#fff;stroke:#b8741a;stroke-width:1.8}
+    .cv{fill:#fff;stroke:#1f6f8b;stroke-width:1.8}
+    .ghost{fill:#f7f7f4;stroke:#a8a8a2;stroke-width:1.5;stroke-dasharray:5 3}
+    .t{font-size:14.5px;fill:#111;font-weight:600}
+    .ta{font-size:14.5px;fill:#8a5512;font-weight:600}
+    .tc{font-size:14.5px;fill:#175769;font-weight:600}
+    .d{font-size:11.5px;fill:#4a4a46}
+    .m{font-size:11px;fill:#7a7a74;font-style:italic}
+    .arrow{stroke:#2b2b2b;stroke-width:1.7;fill:none;marker-end:url(#a)}
+    .dash{stroke:#a8a8a2;stroke-width:1.5;fill:none;stroke-dasharray:5 3;marker-end:url(#g)}
+    .hd{font-size:20px;fill:#111;font-weight:600}
+    .sub{font-size:12.5px;fill:#5a5a55}
+    .key{font-size:11.5px;fill:#5a5a55}
+    .lbl{font-size:11px;fill:#6a6a64}
+    .refuse{fill:#fdf3f2;stroke:#c0392b;stroke-width:1.6}
+    .rt{font-size:13px;fill:#a2352a;font-weight:600}
+    .rd{font-size:11px;fill:#8c443c}
+  </style>
+  <rect class="bg" width="1320" height="820"/>
+  <text class="hd" x="40" y="44">Deployment — OpenCV 5 and AWS components</text>
+  <text class="sub" x="40" y="66">One photograph in, findings and a narration out, or a refusal with its reason. Everything shown was verified on 2026-09-21.</text>
+
+  <rect x="40" y="88" width="14" height="14" class="aws"/><text class="key" x="62" y="100">AWS</text>
+  <rect x="112" y="88" width="14" height="14" class="cv"/><text class="key" x="134" y="100">OpenCV 5</text>
+  <rect x="210" y="88" width="14" height="14" class="ghost"/><text class="key" x="232" y="100">present but not in the request path</text>
+
+  <g>
+    <rect class="box" x="40" y="124" width="228" height="106" rx="6"/>
+    <text class="t" x="58" y="148">Caller</text>
+    <text class="d" x="58" y="170">POST image_base64, fov_deg,</text>
+    <text class="d" x="58" y="186">posted_kmh, lane_width_m</text>
+    <text class="m" x="58" y="206">fov_deg is in the EXIF and is not</text>
+    <text class="m" x="58" y="221">read from it; lane_width_m is by hand</text>
+  </g>
+  <path class="arrow" d="M268 177 h44"/>
+  <g>
+    <rect class="aws" x="312" y="124" width="228" height="106" rx="6"/>
+    <text class="ta" x="330" y="148">API Gateway HTTP API</text>
+    <text class="d" x="330" y="170">3p4k7s4bx7, ap-southeast-2</text>
+    <text class="d" x="330" y="186">public, unauthenticated</text>
+    <text class="m" x="330" y="206">30 s integration timeout; one measured</text>
+    <text class="m" x="330" y="221">request took ~31 s — a real risk</text>
+  </g>
+  <path class="arrow" d="M540 177 h44"/>
+  <g>
+    <rect class="aws" x="584" y="124" width="250" height="106" rx="6"/>
+    <text class="ta" x="602" y="148">Lambda, container</text>
+    <text class="d" x="602" y="170">arm64 — Graviton — 3008 MB, 60 s</text>
+    <text class="d" x="602" y="186">image road-marking-gate:v11</text>
+    <text class="m" x="602" y="206">built --platform linux/arm64;</text>
+    <text class="m" x="602" y="221">getCPUFeaturesLine reports NEON</text>
+  </g>
+  <path class="dash" d="M709 230 v36"/>
+  <g>
+    <rect class="ghost" x="878" y="124" width="200" height="60" rx="6"/>
+    <text class="t" x="896" y="148">CloudWatch Logs</text>
+    <text class="m" x="896" y="168">no alarms, no X-Ray, no metrics</text>
+  </g>
+  <path class="dash" d="M834 160 h44"/>
+
+  <rect x="40" y="278" width="1240" height="1" fill="#ddd"/>
+  <text class="lbl" x="40" y="300">INSIDE THE FUNCTION — opencv-python-headless 5.0.0.93, reporting 5.0.0</text>
+
+  <g>
+    <rect class="cv" x="40" y="318" width="236" height="96" rx="6"/>
+    <text class="tc" x="58" y="342">Paint field</text>
+    <text class="d" x="58" y="364">cv2.filter2D — a dark–light–dark</text>
+    <text class="d" x="58" y="380">matched filter over 9 bar widths</text>
+    <text class="m" x="58" y="400">cvtColor to L*a*b*, morphologyEx</text>
+  </g>
+  <path class="arrow" d="M276 366 h36"/>
+  <g>
+    <rect class="cv" x="312" y="318" width="236" height="96" rx="6"/>
+    <text class="tc" x="330" y="342">Line segments</text>
+    <text class="d" x="330" y="364">Canny, then HoughLinesP</text>
+    <text class="d" x="330" y="380">on the marking mask</text>
+    <text class="m" x="330" y="400">scale-dependent: a known defect</text>
+  </g>
+  <path class="arrow" d="M548 366 h36"/>
+  <g>
+    <rect class="cv" x="584" y="318" width="236" height="96" rx="6"/>
+    <text class="tc" x="602" y="342">Geometry</text>
+    <text class="d" x="602" y="364">vanishing point by SVD; the angle</text>
+    <text class="d" x="602" y="380">between two ground directions</text>
+    <text class="m" x="602" y="400">needs f only — rotation invariant</text>
+  </g>
+  <path class="arrow" d="M820 366 h36"/>
+  <g>
+    <rect class="cv" x="856" y="318" width="236" height="96" rx="6"/>
+    <text class="tc" x="874" y="342">Surface and colour</text>
+    <text class="d" x="874" y="364">kmeans over brightness and</text>
+    <text class="d" x="874" y="380">texture; connectedComponents</text>
+    <text class="m" x="874" y="400">counts surfacings, finds §169's line</text>
+  </g>
+
+  <path class="arrow" d="M974 414 v28 h-816 v24"/>
+
+  <g>
+    <rect class="box" x="40" y="466" width="382" height="100" rx="6"/>
+    <text class="t" x="58" y="490">Six findings, each with its clause</text>
+    <text class="d" x="58" y="512">§101 lane width · §167 double white · §169 red line</text>
+    <text class="d" x="58" y="528">§171 chevron · 挖掘審查原則 hoarding, surfacings</text>
+    <text class="m" x="58" y="550">composed into the order a rider meets them</text>
+  </g>
+  <path class="arrow" d="M422 516 h40"/>
+  <g>
+    <rect class="box" x="462" y="466" width="330" height="100" rx="6"/>
+    <text class="t" x="480" y="490">Nine-cell stability check</text>
+    <text class="d" x="480" y="512">3 JPEG qualities × 3 working sizes</text>
+    <text class="d" x="480" y="528">unanimous, or it does not answer</text>
+    <text class="m" x="480" y="550">JCGM 100 §4.3.1 and F.2.4.4; JCGM 106</text>
+  </g>
+  <path class="arrow" d="M792 516 h40"/>
+  <g>
+    <rect class="refuse" x="832" y="466" width="448" height="100" rx="6"/>
+    <text class="rt" x="850" y="490">Answer, or refuse and say why</text>
+    <text class="rd" x="850" y="512">STEEPER_THAN_REFERENCE · WITHIN_REFERENCE</text>
+    <text class="rd" x="850" y="528">INDETERMINATE — the nine disagree</text>
+    <text class="rd" x="850" y="546">CANNOT_MEASURE — the frame does not carry it</text>
+  </g>
+
+  <path class="dash" d="M1056 566 v30"/>
+  <g>
+    <rect class="ghost" x="832" y="596" width="448" height="86" rx="6"/>
+    <text class="t" x="850" y="620">Refusal routing — src/marking/route.py</text>
+    <text class="d" x="850" y="642">predicates first; a typed-judgment model only for what they cannot settle</text>
+    <text class="d" x="850" y="658">retake · no marking present · a person should look</text>
+    <text class="m" x="850" y="674">nothing imports it, and TYPESAFE_API_KEY is unset on the function</text>
+  </g>
+
+  <g>
+    <rect class="ghost" x="40" y="596" width="760" height="86" rx="6"/>
+    <text class="t" x="58" y="620">OpenCV 5's new DNN engine — measured, not in the path</text>
+    <text class="d" x="58" y="642">cv2.dnn.readNet(..., cv2.dnn.ENGINE_NEW) loads a 2.4 MiB ONNX M-LSD and runs it in ~37 ms at 512²</text>
+    <text class="d" x="58" y="658">The classic engine's 13% ONNX coverage would not have. It was compared against the classical detector</text>
+    <text class="m" x="58" y="674">and lost — and that comparison predates the carriageway() fix, so it is untested rather than beaten</text>
+  </g>
+
+  <text class="m" x="40" y="714">Free-tier arithmetic, not measured: 3008 MB × ~10 s ≈ 29 GB-s per call, against 400,000 GB-s a month.</text>
+  <text class="m" x="40" y="732">What the COOL award still needs: the same image built for x86_64 and timed on the same photographs. Graviton is satisfied and verifiable.</text>
+  <text class="m" x="40" y="756">Verify any box here: docs/submission.md carries a command per row. docs/claims.md says which of these has evidence.</text>
+
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2b2b2b"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#a8a8a2"/></marker>
+  </defs>
+</svg>

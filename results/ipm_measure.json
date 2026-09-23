@@ -1,0 +1,90 @@
+{
+  "method": "IPM first, morphology in the bird's eye plane; every kernel sized in metres",
+  "px_per_camera_height": 260.0,
+  "near_far_camera_heights": [
+    0.6,
+    4.0
+  ],
+  "captures": [
+    {
+      "capture": "before_close",
+      "ok": false,
+      "why": "3 stripes"
+    },
+    {
+      "capture": "before_p-25",
+      "ok": true,
+      "fov": 75,
+      "pitch": -25,
+      "stripes": 10,
+      "stripe_width_px": 66.8,
+      "camera_height_m": 0.78,
+      "band_width_m": 0.97,
+      "stripe_to_band_deg": 6.7,
+      "stripe_angle_coherence": 0.683
+    },
+    {
+      "capture": "before_p-40",
+      "ok": true,
+      "fov": 75,
+      "pitch": -40,
+      "stripes": 9,
+      "stripe_width_px": 64.8,
+      "camera_height_m": 0.8,
+      "band_width_m": 1.0,
+      "stripe_to_band_deg": 12.1,
+      "stripe_angle_coherence": 0.75
+    },
+    {
+      "capture": "f40_p-20",
+      "ok": false,
+      "why": "3 stripes"
+    },
+    {
+      "capture": "f40_p-35",
+      "ok": false,
+      "why": "3 stripes"
+    },
+    {
+      "capture": "f60_p-20",
+      "ok": false,
+      "why": "3 stripes"
+    },
+    {
+      "capture": "f60_p-35",
+      "ok": true,
+      "fov": 60,
+      "pitch": -35,
+      "stripes": 5,
+      "stripe_width_px": 47.5,
+      "camera_height_m": 1.09,
+      "band_width_m": 0.69,
+      "stripe_to_band_deg": 15.0,
+      "stripe_angle_coherence": 0.847
+    },
+    {
+      "capture": "f90_p-20",
+      "ok": true,
+      "fov": 90,
+      "pitch": -20,
+      "stripes": 11,
+      "stripe_width_px": 18.0,
+      "camera_height_m": 2.89,
+      "band_width_m": 1.89,
+      "stripe_to_band_deg": 5.2,
+      "stripe_angle_coherence": 0.857
+    },
+    {
+      "capture": "f90_p-35",
+      "ok": true,
+      "fov": 90,
+      "pitch": -35,
+      "stripes": 11,
+      "stripe_width_px": 20.2,
+      "camera_height_m": 2.58,
+      "band_width_m": 0.9,
+      "stripe_to_band_deg": 1.7,
+      "stripe_angle_coherence": 0.8
+    }
+  ]
+}

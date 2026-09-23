@@ -1,0 +1,612 @@
+{
+  "question": "does stage 2's plane fit hold, by its own held-out check",
+  "method": "fit the horizon from two vanishing directions of the paint, predict a third family that was not in the fit, and report the angular offset of that prediction. Beside it, |horizon - the first non-sky row|, which uses no line fitting and is a sanity bound rather than truth.",
+  "n_photographs": 42,
+  "n_with_a_plane": 37,
+  "held_out_offset_deg": {
+    "n": 37,
+    "median": 9.33,
+    "min": 0.42,
+    "max": 87.69,
+    "under_2_deg": 3,
+    "over_20_deg": 17
+  },
+  "abs_offset_from_sky_edge_px": {
+    "n": 37,
+    "median": 610.0,
+    "max": 159370.0,
+    "within_300_px": 16
+  },
+  "per_photograph": [
+    {
+      "no": "F01",
+      "segments": 360,
+      "sky_edge_px": 1267,
+      "height_px": 4096,
+      "horizon_y_px": 4567.0,
+      "families": 3,
+      "support": [
+        149,
+        55,
+        33
+      ],
+      "held_out_offset_deg": 8.912,
+      "vs_sky_edge_px": 3300.0
+    },
+    {
+      "no": "F02",
+      "segments": 546,
+      "sky_edge_px": 1176,
+      "height_px": 4096,
+      "horizon_y_px": 25507.9,
+      "families": 3,
+      "support": [
+        257,
+        58,
+        46
+      ],
+      "held_out_offset_deg": 35.626,
+      "vs_sky_edge_px": 24331.9
+    },
+    {
+      "no": "F03",
+      "segments": 285,
+      "sky_edge_px": 1224,
+      "height_px": 4096,
+      "horizon_y_px": 17490.0,
+      "families": 3,
+      "support": [
+        81,
+        38,
+        33
+      ],
+      "held_out_offset_deg": 9.159,
+      "vs_sky_edge_px": 16266.0
+    },
+    {
+      "no": "F04",
+      "segments": 391,
+      "sky_edge_px": 1315,
+      "height_px": 4096,
+      "horizon_y_px": 30581.0,
+      "families": 3,
+      "support": [
+        173,
+        122,
+        37
+      ],
+      "held_out_offset_deg": 9.327,
+      "vs_sky_edge_px": 29266.0
+    },
+    {
+      "no": "F05",
+      "segments": 1109,
+      "sky_edge_px": 975,
+      "height_px": 4096,
+      "horizon_y_px": 1986.1,
+      "families": 3,
+      "support": [
+        244,
+        168,
+        114
+      ],
+      "held_out_offset_deg": 6.658,
+      "vs_sky_edge_px": 1011.1
+    },
+    {
+      "no": "F06",
+      "segments": 613,
+      "sky_edge_px": 1191,
+      "height_px": 4096,
+      "horizon_y_px": 2177.1,
+      "families": 3,
+      "support": [
+        166,
+        90,
+        80
+      ],
+      "held_out_offset_deg": 5.651,
+      "vs_sky_edge_px": 986.1
+    },
+    {
+      "no": "F07",
+      "segments": 725,
+      "sky_edge_px": 969,
+      "height_px": 4096,
+      "horizon_y_px": 1511.2,
+      "families": 3,
+      "support": [
+        135,
+        109,
+        84
+      ],
+      "held_out_offset_deg": 2.772,
+      "vs_sky_edge_px": 542.2
+    },
+    {
+      "no": "F08",
+      "segments": 1079,
+      "sky_edge_px": 1082,
+      "height_px": 4096,
+      "horizon_y_px": 1346.1,
+      "families": 3,
+      "support": [
+        258,
+        174,
+        133
+      ],
+      "held_out_offset_deg": 20.159,
+      "vs_sky_edge_px": 264.1
+    },
+    {
+      "no": "F09",
+      "segments": 348,
+      "sky_edge_px": 1278,
+      "height_px": 4096,
+      "horizon_y_px": 1280.9,
+      "families": 3,
+      "support": [
+        170,
+        77,
+        46
+      ],
+      "held_out_offset_deg": 2.734,
+      "vs_sky_edge_px": 2.9
+    },
+    {
+      "no": "F10",
+      "segments": 446,
+      "sky_edge_px": 1502,
+      "height_px": 4096,
+      "horizon_y_px": 1642.8,
+      "families": 3,
+      "support": [
+        264,
+        87,
+        44
+      ],
+      "held_out_offset_deg": 4.944,
+      "vs_sky_edge_px": 140.8
+    },
+    {
+      "no": "F11",
+      "segments": 501,
+      "sky_edge_px": 1426,
+      "height_px": 4096,
+      "horizon_y_px": 816.0,
+      "families": 3,
+      "support": [
+        336,
+        71,
+        62
+      ],
+      "held_out_offset_deg": 2.525,
+      "vs_sky_edge_px": -610.0
+    },
+    {
+      "no": "F12",
+      "segments": 332,
+      "sky_edge_px": 1414,
+      "height_px": 4096,
+      "horizon_y_px": 1395.2,
+      "families": 3,
+      "support": [
+        222,
+        53,
+        31
+      ],
+      "held_out_offset_deg": 3.15,
+      "vs_sky_edge_px": -18.8
+    },
+    {
+      "no": "F13",
+      "segments": 334,
+      "sky_edge_px": 1581,
+      "height_px": 4096,
+      "horizon_y_px": 1827.7,
+      "families": 3,
+      "support": [
+        142,
+        80,
+        41
+      ],
+      "held_out_offset_deg": 5.418,
+      "vs_sky_edge_px": 246.7
+    },
+    {
+      "no": "F14",
+      "segments": 300,
+      "sky_edge_px": 1608,
+      "height_px": 4096,
+      "horizon_y_px": 1547.7,
+      "families": 3,
+      "support": [
+        156,
+        69,
+        26
+      ],
+      "held_out_offset_deg": 5.628,
+      "vs_sky_edge_px": -60.3
+    },
+    {
+      "no": "F15",
+      "segments": 325,
+      "sky_edge_px": 1569,
+      "height_px": 4096,
+      "horizon_y_px": 1657.5,
+      "families": 3,
+      "support": [
+        162,
+        64,
+        52
+      ],
+      "held_out_offset_deg": 31.52,
+      "vs_sky_edge_px": 88.5
+    },
+    {
+      "no": "F16",
+      "segments": 355,
+      "sky_edge_px": 1401,
+      "height_px": 4096,
+      "horizon_y_px": 1537.8,
+      "families": 3,
+      "support": [
+        185,
+        69,
+        32
+      ],
+      "held_out_offset_deg": 0.423,
+      "vs_sky_edge_px": 136.8
+    },
+    {
+      "no": "F17",
+      "segments": 277,
+      "sky_edge_px": 1238,
+      "height_px": 4096,
+      "horizon_y_px": 1074.9,
+      "families": 3,
+      "support": [
+        139,
+        65,
+        30
+      ],
+      "held_out_offset_deg": 67.356,
+      "vs_sky_edge_px": -163.1
+    },
+    {
+      "no": "F18",
+      "segments": 218,
+      "sky_edge_px": 1275,
+      "height_px": 4096,
+      "horizon_y_px": 1395.3,
+      "families": 3,
+      "support": [
+        93,
+        45,
+        30
+      ],
+      "held_out_offset_deg": 60.395,
+      "vs_sky_edge_px": 120.3
+    },
+    {
+      "no": "F19",
+      "segments": 399,
+      "sky_edge_px": 1334,
+      "height_px": 4096,
+      "horizon_y_px": 1623.2,
+      "families": 3,
+      "support": [
+        231,
+        64,
+        45
+      ],
+      "held_out_offset_deg": 1.251,
+      "vs_sky_edge_px": 289.2
+    },
+    {
+      "no": "F20",
+      "segments": 229,
+      "sky_edge_px": 1053,
+      "height_px": 4096,
+      "horizon_y_px": 1849.7,
+      "families": 3,
+      "support": [
+        111,
+        37,
+        21
+      ],
+      "held_out_offset_deg": 7.587,
+      "vs_sky_edge_px": 796.7
+    },
+    {
+      "no": "F21",
+      "segments": 272,
+      "sky_edge_px": 1095,
+      "height_px": 4096,
+      "plane": null
+    },
+    {
+      "no": "F22",
+      "segments": 245,
+      "sky_edge_px": 1224,
+      "height_px": 4096,
+      "horizon_y_px": 3731.9,
+      "families": 3,
+      "support": [
+        56,
+        37,
+        33
+      ],
+      "held_out_offset_deg": 11.485,
+      "vs_sky_edge_px": 2507.9
+    },
+    {
+      "no": "F23",
+      "segments": 303,
+      "sky_edge_px": 1277,
+      "height_px": 4096,
+      "horizon_y_px": -461.0,
+      "families": 3,
+      "support": [
+        163,
+        72,
+        25
+      ],
+      "held_out_offset_deg": 76.233,
+      "vs_sky_edge_px": -1738.0
+    },
+    {
+      "no": "F24",
+      "segments": 187,
+      "sky_edge_px": 1305,
+      "height_px": 4096,
+      "plane": null
+    },
+    {
+      "no": "F25",
+      "segments": 147,
+      "sky_edge_px": 1326,
+      "height_px": 4096,
+      "plane": null
+    },
+    {
+      "no": "F26",
+      "segments": 127,
+      "sky_edge_px": 1313,
+      "height_px": 4096,
+      "horizon_y_px": 1479.1,
+      "families": 3,
+      "support": [
+        46,
+        31,
+        27
+      ],
+      "held_out_offset_deg": 25.042,
+      "vs_sky_edge_px": 166.1
+    },
+    {
+      "no": "F27",
+      "segments": 95,
+      "sky_edge_px": 1696,
+      "height_px": 4096,
+      "horizon_y_px": 2317.6,
+      "families": 3,
+      "support": [
+        42,
+        27,
+        12
+      ],
+      "held_out_offset_deg": 2.776,
+      "vs_sky_edge_px": 621.6
+    },
+    {
+      "no": "F28",
+      "segments": 181,
+      "sky_edge_px": 1480,
+      "height_px": 4096,
+      "horizon_y_px": 1650.7,
+      "families": 3,
+      "support": [
+        79,
+        48,
+        21
+      ],
+      "held_out_offset_deg": 6.989,
+      "vs_sky_edge_px": 170.7
+    },
+    {
+      "no": "F29",
+      "segments": 167,
+      "sky_edge_px": 1465,
+      "height_px": 4096,
+      "horizon_y_px": 1705.3,
+      "families": 3,
+      "support": [
+        64,
+        47,
+        25
+      ],
+      "held_out_offset_deg": 26.829,
+      "vs_sky_edge_px": 240.3
+    },
+    {
+      "no": "F30",
+      "segments": 334,
+      "sky_edge_px": 1157,
+      "height_px": 4096,
+      "horizon_y_px": -4263.1,
+      "families": 3,
+      "support": [
+        217,
+        43,
+        31
+      ],
+      "held_out_offset_deg": 67.515,
+      "vs_sky_edge_px": -5420.1
+    },
+    {
+      "no": "F31",
+      "segments": 211,
+      "sky_edge_px": 1350,
+      "height_px": 4096,
+      "horizon_y_px": 2304.8,
+      "families": 3,
+      "support": [
+        83,
+        43,
+        29
+      ],
+      "held_out_offset_deg": 23.567,
+      "vs_sky_edge_px": 954.8
+    },
+    {
+      "no": "F32",
+      "segments": 208,
+      "sky_edge_px": 1388,
+      "height_px": 4096,
+      "horizon_y_px": -4887.8,
+      "families": 3,
+      "support": [
+        88,
+        44,
+        33
+      ],
+      "held_out_offset_deg": 37.165,
+      "vs_sky_edge_px": -6275.8
+    },
+    {
+      "no": "F33",
+      "segments": 216,
+      "sky_edge_px": 989,
+      "height_px": 4096,
+      "horizon_y_px": 3827.9,
+      "families": 3,
+      "support": [
+        69,
+        37,
+        29
+      ],
+      "held_out_offset_deg": 22.576,
+      "vs_sky_edge_px": 2838.9
+    },
+    {
+      "no": "F34",
+      "segments": 296,
+      "sky_edge_px": 1155,
+      "height_px": 4096,
+      "plane": null
+    },
+    {
+      "no": "F35",
+      "segments": 224,
+      "sky_edge_px": 981,
+      "height_px": 4096,
+      "plane": null
+    },
+    {
+      "no": "F36",
+      "segments": 375,
+      "sky_edge_px": 387,
+      "height_px": 4096,
+      "horizon_y_px": 2193.3,
+      "families": 3,
+      "support": [
+        101,
+        98,
+        47
+      ],
+      "held_out_offset_deg": 4.803,
+      "vs_sky_edge_px": 1806.3
+    },
+    {
+      "no": "F37",
+      "segments": 465,
+      "sky_edge_px": 1123,
+      "height_px": 4096,
+      "horizon_y_px": 1653.5,
+      "families": 3,
+      "support": [
+        83,
+        72,
+        56
+      ],
+      "held_out_offset_deg": 33.967,
+      "vs_sky_edge_px": 530.5
+    },
+    {
+      "no": "F38",
+      "segments": 343,
+      "sky_edge_px": 1491,
+      "height_px": 4096,
+      "horizon_y_px": 1533.2,
+      "families": 3,
+      "support": [
+        192,
+        55,
+        37
+      ],
+      "held_out_offset_deg": 35.134,
+      "vs_sky_edge_px": 42.2
+    },
+    {
+      "no": "F39",
+      "segments": 382,
+      "sky_edge_px": 1478,
+      "height_px": 4096,
+      "horizon_y_px": 1479.9,
+      "families": 3,
+      "support": [
+        197,
+        82,
+        39
+      ],
+      "held_out_offset_deg": 54.846,
+      "vs_sky_edge_px": 1.9
+    },
+    {
+      "no": "F40",
+      "segments": 530,
+      "sky_edge_px": 1357,
+      "height_px": 4096,
+      "horizon_y_px": 160727.1,
+      "families": 3,
+      "support": [
+        301,
+        70,
+        53
+      ],
+      "held_out_offset_deg": 1.585,
+      "vs_sky_edge_px": 159370.1
+    },
+    {
+      "no": "F41",
+      "segments": 764,
+      "sky_edge_px": 1235,
+      "height_px": 4096,
+      "horizon_y_px": 25905.6,
+      "families": 3,
+      "support": [
+        484,
+        185,
+        52
+      ],
+      "held_out_offset_deg": 69.448,
+      "vs_sky_edge_px": 24670.6
+    },
+    {
+      "no": "F42",
+      "segments": 449,
+      "sky_edge_px": 1191,
+      "height_px": 4096,
+      "horizon_y_px": 17001.4,
+      "families": 3,
+      "support": [
+        248,
+        99,
+        31
+      ],
+      "held_out_offset_deg": 87.695,
+      "vs_sky_edge_px": 15810.4
+    }
+  ]
+}

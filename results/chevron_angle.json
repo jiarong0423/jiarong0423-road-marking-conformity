@@ -1,0 +1,68 @@
+{
+  "location": "116 縣道, 新北市; Street View panorama CLY3PO0CcluEBc0vpcvPOg, 2025-06",
+  "regulation": "道路交通標誌標線號誌設置規則 §171, 斜四五度",
+  "regulation_does_not_state_the_datum": true,
+  "captures": [
+    {
+      "file": "f40_p-20.jpg",
+      "fov": 40,
+      "pitch": -20,
+      "segments": 57,
+      "road": 6.13,
+      "boundary": 17.0,
+      "stripe": 62.94,
+      "stripe_to_boundary": 45.94,
+      "stripe_to_road": 56.81
+    },
+    {
+      "file": "f40_p-35.jpg",
+      "fov": 40,
+      "pitch": -35,
+      "segments": 30,
+      "road": 5.61,
+      "boundary": 16.89,
+      "stripe": 64.48,
+      "stripe_to_boundary": 47.59,
+      "stripe_to_road": 58.87
+    },
+    {
+      "file": "f60_p-35.jpg",
+      "fov": 60,
+      "pitch": -35,
+      "segments": 36,
+      "road": 5.87,
+      "boundary": 16.38,
+      "stripe": 64.65,
+      "stripe_to_boundary": 48.26,
+      "stripe_to_road": 58.78
+    },
+    {
+      "file": "f90_p-20.jpg",
+      "fov": 90,
+      "pitch": -20,
+      "segments": 124,
+      "road": 5.89,
+      "boundary": 17.47,
+      "stripe": 61.32,
+      "stripe_to_boundary": 43.85,
+      "stripe_to_road": 55.43
+    }
+  ],
+  "stripe_to_boundary": {
+    "n": 4,
+    "mean": 46.41,
+    "min": 43.85,
+    "max": 48.26,
+    "sd": 1.97,
+    "deviation_from_regulation": 1.41
+  },
+  "stripe_to_road": {
+    "n": 4,
+    "mean": 57.47,
+    "min": 55.43,
+    "max": 58.87,
+    "sd": 1.66,
+    "deviation_from_regulation": 12.47
+  },
+  "reading": "the two datums the article leaves open give different verdicts on the same stripes"
+}

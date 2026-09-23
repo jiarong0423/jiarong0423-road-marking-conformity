@@ -1,0 +1,15 @@
+{
+  "withdrawn": "WITHDRAWN 2026-09-21. Re-encoding the same photograph at eight JPEG qualities and three resolutions moves this angle by 11.5-17.3 degrees and makes the detection fire in only 29 of 60 runs. Candidate selection, not the angle fit, is what moves. See docs/reproducibility-2026-09-21.md",
+  "method": "sequential RANSAC, corridor from the regulation, §171 hatching to identify the boundary; no pitch, no bearing, no scale",
+  "captures_agreeing": 4,
+  "captures_total": 6,
+  "taper_deg": 10.23,
+  "taper_deg_sd": 0.55,
+  "taper_rate": 0.1806,
+  "outliers_deg": [
+    18.82,
+    2.61
+  ],
+  "independent_check": "11.4 deg from the frontal ground projection, a different method with different inputs",
+  "equivalent_kmh": 29.3
+}

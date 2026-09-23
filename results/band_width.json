@@ -1,0 +1,33 @@
+{
+  "withdrawn": "WITHDRAWN 2026-09-20. Affine rectification was degenerate - the horizon passed within 0.7 px of the stripes and the warp scale spanned 462x - so all three captures returning about 1.9 m is an artefact, not agreement.",
+  "method": "affine rectification from the band and stripe vanishing points; scale from the §171 50 cm stripe period",
+  "results": [
+    {
+      "name": "2025-06 Street View, before",
+      "ok": true,
+      "stripes": 26,
+      "period_affine": 0.31,
+      "stripe_len_affine": 1.16,
+      "band_width_m": 1.86,
+      "band_width_sd_m": 8.16
+    },
+    {
+      "name": "2025-06 Street View, before (2)",
+      "ok": true,
+      "stripes": 34,
+      "period_affine": 0.43,
+      "stripe_len_affine": 1.66,
+      "band_width_m": 1.95,
+      "band_width_sd_m": 117.73
+    },
+    {
+      "name": "2026-09 field F17, after",
+      "ok": true,
+      "stripes": 55,
+      "period_affine": 0.08,
+      "stripe_len_affine": 0.29,
+      "band_width_m": 1.91,
+      "band_width_sd_m": 19.34
+    }
+  ]
+}

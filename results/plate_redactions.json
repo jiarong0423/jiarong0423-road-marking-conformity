@@ -1,0 +1,61 @@
+{
+ "note": "Registration plates redacted 2026-09-21. Five frames, three vehicles: F24 and F25 are the same car one second apart, and F34 and F35 carry plates that motion blur had already made illegible - masked anyway, because the cost of doing so is nothing and the cost of being wrong is a stranger. Solid fill, not blur, which can be partially inverted. Every box lies on a vehicle body; no road-surface pixel was touched, and no measurement reads from these regions.",
+ "redactions": {
+  "F21": {
+   "file": "IMG_20260920_155927.jpg",
+   "box_xywh": [
+    1446,
+    1356,
+    57,
+    39
+   ],
+   "method": "solid fill, red outline; no blur, which can be partially inverted",
+   "sha256_after": "c989788f077e31d1d5660e165ee80c24e30807d297bc0e5df9ef8d8c47c36488"
+  },
+  "F24": {
+   "file": "IMG_20260920_155930.jpg",
+   "box_xywh": [
+    674,
+    1949,
+    221,
+    144
+   ],
+   "method": "solid fill, red outline; no blur, which can be partially inverted",
+   "sha256_after": "8f032af8ce4337d63e940fa83dc9d1b6dbe03285da2beae361bbade6764d65cf"
+  },
+  "F25": {
+   "file": "IMG_20260920_155931.jpg",
+   "box_xywh": [
+    2004,
+    1489,
+    73,
+    46
+   ],
+   "method": "solid fill, red outline; no blur, which can be partially inverted",
+   "sha256_after": "bd6c1f90d79410967c78faacdd15114c30dc9f72d0ae3505c11b86d8a9727966"
+  },
+  "F34": {
+   "file": "IMG_20260920_160046.jpg",
+   "box_xywh": [
+    856,
+    1881,
+    95,
+    65
+   ],
+   "note": "plate present but motion-blurred beyond legibility; masked anyway",
+   "sha256_after": "f48c4e4de9d1b1440e344e01487c8b4f15dc66c618f83ad6fe355e0892d8d2be"
+  },
+  "F35": {
+   "file": "IMG_20260920_160047.jpg",
+   "box_xywh": [
+    2622,
+    1313,
+    62,
+    42
+   ],
+   "note": "plate present but motion-blurred beyond legibility; masked anyway",
+   "sha256_after": "162fc421a6befa88a0a83156e09bbfb085025cca5c2bb84ea615022f4ac5e96d"
+  }
+ },
+ "exif": "The redaction pass wrote these five without carrying the EXIF over, so they shipped with zero tags while the manifest still recorded their 35mm-equivalent focal length - the one camera parameter every measurement here needs, and the reader had no way to check it. Found 2026-09-21 by the pipeline returning focal_px=None on exactly these five. Repaired by copying the original APP1 segment back in, which leaves the compressed data untouched: the masked pixels are bit-identical to the reviewed files, asserted above before the hashes were rewritten. The reinstated EXIF was audited on its own terms - GPS present but degenerate (0/0), no serial, owner, copyright, artist or software tag, and a Xiaomi MakerNote of at most 88 bytes whose only readable string is 'Xiaomi'."
+}

@@ -1,0 +1,26 @@
+{
+  "withdrawn": "WITHDRAWN 2026-09-21. Re-encoding the same photograph at eight JPEG qualities and three resolutions moves this angle by 11.5-17.3 degrees and makes the detection fire in only 29 of 60 runs. Candidate selection, not the angle fit, is what moves. See docs/reproducibility-2026-09-21.md The 0.202 rate this is built on is withdrawn, so the exposure times and required lengths go with it.",
+  "taper_rate_measured": 0.202,
+  "lane_width_assumed_m": 3.0,
+  "taper_length_m": 14.9,
+  "piev_s": 2.5,
+  "decel_m_s2": 3.4,
+  "time_in_taper_s": {
+    "30": 1.78,
+    "40": 1.34,
+    "50": 1.07
+  },
+  "transition_50_to_30": {
+    "reaction_m": 34.7,
+    "braking_m": 18.2,
+    "total_m": 52.9
+  },
+  "required_taper_m": {
+    "30": 17.4,
+    "50": 48.4
+  },
+  "sources": [
+    "施工之交通管制守則 p.9",
+    "AASHTO Green Book PIEV 2.5 s, decel 3.4 m/s²"
+  ]
+}

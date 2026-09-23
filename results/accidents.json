@@ -1,0 +1,35 @@
+{
+  "question": "did injury accidents rise at this location during the works",
+  "site": "25.0026917,121.4237431, radius 250 m",
+  "source": {
+    "before": "data.gov.tw 12197 歷史交通事故資料, 民國110 A2, one row per accident",
+    "during": "data.gov.tw 13139 即時交通事故資料(A2類), 民國115 months 01-08, one row per party",
+    "note": "different row structures, so both were deduplicated on time plus rounded coordinates"
+  },
+  "before": {"year": 2021, "months": 12, "accidents": 12, "per_month": 1.00},
+  "during": {"year": 2026, "months": 8, "accidents": 21, "per_month": 2.62},
+  "national_control": {
+    "before_per_month": 29698, "during_per_month": 30861, "ratio": 1.04,
+    "reading": "national A2 is flat, so the local rise is not a reporting change"
+  },
+  "ratio_raw": 2.62,
+  "ratio_net_of_national": 2.52,
+  "poisson_test": {
+    "expected_if_only_national_trend": 8.3,
+    "observed": 21,
+    "p_one_sided": 0.00016,
+    "expected_95_interval": [3, 14]
+  },
+  "rate_95_intervals_per_month": {"2021": [0.52, 1.75], "2026": [1.62, 4.01]},
+  "police_recorded_speed_limit_at_these_accidents": {"50": 14, "30": 6, "40": 1},
+  "marking_change_may_2026": {
+    "before_jan_apr": {"accidents": 12, "per_month": 3.0},
+    "after_jun_aug": {"accidents": 8, "per_month": 2.7},
+    "reading": "no detectable difference; n is far too small to call either way"
+  },
+  "confounds": [
+    "traffic volume through the works is unknown, so this is accidents per month and not per vehicle",
+    "the 250 m radius covers the whole work zone, not only the taper",
+    "association with the construction period, not attribution to the taper design"
+  ]
+}

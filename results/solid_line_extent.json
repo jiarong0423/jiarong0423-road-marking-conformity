@@ -1,0 +1,131 @@
+{
+ "axis": "along-road metres from the double white line's start (pano mv7f7p1L7MWTgk6Yk_sKjw, 25.002983,121.423567), bearing 136.3 deg from the panorama pair 0 -> 73.7 m; positions are Street View panorama placements, +-5 m",
+ "source": "Google Street View Static API, heading 141.6 pitch -25 fov 90, 2025-06 imagery; output/seq (2026-09-20) and output/seq_ext (2026-09-22)",
+ "read_by": "eye, from the contact sheets; not a detector output",
+ "stations": [
+  {
+   "along_m": -10.5,
+   "date": "2025-06",
+   "seen": "「板橋/樹林」標字;車道線為虛線,尚無實線"
+  },
+  {
+   "along_m": 0.0,
+   "date": "2025-06",
+   "seen": "**雙白實線起點**(「往板橋/往樹林」標字處)"
+  },
+  {
+   "along_m": 15.7,
+   "date": "2025-06",
+   "seen": "單白實線,右側路緣紅線"
+  },
+  {
+   "along_m": 25.7,
+   "date": "2025-06",
+   "seen": "單白實線持續"
+  },
+  {
+   "along_m": 35.5,
+   "date": "2025-06",
+   "seen": "**槽化線起點**(斜紋開始)"
+  },
+  {
+   "along_m": 45.4,
+   "date": "2025-06",
+   "seen": "槽化線,右側紅線+圓形溝蓋"
+  },
+  {
+   "along_m": 66.0,
+   "date": "2025-06",
+   "seen": "槽化線持續;**右側出現路橋擋牆**"
+  },
+  {
+   "along_m": 73.7,
+   "date": "2025-06",
+   "seen": "槽化線持續,擋牆持續"
+  },
+  {
+   "along_m": 85.0,
+   "date": "2025-06",
+   "seen": "街景車已在側車道;擋牆在中間,槽化線在牆另一側隨主線上橋 → **橋頭約在此**"
+  },
+  {
+   "along_m": 95.0,
+   "date": "2025-06",
+   "seen": "同上,主線已在坡上"
+  },
+  {
+   "along_m": 105.0,
+   "date": "2025-06",
+   "seen": "側車道匯入箭頭"
+  },
+  {
+   "along_m": 115.0,
+   "date": "2025-06",
+   "seen": "側車道虛線,擋牆在左"
+  },
+  {
+   "along_m": 125.0,
+   "date": "2025-06",
+   "seen": "側車道,右側路邊停車"
+  }
+ ],
+ "extents": {
+  "double_white_start_m": 0.0,
+  "chevron_start_m": 35.5,
+  "bridge_wall_first_seen_m": 66.0,
+  "bridge_head_m": 85.0,
+  "solid_line_before_chevron_m": 35.5,
+  "solid_plus_chevron_to_bridge_head_m": 85.0,
+  "uncertainty_m": 5.0
+ },
+ "story": "從雙白線起點到橋頭約 85 m:前 35 m 是實線(不准變道),後 50 m 是槽化線(漸變);右側整段是紅線、溝蓋帶,66 m 起又多了擋牆。機車在這 85 m 裡要同時閃右側違停/溝蓋和左側縮減。 和 2024-09 施工中相比,實線起點往回提早了約 40 m(35–50),槽化線起點提早約 13 m;2022-11 開工當月這裡還是雙向道,兩者都不存在。",
+ "epochs": {
+  "source": "Street View Static API by pano id (output/epochs_axis, 2026-09-22); positions from results/pano_sequence.json, +-5 m; read by eye",
+  "2022-11": {
+   "along_m": 7.8,
+   "pano": "gnxxb317LHocEtSUI5erLg",
+   "seen": "two-way road, dashed lane lines, '50' painted; no solid white line, no chevron, in either direction"
+  },
+  "2024-09": {
+   "along_m": [
+    49.0,
+    59.1
+   ],
+   "pano": [
+    "iKUYZ2wsw2748Uzx-MGklw",
+    "pdYBYTvYyHpTO-X4sDB09g"
+   ],
+   "seen": "looking back from 49 m: double yellow centre line, 「往板橋」 text, dashed lines - no solid line yet; looking forward from 49 m: cones and bollards begin, chevron begins; 59 m: chevron and bollards, bridge wall ahead",
+   "taper_start_m": 49.0
+  },
+  "2025-06": {
+   "double_white_start_m": 0.0,
+   "chevron_start_m": 35.5
+  },
+  "extension_m": {
+   "solid_line_start_moved_back_by": 49.0,
+   "chevron_start_moved_back_by": 13.5,
+   "note": "2024-09's solid line start is bracketed only from below (not present at 49 m looking back); its true start lies between the previous 2024-09 panorama and 49 m, so the solid-line extension is 35-50 m, quoted as about 40"
+  }
+ },
+ "drain_covers": {
+  "rider_count": 7,
+  "method": "Street View every 8 m from 0 to 88 m, camera turned to the gutter (heading 176, pitch -40), 2025-06 imagery except 8/48/64 m which snapped to 2022-11/2024-09 panoramas. A Gabor bar-texture x local-darkness detector proposed boxes; a bar-periodicity test rejected round covers. Each grate is placed at its panorama's along_m plus its apparent distance ahead; the near grate of each panorama is counted once. Final list read by eye against the detector's boxes.",
+  "grates_along_m": [
+   8,
+   16,
+   28,
+   44,
+   58,
+   74,
+   82
+  ],
+  "count_0_to_85_m": 7,
+  "also_at": [
+   90
+  ],
+  "uncertainty_m": 5,
+  "detector_record": "isolation/grate_detections_2026-09-22.md. On Street View the detector confirmed 5 of the 7 (missed 16 m under a parked car and 44 m at the frame edge; one false box each on a scooter at 40 m and a rider at 88 m). On the phone frames the bar-periodicity test INVERTED at one-third resolution - it rejected the real grates (scores 5-6) and kept the round covers (7-11) - so the phone count is not used.",
+  "reading": "seven grated inlets between the double white line's start and the bridge head, at roughly 8, 16, 28, 44, 58, 74 and 82 m; the rider's seven."
+ }
+}

@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv*/
+# The imagery: 4.6 GB from Zenodo, CC0 and freely re-obtainable.
+# scripts/fetch_seoul.sh puts it here.
+data/
+# Run outputs. Large, and not evidence until a script can regenerate them.
+output/
+
+# Google Maps API key, read by scripts/fetch_streetview.sh and never printed.
+.mapskey
+
+# M-LSD weights and the ONNX it exports to: third-party, 5 MB, and this
+# pipeline does not use the model. scripts/export_mlsd_onnx.py fetches them.
+models/mlsd/*.pth
+models/mlsd/*.onnx
+models/mlsd/layers.py
+models/mlsd/mbv2_mlsd*.py
+
+# 診斷圖:由 isolation/scripts/*.py 的 draw 步驟重建,不進版控
+isolation/out/

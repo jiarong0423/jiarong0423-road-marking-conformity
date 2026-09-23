@@ -1,0 +1,58 @@
+[
+  {
+    "along_m": -10.5,
+    "pano": "RhC8uyHmzomcPUjq_IoJNg",
+    "dash_candidates": 8,
+    "dash_len_camera_heights": 1.005,
+    "camera_height_m": 3.98
+  },
+  {
+    "along_m": -0.0,
+    "pano": "mv7f7p1L7MWTgk6Yk_sKjw",
+    "dash_candidates": 16,
+    "dash_len_camera_heights": 0.86,
+    "camera_height_m": 4.65
+  },
+  {
+    "along_m": 15.7,
+    "pano": "1X6LUUTv5c6jxGyuiGPdyg",
+    "dash_candidates": 14,
+    "dash_len_camera_heights": 1.229,
+    "camera_height_m": 3.25
+  },
+  {
+    "along_m": 25.7,
+    "pano": "FyLNpEQJBFub_Vyuf_mQDQ",
+    "dash_candidates": 3,
+    "dash_len_camera_heights": null,
+    "camera_height_m": null
+  },
+  {
+    "along_m": 35.5,
+    "pano": "CLY3PO0CcluEBc0vpcvPOg",
+    "dash_candidates": 12,
+    "dash_len_camera_heights": 0.9,
+    "camera_height_m": 4.44
+  },
+  {
+    "along_m": 45.4,
+    "pano": "CiabpZYlJzaMcOlhi9PN1g",
+    "dash_candidates": 10,
+    "dash_len_camera_heights": 0.842,
+    "camera_height_m": 4.75
+  },
+  {
+    "along_m": 66.0,
+    "pano": "VUrP3ISFjx5hGFCBaqpdrQ",
+    "dash_candidates": 3,
+    "dash_len_camera_heights": null,
+    "camera_height_m": null
+  },
+  {
+    "along_m": 73.7,
+    "pano": "v-m1NzlmR2dhH_ZTRuV2dA",
+    "dash_candidates": 8,
+    "dash_len_camera_heights": 1.067,
+    "camera_height_m": 3.75
+  }
+]

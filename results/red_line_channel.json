@@ -1,0 +1,282 @@
+{
+  "question": "which channel separates §169's red paint from the rest of the frame",
+  "method": "both channels scored on the same reference set - the pixels the incumbent BGR rule calls red - so neither is graded on a mask it produced. Separation is the difference of means over the standard deviation of the pixels outside the set.",
+  "n_images": 45,
+  "n_images_seen": 45,
+  "bgr_separation_median": 3.151,
+  "lab_a_separation_median": 3.133,
+  "lab_a_wins": 19,
+  "bgr_wins": 26,
+  "per_image": [
+    {
+      "id": "F01",
+      "reference_px": 126182,
+      "bgr_separation": 3.153743028640747,
+      "lab_a_separation": 5.396054267883301
+    },
+    {
+      "id": "F02",
+      "reference_px": 102277,
+      "bgr_separation": 3.391474723815918,
+      "lab_a_separation": 5.760167121887207
+    },
+    {
+      "id": "F03",
+      "reference_px": 110532,
+      "bgr_separation": 3.6686794757843018,
+      "lab_a_separation": 5.649687767028809
+    },
+    {
+      "id": "F04",
+      "reference_px": 120086,
+      "bgr_separation": 4.146450042724609,
+      "lab_a_separation": 6.6867146492004395
+    },
+    {
+      "id": "F05",
+      "reference_px": 51483,
+      "bgr_separation": 2.467855215072632,
+      "lab_a_separation": 3.2543110847473145
+    },
+    {
+      "id": "F06",
+      "reference_px": 46391,
+      "bgr_separation": 3.2094109058380127,
+      "lab_a_separation": 3.9327611923217773
+    },
+    {
+      "id": "F07",
+      "reference_px": 35292,
+      "bgr_separation": 2.9952704906463623,
+      "lab_a_separation": 3.331177234649658
+    },
+    {
+      "id": "F08",
+      "reference_px": 44588,
+      "bgr_separation": 2.5476765632629395,
+      "lab_a_separation": 3.1327743530273438
+    },
+    {
+      "id": "F09",
+      "reference_px": 66817,
+      "bgr_separation": 4.043653964996338,
+      "lab_a_separation": 3.2752761840820312
+    },
+    {
+      "id": "F10",
+      "reference_px": 58474,
+      "bgr_separation": 4.042193412780762,
+      "lab_a_separation": 3.4853532314300537
+    },
+    {
+      "id": "F11",
+      "reference_px": 58261,
+      "bgr_separation": 4.564857482910156,
+      "lab_a_separation": 3.2294631004333496
+    },
+    {
+      "id": "F12",
+      "reference_px": 69435,
+      "bgr_separation": 3.665147304534912,
+      "lab_a_separation": 3.3114943504333496
+    },
+    {
+      "id": "F13",
+      "reference_px": 31208,
+      "bgr_separation": 3.0245206356048584,
+      "lab_a_separation": 4.401203632354736
+    },
+    {
+      "id": "F14",
+      "reference_px": 46535,
+      "bgr_separation": 4.45390510559082,
+      "lab_a_separation": 2.6814234256744385
+    },
+    {
+      "id": "F15",
+      "reference_px": 38589,
+      "bgr_separation": 2.576167106628418,
+      "lab_a_separation": 3.1727099418640137
+    },
+    {
+      "id": "F16",
+      "reference_px": 33231,
+      "bgr_separation": 2.4364073276519775,
+      "lab_a_separation": 3.549342393875122
+    },
+    {
+      "id": "F17",
+      "reference_px": 49112,
+      "bgr_separation": 3.2059311866760254,
+      "lab_a_separation": 2.407440185546875
+    },
+    {
+      "id": "F18",
+      "reference_px": 50716,
+      "bgr_separation": 2.7047617435455322,
+      "lab_a_separation": 2.2191078662872314
+    },
+    {
+      "id": "F19",
+      "reference_px": 44112,
+      "bgr_separation": 3.227293014526367,
+      "lab_a_separation": 2.454122543334961
+    },
+    {
+      "id": "F20",
+      "reference_px": 61256,
+      "bgr_separation": 2.6295268535614014,
+      "lab_a_separation": 1.9992188215255737
+    },
+    {
+      "id": "F21",
+      "reference_px": 94129,
+      "bgr_separation": 2.688054323196411,
+      "lab_a_separation": 2.157111167907715
+    },
+    {
+      "id": "F22",
+      "reference_px": 155376,
+      "bgr_separation": 2.1461920738220215,
+      "lab_a_separation": 1.312965989112854
+    },
+    {
+      "id": "F23",
+      "reference_px": 65765,
+      "bgr_separation": 2.814664602279663,
+      "lab_a_separation": 2.6201744079589844
+    },
+    {
+      "id": "F24",
+      "reference_px": 155576,
+      "bgr_separation": 2.1093356609344482,
+      "lab_a_separation": 1.5955939292907715
+    },
+    {
+      "id": "F25",
+      "reference_px": 92002,
+      "bgr_separation": 2.4707536697387695,
+      "lab_a_separation": 2.1092731952667236
+    },
+    {
+      "id": "F26",
+      "reference_px": 61447,
+      "bgr_separation": 2.75,
+      "lab_a_separation": 5.635306358337402
+    },
+    {
+      "id": "F27",
+      "reference_px": 43547,
+      "bgr_separation": 3.21859073638916,
+      "lab_a_separation": 6.758952617645264
+    },
+    {
+      "id": "F28",
+      "reference_px": 53095,
+      "bgr_separation": 3.3671798706054688,
+      "lab_a_separation": 6.534609317779541
+    },
+    {
+      "id": "F29",
+      "reference_px": 45597,
+      "bgr_separation": 2.964465856552124,
+      "lab_a_separation": 6.8149333000183105
+    },
+    {
+      "id": "F30",
+      "reference_px": 68925,
+      "bgr_separation": 3.5982770919799805,
+      "lab_a_separation": 4.34130859375
+    },
+    {
+      "id": "F31",
+      "reference_px": 82782,
+      "bgr_separation": 3.454601526260376,
+      "lab_a_separation": 3.731131076812744
+    },
+    {
+      "id": "F32",
+      "reference_px": 78757,
+      "bgr_separation": 3.4574263095855713,
+      "lab_a_separation": 3.7810235023498535
+    },
+    {
+      "id": "F33",
+      "reference_px": 74549,
+      "bgr_separation": 3.6481387615203857,
+      "lab_a_separation": 4.823546886444092
+    },
+    {
+      "id": "F34",
+      "reference_px": 77316,
+      "bgr_separation": 1.8272521495819092,
+      "lab_a_separation": 1.3613734245300293
+    },
+    {
+      "id": "F35",
+      "reference_px": 97259,
+      "bgr_separation": 1.9048569202423096,
+      "lab_a_separation": 1.3573247194290161
+    },
+    {
+      "id": "F36",
+      "reference_px": 91687,
+      "bgr_separation": 1.6565951108932495,
+      "lab_a_separation": 1.4013839960098267
+    },
+    {
+      "id": "F37",
+      "reference_px": 217340,
+      "bgr_separation": 2.2597293853759766,
+      "lab_a_separation": 0.6340169906616211
+    },
+    {
+      "id": "F38",
+      "reference_px": 85526,
+      "bgr_separation": 2.40675687789917,
+      "lab_a_separation": 1.3415610790252686
+    },
+    {
+      "id": "F39",
+      "reference_px": 44843,
+      "bgr_separation": 3.040832281112671,
+      "lab_a_separation": 2.063931703567505
+    },
+    {
+      "id": "F40",
+      "reference_px": 42069,
+      "bgr_separation": 3.1514718532562256,
+      "lab_a_separation": 1.4861096143722534
+    },
+    {
+      "id": "F41",
+      "reference_px": 126890,
+      "bgr_separation": 3.6139352321624756,
+      "lab_a_separation": 1.445950984954834
+    },
+    {
+      "id": "F42",
+      "reference_px": 163483,
+      "bgr_separation": 4.581793308258057,
+      "lab_a_separation": 1.713339924812317
+    },
+    {
+      "id": "e1_2022-11",
+      "reference_px": 15282,
+      "bgr_separation": 6.489595890045166,
+      "lab_a_separation": 1.930664300918579
+    },
+    {
+      "id": "e2_2024-09",
+      "reference_px": 25227,
+      "bgr_separation": 3.160245656967163,
+      "lab_a_separation": 2.478397846221924
+    },
+    {
+      "id": "e3_2025-06",
+      "reference_px": 10580,
+      "bgr_separation": 1.590888500213623,
+      "lab_a_separation": 1.5845927000045776
+    }
+  ]
+}

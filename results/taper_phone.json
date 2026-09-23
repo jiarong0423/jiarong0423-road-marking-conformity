@@ -1,0 +1,555 @@
+{
+ "frames": [
+  {
+   "frame": "F17",
+   "file": "IMG_20260920_155843.jpg",
+   "sha256": "a8686ebf3ee4b1ed71828b9385ad530dffc466f3904ce7a3a0c03ffca9f751e7",
+   "ok": true,
+   "why": null,
+   "intrinsics": {
+    "f35_mm": 24,
+    "focal_px": 2840.0,
+    "size": [
+     3072,
+     4096
+    ]
+   },
+   "chevron_polygon": {
+    "hull_points": 27,
+    "area_frac": 0.0398,
+    "long_segments_inside": 38
+   },
+   "edge_pencils": [
+    {
+     "segments": 24,
+     "condition": 0.0186,
+     "vp_px": [
+      864.8,
+      2408.5
+     ]
+    },
+    {
+     "segments": 6,
+     "condition": 0.0177,
+     "vp_px": [
+      528.1,
+      2422.4
+     ]
+    }
+   ],
+   "taper_deg": 6.2,
+   "taper_uncertainty": {
+    "mean_deg": 6.02,
+    "sd_deg": 0.4,
+    "p2.5": 5.29,
+    "p97.5": 6.82,
+    "trials": 200
+   },
+   "taper_ratio": 9.2,
+   "thresholds": {
+    "50 km/h": {
+     "ratio": 16.0,
+     "deg": 3.58,
+     "meets": false
+    },
+    "60 km/h": {
+     "ratio": 23.0,
+     "deg": 2.49,
+     "meets": false
+    },
+    "30 km/h (works limit)": {
+     "ratio": 5.0,
+     "deg": 11.31,
+     "meets": true
+    }
+   },
+   "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)",
+   "reading": "angle between the chevron's two edge pencils on the ground; L/W = 1/tan. Which design speed governs is a document question (posted 50 before the works, 30 during), not decided here"
+  },
+  {
+   "frame": "F18",
+   "file": "IMG_20260920_155844.jpg",
+   "sha256": "27d7db2f0c3188d563055070de8b6c52a9211790b0d72b6ee7d9f44f10179709",
+   "ok": false,
+   "why": "jittered sd 1.28 degrees exceeds 1.0",
+   "intrinsics": {
+    "f35_mm": 24,
+    "focal_px": 2840.0,
+    "size": [
+     3072,
+     4096
+    ]
+   },
+   "chevron_polygon": {
+    "hull_points": 27,
+    "area_frac": 0.0378,
+    "long_segments_inside": 41
+   },
+   "edge_pencils": [
+    {
+     "segments": 23,
+     "condition": 0.06,
+     "vp_px": [
+      990.4,
+      2216.6
+     ]
+    },
+    {
+     "segments": 7,
+     "condition": 0.0097,
+     "vp_px": [
+      1545.1,
+      1787.2
+     ]
+    }
+   ],
+   "taper_deg": 13.99,
+   "taper_uncertainty": {
+    "mean_deg": 13.05,
+    "sd_deg": 1.28,
+    "p2.5": 10.84,
+    "p97.5": 15.93,
+    "trials": 200
+   },
+   "taper_ratio": 4.0,
+   "thresholds": {
+    "50 km/h": {
+     "ratio": 16.0,
+     "deg": 3.58,
+     "meets": null
+    },
+    "60 km/h": {
+     "ratio": 23.0,
+     "deg": 2.49,
+     "meets": null
+    },
+    "30 km/h (works limit)": {
+     "ratio": 5.0,
+     "deg": 11.31,
+     "meets": null
+    }
+   },
+   "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)",
+   "reading": "angle between the chevron's two edge pencils on the ground; L/W = 1/tan. Which design speed governs is a document question (posted 50 before the works, 30 during), not decided here"
+  },
+  {
+   "frame": "F19",
+   "file": "IMG_20260920_155845.jpg",
+   "sha256": "f6531f3c298b669f8083e9115f744e9c4ede34156ef0732fcdb524e5facdb0ef",
+   "ok": false,
+   "why": "the two largest pencils meet at 21.6 degrees, outside 1-15: not the two edges of a taper",
+   "intrinsics": {
+    "f35_mm": 24,
+    "focal_px": 2840.0,
+    "size": [
+     3072,
+     4096
+    ]
+   },
+   "chevron_polygon": {
+    "hull_points": 30,
+    "area_frac": 0.0524,
+    "long_segments_inside": 56
+   },
+   "edge_pencils": [
+    {
+     "segments": 22,
+     "condition": 0.0589,
+     "vp_px": [
+      1099.6,
+      2496.0
+     ]
+    },
+    {
+     "segments": 10,
+     "condition": 0.0078,
+     "vp_px": [
+      1953.8,
+      1828.4
+     ]
+    }
+   ],
+   "taper_deg": 21.59,
+   "taper_uncertainty": {
+    "mean_deg": 19.41,
+    "sd_deg": 1.34,
+    "p2.5": 16.75,
+    "p97.5": 22.12,
+    "trials": 200
+   },
+   "taper_ratio": 2.5,
+   "thresholds": {
+    "50 km/h": {
+     "ratio": 16.0,
+     "deg": 3.58,
+     "meets": null
+    },
+    "60 km/h": {
+     "ratio": 23.0,
+     "deg": 2.49,
+     "meets": null
+    },
+    "30 km/h (works limit)": {
+     "ratio": 5.0,
+     "deg": 11.31,
+     "meets": null
+    }
+   },
+   "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)",
+   "reading": "angle between the chevron's two edge pencils on the ground; L/W = 1/tan. Which design speed governs is a document question (posted 50 before the works, 30 during), not decided here"
+  },
+  {
+   "frame": "F20",
+   "file": "IMG_20260920_155847.jpg",
+   "sha256": "259dc493e71ccf3e20713bdc01b98af01fc5a551be669a33b49222e58c21db42",
+   "ok": false,
+   "why": "the two largest pencils meet at 27.8 degrees, outside 1-15: not the two edges of a taper",
+   "intrinsics": {
+    "f35_mm": 24,
+    "focal_px": 2840.0,
+    "size": [
+     3072,
+     4096
+    ]
+   },
+   "chevron_polygon": {
+    "hull_points": 30,
+    "area_frac": 0.0443,
+    "long_segments_inside": 28
+   },
+   "edge_pencils": [
+    {
+     "segments": 7,
+     "condition": 0.0049,
+     "vp_px": [
+      1178.9,
+      1778.7
+     ]
+    },
+    {
+     "segments": 5,
+     "condition": 0.0339,
+     "vp_px": [
+      2484.3,
+      1111.1
+     ]
+    }
+   ],
+   "taper_deg": 27.79,
+   "taper_uncertainty": {
+    "mean_deg": 20.46,
+    "sd_deg": 17.39,
+    "p2.5": 2.73,
+    "p97.5": 69.29,
+    "trials": 200
+   },
+   "taper_ratio": 1.9,
+   "thresholds": {
+    "50 km/h": {
+     "ratio": 16.0,
+     "deg": 3.58,
+     "meets": null
+    },
+    "60 km/h": {
+     "ratio": 23.0,
+     "deg": 2.49,
+     "meets": null
+    },
+    "30 km/h (works limit)": {
+     "ratio": 5.0,
+     "deg": 11.31,
+     "meets": null
+    }
+   },
+   "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)",
+   "reading": "angle between the chevron's two edge pencils on the ground; L/W = 1/tan. Which design speed governs is a document question (posted 50 before the works, 30 during), not decided here"
+  },
+  {
+   "frame": "F35",
+   "file": "IMG_20260920_160047.jpg",
+   "sha256": "11e852236a6fa67faeb03b2cc4bef66af5728e5f6eee14b97b1371ea40e17c22",
+   "ok": false,
+   "why": "an edge pencil has only 3 segments; 5 needed",
+   "intrinsics": {
+    "f35_mm": 46,
+    "focal_px": 5443.4,
+    "size": [
+     3072,
+     4096
+    ]
+   },
+   "chevron_polygon": {
+    "hull_points": 32,
+    "area_frac": 0.0321,
+    "long_segments_inside": 13
+   },
+   "edge_pencils": [
+    {
+     "segments": 4,
+     "condition": 0.0084,
+     "vp_px": [
+      1344.7,
+      2123.3
+     ]
+    },
+    {
+     "segments": 3,
+     "condition": 0.0021,
+     "vp_px": [
+      9522.9,
+      617.5
+     ]
+    }
+   ],
+   "taper_deg": 58.27,
+   "taper_uncertainty": {
+    "mean_deg": 58.45,
+    "sd_deg": 15.22,
+    "p2.5": 33.27,
+    "p97.5": 87.82,
+    "trials": 200
+   },
+   "taper_ratio": 0.6,
+   "thresholds": {
+    "50 km/h": {
+     "ratio": 16.0,
+     "deg": 3.58,
+     "meets": null
+    },
+    "60 km/h": {
+     "ratio": 23.0,
+     "deg": 2.49,
+     "meets": null
+    },
+    "30 km/h (works limit)": {
+     "ratio": 5.0,
+     "deg": 11.31,
+     "meets": null
+    }
+   },
+   "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)",
+   "reading": "angle between the chevron's two edge pencils on the ground; L/W = 1/tan. Which design speed governs is a document question (posted 50 before the works, 30 during), not decided here"
+  },
+  {
+   "frame": "F36",
+   "file": "IMG_20260920_160049.jpg",
+   "sha256": "74704710f02b91db80d52ba3f597423fd8566c1b144764bba7c6761a555290e4",
+   "ok": false,
+   "why": "the dense-white region is 0.61 of the frame: a close-up, not a chevron seen whole",
+   "intrinsics": {
+    "f35_mm": 46,
+    "focal_px": 5443.4,
+    "size": [
+     3072,
+     4096
+    ]
+   },
+   "chevron_polygon": {
+    "hull_points": 12,
+    "area_frac": 0.6116,
+    "long_segments_inside": 204
+   },
+   "edge_pencils": [
+    {
+     "segments": 9,
+     "condition": 0.0023,
+     "vp_px": [
+      3025.6,
+      1987.4
+     ]
+    },
+    {
+     "segments": 10,
+     "condition": 0.0046,
+     "vp_px": [
+      2508.1,
+      2241.9
+     ]
+    }
+   ],
+   "taper_deg": 5.8,
+   "taper_uncertainty": {
+    "mean_deg": 5.74,
+    "sd_deg": 0.24,
+    "p2.5": 5.27,
+    "p97.5": 6.21,
+    "trials": 200
+   },
+   "taper_ratio": 9.8,
+   "thresholds": {
+    "50 km/h": {
+     "ratio": 16.0,
+     "deg": 3.58,
+     "meets": null
+    },
+    "60 km/h": {
+     "ratio": 23.0,
+     "deg": 2.49,
+     "meets": null
+    },
+    "30 km/h (works limit)": {
+     "ratio": 5.0,
+     "deg": 11.31,
+     "meets": null
+    }
+   },
+   "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)",
+   "reading": "angle between the chevron's two edge pencils on the ground; L/W = 1/tan. Which design speed governs is a document question (posted 50 before the works, 30 during), not decided here"
+  },
+  {
+   "frame": "F37",
+   "file": "IMG_20260920_160101.jpg",
+   "sha256": "532affc13ca4d7c092c593969cc922e508fb75bd81cb332a69786d6113c05ee1",
+   "ok": false,
+   "why": "the two largest pencils meet at 73.0 degrees, outside 1-15: not the two edges of a taper",
+   "intrinsics": {
+    "f35_mm": 24,
+    "focal_px": 2840.0,
+    "size": [
+     3072,
+     4096
+    ]
+   },
+   "chevron_polygon": {
+    "hull_points": 36,
+    "area_frac": 0.0453,
+    "long_segments_inside": 32
+   },
+   "edge_pencils": [
+    {
+     "segments": 6,
+     "condition": 0.0055,
+     "vp_px": [
+      1458.1,
+      1671.3
+     ]
+    },
+    {
+     "segments": 7,
+     "condition": 0.0056,
+     "vp_px": [
+      10246.4,
+      1124.6
+     ]
+    }
+   ],
+   "taper_deg": 72.96,
+   "taper_uncertainty": {
+    "mean_deg": 69.75,
+    "sd_deg": 6.46,
+    "p2.5": 58.07,
+    "p97.5": 82.82,
+    "trials": 200
+   },
+   "taper_ratio": 0.3,
+   "thresholds": {
+    "50 km/h": {
+     "ratio": 16.0,
+     "deg": 3.58,
+     "meets": null
+    },
+    "60 km/h": {
+     "ratio": 23.0,
+     "deg": 2.49,
+     "meets": null
+    },
+    "30 km/h (works limit)": {
+     "ratio": 5.0,
+     "deg": 11.31,
+     "meets": null
+    }
+   },
+   "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)",
+   "reading": "angle between the chevron's two edge pencils on the ground; L/W = 1/tan. Which design speed governs is a document question (posted 50 before the works, 30 during), not decided here"
+  },
+  {
+   "frame": "F38",
+   "ok": false,
+   "why": "only 4 long white segments inside the chevron"
+  },
+  {
+   "frame": "F39",
+   "ok": false,
+   "why": "only 5 long white segments inside the chevron"
+  },
+  {
+   "frame": "F40",
+   "file": "IMG_20260920_160105.jpg",
+   "sha256": "e76a878251d78e71c5787dca53d6db3ed2d3b2d1af70f1c3975872a00ea31183",
+   "ok": true,
+   "why": null,
+   "intrinsics": {
+    "f35_mm": 24,
+    "focal_px": 2840.0,
+    "size": [
+     3072,
+     4096
+    ]
+   },
+   "chevron_polygon": {
+    "hull_points": 15,
+    "area_frac": 0.0664,
+    "long_segments_inside": 21
+   },
+   "edge_pencils": [
+    {
+     "segments": 5,
+     "condition": 0.0023,
+     "vp_px": [
+      2108.7,
+      2269.3
+     ]
+    },
+    {
+     "segments": 5,
+     "condition": 0.0075,
+     "vp_px": [
+      2266.5,
+      2081.2
+     ]
+    }
+   ],
+   "taper_deg": 4.79,
+   "taper_uncertainty": {
+    "mean_deg": 4.75,
+    "sd_deg": 0.3,
+    "p2.5": 4.12,
+    "p97.5": 5.31,
+    "trials": 200
+   },
+   "taper_ratio": 11.9,
+   "thresholds": {
+    "50 km/h": {
+     "ratio": 16.0,
+     "deg": 3.58,
+     "meets": false
+    },
+    "60 km/h": {
+     "ratio": 23.0,
+     "deg": 2.49,
+     "meets": false
+    },
+    "30 km/h (works limit)": {
+     "ratio": 5.0,
+     "deg": 11.31,
+     "meets": true
+    }
+   },
+   "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)",
+   "reading": "angle between the chevron's two edge pencils on the ground; L/W = 1/tan. Which design speed governs is a document question (posted 50 before the works, 30 during), not decided here"
+  }
+ ],
+ "summary": {
+  "frames_ok": [
+   "F17",
+   "F40"
+  ],
+  "taper_deg_median": 5.5,
+  "taper_deg_min": 4.79,
+  "taper_deg_max": 6.2,
+  "ratio_median": 10.6,
+  "ratio_min": 9.2,
+  "ratio_max": 11.9
+ },
+ "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)"
+}

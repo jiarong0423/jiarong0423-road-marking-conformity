@@ -1,0 +1,462 @@
+{
+ "question": "is a chevron's periodicity measurable, and how consistently",
+ "method": "Gabor bank over 5 periods and 12 orientations on the L* channel; per pixel the strongest response, its period and its direction. The top 3% of responses below the horizon are taken as the periodic population. Nothing is classified; this counts whether the signal exists.",
+ "n_images": 45,
+ "contrast_median": 5.19,
+ "contrast_min": 2.92,
+ "contrast_max": 14.63,
+ "note": "contrast is the 97th percentile response over the median response below the horizon. A frame with no periodic structure has a small one.",
+ "per_image": [
+  {
+   "id": "F01",
+   "strong_px": 12375,
+   "response_p97": 15748.8,
+   "response_median_lower": 1678.5,
+   "contrast": 9.38,
+   "period_px_median": 28.0,
+   "direction_deg_median": 60.0,
+   "direction_deg_iqr": 60.0
+  },
+  {
+   "id": "F02",
+   "strong_px": 12375,
+   "response_p97": 14674.9,
+   "response_median_lower": 1448.2,
+   "contrast": 10.13,
+   "period_px_median": 28.0,
+   "direction_deg_median": 15.0,
+   "direction_deg_iqr": 45.0
+  },
+  {
+   "id": "F03",
+   "strong_px": 12375,
+   "response_p97": 14470.0,
+   "response_median_lower": 1974.5,
+   "contrast": 7.33,
+   "period_px_median": 28.0,
+   "direction_deg_median": 60.0,
+   "direction_deg_iqr": 75.0
+  },
+  {
+   "id": "F04",
+   "strong_px": 12375,
+   "response_p97": 18039.1,
+   "response_median_lower": 1570.5,
+   "contrast": 11.49,
+   "period_px_median": 28.0,
+   "direction_deg_median": 60.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F05",
+   "strong_px": 12375,
+   "response_p97": 21204.5,
+   "response_median_lower": 3835.0,
+   "contrast": 5.53,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F06",
+   "strong_px": 12375,
+   "response_p97": 21492.0,
+   "response_median_lower": 3819.3,
+   "contrast": 5.63,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F07",
+   "strong_px": 12375,
+   "response_p97": 24129.8,
+   "response_median_lower": 2970.9,
+   "contrast": 8.12,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F08",
+   "strong_px": 12375,
+   "response_p97": 19947.6,
+   "response_median_lower": 4154.5,
+   "contrast": 4.8,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 30.0
+  },
+  {
+   "id": "F09",
+   "strong_px": 12375,
+   "response_p97": 20704.9,
+   "response_median_lower": 1576.4,
+   "contrast": 13.13,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F10",
+   "strong_px": 12375,
+   "response_p97": 19595.6,
+   "response_median_lower": 1663.2,
+   "contrast": 11.78,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 30.0
+  },
+  {
+   "id": "F11",
+   "strong_px": 12375,
+   "response_p97": 20959.5,
+   "response_median_lower": 1432.8,
+   "contrast": 14.63,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F12",
+   "strong_px": 12375,
+   "response_p97": 18248.7,
+   "response_median_lower": 1466.1,
+   "contrast": 12.45,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 30.0
+  },
+  {
+   "id": "F13",
+   "strong_px": 12375,
+   "response_p97": 15003.3,
+   "response_median_lower": 3369.6,
+   "contrast": 4.45,
+   "period_px_median": 28.0,
+   "direction_deg_median": 60.0,
+   "direction_deg_iqr": 60.0
+  },
+  {
+   "id": "F14",
+   "strong_px": 12375,
+   "response_p97": 16129.4,
+   "response_median_lower": 2778.1,
+   "contrast": 5.81,
+   "period_px_median": 28.0,
+   "direction_deg_median": 60.0,
+   "direction_deg_iqr": 30.0
+  },
+  {
+   "id": "F15",
+   "strong_px": 12375,
+   "response_p97": 15062.0,
+   "response_median_lower": 3409.3,
+   "contrast": 4.42,
+   "period_px_median": 28.0,
+   "direction_deg_median": 60.0,
+   "direction_deg_iqr": 60.0
+  },
+  {
+   "id": "F16",
+   "strong_px": 12375,
+   "response_p97": 13665.2,
+   "response_median_lower": 3135.1,
+   "contrast": 4.36,
+   "period_px_median": 28.0,
+   "direction_deg_median": 30.0,
+   "direction_deg_iqr": 60.0
+  },
+  {
+   "id": "F17",
+   "strong_px": 12375,
+   "response_p97": 14850.9,
+   "response_median_lower": 3330.3,
+   "contrast": 4.46,
+   "period_px_median": 28.0,
+   "direction_deg_median": 60.0,
+   "direction_deg_iqr": 30.0
+  },
+  {
+   "id": "F18",
+   "strong_px": 12375,
+   "response_p97": 16025.0,
+   "response_median_lower": 3782.1,
+   "contrast": 4.24,
+   "period_px_median": 28.0,
+   "direction_deg_median": 60.0,
+   "direction_deg_iqr": 45.0
+  },
+  {
+   "id": "F19",
+   "strong_px": 12375,
+   "response_p97": 16348.7,
+   "response_median_lower": 3681.9,
+   "contrast": 4.44,
+   "period_px_median": 28.0,
+   "direction_deg_median": 60.0,
+   "direction_deg_iqr": 0.0
+  },
+  {
+   "id": "F20",
+   "strong_px": 12375,
+   "response_p97": 17469.6,
+   "response_median_lower": 4234.5,
+   "contrast": 4.13,
+   "period_px_median": 28.0,
+   "direction_deg_median": 30.0,
+   "direction_deg_iqr": 30.0
+  },
+  {
+   "id": "F21",
+   "strong_px": 12376,
+   "response_p97": 17265.5,
+   "response_median_lower": 3145.1,
+   "contrast": 5.49,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F22",
+   "strong_px": 12375,
+   "response_p97": 14728.0,
+   "response_median_lower": 2899.6,
+   "contrast": 5.08,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F23",
+   "strong_px": 12375,
+   "response_p97": 18257.5,
+   "response_median_lower": 3003.1,
+   "contrast": 6.08,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 30.0
+  },
+  {
+   "id": "F24",
+   "strong_px": 12375,
+   "response_p97": 17599.3,
+   "response_median_lower": 3492.3,
+   "contrast": 5.04,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 30.0
+  },
+  {
+   "id": "F25",
+   "strong_px": 12375,
+   "response_p97": 17704.4,
+   "response_median_lower": 3422.3,
+   "contrast": 5.17,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F26",
+   "strong_px": 12375,
+   "response_p97": 14428.9,
+   "response_median_lower": 3128.4,
+   "contrast": 4.61,
+   "period_px_median": 28.0,
+   "direction_deg_median": 15.0,
+   "direction_deg_iqr": 60.0
+  },
+  {
+   "id": "F27",
+   "strong_px": 12375,
+   "response_p97": 13381.1,
+   "response_median_lower": 3055.0,
+   "contrast": 4.38,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 75.0
+  },
+  {
+   "id": "F28",
+   "strong_px": 12375,
+   "response_p97": 12957.3,
+   "response_median_lower": 2817.2,
+   "contrast": 4.6,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 60.0
+  },
+  {
+   "id": "F29",
+   "strong_px": 12375,
+   "response_p97": 12171.0,
+   "response_median_lower": 2742.9,
+   "contrast": 4.44,
+   "period_px_median": 28.0,
+   "direction_deg_median": 15.0,
+   "direction_deg_iqr": 75.0
+  },
+  {
+   "id": "F30",
+   "strong_px": 12375,
+   "response_p97": 18682.5,
+   "response_median_lower": 3180.1,
+   "contrast": 5.87,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 45.0
+  },
+  {
+   "id": "F31",
+   "strong_px": 12375,
+   "response_p97": 19424.8,
+   "response_median_lower": 3624.4,
+   "contrast": 5.36,
+   "period_px_median": 28.0,
+   "direction_deg_median": 30.0,
+   "direction_deg_iqr": 45.0
+  },
+  {
+   "id": "F32",
+   "strong_px": 12375,
+   "response_p97": 19737.3,
+   "response_median_lower": 3629.4,
+   "contrast": 5.44,
+   "period_px_median": 28.0,
+   "direction_deg_median": 30.0,
+   "direction_deg_iqr": 45.0
+  },
+  {
+   "id": "F33",
+   "strong_px": 12375,
+   "response_p97": 15321.0,
+   "response_median_lower": 2301.1,
+   "contrast": 6.66,
+   "period_px_median": 28.0,
+   "direction_deg_median": 30.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F34",
+   "strong_px": 12375,
+   "response_p97": 15434.3,
+   "response_median_lower": 3422.9,
+   "contrast": 4.51,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F35",
+   "strong_px": 12375,
+   "response_p97": 11363.3,
+   "response_median_lower": 2188.2,
+   "contrast": 5.19,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F36",
+   "strong_px": 12375,
+   "response_p97": 10271.9,
+   "response_median_lower": 2878.4,
+   "contrast": 3.57,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F37",
+   "strong_px": 12375,
+   "response_p97": 12602.8,
+   "response_median_lower": 4318.5,
+   "contrast": 2.92,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 30.0
+  },
+  {
+   "id": "F38",
+   "strong_px": 12376,
+   "response_p97": 13834.1,
+   "response_median_lower": 4239.3,
+   "contrast": 3.26,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 45.0
+  },
+  {
+   "id": "F39",
+   "strong_px": 12375,
+   "response_p97": 13566.0,
+   "response_median_lower": 4028.4,
+   "contrast": 3.37,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 45.0
+  },
+  {
+   "id": "F40",
+   "strong_px": 12375,
+   "response_p97": 18763.3,
+   "response_median_lower": 4930.1,
+   "contrast": 3.81,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "F41",
+   "strong_px": 12375,
+   "response_p97": 23672.0,
+   "response_median_lower": 4106.5,
+   "contrast": 5.76,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 0.0
+  },
+  {
+   "id": "F42",
+   "strong_px": 12376,
+   "response_p97": 23725.3,
+   "response_median_lower": 3504.0,
+   "contrast": 6.77,
+   "period_px_median": 28.0,
+   "direction_deg_median": 90.0,
+   "direction_deg_iqr": 0.0
+  },
+  {
+   "id": "e1_2022-11",
+   "strong_px": 6759,
+   "response_p97": 6088.5,
+   "response_median_lower": 1690.6,
+   "contrast": 3.6,
+   "period_px_median": 28.0,
+   "direction_deg_median": 90.0,
+   "direction_deg_iqr": 15.0
+  },
+  {
+   "id": "e2_2024-09",
+   "strong_px": 6759,
+   "response_p97": 24022.0,
+   "response_median_lower": 3102.6,
+   "contrast": 7.74,
+   "period_px_median": 28.0,
+   "direction_deg_median": 45.0,
+   "direction_deg_iqr": 45.0
+  },
+  {
+   "id": "e3_2025-06",
+   "strong_px": 6759,
+   "response_p97": 22722.6,
+   "response_median_lower": 2181.9,
+   "contrast": 10.41,
+   "period_px_median": 28.0,
+   "direction_deg_median": 75.0,
+   "direction_deg_iqr": 0.0
+  }
+ ],
+ "period_column_withdrawn_2026-09-21": "period_px_median is 28.0 on 45 of 45 images, which is the largest kernel in the Gabor bank, not a period. Re-running with the bank extended to 80 returned 80. It is a ceiling. The contrast figure stands - it is the 97th percentile response over the median and does not depend on which kernel won - but nothing should be read from the period or, without care, the direction. Not in results/figure_registry.json, so no published figure moves. Found by scripts/stage5_predicate.py."
+}

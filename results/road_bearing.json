@@ -1,0 +1,11 @@
+{
+  "field_bearing_deg": 144.17,
+  "field_se_deg": 8.1,
+  "pano_bearing_deg": 139.57,
+  "pano_se_deg": 7.19,
+  "disagreement_deg": 4.6,
+  "combined_bearing_deg": 141.87,
+  "combined_se_deg": 8.32,
+  "rate_sensitivity_per_deg": 0.0157,
+  "rate_term_from_bearing": 0.1307
+}

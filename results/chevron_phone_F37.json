@@ -1,0 +1,80 @@
+{
+ "frame": "F37",
+ "file": "IMG_20260920_160101.jpg",
+ "sha256": "532affc13ca4d7c092c593969cc922e508fb75bd81cb332a69786d6113c05ee1",
+ "ok": false,
+ "why": "two road points disagree: RANSAC gives 43.75 deg, equal spacing gives 52.55; the difference is the uncertainty the jitter sd does not see",
+ "intrinsics": {
+  "f35_mm": 24,
+  "focal_px": 2840.0,
+  "size": [
+   3072,
+   4096
+  ]
+ },
+ "v_road": {
+  "px": [
+   3628.5,
+   1178.2
+  ],
+  "candidates": 108,
+  "inliers": 9,
+  "condition": 0.0042,
+  "note": "long segments (>450 px) meeting in the upper 55 % of the frame"
+ },
+ "v_stripe": {
+  "px": [
+   2284.2,
+   3384.4
+  ],
+  "candidates": 256,
+  "inliers": 24,
+  "condition": 0.0008
+ },
+ "stripe_to_road_deg": 43.75,
+ "stripe_to_road_uncertainty": {
+  "mean_deg": 43.72,
+  "sd_deg": 0.39,
+  "p2.5": 43.02,
+  "p97.5": 44.5,
+  "trials": 200
+ },
+ "datum": "the road's own vanishing direction on this frame; not §171's unnamed datum, and not the chevron boundary the Street View figure used",
+ "road_point_by_equal_spacing": {
+  "chains": 3,
+  "v_road_px": [
+   4894.5,
+   832.2
+  ],
+  "slopes": [
+   1.003,
+   1.0,
+   0.965
+  ],
+  "ransac_slopes": [
+   1.084,
+   1.126,
+   1.056
+  ],
+  "moved_px": 1312.4,
+  "stripe_to_road_deg": 52.55
+ },
+ "pitch": {
+  "perpendicular_m": 0.5,
+  "source": "設置規則 §171 斜紋線寬二○公分、間隔三○公分",
+  "along_road_m": 0.7231,
+  "formula": "0.50 / sin(stripe_to_road_deg)"
+ },
+ "equal_spacing": {
+  "sampling_lines": 6,
+  "ratios": 69,
+  "median": 2.052,
+  "expected": 2.0,
+  "iqr": [
+   1.839,
+   2.473
+  ],
+  "reading": "consecutive stripe crossings A,B,C along the road: D(A,C)/D(A,B) on the ground",
+  "validates": "v_road only - not theta, see the refusals on stripe_to_road"
+ }
+}

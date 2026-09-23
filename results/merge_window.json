@@ -1,0 +1,44 @@
+{
+ "inputs": {
+  "double_white_start_m": 0.0,
+  "chevron_start_m": 35.5,
+  "bridge_head_m": 85.0,
+  "reaction_s": 2.5,
+  "sources": [
+   "results/solid_line_extent.json",
+   "results/reaction.json#/piev_s (the file is withdrawn for its taper rate, not for this constant)"
+  ]
+ },
+ "assumption": "the rider may only move left inside the taper; the solid line forbids it before (§167) and the right side is closed by the red line and drain covers. Lane width 3 m only for the closing rate.",
+ "rows": [
+  {
+   "kmh": 30,
+   "solid_s": 4.3,
+   "taper_s": 5.9,
+   "window_after_reaction_s": 3.4,
+   "lane_closing_cm_per_s_if_3m": 51
+  },
+  {
+   "kmh": 40,
+   "solid_s": 3.2,
+   "taper_s": 4.5,
+   "window_after_reaction_s": 2.0,
+   "lane_closing_cm_per_s_if_3m": 67
+  },
+  {
+   "kmh": 50,
+   "solid_s": 2.6,
+   "taper_s": 3.6,
+   "window_after_reaction_s": 1.1,
+   "lane_closing_cm_per_s_if_3m": 84
+  },
+  {
+   "kmh": 60,
+   "solid_s": 2.1,
+   "taper_s": 3.0,
+   "window_after_reaction_s": 0.5,
+   "lane_closing_cm_per_s_if_3m": 101
+  }
+ ],
+ "reading": "at 50 km/h the taper lasts 3.6 s, of which reaction takes 2.5: about one second to decide and move"
+}

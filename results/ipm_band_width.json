@@ -1,0 +1,85 @@
+{
+  "arm_width_m": 0.2,
+  "source": "設置規則 §171",
+  "checks": [
+    "camera height 1.8-3.4 m",
+    "arm to band 45 +- 15 deg"
+  ],
+  "captures": [
+    {
+      "capture": "f90_p-20",
+      "band_deg": 152,
+      "arm_deg": 107,
+      "separation_deg": 45.0,
+      "arms": 15,
+      "arm_width_px": 13.5,
+      "arm_pitch_px": 118.1,
+      "pitch_fit_residual_px": 32.0,
+      "camera_height_m": 1.1,
+      "arm_reach_m": 0.71,
+      "band_width_m": 0.5,
+      "arm_angle_recheck_deg": 46.2,
+      "accepted": false
+    },
+    {
+      "capture": "f90_p-35",
+      "band_deg": 151,
+      "arm_deg": 108,
+      "separation_deg": 43.0,
+      "arms": 13,
+      "arm_width_px": 30.7,
+      "arm_pitch_px": 108.9,
+      "pitch_fit_residual_px": 21.3,
+      "camera_height_m": 1.19,
+      "arm_reach_m": 0.87,
+      "band_width_m": 0.59,
+      "arm_angle_recheck_deg": 46.0,
+      "accepted": false
+    },
+    {
+      "capture": "before_p-25",
+      "band_deg": 139,
+      "arm_deg": 106,
+      "separation_deg": 33.0,
+      "arms": 13,
+      "arm_width_px": 15.5,
+      "arm_pitch_px": 102.3,
+      "pitch_fit_residual_px": 27.8,
+      "camera_height_m": 1.27,
+      "arm_reach_m": 0.83,
+      "band_width_m": 0.45,
+      "arm_angle_recheck_deg": 34.9,
+      "accepted": false
+    },
+    {
+      "capture": "before_p-40",
+      "band_deg": 139,
+      "arm_deg": 106,
+      "separation_deg": 33.0,
+      "arms": 17,
+      "arm_width_px": 11.4,
+      "arm_pitch_px": 104.1,
+      "pitch_fit_residual_px": 25.1,
+      "camera_height_m": 1.25,
+      "arm_reach_m": 0.79,
+      "band_width_m": 0.43,
+      "arm_angle_recheck_deg": 34.7,
+      "accepted": false
+    },
+    {
+      "capture": "before_close",
+      "band_deg": 154,
+      "arm_deg": 110,
+      "separation_deg": 44.0,
+      "arms": 11,
+      "arm_width_px": 7.6,
+      "arm_pitch_px": 71.3,
+      "pitch_fit_residual_px": 12.0,
+      "camera_height_m": 1.82,
+      "arm_reach_m": 0.99,
+      "band_width_m": 0.68,
+      "arm_angle_recheck_deg": 45.2,
+      "accepted": true
+    }
+  ]
+}

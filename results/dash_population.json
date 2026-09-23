@@ -1,0 +1,9 @@
+{
+  "components": 270,
+  "unclipped": 257,
+  "best_height_m": 3.55,
+  "hits": 9,
+  "share_at_regulated_size": 0.035,
+  "longer_excluded": 18,
+  "rule": "dashes when >50% within \u00b110% of the regulated 4 m (\u00a7182)"
+}

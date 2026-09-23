@@ -1,0 +1,1201 @@
+{
+ "note": "Every figure quoted anywhere in this repository, pinned to an RFC 6901 JSON pointer into the file that produced it. scripts/check_figures.py fails when one drifts and the pre-commit hook runs it. A number that is not here is not verified, wherever else it appears.",
+ "figures": [
+  {
+   "id": "chevron_to_boundary_deg",
+   "value": 46.41,
+   "source": "results/chevron_angle.json#/stripe_to_boundary/mean",
+   "convention": "degrees on the ground plane, length-weighted mean of Hough segments, four captures of one Street View panorama at fov 40/60/90 and pitch -20/-35",
+   "cited_in": [
+    "docs/markings-regulation.md",
+    "scripts/measure_chevron.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_chevron.py --write  (after ./scripts/fetch_streetview.sh)",
+   "expect": {
+    "$root/stripe_to_boundary/n": 4,
+    "$root/regulation_does_not_state_the_datum": true
+   }
+  },
+  {
+   "id": "chevron_to_road_deg",
+   "value": 57.47,
+   "source": "results/chevron_angle.json#/stripe_to_road/mean",
+   "convention": "degrees on the ground plane, length-weighted mean of Hough segments, four captures of one Street View panorama at fov 40/60/90 and pitch -20/-35",
+   "cited_in": [
+    "docs/markings-regulation.md",
+    "scripts/measure_chevron.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_chevron.py --write  (after ./scripts/fetch_streetview.sh)",
+   "expect": {
+    "$root/stripe_to_road/n": 4
+   }
+  },
+  {
+   "id": "chevron_method_spread_deg",
+   "value": 1.97,
+   "source": "results/chevron_angle.json#/stripe_to_boundary/sd",
+   "convention": "standard deviation across four captures of the same panorama through different lenses; the method disagreeing with itself",
+   "cited_in": [
+    "docs/markings-regulation.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_chevron.py --write  (after ./scripts/fetch_streetview.sh)",
+   "expect": {
+    "$root/stripe_to_boundary/max": 48.26
+   }
+  },
+  {
+   "id": "accidents_before_per_month",
+   "value": 1.0,
+   "source": "results/accidents.json#/before/per_month",
+   "convention": "A2 injury accidents per month within 250 m, 民國110 (2021), the year before work started",
+   "cited_in": [
+    "docs/accidents.md"
+   ],
+   "regenerate": "docs/accidents.md; data.gov.tw 12197 and 13139, spatial query at 250 m",
+   "expect": {
+    "$root/before/accidents": 12
+   }
+  },
+  {
+   "id": "accidents_during_per_month",
+   "value": 2.62,
+   "source": "results/accidents.json#/during/per_month",
+   "convention": "the same, 民國115 (2026) months 1-8, during construction",
+   "cited_in": [
+    "docs/accidents.md"
+   ],
+   "regenerate": "docs/accidents.md; data.gov.tw 12197 and 13139, spatial query at 250 m",
+   "expect": {
+    "$root/during/accidents": 21
+   }
+  },
+  {
+   "id": "accidents_national_control_ratio",
+   "value": 1.04,
+   "source": "results/accidents.json#/national_control/ratio",
+   "convention": "national A2 monthly mean 2026 over 2021; the control against a reporting change",
+   "cited_in": [
+    "docs/accidents.md"
+   ],
+   "regenerate": "docs/accidents.md; data.gov.tw 12197 and 13139, spatial query at 250 m",
+   "expect": {
+    "$root/national_control/before_per_month": 29698
+   }
+  },
+  {
+   "id": "accidents_poisson_p",
+   "value": 0.00016,
+   "source": "results/accidents.json#/poisson_test/p_one_sided",
+   "convention": "one-sided Poisson, observing 21 against 8.3 expected if only the national trend applied",
+   "cited_in": [
+    "docs/accidents.md"
+   ],
+   "regenerate": "docs/accidents.md; data.gov.tw 12197 and 13139, spatial query at 250 m",
+   "expect": {
+    "$root/poisson_test/observed": 21
+   }
+  },
+  {
+   "id": "original_photo_width_px",
+   "value": 3072,
+   "source": "results/pixel_budget.json#/field_photographs/distinct_sizes/0/width",
+   "convention": "pixels, the width every one of the 42 field photographs has; the census refuses to report anything if they are not all one size",
+   "cited_in": [
+    "docs/what-changed-2026-09-21.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "expect": {
+    "$root/field_photographs/n": 42,
+    "$root/field_photographs/uniform": true
+   }
+  },
+  {
+   "id": "original_photo_height_px",
+   "value": 4096,
+   "source": "results/pixel_budget.json#/field_photographs/distinct_sizes/0/height",
+   "convention": "pixels, the height every one of the 42 field photographs has",
+   "cited_in": [
+    "docs/what-changed-2026-09-21.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "expect": {
+    "$root/field_photographs/n": 42,
+    "$root/field_photographs/uniform": true
+   }
+  },
+  {
+   "id": "red_line_px_at_20m_original",
+   "value": 14.2,
+   "source": "results/pixel_budget.json#/red_line_10cm_at_20m_px/original",
+   "convention": "pixels subtended by §169's 10 cm red line at a stated 20 m, in the 3072x4096 original; f_px from EXIF FocalLengthIn35mmFilm on the diagonal convention. 20 m is a reference distance, not a measured one",
+   "cited_in": [
+    "docs/what-changed-2026-09-21.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "expect": {
+    "$root/camera/f_px": 2840.1,
+    "$root/reference_distance_m": 20.0
+   }
+  },
+  {
+   "id": "red_line_px_at_20m_1400",
+   "value": 4.85,
+   "source": "results/pixel_budget.json#/red_line_10cm_at_20m_px/1400",
+   "convention": "the same at the 1400 px working size",
+   "cited_in": [
+    "docs/what-changed-2026-09-21.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "expect": {
+    "$root/camera/f_px": 2840.1,
+    "$root/reference_distance_m": 20.0
+   }
+  },
+  {
+   "id": "red_line_px_at_20m_1000",
+   "value": 3.47,
+   "source": "results/pixel_budget.json#/red_line_10cm_at_20m_px/1000",
+   "convention": "the same at the 1000 px working size",
+   "cited_in": [
+    "docs/what-changed-2026-09-21.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "expect": {
+    "$root/camera/f_px": 2840.1,
+    "$root/reference_distance_m": 20.0
+   }
+  },
+  {
+   "id": "width_tolerance_px_at_20m_original",
+   "value": 0.85,
+   "source": "results/pixel_budget.json#/width_tolerance_6mm_at_20m_px/original",
+   "convention": "pixels subtended by the ±6 mm marking width tolerance at a stated 20 m, in the original",
+   "cited_in": [
+    "docs/what-changed-2026-09-21.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "expect": {
+    "$root/camera/f_px": 2840.1,
+    "$root/reference_distance_m": 20.0
+   }
+  },
+  {
+   "id": "width_tolerance_px_at_20m_1000",
+   "value": 0.21,
+   "source": "results/pixel_budget.json#/width_tolerance_6mm_at_20m_px/1000",
+   "convention": "the same at the 1000 px working size",
+   "cited_in": [
+    "docs/what-changed-2026-09-21.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "expect": {
+    "$root/camera/f_px": 2840.1,
+    "$root/reference_distance_m": 20.0
+   }
+  },
+  {
+   "id": "regulation_stripe_to_pitch_ratio",
+   "value": 0.4,
+   "source": "results/pixel_budget.json#/stripe_to_pitch_ratio",
+   "convention": "§171's 20 cm stripe over its 20+30 cm pitch. Arithmetic on a declared regulation constant, not a measurement of any road",
+   "cited_in": [
+    "docs/what-changed-2026-09-21.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "expect": {
+    "$root/regulation_cm/s171_stripe_width_cm": 20.0,
+    "$root/regulation_cm/s171_gap_cm": 30.0
+   }
+  },
+  {
+   "id": "opencv_runtime_version",
+   "value": "5.0.0",
+   "source": "results/opencv5_build.json#/opencv_version",
+   "convention": "cv2.__version__ of the installed build, introspected on a Darwin arm64 host; the document's subject is the same package version in the Lambda manylinux arm64 image, which is a different build of it",
+   "cited_in": [
+    "docs/opencv5.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "expect": {
+    "$root/opencv_python_package": "opencv-python-headless==5.0.0.93",
+    "$root/platform/machine": "arm64"
+   }
+  },
+  {
+   "id": "cv5_new_element_types_exposed",
+   "value": true,
+   "source": "results/opencv5_build.json#/new_element_types_exposed",
+   "convention": "all of CV_32U, CV_64U, CV_64S, CV_Bool, CV_16F reachable as cv2 attributes",
+   "cited_in": [
+    "docs/opencv5.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "expect": {
+    "$root/new_element_types_missing": []
+   }
+  },
+  {
+   "id": "cv5_bfloat16_exposed",
+   "value": false,
+   "source": "results/opencv5_build.json#/bfloat16_exposed",
+   "convention": "hasattr(cv2, 'CV_16BF'); the row the document marks as not exposed to Python",
+   "cited_in": [
+    "docs/opencv5.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write"
+  },
+  {
+   "id": "cv5_calib3d_submodules_present",
+   "value": [
+    "stereo"
+   ],
+   "source": "results/opencv5_build.json#/calib3d_submodules_present",
+   "convention": "which of geometry / calib / stereo / ptcloud reach Python after the calib3d split",
+   "cited_in": [
+    "docs/opencv5.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write"
+  },
+  {
+   "id": "cv5_features_module_present",
+   "value": [],
+   "source": "results/opencv5_build.json#/features_module_present",
+   "convention": "neither cv2.features nor cv2.features2d is present",
+   "cited_in": [
+    "docs/opencv5.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write"
+  },
+  {
+   "id": "cv5_dnn_engines_present",
+   "value": [
+    "ENGINE_AUTO",
+    "ENGINE_CLASSIC",
+    "ENGINE_NEW",
+    "ENGINE_ORT"
+   ],
+   "source": "results/opencv5_build.json#/dnn_engines_present",
+   "convention": "the new DNN engine selectors, which is what the ONNX path depends on",
+   "cited_in": [
+    "docs/opencv5.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "expect": {
+    "$root/cpu_features_line_present": true
+   }
+  },
+  {
+   "id": "cv5_cpu_features_line",
+   "value": "NEON FP16 NEON_DOTPROD NEON_FP16 *NEON_BF16",
+   "source": "results/opencv5_build.json#/cpu_features_line",
+   "convention": "cv2.getCPUFeaturesLine() on THIS arm64 host. That the Lambda arm64 image dispatches the same way is a deployment claim and is not established by this figure",
+   "cited_in": [
+    "docs/opencv5.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "expect": {
+    "$root/platform/machine": "arm64"
+   }
+  },
+  {
+   "id": "mlsd_onnx_size_mib",
+   "value": 2.4,
+   "source": "results/opencv5_build.json#/mlsd_onnx/mib",
+   "convention": "MiB on disk of the M-LSD ONNX export kept in models/mlsd/",
+   "cited_in": [
+    "docs/opencv5.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "expect": {
+    "$root/mlsd_onnx/bytes": 2485936
+   }
+  },
+  {
+   "id": "bridge_structure_id",
+   "value": "樹林陸橋2B-2(A)",
+   "source": "results/control_group.json#/sight_line/structure",
+   "convention": "the structure the narration names as the reason the lane drops. Transcribed from 新北市轄內橋梁基本資料, a public register; nothing about this bridge was measured by this project and no photograph in the field set resolves it",
+   "cited_in": [
+    "README.md",
+    "docs/official-records.md",
+    "docs/evidence.md",
+    "docs/status-2026-09-20.md",
+    "src/marking/situation.py",
+    "aws/handler.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/control_group.py  (from the repository root; it writes results/control_group.json in place)",
+   "expect": {
+    "$parent/grade": "市道",
+    "$parent/source": "新北市轄內橋梁基本資料"
+   }
+  },
+  {
+   "id": "bridge_near_end_m",
+   "value": 430,
+   "source": "results/control_group.json#/sight_line/near_end_m",
+   "convention": "metres to the near end of the approach ramp, as the bridge register states it. G19: this number reached the narration on 2026-09-22 without being registered, which is the rule this file exists to enforce. Registering it does not fix its second problem, recorded as E30: the narration says 距此 430 公尺 and 此 is the camera, while V08 states the 42 photographs carry no GPS. The register's datum and the camera's position are not the same point and the offset between them is unknown",
+   "cited_in": [
+    "README.md",
+    "docs/official-records.md",
+    "docs/evidence.md",
+    "docs/status-2026-09-20.md",
+    "src/marking/situation.py",
+    "aws/handler.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/control_group.py  (from the repository root; it writes results/control_group.json in place)",
+   "expect": {
+    "$parent/structure": "樹林陸橋2B-2(A)",
+    "$parent/source": "新北市轄內橋梁基本資料"
+   }
+  },
+  {
+   "id": "bridge_length_m",
+   "value": 355.6,
+   "source": "results/control_group.json#/sight_line/length_m",
+   "convention": "metres, the structure's own length from the bridge register. A transcription, not a measurement; re-running the producing script reproduces the transcription and cannot check it against the register",
+   "cited_in": [
+    "README.md",
+    "docs/official-records.md",
+    "docs/evidence.md",
+    "docs/status-2026-09-20.md",
+    "src/marking/situation.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/control_group.py  (from the repository root; it writes results/control_group.json in place)",
+   "expect": {
+    "$parent/structure": "樹林陸橋2B-2(A)",
+    "$parent/near_end_m": 430
+   }
+  },
+  {
+   "id": "mlsd_forward_median_ms",
+   "value": 44.5,
+   "source": "results/opencv5_build.json#/mlsd_forward/median_ms",
+   "convention": "median wall-clock of 20 forward passes at 512x512 through ENGINE_NEW, one untimed warm-up first, synthetic input. Machine- and load-dependent: three invocations on the same machine gave medians of 34.4, 41.2 and 44.5 ms, so this pins what one run measured and not a property of the model",
+   "cited_in": [
+    "docs/opencv5.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "expect": {
+    "$root/mlsd_forward/n": 20,
+    "$root/mlsd_forward/engine": "ENGINE_NEW"
+   }
+  },
+  {
+   "id": "excavation_source_sha256",
+   "value": "15f48dc9ecc0362b2edec1d23ff6d51ee60d553389919a068762edeaad8b038d",
+   "source": "results/excavation_live_2026-09-22.json#/sha256_of_source",
+   "convention": "sha256 of the 新北市政府道路挖掘資訊 CSV as fetched 2026-09-22. The recorder hashed the fetched file independently and got the same digest. The CSV itself is NOT in the repository and data/ is gitignored, so on a clean clone this digest has nothing to check against - see the gap queue.",
+   "cited_in": [
+    "docs/evidence-index.md"
+   ],
+   "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
+   "archival_only": true,
+   "expect": {
+    "$root/rows_in_source": 2222
+   }
+  },
+  {
+   "id": "excavation_source_rows",
+   "value": 2222,
+   "source": "results/excavation_live_2026-09-22.json#/rows_in_source",
+   "convention": "data rows in that CSV, header excluded. Recorder counted 2222 with csv.DictReader on the fetched file.",
+   "cited_in": [
+    "docs/evidence-index.md"
+   ],
+   "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
+   "archival_only": true,
+   "expect": {
+    "$root/sha256_of_source": "15f48dc9ecc0362b2edec1d23ff6d51ee60d553389919a068762edeaad8b038d"
+   }
+  },
+  {
+   "id": "excavation_permit_licno",
+   "value": "新北捷五所字第1140874494號",
+   "source": "results/excavation_live_2026-09-22.json#/the_case_that_was_missed/licno",
+   "convention": "permit number, transcribed from the register. The raw cell carries a trailing tab, which this field has had stripped; the raw form is at #/cases/0/licno.",
+   "cited_in": [
+    "docs/evidence-ledger-2026-09-22.md",
+    "docs/evidence-index.md"
+   ],
+   "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
+   "archival_only": true,
+   "expect": {
+    "$root/the_case_that_was_missed/registered_point_metres_from_site": 1892
+   }
+  },
+  {
+   "id": "excavation_permit_digarea",
+   "value": "柏油,長750公尺,寬3公尺,深1.2公尺,面積2250平方公尺",
+   "source": "results/excavation_live_2026-09-22.json#/the_case_that_was_missed/digarea",
+   "convention": "the register's own description of the excavation. NOT a measurement of the photographed stretch: it is the permitted extent for the whole case. The verbatim register cell, with full-width punctuation and the 總面積 tail, is at #/cases/0/digarea.",
+   "cited_in": [
+    "docs/evidence-ledger-2026-09-22.md",
+    "docs/evidence-index.md"
+   ],
+   "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
+   "archival_only": true,
+   "expect": {
+    "$root/the_case_that_was_missed/period": "2025-05-06 → 2026-09-30"
+   }
+  },
+  {
+   "id": "excavation_permit_period",
+   "value": "2025-05-06 → 2026-09-30",
+   "source": "results/excavation_live_2026-09-22.json#/the_case_that_was_missed/period",
+   "convention": "case start and end. Recorder re-derived both from the CSV's ROC fields casestartdate_yyymmddroc=1140506 and caseenddate_yyymmddroc=1150930, and they agree. The photographs are dated 2026-09-20, inside it.",
+   "cited_in": [
+    "docs/evidence-ledger-2026-09-22.md",
+    "docs/evidence-index.md"
+   ],
+   "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
+   "archival_only": true,
+   "expect": {
+    "$root/cases/0/caseid": "335384"
+   }
+  },
+  {
+   "id": "excavation_permit_hours_as_first_granted",
+   "value": "日間09-21時、夜間22-06時",
+   "source": "results/excavation_live_2026-09-22.json#/the_case_that_was_missed/hours",
+   "convention": "THE FIRST WINDOW ONLY, and superseded. The register's `workperiod` cell records seven amendments; the one covering the photo date is 第7次變更 115年09月08日起115年09月30日止, whose daytime window is 日間09時至16時, not 09-21. The recorder read the full cell out of the CSV. Anything that says this permit allowed daytime work until 21:00 on 2026-09-20 is quoting a window that had lapsed.",
+   "cited_in": [
+    "docs/evidence-index.md"
+   ],
+   "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
+   "archival_only": true,
+   "expect": {
+    "$root/the_case_that_was_missed/period": "2025-05-06 → 2026-09-30"
+   }
+  },
+  {
+   "id": "excavation_permit_point_distance_m",
+   "value": 1892,
+   "source": "results/excavation_live_2026-09-22.json#/the_case_that_was_missed/registered_point_metres_from_site",
+   "convention": "metres from the site point (TWD97 292772, 2766143) to the case's ONE registered point (twd97x 291465.0145, twd97y 2767510.7433). Recorder recomputed 1891.8 by hypot, which rounds to this. The trench is 750 m long, so this distance neither places nor excludes the trench at the photographed stretch - the file says so itself.",
+   "cited_in": [
+    "docs/evidence-ledger-2026-09-22.md",
+    "docs/evidence-index.md"
+   ],
+   "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
+   "archival_only": true,
+   "expect": {
+    "$root/the_case_that_was_missed/licno": "新北捷五所字第1140874494號"
+   }
+  },
+  {
+   "id": "excavation_permit_hours_in_force_on_photo_day",
+   "value": "日間09時至16時、夜間22時至隔日06時",
+   "source": "results/excavation_live_2026-09-22.json#/the_case_that_was_missed/hours_in_force_on_photo_day",
+   "convention": "第7次變更,115/09/08-115/09/30,拍照當日 2026-09-20 適用。此案共變更七次,日間時段在 09-21 與 09-16 間反覆,故『最初核准』與『當日適用』必須分開登錄——主代理曾引用前者並據此寫下『照片在核准時段內』,見 E48。照片 EXIF 15:56-16:01,橫跨當日結束點 16:00。",
+   "cited_in": [
+    "docs/evidence-ledger-2026-09-22.md",
+    "isolation/ERRORS.md"
+   ],
+   "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
+   "archival_only": true,
+   "expect": {
+    "$root/the_case_that_was_missed/photographs_vs_permitted_hours": "照片 EXIF 15:56-16:01,橫跨當天日間核准時段的結束點 16:00。"
+   }
+  },
+  {
+   "id": "assess_population",
+   "value": 42,
+   "source": "results/assess_2026-09-22.json#/totals/assessed",
+   "convention": "photographs on which assess() returned a verdict, of the 42 in results/field_index_2026-09-20.csv. The first recorded full-population run of the delivery function - E24. Field of view read from each file's own EXIF, never supplied. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/lane_width_m": null
+   }
+  },
+  {
+   "id": "assess_findings_total",
+   "value": 74,
+   "source": "results/assess_2026-09-22.json#/totals/findings_total",
+   "convention": "findings returned across all 42, counting a photograph once per code. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0
+   }
+  },
+  {
+   "id": "assess_photographs_with_a_finding",
+   "value": 39,
+   "source": "results/assess_2026-09-22.json#/totals/photographs_with_at_least_one_finding",
+   "convention": "photographs on which at least one detector fired. Detections, not confirmations: docs/four-scenarios.md opens 27 of the boxes by hand and rejects some of them. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0
+   }
+  },
+  {
+   "id": "assess_distinct_finding_sets",
+   "value": 11,
+   "source": "results/assess_2026-09-22.json#/totals/distinct_finding_sets_n",
+   "convention": "how many different combinations of findings the 42 photographs give, at posted_kmh 50. This is what 'how many scenarios' resolves to when it is read off the findings rather than chosen; the document groups by place and time instead, which is a different and stated choice. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/posted_kmh": 50.0
+   }
+  },
+  {
+   "id": "assess_edge_not_carriageway_n",
+   "value": 25,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/EDGE_NOT_CARRIAGEWAY",
+   "convention": "photographs on which the §169 kerbside-red detector fired. Independent of posted_kmh. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0
+   }
+  },
+  {
+   "id": "assess_carriageway_occupied_n",
+   "value": 9,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/CARRIAGEWAY_OCCUPIED",
+   "convention": "photographs on which the works-hoarding detector fired above its 0.08 width_frac threshold. Independent of posted_kmh. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0
+   }
+  },
+  {
+   "id": "assess_surface_in_pieces_n",
+   "value": 34,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/SURFACE_IN_PIECES",
+   "convention": "photographs on which more than two surfacings were distinguished inside the running lane. SEED-DEPENDENT and reproducible only because of it: `surface_types_stable` calls `cv2.setRNGSeed(0)`, so seed 0 gives 34 every time. Requiring seeds 0-4 to all agree gives 20 - measured 2026-09-22 over all 42, and that spread is not yet recorded in any file, which is G25. Before the seed was added the same count was a draw: E43. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0
+   }
+  },
+  {
+   "id": "assess_no_lane_change_n",
+   "value": 1,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/NO_LANE_CHANGE",
+   "convention": "photographs on which the §167 double-white detector fired - F15. A detection, not a confirmed true positive. Independent of posted_kmh. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0
+   }
+  },
+  {
+   "id": "assess_taper_too_steep_n_at_50",
+   "value": 5,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/TAPER_TOO_STEEP",
+   "convention": "photographs on which the taper fired, AT posted_kmh 50. A function of the speed the caller supplies, not a property of the road: required = 155/V^2 also decides where taper_ensemble's loop stops, so the speed moves CANNOT_MEASURE and INDETERMINATE too. At 50 the split is 28/9/5. docs/four-scenarios.md runs at 30 and reports 1/42 with 20/21/1; no committed file holds that run. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/posted_kmh": 50.0
+   }
+  },
+  {
+   "id": "assess_roi_frac_min",
+   "value": 0.555,
+   "source": "results/assess_2026-09-22.json#/totals/roi_frac/min",
+   "convention": "smallest road_region share over the 42, recomputed by the driver because assess() reports roi_frac only when it refuses (E34). The frame gate MIN_ROAD_FRAC is 0.30, so 0 of 42 were wrongly refused - standing rule 10's other half. situation.py's own comment says the real frames run 0.556 to 0.600; over all 42 it is 0.5550 to 0.6001. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0
+   }
+  },
+  {
+   "id": "assess_roi_frac_max",
+   "value": 0.6001,
+   "source": "results/assess_2026-09-22.json#/totals/roi_frac/max",
+   "convention": "largest road_region share over the 42. road_region is a declared band below 40% of frame height, so 0.60 is its ceiling by construction and 0.6001 is that ceiling after integer row rounding. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0
+   }
+  },
+  {
+   "id": "field_capture_span_s",
+   "value": 304,
+   "source": "results/assess_2026-09-22.json#/totals/captured/span_s",
+   "convention": "seconds from the first field photograph to the last, 15:56:03 to 16:01:07 on 2026-09-20, from MANIFEST.csv's `captured` column. docs/field-index-2026-09-20.md has quoted this window since the day of the survey and until now no script produced it. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$parent/first": "2026:09:20 15:56:03",
+    "$parent/last": "2026:09:20 16:01:07"
+   }
+  },
+  {
+   "id": "field_fov_deg_wide",
+   "value": 56.812,
+   "source": "results/assess_2026-09-22.json#/totals/fov_deg/max",
+   "convention": "horizontal field of view of the 39 photographs taken at f35 = 24 mm, from each file's own EXIF: focal_px = f35 * hypot(w,h) / 43.267, then 2*atan(w/(2*focal_px)). Not the 60 the endpoint has always been passed - E15. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0
+   }
+  },
+  {
+   "id": "field_fov_deg_narrow",
+   "value": 31.516,
+   "source": "results/assess_2026-09-22.json#/totals/fov_deg/min",
+   "convention": "the same for the 3 photographs taken at f35 = 46 mm - F34, F35, F36. Measuring these three at 56.8 degrees is the error standing rule 1 found. This run is pinned to the bytes it ran on, not to a commit: `tree_state.src_module_sha256_16` in the same file. Three agents were committing to this repository while it ran and HEAD moved four times. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/totals/f35_mm_from_exif/46.0": 3
+   }
+  },
+  {
+   "id": "assess_taper_too_steep_n_at_30",
+   "value": 1,
+   "source": "results/assess_2026-09-22_kmh30.json#/totals/findings_by_code/TAPER_TOO_STEEP",
+   "convention": "photographs on which the taper fired at posted_kmh 30, the works limit painted on the carriageway. This is the figure docs/four-scenarios.md quotes; at 50 the same run gives 5. Re-derived independently by the recording side and it agrees. Pinned to the bytes it ran on - `tree_state.src_module_sha256_16` in the same file - because HEAD moved four times while this session's runs were in flight. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/posted_kmh": 30.0
+   }
+  },
+  {
+   "id": "assess_taper_cannot_measure_at_30",
+   "value": 20,
+   "source": "results/assess_2026-09-22_kmh30.json#/totals/taper_states/CANNOT_MEASURE",
+   "convention": "docs/four-scenarios.md §7.4's table: the speed the CALLER supplies decides whether a photograph can be measured at all, not only what the verdict is. `required = 155/V^2` is both the comparison and the condition on taper_ensemble's two early exits, so it moves where the grid loop stops. At 30 the split is 20/21/1; at 50, 28/9/5. Same 42 files, same detectors, same module hashes. Pinned to the bytes it ran on - `tree_state.src_module_sha256_16` in the same file - because HEAD moved four times while this session's runs were in flight. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/posted_kmh": 30.0
+   }
+  },
+  {
+   "id": "assess_taper_indeterminate_at_30",
+   "value": 21,
+   "source": "results/assess_2026-09-22_kmh30.json#/totals/taper_states/INDETERMINATE",
+   "convention": "docs/four-scenarios.md §7.4's table: the speed the CALLER supplies decides whether a photograph can be measured at all, not only what the verdict is. `required = 155/V^2` is both the comparison and the condition on taper_ensemble's two early exits, so it moves where the grid loop stops. At 30 the split is 20/21/1; at 50, 28/9/5. Same 42 files, same detectors, same module hashes. Pinned to the bytes it ran on - `tree_state.src_module_sha256_16` in the same file - because HEAD moved four times while this session's runs were in flight. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/posted_kmh": 30.0
+   }
+  },
+  {
+   "id": "assess_taper_cannot_measure_at_50",
+   "value": 28,
+   "source": "results/assess_2026-09-22.json#/totals/taper_states/CANNOT_MEASURE",
+   "convention": "docs/four-scenarios.md §7.4's table: the speed the CALLER supplies decides whether a photograph can be measured at all, not only what the verdict is. `required = 155/V^2` is both the comparison and the condition on taper_ensemble's two early exits, so it moves where the grid loop stops. At 30 the split is 20/21/1; at 50, 28/9/5. Same 42 files, same detectors, same module hashes. Pinned to the bytes it ran on - `tree_state.src_module_sha256_16` in the same file - because HEAD moved four times while this session's runs were in flight. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/posted_kmh": 50.0
+   }
+  },
+  {
+   "id": "assess_taper_indeterminate_at_50",
+   "value": 9,
+   "source": "results/assess_2026-09-22.json#/totals/taper_states/INDETERMINATE",
+   "convention": "docs/four-scenarios.md §7.4's table: the speed the CALLER supplies decides whether a photograph can be measured at all, not only what the verdict is. `required = 155/V^2` is both the comparison and the condition on taper_ensemble's two early exits, so it moves where the grid loop stops. At 30 the split is 20/21/1; at 50, 28/9/5. Same 42 files, same detectors, same module hashes. Pinned to the bytes it ran on - `tree_state.src_module_sha256_16` in the same file - because HEAD moved four times while this session's runs were in flight. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/posted_kmh": 50.0
+   }
+  },
+  {
+   "id": "assess_edge_not_carriageway_n_at_30",
+   "value": 25,
+   "source": "results/assess_2026-09-22_kmh30.json#/totals/findings_by_code/EDGE_NOT_CARRIAGEWAY",
+   "convention": "the §169 count is unchanged by the speed - 25 at both 30 and 50 - which is the control showing that the taper table above moves because of the speed and not because the two runs differ in some other way. Pinned to the bytes it ran on - `tree_state.src_module_sha256_16` in the same file - because HEAD moved four times while this session's runs were in flight. Re-run when those hashes change.",
+   "cited_in": [
+    "docs/four-scenarios.md",
+    "scripts/assess_field.py"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
+   "expect": {
+    "$root/totals/n": 42,
+    "$root/totals/errors": 0,
+    "$root/posted_kmh": 30.0
+   }
+  },
+  {
+   "id": "redline_gap_F31_median_m",
+   "value": 0.669,
+   "source": "results/redline_gap_F31.json#/summary/median_m",
+   "convention": "median over five stations of the ground distance from the intact kerbside red line's inner edge to the worn red line's centre; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
+   "cited_in": [
+    "isolation/REDLINE.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --write",
+   "expect": {
+    "$root/summary/stations_measured": 5,
+    "$root/ruler/m": 0.1
+   }
+  },
+  {
+   "id": "redline_gap_F31_range_min_m",
+   "value": 0.613,
+   "source": "results/redline_gap_F31.json#/summary/min_m",
+   "convention": "smallest of the five station readings; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
+   "cited_in": [
+    "isolation/REDLINE.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --write",
+   "expect": {
+    "$root/summary/stations_measured": 5
+   }
+  },
+  {
+   "id": "redline_gap_F31_range_max_m",
+   "value": 0.703,
+   "source": "results/redline_gap_F31.json#/summary/max_m",
+   "convention": "largest of the five station readings; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
+   "cited_in": [
+    "isolation/REDLINE.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --write",
+   "expect": {
+    "$root/summary/stations_measured": 5
+   }
+  },
+  {
+   "id": "redline_gap_F31_affine_median_m",
+   "value": 0.576,
+   "source": "results/redline_gap_F31.json#/summary/affine_median_m",
+   "convention": "the same five stations with NO perspective correction - the plain image ratio times 10 cm. Kept as the size of the correction the vanishing point supplies, +9 cm",
+   "cited_in": [
+    "isolation/REDLINE.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --write",
+   "expect": {
+    "$root/summary/stations_measured": 5
+   }
+  },
+  {
+   "id": "redline_gap_F30_median_m",
+   "value": 0.68,
+   "source": "results/redline_gap_F30.json#/summary/median_m",
+   "convention": "median over five stations on F30, an independent handheld frame of the same stretch as F31; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
+   "cited_in": [
+    "isolation/REDLINE.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --frame 30 --write",
+   "expect": {
+    "$root/summary/stations_measured": 5,
+    "$root/ruler/m": 0.1
+   }
+  },
+  {
+   "id": "redline_gap_F32_median_m",
+   "value": 0.635,
+   "source": "results/redline_gap_F32.json#/summary/median_m",
+   "convention": "median over five stations on F32, an independent handheld frame of the same stretch as F31; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
+   "cited_in": [
+    "isolation/REDLINE.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --frame 32 --write",
+   "expect": {
+    "$root/summary/stations_measured": 5,
+    "$root/ruler/m": 0.1
+   }
+  },
+  {
+   "id": "taper_phone_deg_median",
+   "value": 5.5,
+   "source": "results/taper_phone.json#/summary/taper_deg_median",
+   "convention": "median over the frames that pass (F17 6.20, F40 4.79); ground angle between the chevron's two edge pencils (its left edge diverging from the lane, its right edge along it), angle_between(K^-1 v1, K^-1 v2) with K from EXIF; rotation-invariant, no pitch; polygon found from white-paint density; the two LARGEST pencils inside it, each >=5 segments, jittered sd <=1 deg, polygon <=0.25 of frame",
+   "cited_in": [
+    "isolation/DETECTORS.md",
+    "AXIS.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_taper_phone.py --write",
+   "expect": {
+    "$root/summary/frames_ok": [
+     "F17",
+     "F40"
+    ]
+   }
+  },
+  {
+   "id": "taper_phone_ratio_median",
+   "value": 10.6,
+   "source": "results/taper_phone.json#/summary/ratio_median",
+   "convention": "L/W = 1/tan(taper); 表 4.2.7 asks 16:1 at 50 km/h, 23:1 at 60, 5:1 at 30; ground angle between the chevron's two edge pencils (its left edge diverging from the lane, its right edge along it), angle_between(K^-1 v1, K^-1 v2) with K from EXIF; rotation-invariant, no pitch; polygon found from white-paint density; the two LARGEST pencils inside it, each >=5 segments, jittered sd <=1 deg, polygon <=0.25 of frame",
+   "cited_in": [
+    "isolation/DETECTORS.md",
+    "AXIS.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_taper_phone.py --write",
+   "expect": {
+    "$root/summary/frames_ok": [
+     "F17",
+     "F40"
+    ]
+   }
+  },
+  {
+   "id": "taper_phone_ratio_min",
+   "value": 9.2,
+   "source": "results/taper_phone.json#/summary/ratio_min",
+   "convention": "F17; ground angle between the chevron's two edge pencils (its left edge diverging from the lane, its right edge along it), angle_between(K^-1 v1, K^-1 v2) with K from EXIF; rotation-invariant, no pitch; polygon found from white-paint density; the two LARGEST pencils inside it, each >=5 segments, jittered sd <=1 deg, polygon <=0.25 of frame",
+   "cited_in": [
+    "isolation/DETECTORS.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_taper_phone.py --write",
+   "expect": {
+    "$root/summary/frames_ok": [
+     "F17",
+     "F40"
+    ]
+   }
+  },
+  {
+   "id": "taper_phone_ratio_max",
+   "value": 11.9,
+   "source": "results/taper_phone.json#/summary/ratio_max",
+   "convention": "F40; ground angle between the chevron's two edge pencils (its left edge diverging from the lane, its right edge along it), angle_between(K^-1 v1, K^-1 v2) with K from EXIF; rotation-invariant, no pitch; polygon found from white-paint density; the two LARGEST pencils inside it, each >=5 segments, jittered sd <=1 deg, polygon <=0.25 of frame",
+   "cited_in": [
+    "isolation/DETECTORS.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_taper_phone.py --write",
+   "expect": {
+    "$root/summary/frames_ok": [
+     "F17",
+     "F40"
+    ]
+   }
+  },
+  {
+   "id": "solid_line_double_white_start_m",
+   "value": 0.0,
+   "source": "results/solid_line_extent.json#/extents/double_white_start_m",
+   "convention": "where 「往板橋/往樹林」 is painted and the double white line begins; defines the axis origin; along-road metres from the double white line's start, read by eye from Street View panoramas placed at known positions (2025-06); +-5 m; not a detector output",
+   "cited_in": [
+    "AXIS.md"
+   ],
+   "regenerate": "no script; read by eye from output/seq and output/seq_ext contact sheets. Re-fetch: scripts/fetch_streetview.sh <lat> <lon> 141.6 -25 90 <out>, points from results/pano_sequence.json and 85-135 m along bearing 136.3 from the 0 m point",
+   "expect": {
+    "$root/extents/uncertainty_m": 5.0
+   },
+   "archival_only": true
+  },
+  {
+   "id": "solid_line_chevron_start_m",
+   "value": 35.5,
+   "source": "results/solid_line_extent.json#/extents/chevron_start_m",
+   "convention": "first panorama in which the chevron hatching is present; along-road metres from the double white line's start, read by eye from Street View panoramas placed at known positions (2025-06); +-5 m; not a detector output",
+   "cited_in": [
+    "AXIS.md"
+   ],
+   "regenerate": "no script; read by eye from output/seq and output/seq_ext contact sheets. Re-fetch: scripts/fetch_streetview.sh <lat> <lon> 141.6 -25 90 <out>, points from results/pano_sequence.json and 85-135 m along bearing 136.3 from the 0 m point",
+   "expect": {
+    "$root/extents/uncertainty_m": 5.0
+   },
+   "archival_only": true
+  },
+  {
+   "id": "solid_line_bridge_wall_first_seen_m",
+   "value": 66.0,
+   "source": "results/solid_line_extent.json#/extents/bridge_wall_first_seen_m",
+   "convention": "first panorama with the bridge's parapet wall on the right; along-road metres from the double white line's start, read by eye from Street View panoramas placed at known positions (2025-06); +-5 m; not a detector output",
+   "cited_in": [
+    "AXIS.md"
+   ],
+   "regenerate": "no script; read by eye from output/seq and output/seq_ext contact sheets. Re-fetch: scripts/fetch_streetview.sh <lat> <lon> 141.6 -25 90 <out>, points from results/pano_sequence.json and 85-135 m along bearing 136.3 from the 0 m point",
+   "expect": {
+    "$root/extents/uncertainty_m": 5.0
+   },
+   "archival_only": true
+  },
+  {
+   "id": "solid_line_bridge_head_m",
+   "value": 85.0,
+   "source": "results/solid_line_extent.json#/extents/bridge_head_m",
+   "convention": "first panorama where the main lane is on the ramp and the Street View car has moved to the service lane; along-road metres from the double white line's start, read by eye from Street View panoramas placed at known positions (2025-06); +-5 m; not a detector output",
+   "cited_in": [
+    "AXIS.md"
+   ],
+   "regenerate": "no script; read by eye from output/seq and output/seq_ext contact sheets. Re-fetch: scripts/fetch_streetview.sh <lat> <lon> 141.6 -25 90 <out>, points from results/pano_sequence.json and 85-135 m along bearing 136.3 from the 0 m point",
+   "expect": {
+    "$root/extents/uncertainty_m": 5.0
+   },
+   "archival_only": true
+  },
+  {
+   "id": "solid_line_taper_start_2024_09_m",
+   "value": 49.0,
+   "source": "results/solid_line_extent.json#/epochs/2024-09/taper_start_m",
+   "convention": "first 2024-09 panorama with cones/chevron ahead; behind it the centre is double yellow with no solid line; along-road metres, +-5 m; not a detector output",
+   "cited_in": [
+    "AXIS.md"
+   ],
+   "regenerate": "no script; read by eye from output/epochs_axis (fetch by pano id, heading 141.6/321.6, pitch -25, fov 90)",
+   "archival_only": true,
+   "expect": {
+    "$root/extents/uncertainty_m": 5.0
+   }
+  },
+  {
+   "id": "solid_line_extension_m",
+   "value": 49.0,
+   "source": "results/solid_line_extent.json#/epochs/extension_m/solid_line_start_moved_back_by",
+   "convention": "upper bound: 2024-09 start is bracketed only from below, so 35-50 m, quoted as about 40; along-road metres, +-5 m; not a detector output",
+   "cited_in": [
+    "AXIS.md"
+   ],
+   "regenerate": "no script; read by eye from output/epochs_axis (fetch by pano id, heading 141.6/321.6, pitch -25, fov 90)",
+   "archival_only": true,
+   "expect": {
+    "$root/extents/uncertainty_m": 5.0
+   }
+  },
+  {
+   "id": "merge_window_50kmh_s",
+   "value": 1.1,
+   "source": "results/merge_window.json#/rows/2/window_after_reaction_s",
+   "convention": "taper length / speed at 50 km/h minus the held reaction time; arithmetic, not a measurement",
+   "cited_in": [
+    "AXIS.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/merge_window.py --write",
+   "expect": {
+    "$root/inputs/chevron_start_m": 35.5
+   }
+  },
+  {
+   "id": "merge_window_30kmh_s",
+   "value": 3.4,
+   "source": "results/merge_window.json#/rows/0/window_after_reaction_s",
+   "convention": "same at 30 km/h, the works-period limit",
+   "cited_in": [
+    "AXIS.md"
+   ],
+   "regenerate": "/opt/anaconda3/bin/python3 scripts/merge_window.py --write",
+   "expect": {
+    "$root/inputs/chevron_start_m": 35.5
+   }
+  }
+ ],
+ "reproducibility": "Each entry carries the command that regenerates its source and an `expect` block pinning a neighbouring value, so a mis-aimed pointer fails instead of quietly passing.",
+ "withdrawn_figures": {
+  "note": "These were published figures until 2026-09-21. Their source was withdrawn when the measurement proved irreproducible. They are kept here, out of `figures`, so the record shows what was claimed and what happened to it rather than only what stands.",
+  "withdrawn_on": "2026-09-21",
+  "entries": [
+   {
+    "id": "taper_rate_relative_deg",
+    "value": 11.4,
+    "source": "results/taper_rate.json#/measured/relative_deg_mean",
+    "convention": "chevron boundary's ground bearing minus the road's own, mean of two Street View captures at different fov and pitch",
+    "cited_in": [
+     "docs/timeline-116.md"
+    ],
+    "regenerate": "see docs/timeline-116.md; scripts/fetch_chevron_captures.sh then the taper-rate block",
+    "expect": {
+     "$root/measured/taper_rate": 0.202
+    }
+   },
+   {
+    "id": "taper_equivalent_design_speed",
+    "value": 27.8,
+    "source": "results/taper_rate.json#/measured/equivalent_design_speed_kmh",
+    "convention": "km/h, from rate = 155/V² inverted; the speed the painted taper would be adequate for",
+    "cited_in": [
+     "docs/timeline-116.md"
+    ],
+    "regenerate": "see docs/timeline-116.md; scripts/fetch_chevron_captures.sh then the taper-rate block",
+    "expect": {
+     "$root/measured/relative_deg_range": [
+      10.7,
+      12.1
+     ]
+    }
+   }
+  ],
+  "assess_population": {
+   "value": 42,
+   "source": "results/assess_2026-09-22.json#/totals/assessed",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "assess_edge_not_carriageway_n": {
+   "value": 25,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/EDGE_NOT_CARRIAGEWAY",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "assess_carriageway_occupied_n": {
+   "value": 9,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/CARRIAGEWAY_OCCUPIED",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "assess_no_lane_change_n": {
+   "value": 1,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/NO_LANE_CHANGE",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "assess_taper_too_steep_n_at_50": {
+   "value": 5,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/TAPER_TOO_STEEP",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "assess_distinct_finding_sets": {
+   "value": 13,
+   "source": "results/assess_2026-09-22.json#/totals/distinct_finding_sets_n",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "assess_roi_frac_min": {
+   "value": 0.555,
+   "source": "results/assess_2026-09-22.json#/totals/roi_frac/min",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "assess_roi_frac_max": {
+   "value": 0.6001,
+   "source": "results/assess_2026-09-22.json#/totals/roi_frac/max",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "assess_surface_types_unstable_n": {
+   "value": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F07",
+    "F08",
+    "F16",
+    "F18",
+    "F22",
+    "F23",
+    "F28",
+    "F30",
+    "F36",
+    "F39"
+   ],
+   "source": "results/assess_2026-09-22.json#/totals/surface_types_stability/unstable",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "field_capture_span_s": {
+   "value": 304,
+   "source": "results/assess_2026-09-22.json#/totals/captured/span_s",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "field_fov_deg_wide": {
+   "value": 56.812,
+   "source": "results/assess_2026-09-22.json#/totals/fov_deg/max",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "field_fov_deg_narrow": {
+   "value": 31.516,
+   "source": "results/assess_2026-09-22.json#/totals/fov_deg/min",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "assess_surface_in_pieces_n": {
+   "value": 20,
+   "source": "results/assess_2026-09-22.json#/totals/findings_by_code/SURFACE_IN_PIECES",
+   "withdrawn": "2026-09-22",
+   "why": "來源 results/assess_2026-09-22.json 未進版控,且由未提交的 src/marking/situation.py 產生(該模組 sha256 在登錄後已改變)。乾淨 clone 重現不出來,而登錄表的全部用途就是可重現。登錄時相符的三項現已不符:distinct_finding_sets 13→11、surface_in_pieces 20→34、unstable 名單 15→13 項。那不是量測變了,是那個檔案在被登錄之後又被跑過一次,而沒有人知道是哪一版程式跑的。這正是它不該被登錄的證明。待現行 HEAD 上跑出一次可提交的全母體後重新登錄。見 G36。"
+  },
+  "chevron_phone_F37_stripe_to_road_deg": "2026-09-22: a second road point solved from the stripes' equal spacing sits about 1000 px from the RANSAC one and moves the angle from 43.75 to 52.55 deg; the 0.39 deg sd was pixel jitter only. The script now refuses F37 on that disagreement; results/chevron_phone_F37.json keeps both estimates. Quotable only as a range: 43.8-52.6 deg, 0.63-0.72 m per crossing.",
+  "chevron_phone_F37_pitch_along_road_m": "2026-09-22: a second road point solved from the stripes' equal spacing sits about 1000 px from the RANSAC one and moves the angle from 43.75 to 52.55 deg; the 0.39 deg sd was pixel jitter only. The script now refuses F37 on that disagreement; results/chevron_phone_F37.json keeps both estimates. Quotable only as a range: 43.8-52.6 deg, 0.63-0.72 m per crossing.",
+  "chevron_phone_F37_equal_spacing_median": "2026-09-22: a second road point solved from the stripes' equal spacing sits about 1000 px from the RANSAC one and moves the angle from 43.75 to 52.55 deg; the 0.39 deg sd was pixel jitter only. The script now refuses F37 on that disagreement; results/chevron_phone_F37.json keeps both estimates. Quotable only as a range: 43.8-52.6 deg, 0.63-0.72 m per crossing."
+ }
+}

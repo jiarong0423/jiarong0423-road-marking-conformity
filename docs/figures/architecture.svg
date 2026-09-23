@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1060" width="1400" height="1060" font-family="PingFang TC, Noto Sans TC, Helvetica, Arial, sans-serif">
+<style>
+ .t{fill:#1b1b1b} .m{fill:#5e5e5a} .w{fill:#fff}
+ .box{fill:#fff;stroke:#d8d8d4;stroke-width:1.4}
+ .zone{fill:#f3f3f0;stroke:#e2e2dd;stroke-width:1}
+ .teal{fill:#0f7b7b} .amber{fill:#c07a1e} .red{fill:#b03a2e} .grey{fill:#8a8a86} .blue{fill:#2f5f9e}
+ .tt{fill:#0f7b7b} .ta{fill:#c07a1e} .tr{fill:#b03a2e} .tb{fill:#2f5f9e}
+ .lbl{font-size:13px;font-weight:700}
+ .sm{font-size:11.5px} .xs{font-size:10.5px}
+ .hd{font-size:18px;font-weight:700} .zh{font-size:12px;font-weight:700;letter-spacing:.5px}
+ .ar{stroke:#9a9a96;stroke-width:1.5;fill:none;marker-end:url(#a)}
+ .ard{stroke:#9a9a96;stroke-width:1.3;fill:none;stroke-dasharray:4 3;marker-end:url(#a)}
+</style>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#9a9a96"/></marker></defs>
+<rect width="1400" height="1060" fill="#fbfbfa"/>
+
+<text x="30" y="38" class="t hd">One street photo in. Out comes what we could measure, what we couldn't, and what to do next</text>
+<text x="30" y="60" class="m sm">County Road 116, Shulin, New Taipei · OpenCV 5 on AWS Lambda · 23 Sep 2026</text>
+
+<!-- ============ 線上：endpoint ============ -->
+<rect class="zone" x="20" y="78" width="1360" height="520" rx="8"/>
+<text x="34" y="98" class="m zh">ONLINE: what happens when you send a photo</text>
+
+<!-- 輸入 -->
+<rect class="box" x="34" y="112" width="196" height="150" rx="6"/>
+<text x="46" y="134" class="t lbl">You send</text>
+<text x="46" y="156" class="m sm">A photo (up to 3 MB)</text>
+<text x="46" y="173" class="m xs">full size fits if saved at JPEG 90</text>
+<text x="46" y="192" class="m sm">The camera's field of view</text>
+<text x="46" y="211" class="m sm">The speed limit</text>
+<text x="46" y="230" class="m sm">Lane width (optional)</text>
+<text x="46" y="248" class="m xs">the only number we don't measure</text>
+
+<!-- 閘門 -->
+<rect class="box" x="262" y="112" width="196" height="150" rx="6"/>
+<rect x="262" y="112" width="196" height="4" class="red" rx="2"/>
+<text x="274" y="136" class="t lbl">Is it a road?</text>
+<text x="274" y="158" class="m sm">Only goes on if road fills 30%+</text>
+<text x="274" y="178" class="m xs">real photos: 56–60%</text>
+<text x="274" y="194" class="m xs">random noise: 0%</text>
+<text x="274" y="220" class="tr sm">If not, it says so:</text>
+<text x="274" y="237" class="m xs">measures nothing, asks for a retake</text>
+<text x="274" y="252" class="m xs">(site notes still attached)</text>
+
+<!-- 量測 A：原有檢查 -->
+<rect class="box" x="490" y="112" width="262" height="150" rx="6"/>
+<rect x="490" y="112" width="262" height="4" class="grey" rx="2"/>
+<text x="502" y="136" class="t lbl">First-pass checks (pointers, not proof)</text>
+<text x="502" y="158" class="m sm">Double white or double yellow line</text>
+<text x="502" y="176" class="m sm">Red kerb line · works fencing</text>
+<text x="502" y="194" class="m sm">Patched road surface</text>
+<text x="502" y="212" class="m sm">Rough taper check</text>
+<text x="502" y="236" class="m xs">They tell you which part</text>
+<text x="502" y="251" class="m xs">of the photo to open and look at</text>
+
+<!-- 量測 B：新量測 -->
+<rect class="box" x="490" y="276" width="262" height="176" rx="6"/>
+<rect x="490" y="276" width="262" height="4" class="teal" rx="2"/>
+<text x="502" y="300" class="t lbl">Measurements</text>
+<text x="502" y="322" class="tt sm">How far the red line moved</text>
+<text x="502" y="339" class="m xs">The red line is 10 cm wide by law, so it is the ruler</text>
+<text x="502" y="354" class="m xs">checked with a bank card: 95–97 mm</text>
+<text x="502" y="378" class="tt sm">How sharply the lane closes</text>
+<text x="502" y="395" class="m xs">angle between the island's two edges</text>
+<text x="502" y="410" class="m xs">vs. design rules: 5 to 1 at 30 km/h, 16 to 1 at 50</text>
+<text x="502" y="436" class="m xs">needs the full-size photo</text>
+
+<!-- 四編碼一致閘 -->
+<rect class="box" x="784" y="276" width="212" height="176" rx="6"/>
+<rect x="784" y="276" width="212" height="4" class="amber" rx="2"/>
+<text x="796" y="300" class="t lbl">Same answer four times?</text>
+<text x="796" y="320" class="m xs">a stability check</text>
+<text x="796" y="342" class="m sm">Re-saves the photo 3 more ways</text>
+<text x="796" y="360" class="m sm">and only reports if all 4 agree</text>
+<text x="796" y="380" class="m xs">(red line within 5 cm, angle within 10%)</text>
+<text x="796" y="404" class="ta xs">Why: one photo read 11.9 to 1,</text>
+<text x="796" y="419" class="ta xs">and 23.2 to 1 after a single re-save</text>
+<text x="796" y="440" class="m xs">Otherwise: "can't measure" + why</text>
+
+<!-- 現場資料 -->
+<rect class="box" x="490" y="466" width="506" height="118" rx="6"/>
+<rect x="490" y="466" width="506" height="4" class="blue" rx="2"/>
+<text x="502" y="490" class="t lbl">About this stretch (always attached, marked as not from your photo)</text>
+<text x="502" y="512" class="m sm">35 m of solid line + 50 m of island = 85 m · seven grates at 8, 16, 28, 44, 58, 74, 82 m</text>
+<text x="502" y="531" class="m sm">Red line moved out 0.63–0.68 m · about 3.4 s to merge at 30 km/h</text>
+<text x="502" y="550" class="m sm">Taper figure carries a note on its reliability</text>
+<text x="502" y="572" class="m xs">Generated from our result files; a test fails if they ever drift apart</text>
+
+<!-- 輸出 -->
+<rect class="box" x="1028" y="112" width="338" height="150" rx="6"/>
+<rect x="1028" y="112" width="338" height="4" class="teal" rx="2"/>
+<text x="1040" y="136" class="t lbl">You get back</text>
+<text x="1040" y="158" class="m sm">The story: what a rider meets, in order</text>
+<text x="1040" y="177" class="m sm">Each finding with its number and the rule behind it</text>
+<text x="1040" y="196" class="m sm">The two measurements, or why they refused</text>
+<text x="1040" y="215" class="m sm">The notes about this stretch</text>
+<text x="1040" y="238" class="m xs">Every verdict says which rule it is judged</text>
+<text x="1040" y="253" class="m xs">against, or that it is too close to call</text>
+
+<!-- 下一步 -->
+<rect class="box" x="1028" y="276" width="338" height="308" rx="6"/>
+<rect x="1028" y="276" width="338" height="4" class="amber" rx="2"/>
+<text x="1040" y="300" class="t lbl">What to do next</text>
+<text x="1040" y="318" class="m xs">each one tied to something in your photo</text>
+<text x="1040" y="344" class="ta sm">Ask for documents</text>
+<text x="1040" y="363" class="m xs">· Traffic dept: the approved marking plans</text>
+<text x="1040" y="380" class="m xs">· The works permit: traffic plan and drawings</text>
+<text x="1040" y="397" class="m xs">· District office: drain drawings and cover tests</text>
+<text x="1040" y="422" class="ta sm">Check public records</text>
+<text x="1040" y="441" class="m xs">· Dig permit: 750 m × 3 m</text>
+<text x="1040" y="466" class="ta sm">Look at the full photo</text>
+<text x="1040" y="485" class="m xs">· the boxes the first-pass checks flagged</text>
+<text x="1040" y="510" class="ta sm">A photo can't tell you</text>
+<text x="1040" y="529" class="m xs">· other distances (no ruler at the same spot)</text>
+<text x="1040" y="546" class="m xs">· grates: not detected online</text>
+<text x="1040" y="570" class="m xs">(done offline, see M1 below)</text>
+
+<!-- arrows (online) -->
+<path class="ar" d="M230,187 L258,187"/>
+<path class="ar" d="M458,187 L486,187"/>
+<path class="ar" d="M458,220 C472,220 472,364 486,364"/>
+<path class="ar" d="M752,364 L780,364"/>
+<path class="ar" d="M752,187 L1024,187"/>
+<path class="ar" d="M996,364 C1012,364 1012,230 1024,230"/>
+<path class="ar" d="M996,525 C1012,525 1012,245 1024,245"/>
+<path class="ar" d="M1196,262 L1196,272"/>
+
+<!-- ============ 離線：證據管線 ============ -->
+<rect class="zone" x="20" y="612" width="1360" height="248" rx="8"/>
+<text x="34" y="632" class="m zh">OFFLINE: how we built the evidence for the story (every figure has its method printed under it)</text>
+
+<rect class="box" x="34" y="646" width="258" height="200" rx="6"/>
+<rect x="34" y="646" width="258" height="4" class="teal" rx="2"/>
+<text x="46" y="670" class="t lbl">M1 The red line runs over the grates</text>
+<text x="46" y="692" class="m xs">Grates: dark gaps + a regular bar pattern</text>
+<text x="46" y="708" class="m xs">(checked with a frequency test)</text>
+<text x="46" y="724" class="m xs">Red line: red paint colour, fitted to a line</text>
+<text x="46" y="740" class="m xs">Holes: round, 5–25 cm</text>
+<text x="46" y="768" class="tt sm">16 of 16 photos: line over grate</text>
+<text x="46" y="787" class="m xs">1–14 cm from the grate's centre</text>
+<text x="46" y="810" class="m xs">top-down shots, grates 1–6</text>
+<text x="46" y="830" class="m xs">cv_evidence.py</text>
+
+<rect class="box" x="306" y="646" width="258" height="200" rx="6"/>
+<rect x="306" y="646" width="258" height="4" class="teal" rx="2"/>
+<text x="318" y="670" class="t lbl">M3 The island today</text>
+<text x="318" y="692" class="m xs">Two different edge finders must agree</text>
+<text x="318" y="708" class="m xs">Horizon from poles and walls</text>
+<text x="318" y="724" class="m xs">Self-check: edges must line up with the road</text>
+<text x="318" y="752" class="tt sm">About 12 to 1 (11.7–12.3)</text>
+<text x="318" y="771" class="m xs">6 of 7 variations agree; 1 caught by the check</text>
+<text x="318" y="794" class="tr xs">One photo refused: road climbs to the bridge</text>
+<text x="318" y="810" class="tr xs">Our earlier 10 to 1 is withdrawn</text>
+<text x="318" y="830" class="m xs">consensus.py・horizon2.py</text>
+
+<rect class="box" x="578" y="646" width="258" height="200" rx="6"/>
+<rect x="578" y="646" width="258" height="4" class="amber" rx="2"/>
+<text x="590" y="670" class="t lbl">M2 The island before repainting</text>
+<text x="590" y="692" class="m xs">Street View 2025, same edge finders</text>
+<text x="590" y="708" class="m xs">Horizon found two independent ways,</text>
+<text x="590" y="724" class="m xs">about 1° apart</text>
+<text x="590" y="752" class="ta sm">4.0–5.1 to 1 (5 to 1 needed)</text>
+<text x="590" y="771" class="m xs">An unresolved 3–4° mismatch remains</text>
+<text x="590" y="794" class="tr xs">Google's terms don't allow sharing</text>
+<text x="590" y="810" class="tr xs">Street View images, so none are published</text>
+<text x="590" y="830" class="m xs">sv_taper.py・sv_check.py</text>
+
+<rect class="box" x="850" y="646" width="248" height="200" rx="6"/>
+<rect x="850" y="646" width="248" height="4" class="blue" rx="2"/>
+<text x="862" y="670" class="t lbl">Supporting pieces</text>
+<text x="862" y="694" class="m xs">A bank card laid across the red line</text>
+<text x="862" y="710" class="m xs">confirms it is 95–97 mm wide</text>
+<text x="862" y="736" class="m xs">Red line moved about 0.60 m at grate 2</text>
+<text x="862" y="762" class="m xs">Sun glare, from the sun's position:</text>
+<text x="862" y="778" class="m xs">about 86 winter mornings a year, 7–8 am</text>
+<text x="862" y="804" class="m xs">64 photos placed on the road by timestamp</text>
+<text x="862" y="830" class="m xs">intake_field.py・sun_glare.py</text>
+
+<rect class="box" x="1112" y="646" width="254" height="200" rx="6"/>
+<rect x="1112" y="646" width="254" height="4" class="grey" rx="2"/>
+<text x="1124" y="670" class="t lbl">Tried and dropped</text>
+<text x="1124" y="694" class="m xs">Auto-aligning Street View with our photos</text>
+<text x="1124" y="710" class="m xs">(too few matching points)</text>
+<text x="1124" y="734" class="m xs">A different line finder (less stable)</text>
+<text x="1124" y="758" class="m xs">Horizon from the stripe pattern</text>
+<text x="1124" y="774" class="m xs">(stripes too short to trust)</text>
+<text x="1124" y="798" class="m xs">Two other grate finders</text>
+<text x="1124" y="814" class="m xs">(fooled by rough concrete)</text>
+<text x="1124" y="834" class="m xs">all written up in the notes</text>
+
+<!-- ============ 法規 + 部署 ============ -->
+<rect class="zone" x="20" y="874" width="668" height="170" rx="8"/>
+<text x="34" y="894" class="m zh">THE RULES (checked word for word against the official law database)</text>
+<text x="34" y="918" class="t sm">Marking rules §169: a red line goes on the kerb (or within 30 cm of the edge if there is none)</text>
+<text x="34" y="938" class="t sm">Marking rules §183: where there is a red line, it serves as the road's outer edge</text>
+<text x="34" y="958" class="t sm">Urban road standard §2: a lane is whatever the markings enclose</text>
+<text x="34" y="978" class="t sm">Urban road design table 4.2.7: lane shift at least 5 to 1 at 30 km/h, 16 to 1 at 50</text>
+<text x="34" y="998" class="t sm">Highway Act §72: covers flush within 6 mm, and not slippery</text>
+<text x="34" y="1018" class="t sm">New Taipei road-works rules 6.0: patches flush within 6 mm</text>
+<text x="34" y="1036" class="m xs">Two clauses an AI assistant quoted do not exist and were left out</text>
+
+<rect class="zone" x="702" y="874" width="678" height="170" rx="8"/>
+<text x="716" y="894" class="m zh">RUNNING IT</text>
+<rect class="box" x="716" y="906" width="150" height="62" rx="6"/>
+<text x="728" y="928" class="t lbl">API Gateway</text>
+<text x="728" y="946" class="m xs">waits up to 30 seconds</text>
+<text x="728" y="961" class="m xs">open to anyone</text>
+<rect class="box" x="890" y="906" width="222" height="62" rx="6"/>
+<text x="902" y="928" class="t lbl">AWS Lambda</text>
+<text x="902" y="946" class="m xs">OpenCV 5 in a container</text>
+<text x="902" y="961" class="m xs">memory 3 GB → 10 GB (pending)</text>
+<rect class="box" x="1136" y="906" width="230" height="62" rx="6"/>
+<text x="1148" y="928" class="t lbl">Container image</text>
+<text x="1148" y="946" class="m xs">v11 live → v12 built and tested</text>
+<text x="1148" y="961" class="m xs">code only, no data or keys</text>
+<path class="ar" d="M866,937 L886,937"/>
+<path class="ard" d="M1136,937 L1116,937"/>
+<text x="716" y="992" class="m xs">Tested locally: small photo 14 s, new measurements refuse; full size gets them (0.668 m) but takes 52 s</text>
+<text x="716" y="1010" class="m xs">Bad requests, oversize photos and non-road photos all get a clear answer (tested)</text>
+<text x="716" y="1030" class="m xs">Scanned: no personal data or keys inside; one command rolls back to v11</text>
+</svg>

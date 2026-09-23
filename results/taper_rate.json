@@ -1,0 +1,69 @@
+{
+  "withdrawn": "WITHDRAWN 2026-09-21. Re-encoding the same photograph at eight JPEG qualities and three resolutions moves this angle by 11.5-17.3 degrees and makes the detection fire in only 29 of 60 runs. Candidate selection, not the angle fit, is what moves. See docs/reproducibility-2026-09-21.md The 12.1 deg and 26.9 km/h here come from the same candidate-selection step.",
+  "question": "is the painted lane reduction an abrupt one",
+  "site": "116 縣道 (樹林中正路), 新北市, near 25.00269,121.42374",
+  "imagery": "Google Street View 2025-06, two independent captures at different fov and pitch",
+  "method": "ground bearing of each Hough segment via the pinhole model, clustered; the chevron boundary's bearing minus the road's own. A rate is dimensionless so the camera height cancels.",
+  "measured": {
+    "captures": [
+      {
+        "file": "T_at0.jpg",
+        "fov": 60,
+        "pitch": -12,
+        "road_deg": 6.5,
+        "edge_deg": 18.6,
+        "relative_deg": 12.1,
+        "equivalent_kmh": 26.9
+      },
+      {
+        "file": "f60_p-35.jpg",
+        "fov": 60,
+        "pitch": -35,
+        "road_deg": 5.8,
+        "edge_deg": 16.5,
+        "relative_deg": 10.7,
+        "equivalent_kmh": 28.7
+      }
+    ],
+    "relative_deg_mean": 11.4,
+    "relative_deg_range": [
+      10.7,
+      12.1
+    ],
+    "taper_rate": 0.202,
+    "equivalent_design_speed_kmh": 27.8,
+    "equivalent_design_speed_range": [
+      26.9,
+      28.7
+    ]
+  },
+  "required": {
+    "formula": "rate = W/L = 155/V², from L = W·V²/155, 施工之交通管制守則 p.9",
+    "note": "the rate is independent of lane width",
+    "by_speed": {
+      "20": {
+        "rate": 0.388,
+        "deg": 21.2
+      },
+      "30": {
+        "rate": 0.172,
+        "deg": 9.8
+      },
+      "40": {
+        "rate": 0.097,
+        "deg": 5.5
+      },
+      "50": {
+        "rate": 0.062,
+        "deg": 3.5
+      }
+    }
+  },
+  "lateral_speed_demanded_m_per_s": {
+    "30": 1.67,
+    "40": 2.22,
+    "50": 2.78
+  },
+  "lateral_speed_reference": "0.5-1.0 comfortable lane change, 1.5 hurried, 2.0+ avoidance",
+  "reading": "the taper as painted suits a design speed of about 28 km/h: short of the 30 posted during the works and 3.3 times too steep for the 50 the road carried before them"
+}

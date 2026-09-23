@@ -1,0 +1,41 @@
+{
+  "question": "which OpenCV 5 capabilities the installed build actually exposes to Python",
+  "platform": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.7"
+  },
+  "opencv_version": "5.0.0",
+  "opencv_python_package": "opencv-python-headless==5.0.0.93",
+  "new_element_types_exposed": true,
+  "new_element_types_missing": [],
+  "bfloat16_exposed": false,
+  "calib3d_submodules_present": [
+    "stereo"
+  ],
+  "features_module_present": [],
+  "dnn_engines_present": [
+    "ENGINE_AUTO",
+    "ENGINE_CLASSIC",
+    "ENGINE_NEW",
+    "ENGINE_ORT"
+  ],
+  "cpu_features_line_present": true,
+  "cpu_features_line": "NEON FP16 NEON_DOTPROD NEON_FP16 *NEON_BF16",
+  "cpu_features_line_is": "what THIS host reports. Reading Graviton dispatch off it requires the host to be the Lambda one; that is a deployment claim and not established here.",
+  "mlsd_onnx": {
+    "path": "models/mlsd/mlsd_tiny_512.onnx",
+    "bytes": 2485936,
+    "mib": 2.4
+  },
+  "mlsd_forward": {
+    "available": true,
+    "engine": "ENGINE_NEW",
+    "input": "512x512",
+    "n": 20,
+    "median_ms": 44.5,
+    "min_ms": 35.8,
+    "max_ms": 59.9,
+    "caveat": "wall clock on one machine, synthetic input, forward pass only - no pre- or post-processing. Machine-dependent."
+  }
+}

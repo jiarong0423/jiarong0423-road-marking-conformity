@@ -1,0 +1,156 @@
+{
+  "capture": "before_p-40",
+  "fov": 75,
+  "pitch": -40,
+  "red_line_width_m": 0.1,
+  "source": "設置規則 §169",
+  "camera_height_m": 1.9,
+  "camera_height_sd_m": 0.01,
+  "cuts": [
+    {
+      "station_px": 3.2,
+      "width_px": 6.3,
+      "width_camera_heights": 0.04291,
+      "implied_height_m": 2.33
+    },
+    {
+      "station_px": 3.0,
+      "width_px": 6.3,
+      "width_camera_heights": 0.04295,
+      "implied_height_m": 2.33
+    },
+    {
+      "station_px": 2.8,
+      "width_px": 6.7,
+      "width_camera_heights": 0.04617,
+      "implied_height_m": 2.17
+    },
+    {
+      "station_px": 2.6,
+      "width_px": 6.7,
+      "width_camera_heights": 0.04621,
+      "implied_height_m": 2.16
+    },
+    {
+      "station_px": 2.3,
+      "width_px": 6.7,
+      "width_camera_heights": 0.04625,
+      "implied_height_m": 2.16
+    },
+    {
+      "station_px": 2.1,
+      "width_px": 6.7,
+      "width_camera_heights": 0.0463,
+      "implied_height_m": 2.16
+    },
+    {
+      "station_px": 1.9,
+      "width_px": 7.2,
+      "width_camera_heights": 0.04953,
+      "implied_height_m": 2.02
+    },
+    {
+      "station_px": 1.6,
+      "width_px": 7.2,
+      "width_camera_heights": 0.04957,
+      "implied_height_m": 2.02
+    },
+    {
+      "station_px": 1.4,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05236,
+      "implied_height_m": 1.91
+    },
+    {
+      "station_px": 1.2,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05241,
+      "implied_height_m": 1.91
+    },
+    {
+      "station_px": 1.0,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05246,
+      "implied_height_m": 1.91
+    },
+    {
+      "station_px": 0.7,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05251,
+      "implied_height_m": 1.9
+    },
+    {
+      "station_px": 0.5,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05256,
+      "implied_height_m": 1.9
+    },
+    {
+      "station_px": 0.3,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05261,
+      "implied_height_m": 1.9
+    },
+    {
+      "station_px": 0.0,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05265,
+      "implied_height_m": 1.9
+    },
+    {
+      "station_px": -0.2,
+      "width_px": 7.6,
+      "width_camera_heights": 0.0527,
+      "implied_height_m": 1.9
+    },
+    {
+      "station_px": -0.4,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05275,
+      "implied_height_m": 1.9
+    },
+    {
+      "station_px": -0.6,
+      "width_px": 7.6,
+      "width_camera_heights": 0.0528,
+      "implied_height_m": 1.89
+    },
+    {
+      "station_px": -0.9,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05285,
+      "implied_height_m": 1.89
+    },
+    {
+      "station_px": -1.1,
+      "width_px": 7.6,
+      "width_camera_heights": 0.0529,
+      "implied_height_m": 1.89
+    },
+    {
+      "station_px": -1.3,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05295,
+      "implied_height_m": 1.89
+    },
+    {
+      "station_px": -1.6,
+      "width_px": 7.6,
+      "width_camera_heights": 0.053,
+      "implied_height_m": 1.89
+    },
+    {
+      "station_px": -1.8,
+      "width_px": 7.6,
+      "width_camera_heights": 0.05305,
+      "implied_height_m": 1.88
+    },
+    {
+      "station_px": -2.0,
+      "width_px": 7.6,
+      "width_camera_heights": 0.0531,
+      "implied_height_m": 1.88
+    }
+  ],
+  "usable": true
+}

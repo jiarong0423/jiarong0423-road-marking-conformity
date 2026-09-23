@@ -1,0 +1,51 @@
+{
+  "question": "what the regulation's centimetres are worth in pixels, in the original photograph and at each working size",
+  "reference_distance_m": 20.0,
+  "reference_distance_is": "stated, not measured - the distance the prose reasons about, not a distance to any particular marking",
+  "field_photographs": {
+    "n": 42,
+    "distinct_sizes": [
+      {
+        "width": 3072,
+        "height": 4096,
+        "count": 42
+      }
+    ],
+    "uniform": true
+  },
+  "camera": {
+    "source": "data/field-2026-09-20/IMG_20260920_155603.jpg",
+    "focal_length_35mm_equiv_mm": 24.0,
+    "focal_length_mm": 5.85,
+    "convention": "diagonal: f_px = f_35mm * diagonal_px / 43.2666",
+    "f_px": 2840.1,
+    "f_px_long_side_convention": 2730.7
+  },
+  "work_px": [
+    1000,
+    1400,
+    1800
+  ],
+  "regulation_cm": {
+    "s171_stripe_width_cm": 20.0,
+    "s171_gap_cm": 30.0,
+    "s171_border_line_cm": 15.0,
+    "s169_red_line_cm": 10.0,
+    "width_tolerance_mm": 6.0
+  },
+  "regulation_cited_from": "道路交通標誌標線號誌設置規則 §169, §171. §171's 20/30/15 cm from docs/markings-regulation.md, §169's 10 cm from docs/evidence.md, the ±6 mm tolerance from docs/tolerances.md. Declared inputs, not measurements.",
+  "red_line_10cm_at_20m_px": {
+    "original": 14.2,
+    "1000": 3.47,
+    "1400": 4.85,
+    "1800": 6.24
+  },
+  "width_tolerance_6mm_at_20m_px": {
+    "original": 0.85,
+    "1000": 0.21,
+    "1400": 0.29,
+    "1800": 0.37
+  },
+  "stripe_to_pitch_ratio": 0.4,
+  "stripe_to_pitch_ratio_is": "20 / (20 + 30) from §171. Scale-free, which is why it can be checked against a photograph with nothing annotated."
+}

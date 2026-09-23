@@ -1,0 +1,67 @@
+{
+  "taper_m": 14.9,
+  "erased_share": 0.64,
+  "night_preview_s": 3.65,
+  "prt_s": {
+    "median driver (Olson & Sivak 50th)": 1.1,
+    "95th percentile (Olson & Sivak)": 1.6,
+    "design standard (AASHTO PIEV)": 2.5
+  },
+  "steer_s": {
+    "first lateral movement (Summala)": 1.5,
+    "half way across (Summala)": 2.5,
+    "lane change complete (Summala)": 4.0
+  },
+  "time_available_s": {
+    "30": 1.79,
+    "40": 1.34,
+    "50": 1.07
+  },
+  "day": [
+    {
+      "condition": "median driver (Olson & Sivak 50th)",
+      "needed_s": 3.6,
+      "shortfall_s": {
+        "30": 1.81,
+        "40": 2.26,
+        "50": 2.53
+      }
+    },
+    {
+      "condition": "95th percentile (Olson & Sivak)",
+      "needed_s": 4.1,
+      "shortfall_s": {
+        "30": 2.31,
+        "40": 2.76,
+        "50": 3.03
+      }
+    },
+    {
+      "condition": "design standard (AASHTO PIEV)",
+      "needed_s": 5.0,
+      "shortfall_s": {
+        "30": 3.21,
+        "40": 3.66,
+        "50": 3.93
+      }
+    }
+  ],
+  "sight_line": {
+    "structure": "樹林陸橋2B-2(A)",
+    "near_end_m": 430,
+    "length_m": 355.6,
+    "grade": "市道",
+    "source": "新北市轄內橋梁基本資料"
+  },
+  "sources": [
+    "Olson & Sivak 1986, Human Factors 28(1)",
+    "Summala, lane change lateral displacement",
+    "Zwahlen & Schnell 1997, low-beam preview time",
+    "Ohme & Schnell 2001, marking width and older drivers",
+    "AASHTO Green Book, PIEV 2.5 s"
+  ],
+  "not_measured": [
+    "night detection distance at this site",
+    "the taper rate after the 2026-05 re-marking; 0.202 is from 2025-06 Street View, which is before it"
+  ]
+}

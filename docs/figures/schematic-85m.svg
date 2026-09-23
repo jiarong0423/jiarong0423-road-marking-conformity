@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760" width="1400" height="760" font-family="PingFang TC, Noto Sans TC, Helvetica, Arial, sans-serif">
+<!-- Plan view, drawn by this project from its own measurements. No Street View pixels.
+     Along-road scale 12 px/m (0 m at x=140). Lateral scale is the same 12 px/m, so the
+     taper angles are drawn true: before erasure 12 deg (about 4.5:1), after 4.7 deg (12:1). -->
+<style>
+ .t{fill:#1b1b1b} .m{fill:#5e5e5a}
+ .sm{font-size:12px} .xs{font-size:10.5px} .lbl{font-size:13px;font-weight:700} .hd{font-size:18px;font-weight:700}
+ .tt{fill:#0f7b7b} .ta{fill:#c07a1e} .tr{fill:#b03a2e}
+</style>
+<defs>
+ <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+  <rect width="10" height="10" fill="#ffffff"/><rect width="4" height="10" fill="#d9d9d4"/></pattern>
+ <pattern id="ghost" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+  <rect width="10" height="10" fill="#7d7d79"/><rect width="4" height="10" fill="#8f8f8a"/></pattern>
+ <pattern id="grate" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#3b3b39"/><rect width="4" height="1.4" fill="#9a9a96"/></pattern>
+ <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#1b1b1b"/></marker>
+</defs>
+<rect width="1400" height="760" fill="#fbfbfa"/>
+<text x="30" y="38" class="t hd">85 metres of County Road 116: the painted island, two red lines and seven drain grates</text>
+<text x="30" y="60" class="m sm">Drawn by us from our own measurements (no Google Street View imagery). Same scale both ways, so the angles are true. Sources for every number: docs/story-116.md</text>
+
+<!-- road surface -->
+<rect x="140" y="200" width="1080" height="252" fill="#6f6f6b"/>
+<!-- main line (to bridge) lane marking -->
+<line x1="140" y1="236" x2="1220" y2="236" stroke="#f2f2ee" stroke-width="2" stroke-dasharray="36 36"/>
+<text x="150" y="222" class="xs" fill="#f2f2ee">Main road (up to the bridge)</text>
+
+<!-- double white solid line: 0 m to 35.5 m, along y=272..278 -->
+<line x1="140" y1="272" x2="566" y2="272" stroke="#ffffff" stroke-width="2.4"/>
+<line x1="140" y1="279" x2="566" y2="279" stroke="#ffffff" stroke-width="2.4"/>
+
+<!-- chevron BEFORE erasure: from 35.5 m, upper edge along y=272, lower edge at 12 deg down to full width 36 px (3 m) at ~49.6 m, then parallel to 85 m -->
+<polygon points="566,272 1160,272 1160,308 735,308" fill="url(#ghost)" stroke="#d6d6d0" stroke-width="1.2" stroke-dasharray="5 3"/>
+<!-- chevron AFTER erasure: same start, 4.7 deg, one third of the width (12 px = 1 m) -->
+<polygon points="566,272 1160,272 1160,284 712,284" fill="url(#hatch)" stroke="#ffffff" stroke-width="1.6"/>
+
+<!-- rider lane label -->
+<text x="600" y="345" class="xs" fill="#f2f2ee">The rider's lane →</text>
+<path d="M600,360 L1110,360" stroke="#f2f2ee" stroke-width="1.2" marker-end="url(#a)" opacity=".7"/>
+
+<!-- old red line on the asphalt edge (y=440), new red line on the gutter strip 0.6 m further out (y=447+?) -->
+<!-- asphalt edge / joint at y=446; gutter strip y=446..470 (2 m wide shown); kerb y=470..482 -->
+<rect x="140" y="446" width="1080" height="26" fill="#b9b7ae"/>
+<rect x="140" y="472" width="1080" height="12" fill="#d7d4c8" stroke="#a9a69a" stroke-width="1"/>
+<line x1="140" y1="443" x2="1220" y2="443" stroke="#e59a9a" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="140" y1="451" x2="1220" y2="451" stroke="#c0392b" stroke-width="2.2"/>
+<!-- seven grates, 0.6 m square, centred on the new red line -->
+<g fill="url(#grate)" stroke="#2a2a28" stroke-width=".8">
+ <rect x="232" y="447" width="8" height="8"/><rect x="328" y="447" width="8" height="8"/>
+ <rect x="472" y="447" width="8" height="8"/><rect x="664" y="447" width="8" height="8"/>
+ <rect x="832" y="447" width="8" height="8"/><rect x="1024" y="447" width="8" height="8"/>
+ <rect x="1120" y="447" width="8" height="8"/>
+</g>
+<!-- open round holes on/near the line (illustrative positions between grates) -->
+<g fill="#1b1b1b"><circle cx="700" cy="452" r="1.8"/><circle cx="760" cy="452" r="1.8"/><circle cx="880" cy="452" r="1.8"/></g>
+
+<!-- bridge wall from 66 m, bridge head 85 m -->
+<rect x="932" y="258" width="228" height="6" fill="#bdbab0"/>
+<line x1="1160" y1="190" x2="1160" y2="462" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 3"/>
+
+<!-- chainage axis -->
+<line x1="140" y1="520" x2="1220" y2="520" stroke="#1b1b1b" stroke-width="1"/>
+<g class="m xs" text-anchor="middle">
+ <line x1="140" y1="514" x2="140" y2="526" stroke="#1b1b1b"/><text x="140" y="542">0 m</text>
+ <line x1="566" y1="514" x2="566" y2="526" stroke="#1b1b1b"/><text x="566" y="542">35.5 m</text>
+ <line x1="932" y1="514" x2="932" y2="526" stroke="#1b1b1b"/><text x="932" y="542">66 m</text>
+ <line x1="1160" y1="514" x2="1160" y2="526" stroke="#1b1b1b"/><text x="1160" y="542">85 m</text>
+</g>
+<g class="m xs" text-anchor="middle">
+ <text x="236" y="500">8</text><text x="332" y="500">16</text><text x="476" y="500">28</text><text x="668" y="500">44</text>
+ <text x="836" y="500">58</text><text x="1028" y="500">74</text><text x="1124" y="500">82 m</text>
+</g>
+<text x="1228" y="500" class="m xs">Grates (±5 m)</text>
+
+<!-- callouts top -->
+<text x="140" y="112" class="t lbl">① 35 m of double white line: no changing lanes here</text>
+<path d="M300,118 L300,268" stroke="#1b1b1b" stroke-width="1" marker-end="url(#a)"/>
+<text x="560" y="112" class="t lbl">② The painted island starts at 35.5 m</text>
+<text x="560" y="132" class="ta sm">Before it was repainted: 12°, about 4–5 to 1 (dashed, grey)</text>
+<text x="560" y="150" class="tt sm">After: 4.7°, about 12 to 1, a third of the width (white stripes)</text>
+<text x="560" y="168" class="m xs">At 30 km/h the design rules ask for at least 5 to 1: before was right at the limit or just short; after is fine</text>
+<path d="M700,172 L700,266" stroke="#1b1b1b" stroke-width="1" marker-end="url(#a)"/>
+<text x="940" y="112" class="t lbl">③ Bridge wall from 66 m</text>
+<text x="1080" y="140" class="t lbl">④ Bridge at 85 m</text>
+<path d="M1120,146 L1156,186" stroke="#1b1b1b" stroke-width="1" marker-end="url(#a)"/>
+
+<!-- callouts bottom -->
+<text x="140" y="590" class="t lbl">⑤ On the right, the red line moved out by 0.60–0.68 m: from the edge of the asphalt (dashed) onto the drain strip (solid)</text>
+<text x="140" y="610" class="m sm">The rules say a red line belongs on the kerb, that it marks the outer edge of the road, and that the lane is whatever the markings enclose</text>
+<text x="140" y="628" class="m sm">So the new line puts the drain strip and all seven grates inside the road. In 16 of 16 photos the new line runs straight across a grate</text>
+<text x="140" y="654" class="t lbl">⑥ The Highway Act asks for covers that sit flush (within 6 mm) and are not slippery</text>
+<text x="140" y="674" class="m sm">We have not measured the step or the grip, and whether that rule covers these grates has not been confirmed</text>
+<text x="140" y="700" class="t lbl">⑦ On a scooter: you can't cross left, you get about 3.4 s to merge, and your right is grates and open drain holes</text>
+<text x="140" y="720" class="m sm">On winter mornings (mid-Nov to end-Jan, 7–8 am) the low sun is right in your eyes heading to the bridge (our calculation)</text>
+
+<!-- legend -->
+<g transform="translate(1230,580)">
+ <rect x="0" y="0" width="150" height="150" fill="#ffffff" stroke="#d8d8d4"/>
+ <text x="10" y="20" class="t xs" font-weight="700">Key</text>
+ <rect x="10" y="30" width="22" height="10" fill="url(#hatch)" stroke="#999"/><text x="38" y="39" class="m xs">Island today</text>
+ <rect x="10" y="48" width="22" height="10" fill="url(#ghost)" stroke="#999" stroke-dasharray="3 2"/><text x="38" y="57" class="m xs">Painted over</text>
+ <line x1="10" y1="72" x2="32" y2="72" stroke="#e59a9a" stroke-width="1.6" stroke-dasharray="6 4"/><text x="38" y="75" class="m xs">Old red line</text>
+ <line x1="10" y1="90" x2="32" y2="90" stroke="#c0392b" stroke-width="2.2"/><text x="38" y="93" class="m xs">New red line</text>
+ <rect x="16" y="102" width="9" height="9" fill="url(#grate)" stroke="#2a2a28"/><text x="38" y="110" class="m xs">Drain grate</text>
+ <rect x="10" y="122" width="22" height="9" fill="#d7d4c8" stroke="#a9a69a"/><text x="38" y="130" class="m xs">Kerb</text>
+</g>
+</svg>

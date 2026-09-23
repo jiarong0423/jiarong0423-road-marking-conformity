@@ -1,0 +1,117 @@
+{
+ "frame": "F32",
+ "file": "IMG_20260920_160017.jpg",
+ "sha256": "0cc46a47ad57acf1784947b42825e1e509a819934d36072418f21e74c224cd2d",
+ "ok": true,
+ "intrinsics": {
+  "f35_mm": 24,
+  "focal_px": 2840.0,
+  "size": [
+   3072,
+   4096
+  ]
+ },
+ "v_road": {
+  "px": [
+   3323.0,
+   1159.8
+  ],
+  "candidates": 101,
+  "inliers": 23,
+  "condition": 0.004
+ },
+ "v_vert": {
+  "px": [
+   4289.9,
+   16670.1
+  ],
+  "votes": 36,
+  "in_window": 9,
+  "window_spread_px": 194.6,
+  "method": "1-D vote along v_road's polar line; perpendicular by construction"
+ },
+ "v_cross": [
+  -2842.0,
+  2320.9
+ ],
+ "ruler": {
+  "m": 0.1,
+  "source": "道路交通標誌標線號誌設置規則 §169 紅實線 線寬一○公分"
+ },
+ "stations": [
+  {
+   "y_px": 3783,
+   "refused": "intact line only 28 px wide here: cut by the frame edge"
+  },
+  {
+   "y_px": 3835,
+   "ruler_px": 118.0,
+   "worn_paint_px": 59.0,
+   "edge_to_worn_centre_px": 637.3,
+   "affine_m": 0.54,
+   "gap_m": 0.6276,
+   "gap_m_5_95": [
+    0.6067,
+    0.6477
+   ]
+  },
+  {
+   "y_px": 3887,
+   "ruler_px": 119.0,
+   "worn_paint_px": 56.0,
+   "edge_to_worn_centre_px": 647.6,
+   "affine_m": 0.5442,
+   "gap_m": 0.6339,
+   "gap_m_5_95": [
+    0.613,
+    0.6542
+   ]
+  },
+  {
+   "y_px": 3939,
+   "ruler_px": 117.0,
+   "worn_paint_px": 93.0,
+   "edge_to_worn_centre_px": 639.0,
+   "affine_m": 0.5461,
+   "gap_m": 0.6348,
+   "gap_m_5_95": [
+    0.6135,
+    0.6556
+   ]
+  },
+  {
+   "y_px": 3991,
+   "ruler_px": 112.0,
+   "worn_paint_px": 66.0,
+   "edge_to_worn_centre_px": 659.4,
+   "affine_m": 0.5887,
+   "gap_m": 0.6868,
+   "gap_m_5_95": [
+    0.6629,
+    0.7103
+   ]
+  },
+  {
+   "y_px": 4043,
+   "ruler_px": 120.0,
+   "worn_paint_px": 61.0,
+   "edge_to_worn_centre_px": 679.8,
+   "affine_m": 0.5665,
+   "gap_m": 0.6648,
+   "gap_m_5_95": [
+    0.6433,
+    0.686
+   ]
+  }
+ ],
+ "summary": {
+  "stations_measured": 5,
+  "median_m": 0.635,
+  "min_m": 0.628,
+  "max_m": 0.687,
+  "last_minus_first_m": 0.037,
+  "affine_median_m": 0.546
+ },
+ "what_was_measured": "ground distance from the intact red line's inner edge (the edge nearer the carriageway) to the centre of the worn red line on the asphalt",
+ "trend_note": "the gap widens towards the camera across the stations. Tested and excluded as causes: the worn line's fitted axis (replaced by direct paint search), roll error in n (depth-independent on synthetic ground truth), v_road error up to 300 px (zero effect on synthetic ground truth). The two lines are not parallel on the ground."
+}

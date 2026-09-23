@@ -1,0 +1,18 @@
+{
+  "withdrawn": "WITHDRAWN 2026-09-20. The pitch was recovered from Hough lines and ran from -8.0 to +19.6 degrees across eight frames; the rates that follow span five-fold and their mean means nothing.",
+  "horizon_y": 1478.3,
+  "horizon_from": "the drawn family alone, roll assumed zero",
+  "roll_deg": 0.0,
+  "pitch_deg": -11.34,
+  "fov_deg": 56.81,
+  "focal_px": 2840.0,
+  "road_deg": 20.5,
+  "edge_deg": 15.5,
+  "relative_deg": 5.0,
+  "taper_rate": 0.087,
+  "taper_m_on_3m_lane": 34.3,
+  "equivalent_kmh": 42.1,
+  "before_rate": 0.202,
+  "before_taper_m": 14.9,
+  "before_kmh": 27.8
+}

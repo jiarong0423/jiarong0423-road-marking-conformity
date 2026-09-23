@@ -1,0 +1,264 @@
+{
+ "question": "the three §171 properties that periodicity does not carry",
+ "method": "Measure the three §171 properties periodicity alone does not carry.",
+ "work_px": 1000,
+ "n": 45,
+ "n_measured": 1,
+ "duty_regulated": 0.4,
+ "square_max": 0.06,
+ "not_square_min": 0.2,
+ "calibration": "synthetic, one profile per condition, 32 bins; a property of the estimator, not of any road",
+ "verdict": "THE LOCATOR FAILS. Unsupervised periodicity does not find the chevron. The strongest Gabor response is the coarsest kernel in the bank, which is shadow, kerb and hoarding, not 20 cm stripes - and the period came back at the bank's maximum on every frame at both 28 and 80, so it is a ceiling and not a measurement. The two epoch frames that DO contain a chevron return no profile at all; the one where it was erased is the one that measures. The §171 predicate in pipeline.py is sound and has nothing to feed it.",
+ "also": "results/chevron_periodic.json reports period_px_median 28.0 on 45 of 45 images, which is that bank's ceiling. Its contrast figure stands; its period column does not. Not in the figure registry, so nothing published moves.",
+ "unmeasured": [
+  "F01",
+  "F02",
+  "F03",
+  "F04",
+  "F05",
+  "F06",
+  "F07",
+  "F08",
+  "F09",
+  "F10",
+  "F11",
+  "F12",
+  "F13",
+  "F14",
+  "F15",
+  "F16",
+  "F17",
+  "F18",
+  "F19",
+  "F20",
+  "F21",
+  "F22",
+  "F23",
+  "F24",
+  "F25",
+  "F26",
+  "F27",
+  "F28",
+  "F29",
+  "F30",
+  "F31",
+  "F32",
+  "F33",
+  "F34",
+  "F35",
+  "F36",
+  "F37",
+  "F38",
+  "F39",
+  "F40",
+  "F41",
+  "F42",
+  "e1_2022-11",
+  "e2_2024-09"
+ ],
+ "at_bank_ceiling": [
+  "e3_2025-06"
+ ],
+ "square": [],
+ "not_square": [],
+ "undecided": [
+  "e3_2025-06"
+ ],
+ "duty_median_of_square": null,
+ "per_image": [
+  {
+   "error": "no profile in the patch",
+   "no": "F01"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F02"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F03"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F04"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F05"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F06"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F07"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F08"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F09"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F10"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F11"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F12"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F13"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F14"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F15"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F16"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F17"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F18"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F19"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F20"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F21"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F22"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F23"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F24"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F25"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F26"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F27"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F28"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F29"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F30"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F31"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F32"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F33"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F34"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F35"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F36"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F37"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F38"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F39"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F40"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F41"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "F42"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "e1_2022-11"
+  },
+  {
+   "error": "no profile in the patch",
+   "no": "e2_2024-09"
+  },
+  {
+   "angle_deg": 75.0,
+   "period_px": 80.0,
+   "period_at_bank_ceiling": true,
+   "patch_px": 3165,
+   "contrast": 3.48,
+   "amplitude": 29.26,
+   "duty": 0.3129,
+   "harmonic_residual": 0.191,
+   "paint_is_brighter": false,
+   "profile": {
+    "harmonic_residual": 0.191,
+    "bright_above_median": 9.57,
+    "dark_below_median": 11.87,
+    "amplitude": 29.26
+   },
+   "no": "e3_2025-06"
+  }
+ ]
+}

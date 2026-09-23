@@ -1,0 +1,87 @@
+{
+  "stripe_width_m": 0.2,
+  "source": "設置規則 §171",
+  "captures": [
+    {
+      "capture": "before_close",
+      "fov": 50,
+      "pitch": -42,
+      "cuts": 21,
+      "camera_height_m": 9.96,
+      "sd_m": 5.31,
+      "usable": false
+    },
+    {
+      "capture": "before_p-25",
+      "fov": 75,
+      "pitch": -25,
+      "cuts": 60,
+      "camera_height_m": 4.21,
+      "sd_m": 2.69,
+      "usable": false
+    },
+    {
+      "capture": "before_p-40",
+      "fov": 75,
+      "pitch": -40,
+      "cuts": 35,
+      "camera_height_m": 8.0,
+      "sd_m": 5.03,
+      "usable": false
+    },
+    {
+      "capture": "f40_p-20",
+      "fov": 40,
+      "pitch": -20,
+      "cuts": 32,
+      "camera_height_m": 2.25,
+      "sd_m": 0.12,
+      "usable": true
+    },
+    {
+      "capture": "f40_p-35",
+      "fov": 40,
+      "pitch": -35,
+      "cuts": 14,
+      "camera_height_m": 5.35,
+      "sd_m": 2.72,
+      "usable": false
+    },
+    {
+      "capture": "f60_p-20",
+      "fov": 60,
+      "pitch": -20,
+      "cuts": 31,
+      "camera_height_m": 2.56,
+      "sd_m": 1.96,
+      "usable": true
+    },
+    {
+      "capture": "f60_p-35",
+      "fov": 60,
+      "pitch": -35,
+      "cuts": 20,
+      "camera_height_m": 3.24,
+      "sd_m": 1.54,
+      "usable": true
+    },
+    {
+      "capture": "f90_p-20",
+      "fov": 90,
+      "pitch": -20,
+      "cuts": 63,
+      "camera_height_m": 2.33,
+      "sd_m": 0.85,
+      "usable": true
+    },
+    {
+      "capture": "f90_p-35",
+      "fov": 90,
+      "pitch": -35,
+      "cuts": 19,
+      "camera_height_m": 3.56,
+      "sd_m": 2.65,
+      "usable": false
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "capture": "f90_p-20",
+    "band_deg": 152,
+    "arm_offsets_deg": [
+      45,
+      72
+    ]
+  },
+  {
+    "capture": "f90_p-35",
+    "band_deg": 151,
+    "arm_offsets_deg": [
+      43,
+      80
+    ]
+  },
+  {
+    "capture": "before_p-25",
+    "band_deg": 139,
+    "arm_offsets_deg": [
+      32,
+      83
+    ]
+  },
+  {
+    "capture": "before_p-40",
+    "band_deg": 139,
+    "arm_offsets_deg": [
+      33,
+      82
+    ]
+  },
+  {
+    "capture": "f60_p-35",
+    "band_deg": 151,
+    "arm_offsets_deg": [
+      34,
+      85
+    ]
+  },
+  {
+    "capture": "f60_p-20",
+    "band_deg": 152,
+    "arm_offsets_deg": [
+      32,
+      54
+    ]
+  },
+  {
+    "capture": "f40_p-20",
+    "band_deg": 151,
+    "arm_offsets_deg": [
+      45,
+      80
+    ]
+  }
+]
