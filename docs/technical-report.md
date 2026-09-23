@@ -128,7 +128,18 @@ The same scene at two resolutions gives different next steps, because the measur
 
 **Failure handling and observability.** A non-road photo stops at the first gate and asks for a retake. A measurement that moves when the photo is re-saved is refused with its reason, and the refusal becomes a CANNOT_FROM_PHOTO action instead of a number. Every action carries `why` (the finding that caused it), `basis` (the rule) and `to` (who acts). Document requests and HUMAN_LOOK appear only when a finding calls for them; two notes (what a photo cannot answer, and that grates are not detected online) are always added. The system files nothing and contacts no one.
 
-**Not yet measured:** task success over the full evidence set (how often each action is produced across all 106 photos). The script is `isolation/agentic/evaluate.py`.
+**Evaluation on 20 evidence photos** (`isolation/agentic/evaluate.py 10`: every k-th photo, 10 from each field batch, full resolution, 30 km/h):
+
+| | Result |
+|---|---|
+| Photos assessed (none refused as non-road) | 20 / 20 |
+| Actions consistent with the findings that should cause them (document request, record check, HUMAN_LOOK), plus the two standing notes | **20 / 20** |
+| Every action carries a `why` | yes |
+| Distinct sets of next actions produced | 4 |
+| Photos with a document request / HUMAN_LOOK | 15 / 16 |
+| Red-line gap or taper reported | 0 / 20 |
+
+What this shows and does not: the decision step follows the vision output exactly, and different photos lead to different next steps. It does **not** show the findings themselves are correct: the first-pass red-line detector fires on 16 of 20, and opened by eye it has been wrong on 13 of 23 earlier frames, which is why its action is "HUMAN_LOOK: open this box" and never a conclusion. None of the 20 sampled photos is one of the three frames (F30–F32) where the red-line gap was measured, and the close-ups of 23 September are not the geometry that measurement is built for, so the new measurements refuse on all 20; they are demonstrated in the trace above instead. Run time on this machine with four photos in parallel: median 117 s per photo (a single photo alone takes about 36 s). The full 106-photo run was stopped after 34 minutes and is not reported.
 
 ## 9. Responsible use
 
