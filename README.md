@@ -44,7 +44,7 @@ The full story, with a source for every number: [`docs/story-116.md`](docs/story
 
 Send one street photo. It checks the photo actually shows a road, runs its measurements, and only reports a number if it holds across four versions of the image. It tells you what it measured, what it couldn't, and why. Then it tells you what to do next: which document to request from which office, tied to what it found in your photo. That step is `src/marking/actions.py`: a document request appears only when something in your photo calls for it, and it says what that was.
 
-It runs on AWS Lambda (arm64) with OpenCV 5.0.0.
+It runs on AWS Lambda (arm64) with OpenCV 5.0.0. `GET` on the endpoint describes the interface; `POST` needs an access token in the `x-access-token` header, which is provided to judges with the submission.
 
 ```sh
 pip install -r requirements.txt

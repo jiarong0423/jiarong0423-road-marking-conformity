@@ -70,8 +70,12 @@ which is a sentence about a person rather than an audit.
 | | |
 |---|---|
 | account / region | <account>, ap-southeast-2 |
-| function | `road-marking-gate`, container, arm64, **3008 MB** (10240 MB planned: a full-resolution photo takes 52.5 s on 2 CPUs, over the gateway's 30 s), 60 s |
-| image | `road-marking-gate:v12` (live since 2026-09-23 06:32 UTC), `public.ecr.aws/lambda/python:3.12`, numpy pinned 2.5.3 |
+| function | `road-marking-gate`, container, arm64, **3008 MB** (the account's current cap; 10240 MB needs an AWS limit increase: a full-resolution photo takes 52.5 s on 2 CPUs, over the gateway's 30 s), 60 s |
+| access | POST requires the `x-access-token` header (token set on the function, given to judges with the submission); GET is open |
+| limits | API Gateway throttling 1 request/s, burst 3; the account's total Lambda concurrency is 10; $5/month budget alert |
+| entry points | API Gateway only; the unused Lambda Function URL was removed 2026-09-23 |
+| logs | CloudWatch, 14-day retention |
+| image | `road-marking-gate:v13` (live 2026-09-23), `public.ecr.aws/lambda/python:3.12`, numpy pinned 2.5.3 |
 | OpenCV | `opencv-python-headless==5.0.0.93`, reported by the running function as 5.0.0 |
 | public entry | API Gateway HTTP API `3p4k7s4bx7`, proxy to the function |
 | role | `road-marking-gate-role`, basic execution only |

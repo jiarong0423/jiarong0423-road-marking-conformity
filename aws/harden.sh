@@ -1,5 +1,6 @@
 #!/bin/sh
 # Deploy v13 (with the access gate) and harden the function. Run by the owner.
+# Safe to re-run: the token file is reused and every step is idempotent.
 #
 #   ./aws/harden.sh you@example.com
 #   MEMORY=3008 ./aws/harden.sh you@example.com   (accounts still capped at 3008 MB)
@@ -34,8 +35,12 @@ aws lambda update-function-configuration --function-name $FN --memory-size "$MEM
   --environment "Variables={ACCESS_TOKEN=$(cat "$TOKEN_FILE")}" >/dev/null
 aws lambda wait function-updated --function-name $FN
 
-echo "4/7 at most 3 copies running at once"
-aws lambda put-function-concurrency --function-name $FN --reserved-concurrent-executions 3 >/dev/null
+echo "4/7 throttle the API: 1 request/s, bursts of 3"
+# Reserved concurrency is not possible on this account: its total concurrency is 10
+# and AWS keeps 10 unreserved, so the account limit itself already caps it at 10.
+API_ID=$(aws apigatewayv2 get-apis --query "Items[?Name=='road-marking-gate'].ApiId | [0]" --output text)
+aws apigatewayv2 update-stage --api-id "$API_ID" --stage-name '$default' \
+  --default-route-settings ThrottlingRateLimit=1,ThrottlingBurstLimit=3 >/dev/null
 
 echo "5/7 keep logs 14 days"
 aws logs put-retention-policy --log-group-name /aws/lambda/$FN --retention-in-days 14
@@ -60,6 +65,7 @@ echo
 echo "done:"
 aws lambda get-function-configuration --function-name $FN \
   --query '{memory:MemorySize,timeout:Timeout,state:State}' --output text
-aws lambda get-function-concurrency --function-name $FN --output text
+aws apigatewayv2 get-stage --api-id "$API_ID" --stage-name '$default' \
+  --query 'DefaultRouteSettings.{rate:ThrottlingRateLimit,burst:ThrottlingBurstLimit}' --output text
 aws lambda get-function --function-name $FN --query 'Code.ImageUri' --output text | sed 's/^[0-9]*\./<account>./'
 echo "access token saved in $TOKEN_FILE (not shown)"

@@ -679,7 +679,7 @@ the claim is judgeable at all.
 | Pinned dependencies | **yes** | `requirements.txt` pinned; `aws/Dockerfile` pins opencv-python-headless 5.0.0.93 and numpy 2.5.3 (the tested image) |
 | Clear instructions | **yes** | README (install, tests, figure check); `deployment.md` status table current as of 2026-09-23 |
 | Architecture diagram showing OpenCV 5 and AWS components | **yes** | `figures/architecture.png`, redrawn 2026-09-23 |
-| Working web endpoint | **yes, limited** | v12 live at 3008 MB (2026-09-23): GET 200; a 2000 px photo 25.6 s with the new measurements refusing; a full-size photo times out at 60 s. 10 GB memory pending. Optional access token built, not yet enabled |
+| Working web endpoint | **yes, limited** | v13 live at 3008 MB (the account cap), access token on POST, throttled 1/s burst 3. GET 200; a 2000 px photo 25.6 s with the new measurements refusing; a full-size photo times out at 60 s until AWS raises the memory cap to 10 GB |
 | Evaluation evidence including failure cases | **strong on failures, weak on ground truth** | `docs/reproducibility-2026-09-21.md`, `docs/what-changed-2026-09-21.md`, `docs/comparisons-2026-09-21.md`, `results/figure_registry.json` with its withdrawn section; no held-out set, no measured truth for the taper |
 | Video, maximum five minutes, showing team, application, architecture, results | **yes (2026-09-23)** | https://youtu.be/jNofo20hvyY, 3 min 27 s, voiceover and burned-in subtitles |
 | Tests | **yes** | 212 pass (2026-09-23) |
