@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Helvetica, Arial, sans-serif">
+<style>
+ .t{fill:#1b1b1b} .m{fill:#5e5e5a} .tt{fill:#0f7b7b} .ta{fill:#c07a1e} .tr{fill:#b03a2e} .tb{fill:#2f5f9e}
+ .box{fill:#fff;stroke:#d8d8d4;stroke-width:1.4}
+ .zone{fill:#f3f3f0;stroke:#e2e2dd;stroke-width:1}
+ .lbl{font-size:15px;font-weight:700} .sm{font-size:12.5px} .xs{font-size:11.5px} .hd{font-size:20px;font-weight:700} .zh{font-size:13px;font-weight:700;letter-spacing:.5px}
+ .ar{stroke:#7a7a76;stroke-width:1.8;fill:none;marker-end:url(#a)}
+ .ard{stroke:#7a7a76;stroke-width:1.6;fill:none;stroke-dasharray:5 4;marker-end:url(#a)}
+</style>
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 z" fill="#7a7a76"/></marker></defs>
+<rect width="1400" height="820" fill="#fbfbfa"/>
+<text x="30" y="40" class="t hd">Perceive, decide, act: what the photo shows decides what happens next</text>
+<text x="30" y="64" class="m sm">One pass per photo inside the endpoint (src/marking/situation.py → actions.py). The loop closes through a person: a retake, a document request, a look at a flagged box.</text>
+
+<!-- PERCEIVE -->
+<rect class="zone" x="20" y="86" width="430" height="470" rx="8"/>
+<text x="36" y="110" class="tt zh">1  PERCEIVE (OpenCV 5)</text>
+<rect class="box" x="36" y="124" width="398" height="92" rx="6"/>
+<text x="50" y="146" class="t lbl">Is it a road?</text>
+<text x="50" y="168" class="m sm">Road region must cover ≥ 30% of the frame</text>
+<text x="50" y="188" class="m sm">(real photos 56–60%, random noise 0%)</text>
+<text x="50" y="206" class="m xs">situation.road_region</text>
+<rect class="box" x="36" y="228" width="398" height="118" rx="6"/>
+<text x="50" y="250" class="t lbl">Findings</text>
+<text x="50" y="272" class="m sm">Double white / yellow line, red kerb line,</text>
+<text x="50" y="291" class="m sm">works fencing, patched surface, two red lines</text>
+<text x="50" y="312" class="m sm">Canny, HoughLinesP, LAB colour, morphology,</text>
+<text x="50" y="331" class="m sm">k-means, connected components</text>
+<rect class="box" x="36" y="358" width="398" height="186" rx="6"/>
+<text x="50" y="380" class="t lbl">Measurements, checked for stability</text>
+<text x="50" y="402" class="m sm">Red-line gap: cross-ratio, ruler = the 10 cm line</text>
+<text x="50" y="422" class="m sm">Island taper: two edge recognisers + vanishing points</text>
+<text x="50" y="448" class="ta sm">Each run on the photo and 3 re-saved copies;</text>
+<text x="50" y="467" class="ta sm">reported only if all four agree</text>
+<text x="50" y="492" class="m sm">State: MEASURED or CANNOT_MEASURE (with why)</text>
+<text x="50" y="530" class="m xs">phone.redline_gap · phone.taper_427 · phone.encoding_probe</text>
+
+<!-- DECIDE -->
+<rect class="zone" x="480" y="86" width="400" height="470" rx="8"/>
+<text x="496" y="110" class="ta zh">2  DECIDE (rules over the vision output)</text>
+<rect class="box" x="496" y="124" width="368" height="420" rx="6"/>
+<text x="510" y="148" class="t lbl">actions.next_actions(result)</text>
+<text x="510" y="176" class="m sm">Not a road</text>
+<text x="700" y="176" class="t sm">→ RETAKE, nothing else</text>
+<text x="510" y="206" class="m sm">Two red lines measured</text>
+<text x="700" y="206" class="t sm">→ marking plans,</text>
+<text x="700" y="224" class="t sm">   drain records</text>
+<text x="510" y="254" class="m sm">Double white line</text>
+<text x="700" y="254" class="t sm">→ marking plans,</text>
+<text x="700" y="272" class="t sm">   HUMAN_LOOK at its box</text>
+<text x="510" y="302" class="m sm">Works fencing or</text>
+<text x="510" y="320" class="m sm">patched surface</text>
+<text x="700" y="302" class="t sm">→ traffic plan,</text>
+<text x="700" y="320" class="t sm">   dig permit record</text>
+<text x="510" y="350" class="m sm">Taper measured</text>
+<text x="700" y="350" class="t sm">→ works traffic plan</text>
+<text x="700" y="368" class="t sm">   (design speed decides)</text>
+<text x="510" y="398" class="m sm">Measurement refused</text>
+<text x="700" y="398" class="t sm">→ CANNOT_FROM_PHOTO</text>
+<text x="700" y="416" class="t sm">   with the reason</text>
+<text x="510" y="452" class="tr sm">Document requests and HUMAN_LOOK appear only</text>
+<text x="510" y="471" class="tr sm">when a finding in this photo calls for them, and</text>
+<text x="510" y="490" class="tr sm">carry it as "why". Two notes are always added.</text>
+<text x="510" y="526" class="m xs">Deterministic rule set, not a learned or LLM agent</text>
+
+<!-- ACT -->
+<rect class="zone" x="910" y="86" width="470" height="470" rx="8"/>
+<text x="926" y="110" class="tb zh">3  ACT (returned to the caller)</text>
+<rect class="box" x="926" y="124" width="438" height="232" rx="6"/>
+<text x="940" y="148" class="t lbl">next_actions in the JSON response</text>
+<text x="940" y="176" class="tb sm">RETAKE</text><text x="1122" y="176" class="m sm">photograph again, road in the lower half</text>
+<text x="940" y="204" class="tb sm">REQUEST_DOCUMENT</text><text x="1122" y="204" class="m sm">which office, which document</text>
+<text x="940" y="232" class="tb sm">CHECK_PUBLIC_RECORD</text><text x="1122" y="232" class="m sm">the excavation permit register</text>
+<text x="940" y="260" class="tb sm">HUMAN_LOOK</text><text x="1122" y="260" class="m sm">open this box at full resolution</text>
+<text x="940" y="288" class="tb sm">CANNOT_FROM_PHOTO</text><text x="1122" y="288" class="m sm">what needs a tape or a document</text>
+<text x="940" y="316" class="tb sm">NOT_DETECTED</text><text x="1122" y="316" class="m sm">what the online pipeline cannot see</text>
+<text x="940" y="342" class="m xs">each with what, why, basis (the rule) and to (who)</text>
+<rect class="box" x="926" y="370" width="438" height="174" rx="6"/>
+<text x="940" y="394" class="t lbl">Human control</text>
+<text x="940" y="418" class="m sm">The system files nothing and contacts no one.</text>
+<text x="940" y="440" class="m sm">A person decides whether to request a document,</text>
+<text x="940" y="462" class="m sm">open the flagged box, or take the photo again.</text>
+<text x="940" y="490" class="ta sm">A retake or a new photo goes back to step 1:</text>
+<text x="940" y="510" class="ta sm">that is where the loop closes.</text>
+
+<path class="ar" d="M450,320 L476,320"/>
+<path class="ar" d="M880,320 L906,320"/>
+<path class="ard" d="M1145,556 C1145,604 235,604 235,562"/>
+<text x="620" y="584" class="ta sm">retake / new photo</text>
+
+<!-- TRACE -->
+<rect class="zone" x="20" y="616" width="1360" height="190" rx="8"/>
+<text x="36" y="640" class="t zh">TRACE: same pipeline, different photos, different next steps (isolation/agentic/trace.py, 30 km/h)</text>
+<text x="36" y="668" class="t sm" font-weight="700">Input</text><text x="360" y="668" class="t sm" font-weight="700">What OpenCV found</text><text x="760" y="668" class="t sm" font-weight="700">Next actions produced</text>
+<line x1="36" y1="676" x2="1364" y2="676" stroke="#d8d8d4"/>
+<text x="36" y="698" class="m sm">Random noise</text><text x="360" y="698" class="m sm">not a road (0% road region)</text><text x="760" y="698" class="m sm">RETAKE only</text>
+<text x="36" y="724" class="m sm">F31, full size</text><text x="360" y="724" class="m sm">two red lines, gap 0.673 m (MEASURED)</text><text x="760" y="724" class="m sm">request marking plans; request drain records; say which distances need a tape</text>
+<text x="36" y="750" class="m sm">F31, same photo at 2000 px</text><text x="360" y="750" class="m sm">red-line gap CANNOT_MEASURE; patched surface</text><text x="760" y="750" class="m sm">request traffic plan; check dig permit; "no distance can be answered from this photo"</text>
+<text x="36" y="776" class="m sm">F40, full size</text><text x="360" y="776" class="m sm">double white line; patched surface</text><text x="760" y="776" class="m sm">request traffic plan and marking plans; check dig permit; HUMAN_LOOK at the line's box</text>
+<text x="36" y="798" class="tr xs">The same scene gives different next steps depending on whether the measurement held: the vision result, not a fixed script, decides.</text>
+</svg>

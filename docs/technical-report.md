@@ -109,7 +109,28 @@ The Chinese originals are quoted word for word from the national law database in
 
 Two clauses quoted by an AI assistant during this work (Design Standard §14 and §16 on gutters and flush covers) do not exist in the official text and are not used.
 
-## 8. Responsible use
+## 8. Perceive, decide, act (Agentic Vision)
+
+![Perceive, decide, act](figures/agent-workflow.png)
+
+The vision result decides what the system returns next (`src/marking/actions.py`, called inside `assess()`). It is a deterministic rule set over the OpenCV output, not a learned or LLM agent; the loop closes through a person, who decides whether to retake the photo, request a document or open a flagged box.
+
+**Trace** (`isolation/agentic/trace.py`, 30 km/h, the endpoint's own function):
+
+| Input | What OpenCV found | Next actions produced |
+|---|---|---|
+| Random noise | not a road | RETAKE only |
+| F31, full size | two red lines, gap 0.673 m (MEASURED) | request marking plans; request drain records; which distances need a tape |
+| F31, the same photo at 2000 px | red-line gap CANNOT_MEASURE; patched surface | request traffic plan; check dig permit; no distance can be answered from this photo |
+| F40, full size | double white line; patched surface | request traffic plan and marking plans; check dig permit; HUMAN_LOOK at the line's box |
+
+The same scene at two resolutions gives different next steps, because the measurement held at one and not the other: the vision output, not a fixed script, decides.
+
+**Failure handling and observability.** A non-road photo stops at the first gate and asks for a retake. A measurement that moves when the photo is re-saved is refused with its reason, and the refusal becomes a CANNOT_FROM_PHOTO action instead of a number. Every action carries `why` (the finding that caused it), `basis` (the rule) and `to` (who acts). Document requests and HUMAN_LOOK appear only when a finding calls for them; two notes (what a photo cannot answer, and that grates are not detected online) are always added. The system files nothing and contacts no one.
+
+**Not yet measured:** task success over the full evidence set (how often each action is produced across all 106 photos). The script is `isolation/agentic/evaluate.py`.
+
+## 9. Responsible use
 
 - **It describes, it does not accuse.** The output never says a rule was broken. It reports what was measured, against which written limit, how sure the measurement is, and what it could not measure; deciding which rule applies is left to the documents it asks for.
 - **It refuses rather than guesses.** A photo that is not a road gets no measurement. A measurement that changes when the photo is re-saved is not reported. Every refusal says why.
@@ -118,7 +139,7 @@ Two clauses quoted by an AI assistant during this work (Design Standard §14 and
 - **Operation.** POST requires an access token; the API is throttled (1 request/s, bursts of 3); the account's Lambda concurrency is capped at 10; logs are kept 14 days; a budget alert is set. The token is not in the repository.
 - **Human in the loop.** The system's last step is a list of documents for a person to request and boxes for a person to look at; it takes no action on its own.
 
-## 9. Limitations and data rights
+## 10. Limitations and data rights
 
 - One road, one author, 106 photos. The method is general; the evidence is local.
 - The before-repainting taper was measured on Google Street View imagery. Google's terms prohibit sharing screenshots or data derived from Street View, so no Street View image is in this repository; the published schematic is drawn from the project's own measurements.
