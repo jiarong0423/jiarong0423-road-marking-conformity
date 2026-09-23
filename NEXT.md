@@ -1,10 +1,14 @@
 # 接續點(2026-09-23 收尾)
 
+**2026-09-23 17:05 已在 Devpost 送出**(截止前可改),報 Agentic Vision。公開 repo 最新 `9546007`;Devpost 用的 zip 與圖庫在 `output/seven-drain-grates-submission.zip`、`output/devpost_gallery/`,草稿 `output/devpost_submission.md`。Agentic 證據:`docs/figures/agent-workflow.png`、技術報告 §8(20 張評估 20/20;106 張全量未跑完,可逐張重跑 `isolation/agentic/evaluate.py`)。
+
 **比賽交付已齊**:公開 repo `jiarong0423/jiarong0423-road-marking-conformity`(英文 README/故事/技術報告/素材總表/圖)、影片 https://youtu.be/jNofo20hvyY (3:27)、AWS v13 上線。
 - AWS:v13 含通行碼閘門(`~/road116_access_token.txt`,不進 repo,提交表單給評審)、3008 MB(帳號上限)、限速 1/s burst 3、Function URL 已刪、日誌 14 天、$5 預算警報。重跑 `MEMORY=3008 ./aws/harden.sh <email>`,冪等。
 - 未解:記憶體上限 3008 → 原圖線上逾時,新量測雲端跑不出來;要 AWS Support 提額(未申請)。已寫信給 competition@opencv.org 詢問(2026-09-23 15:45),待回覆。
 - 公開 repo 更新方式:`git commit-tree HEAD^{tree} -p public-release` → 推 `public` remote 的 main,**不推本地完整歷史**。推前掃個人路徑/密鑰/街景圖。
 - 街景衍生圖不公開(Google 條款),本地 `output/streetview-derived/`;中文原稿在 `output/zh-originals/`。
+
+- **結案盤點(2026-09-23 17:15)**:本地、GitHub、AWS 三方一致;212 測試過、73 數字對上、106 張證據 sha256 一致。無背景程序、無測試容器、預覽伺服器已停。本地保留(不版控):`output/`(Devpost 上傳檔、中文原稿、街景衍生圖)、`video/out/`(影片 63 MB)。Docker 有 v1–v13 映像約 5 GB,可 `docker image prune` 清。`/etc/hosts` 的三行 googleapis 已被使用者註解掉(為了 Vertex 配音),若別的專案推 Google Sheet 出問題先看這裡。
 
 ---
 
