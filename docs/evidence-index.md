@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-22).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 證據索引:引用任何一個數字之前先看這張表
 
 2026-09-22,記錄者建立。**用途:這是引用的前置關卡。**

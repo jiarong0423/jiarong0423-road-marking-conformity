@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-22).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # Road Marking Conformity
 
 **先讀 [`docs/story-116.md`](docs/story-116.md):整個故事,白話,每個數字接來源。**
@@ -96,7 +98,7 @@ Two figures from the public accident record, both pinned in
 That is an association at one site over a short window, not a causal
 claim, and `results/accidents.json` says so at more length.
 
-![Deployment: OpenCV 5 and AWS components](docs/figures/deployment.svg)
+![Architecture: OpenCV 5 and AWS components](figures/architecture.png)
 
 ## What the system reports
 

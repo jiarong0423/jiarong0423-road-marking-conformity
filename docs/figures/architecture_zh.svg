@@ -204,18 +204,18 @@
 <rect class="box" x="716" y="906" width="150" height="62" rx="6"/>
 <text x="728" y="928" class="t lbl">API Gateway</text>
 <text x="728" y="946" class="m xs">HTTP API，最長等 30 s</text>
-<text x="728" y="961" class="m xs">公開、免認證</text>
+<text x="728" y="961" class="m xs">通行碼閘門已做好，尚未啟用</text>
 <rect class="box" x="890" y="906" width="222" height="62" rx="6"/>
 <text x="902" y="928" class="t lbl">Lambda（arm64 容器）</text>
 <text x="902" y="946" class="m xs">opencv-python-headless 5.0.0.93</text>
 <text x="902" y="961" class="m xs">記憶體 3008 MB → 10240 MB（待部署）</text>
 <rect class="box" x="1136" y="906" width="230" height="62" rx="6"/>
 <text x="1148" y="928" class="t lbl">ECR 映像</text>
-<text x="1148" y="946" class="m xs">線上 v11 → 新版 v12（已建置測試）</text>
+<text x="1148" y="946" class="m xs">v12 已上線（09-23）</text>
 <text x="1148" y="961" class="m xs">只含 handler.py + src/</text>
 <path class="ar" d="M866,937 L886,937"/>
 <path class="ard" d="M1136,937 L1116,937"/>
-<text x="716" y="992" class="m xs">本機實測（同映像、2 CPU）：縮圖 2000 px 14.3 s，新量測拒答；原圖 q90 2.2 MB 52.5 s，紅線外移 0.668 m，但超過 30 s、記憶體用滿</text>
+<text x="716" y="992" class="m xs">線上實測（3 GB）：2000 px 照片 26 秒，新量測拒答；原圖 60 秒逾時</text>
 <text x="716" y="1010" class="m xs">錯誤路徑：非 JSON／缺照片 400、超過 3 MB 413、非道路照片 NOT_A_ROAD（容器內逐項通過）</text>
-<text x="716" y="1030" class="m xs">映像掃描：無個人路徑、無密鑰；回滾：update-function-code 指回 v11、記憶體回 3008 MB</text>
+<text x="716" y="1030" class="m xs">Lambda 另有 Function URL 可直接呼叫，閘門兩個入口都擋；回滾：v11</text>
 </svg>

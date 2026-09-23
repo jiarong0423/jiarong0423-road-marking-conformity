@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-20).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 這是誰的工程，2026-09-20
 
 使用者要我查討論區。查到的不是討論區，是主管機關——而那比討論區有用。

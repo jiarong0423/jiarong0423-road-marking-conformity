@@ -1,10 +1,12 @@
 # OpenCV AI Competition 2026 — technical document
 
-![Deployment: OpenCV 5 and AWS components](figures/deployment.svg)
+> **Self-assessment written 2026-09-21; only the checklist in §10 is kept current.** The current account is [`technical-report.md`](technical-report.md).
 
-*`docs/figures/deployment.svg` — the request path and every component it
-touches. `docs/figures/architecture.svg` is the companion: the eight
-algorithm stages and the one that was removed.*
+![Architecture: OpenCV 5 and AWS components](figures/architecture.png)
+
+*`docs/figures/architecture.png` (source `architecture.svg`), redrawn 2026-09-23:
+the online request path, the offline evidence pipeline, the regulations and
+the deployment. It replaces the 2026-09-21 deployment diagram, which showed v11.*
 
 2026-09-21. Written against the rubric on https://opencv26.devpost.com/,
 re-read the same day. Every figure below was checked against this
@@ -672,21 +674,21 @@ the claim is judgeable at all.
 
 | requirement | state | what is missing |
 |---|---|---|
-| Technical report: problem, users, architecture, implementation, deployment, evaluation | **partial** | this file plus `docs/` covers all six; no single reader-facing report exists, and `docs/thesis.md` contradicts the registry (§2) |
-| Public or judge-accessible repository | **yes (2026-09-23)**: `github.com/jiarong0423/jiarong0423-road-marking-conformity`, fresh single-commit history `e781c56` = local tree `c2310ba`; old repo deleted by owner. Superseded note follows: | public at `github.com/jiarong0423/road-marking-conformity`; `origin/main` at `a429e8c`, five commits behind local `a5e6f24`, missing the photographs, the licence and the `carriageway()` fix |
-| Pinned dependencies | **partial** | `requirements.txt` fully pinned; `aws/Dockerfile` leaves `numpy>=2.0` unpinned |
-| Clear instructions | **partial** | `README.md` install, `docs/deployment.md` rebuild; `docs/deployment.md` is stale on memory size and image tag |
-| Architecture diagram showing OpenCV 5 and AWS components | **yes, as of this file** | §1; it was absent from the repository before today |
-| Working web endpoint | **yes** | `https://3p4k7s4bx7.execute-api.ap-southeast-2.amazonaws.com` returned 200 for GET and for a POST in this session; runs pre-fix code; 31 s against a 30 s gateway timeout |
+| Technical report: problem, users, architecture, implementation, deployment, evaluation | **yes (2026-09-23)** | [`technical-report.md`](technical-report.md) covers all six |
+| Public or judge-accessible repository | **yes** | `github.com/jiarong0423/jiarong0423-road-marking-conformity`, public, single-lineage snapshots of this repository (working history kept private) |
+| Pinned dependencies | **yes** | `requirements.txt` pinned; `aws/Dockerfile` pins opencv-python-headless 5.0.0.93 and numpy 2.5.3 (the tested image) |
+| Clear instructions | **yes** | README (install, tests, figure check); `deployment.md` status table current as of 2026-09-23 |
+| Architecture diagram showing OpenCV 5 and AWS components | **yes** | `figures/architecture.png`, redrawn 2026-09-23 |
+| Working web endpoint | **yes, limited** | v12 live at 3008 MB (2026-09-23): GET 200; a 2000 px photo 25.6 s with the new measurements refusing; a full-size photo times out at 60 s. 10 GB memory pending. Optional access token built, not yet enabled |
 | Evaluation evidence including failure cases | **strong on failures, weak on ground truth** | `docs/reproducibility-2026-09-21.md`, `docs/what-changed-2026-09-21.md`, `docs/comparisons-2026-09-21.md`, `results/figure_registry.json` with its withdrawn section; no held-out set, no measured truth for the taper |
 | Video, maximum five minutes, showing team, application, architecture, results | **yes (2026-09-23)** | https://youtu.be/jNofo20hvyY, 3 min 27 s, voiceover and burned-in subtitles |
-| Tests | **yes** | 32 pass, run 2026-09-21 |
+| Tests | **yes** | 212 pass (2026-09-23) |
 | COOL: core workload on Graviton | **yes** | arm64 verified against the live function |
 | COOL: reproducible measurement against a baseline | **absent** | §8 specifies the benchmark |
 | COOL: uses the Cloud-Optimized OpenCV Library | **unestablished** | stock `opencv-python-headless` wheel; what COOL is has not been settled (§8 item 3) |
-| Agentic Vision: vision result drives an action | **built, not wired** | `route.py` imported by nothing; no key on the function; harness unpublished (§9) |
-| Licence | **yes, unpushed** | MIT, commit `ce770e0`, not on `origin` |
-| Primary evidence published | **yes, unpushed** | 42 originals with SHA-256 manifest, commit `ce770e0`, not on `origin` |
+| Agentic Vision: vision result drives an action | **wired, advisory** | `src/marking/actions.py` runs inside `assess()`; document requests appear only when a finding calls for them. `route.py` is still unused |
+| Licence | **yes** | MIT, in the public repository |
+| Primary evidence published | **yes** | 106 originals (42 + 64) with SHA-256 manifests, in the public repository |
 
 ### The shortest path to a complete submission
 

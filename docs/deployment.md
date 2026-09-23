@@ -1,5 +1,7 @@
 # The gate, live
 
+> The status table under *What is deployed* is current as of 2026-09-23. The example response and the finding table below it predate v12; the current response fields are listed in [`technical-report.md`](technical-report.md) §3.
+
     https://3p4k7s4bx7.execute-api.ap-southeast-2.amazonaws.com
 
 `GET` describes the interface. `POST` takes JSON:

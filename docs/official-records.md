@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-20).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # What the authorities actually record
 
 Written 2026-09-20. Every number here came from a public endpoint that the

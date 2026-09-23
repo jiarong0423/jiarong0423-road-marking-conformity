@@ -80,7 +80,7 @@ The before figure was also computed with the horizon from the Street View reques
 
 **Other things tried and dropped**, each recorded in the notes: SIFT registration of Street View onto the phone photos (15 inliers of 69; the two views cover different parts of the island), LSD in place of Hough (less stable), the horizon from the stripe pattern (stripes too short), black-hat and background-relative grate finders (fooled by rough concrete).
 
-**Provenance.** `results/figure_registry.json` pins each published figure to the file and key that produced it; `scripts/check_figures.py` reports **73 published figures match their sources**. Test suite: **207 passed**.
+**Provenance.** `results/figure_registry.json` pins each published figure to the file and key that produced it; `scripts/check_figures.py` reports **73 published figures match their sources**. Test suite: **212 passed**.
 
 **What is not measured.** The step between grate and road and its skid resistance (the Highway Act §72 sets 6 mm and a skid-resistance floor; a straightedge and a pendulum tester are needed on site), anything at night, and the lane width a scooter can actually use. No figure has field-measured ground truth; the card is the only physical reference.
 
@@ -88,7 +88,7 @@ The before figure was also computed with the horizon from the Street View reques
 
 ```sh
 pip install -r requirements.txt                                    # opencv-python 5.0.0.93, numpy 2.4.4, scipy 1.17.1
-python3 -B -m pytest -q -p no:cacheprovider                        # 207 tests
+python3 -B -m pytest -q -p no:cacheprovider                        # 212 tests
 python3 -B scripts/check_figures.py                                # 73 figures vs. their sources
 AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v12
 ```

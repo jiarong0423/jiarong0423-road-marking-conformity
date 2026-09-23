@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-21).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # The night the premise turned out to be wrong
 
 2026-09-21. Written after a long session of tuning, to record what the

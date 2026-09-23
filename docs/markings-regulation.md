@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-20).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 台灣標線的法定幾何，以及法條沒寫的那一格
 
 來源：《道路交通標誌標線號誌設置規則》，全國法規資料庫 `K0040014`。

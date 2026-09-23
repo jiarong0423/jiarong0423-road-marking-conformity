@@ -24,3 +24,6 @@ isolation/out/
 # Video build outputs (regenerate with video/make_video.py); the API excerpt is a run output
 video/out/
 video/assets/*.json
+
+# Outputs of isolation scripts (JSON is refused by the stage gate; regenerate from the scripts)
+isolation/**/*.json

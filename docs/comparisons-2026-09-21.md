@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-21).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # Every comparison this project ran, and which ones hold
 
 2026-09-21. Reconstructed from the git log, `docs/`, `results/*.json` and

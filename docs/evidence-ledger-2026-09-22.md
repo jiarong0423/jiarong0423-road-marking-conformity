@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-22).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 證據清冊,對應使用者提出的四點
 
 2026-09-22。這一份只做一件事:**把目前真正握有的證據攤開,按強度分級,

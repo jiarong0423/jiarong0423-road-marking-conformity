@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-20).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # The claim: the works left a surface that is hard to ride
 
 Stated by the person who rides this road. Unlike the taper, this one has a

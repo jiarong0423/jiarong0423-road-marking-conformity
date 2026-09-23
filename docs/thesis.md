@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-21).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 這個專案在主張什麼
 
 **OpenCV 能不能把道路標線的法規，變成一個跑得動的檢查——在標線造成

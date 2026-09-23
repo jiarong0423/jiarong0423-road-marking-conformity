@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-20).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # Independent verification, 2026-09-20
 
 Recorder role in a three-way verification. Everything below was re-run by me

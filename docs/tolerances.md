@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-20).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # The tolerance, found at last
 
 `docs/markings-regulation.md` listed this as the thing that would give an

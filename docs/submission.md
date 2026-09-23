@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-21).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # Submission checklist — OpenCV AI Competition 2026
 
 Deadline 2026-10-26. Rubric as recorded in `docs/competition.md`, which was

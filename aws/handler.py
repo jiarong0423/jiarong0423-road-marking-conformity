@@ -25,7 +25,9 @@ unsettled. A verdict without its basis is an assertion.
 """
 
 import base64
+import hmac
 import json
+import os
 import sys
 
 import cv2
@@ -69,12 +71,34 @@ def _bad(message, code=400):
                                ensure_ascii=False)}
 
 
+def _token_ok(event):
+    """The access gate, added 2026-09-23.
+
+    When the function's ACCESS_TOKEN environment variable is set, a POST
+    must carry the same value in the `x-access-token` header; otherwise it
+    is refused before any image is decoded, so an unauthorised caller costs
+    milliseconds, not a measurement. The token is set by the owner on the
+    function and given to judges with the submission; it is never in this
+    repository. Unset, the endpoint stays open as before.
+    """
+    want = os.environ.get("ACCESS_TOKEN")
+    if not want:
+        return True
+    headers = {k.lower(): v for k, v in (event.get("headers") or {}).items()}
+    got = headers.get("x-access-token") or ""
+    return hmac.compare_digest(got.encode(), want.encode())
+
+
 def handler(event, context):
     if event.get("requestContext", {}).get("http", {}).get("method") == "GET":
         return {"statusCode": 200,
                 "headers": {"content-type": "application/json"},
                 "body": json.dumps({
                     "service": "road marking taper gate",
+                    "access": ("POST needs the x-access-token header; the token "
+                               "is given with the competition submission"
+                               if os.environ.get("ACCESS_TOKEN") else
+                               "open: no token required"),
                     "opencv": cv2.__version__,
                     "post": {
                         "image_base64": "JPEG or PNG, <= 3 MB encoded. "
@@ -158,6 +182,14 @@ def handler(event, context):
                     },
                 }, ensure_ascii=False)}
 
+    if not _token_ok(event):
+        return {"statusCode": 401,
+                "headers": {"content-type": "application/json"},
+                "body": json.dumps({"state": "UNAUTHORISED",
+                                    "reason": "missing or wrong x-access-token header",
+                                    "measured": False,
+                                    "basis": "the request was refused before the gate ran"})}
+
     body = event.get("body") or ""
     if event.get("isBase64Encoded"):
         try:
@@ -179,9 +211,10 @@ def handler(event, context):
     if len(blob) > MAX_BYTES:
         return _bad(f"the image is {len(blob)//1024} kB and the limit is "
                     f"{MAX_BYTES//1024} kB - Lambda caps a synchronous "
-                    f"request at 6 MB and base64 adds a third. Downscale it: "
-                    f"the gate measures in the bird's eye plane and gains "
-                    f"nothing above about 2000 px on the long side", 413)
+                    f"request at 6 MB and base64 adds a third. Re-save the "
+                    f"full-size photo at JPEG quality 90 (a 12 MP phone photo "
+                    f"is then about 2.2 MB); do not downscale it, because "
+                    f"red_line_gap and taper_table_4_2_7 refuse at 2000 px", 413)
     image = cv2.imdecode(np.frombuffer(blob, np.uint8), cv2.IMREAD_COLOR)
     if image is None:
         return _bad("the bytes did not decode as an image")

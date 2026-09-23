@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-22).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 沿這條路遇到的四個地點
 
 2026-09-22。量測跑在 commit `2d641ed`。這份文件把 42 張照片按**拍攝順序**排成

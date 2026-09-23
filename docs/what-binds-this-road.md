@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-20).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # What actually binds a taper on this road
 
 The gate returns WITHIN_REFERENCE and STEEPER_THAN_REFERENCE rather than

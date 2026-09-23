@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-22).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # What the site is like, from someone who rides it
 
 Facts about this location that no dataset holds and no photograph gives up

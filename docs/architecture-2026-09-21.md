@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-22).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # The corrected measurement pipeline
 
 2026-09-21. Written after `docs/what-changed-2026-09-21.md` established that

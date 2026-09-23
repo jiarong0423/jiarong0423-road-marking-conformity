@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-21).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 116 縣道（樹林中正路）的時間序列
 
 使用者提示「往前查每一個虛線」。虛線是尺——§182 線段 4 m、間隔 6 m，

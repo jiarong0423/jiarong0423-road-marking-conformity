@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-21).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 契約鏈：誰標到、誰畫圖、維持多久
 
 使用者問「哪間公司標案、誰去畫圖的、然後維持時間多久」。查到底。

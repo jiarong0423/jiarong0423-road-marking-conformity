@@ -48,7 +48,7 @@ It runs on AWS Lambda (arm64) with OpenCV 5.0.0.
 
 ```sh
 pip install -r requirements.txt
-/opt/anaconda3/bin/python3 -B -m pytest -q -p no:cacheprovider   # 207 tests
+/opt/anaconda3/bin/python3 -B -m pytest -q -p no:cacheprovider   # 212 tests
 /opt/anaconda3/bin/python3 -B scripts/check_figures.py            # every published number vs. its source
 ```
 

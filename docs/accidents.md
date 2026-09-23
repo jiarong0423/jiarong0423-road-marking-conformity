@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-20).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 事故資料：施工前後，2026-09-20
 
 使用者要我查圖資和紀錄而不是搜尋引擎。最有價值的是警方事故資料——

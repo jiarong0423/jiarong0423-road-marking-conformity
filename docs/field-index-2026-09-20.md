@@ -1,3 +1,5 @@
+> **Historical working note (content from 2026-09-20).** Numbers and status here may be superseded. The current account is [`technical-report.md`](technical-report.md); withdrawn figures are listed there.
+
 # 現場照片，2026-09-20
 
 42 張，POCO F7 Ultra，3072×4096，15:56:03–16:01:07。
