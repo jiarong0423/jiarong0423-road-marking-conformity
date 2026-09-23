@@ -99,7 +99,7 @@ The container pins `opencv-python-headless==5.0.0.93` and `numpy==2.5.3` (`aws/D
 
 ## 7. Regulations used
 
-Quoted word for word from the national law database in [`evidence.md`](evidence.md):
+The Chinese originals are quoted word for word from the national law database in [`evidence.md`](evidence.md); the database states that where English and Chinese differ, the Chinese prevails. Highway Act §72 has an official English translation, which the story quotes; the other clauses have none that I could find, and their English wording here and in the story is my own, unofficial translation.
 
 - Road Traffic Signs, Markings and Signals Rules §169 (red line on the kerb; 10 cm wide), §183 (a red line stands in for the road edge line), §167 (no lane change)
 - Urban Road and Ancillary Works Design Standard §2(1) (a lane is what markings delimit)

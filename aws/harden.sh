@@ -2,6 +2,7 @@
 # Deploy v13 (with the access gate) and harden the function. Run by the owner.
 #
 #   ./aws/harden.sh you@example.com
+#   MEMORY=3008 ./aws/harden.sh you@example.com   (accounts still capped at 3008 MB)
 #
 # The argument is where the $5 budget alert is emailed (optional; omit to skip
 # the budget). The access token is generated here, written to
@@ -12,6 +13,7 @@ cd "$(dirname "$0")/.."
 export AWS_PROFILE="${AWS_PROFILE:-fitstyle}" AWS_REGION="${AWS_REGION:-ap-southeast-2}"
 FN=road-marking-gate
 EMAIL="${1:-}"
+MEMORY="${MEMORY:-10240}"
 TOKEN_FILE="$HOME/road116_access_token.txt"
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 export ACCOUNT
@@ -23,12 +25,12 @@ aws lambda update-function-code --function-name $FN \
   --image-uri "$ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/road-marking-gate:v13" >/dev/null
 aws lambda wait function-updated --function-name $FN
 
-echo "3/7 access token and 10 GB memory"
+echo "3/7 access token and ${MEMORY} MB memory"
 if [ ! -s "$TOKEN_FILE" ]; then
   (umask 077; openssl rand -hex 16 > "$TOKEN_FILE")
 fi
 chmod 600 "$TOKEN_FILE"
-aws lambda update-function-configuration --function-name $FN --memory-size 10240 \
+aws lambda update-function-configuration --function-name $FN --memory-size "$MEMORY" \
   --environment "Variables={ACCESS_TOKEN=$(cat "$TOKEN_FILE")}" >/dev/null
 aws lambda wait function-updated --function-name $FN
 
