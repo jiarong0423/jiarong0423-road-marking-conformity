@@ -17,7 +17,7 @@
 </defs>
 <rect width="1400" height="760" fill="#fbfbfa"/>
 <text x="30" y="38" class="t hd">85 metres of County Road 116: the painted island, two red lines and seven drain grates</text>
-<text x="30" y="60" class="m sm">Drawn by us from our own measurements (no Google Street View imagery). Same scale both ways, so the angles are true. Sources for every number: docs/story-116.md</text>
+<text x="30" y="60" class="m sm">Drawn from my own measurements (no Google Street View imagery). Same scale both ways, so the angles are true. Sources for every number: docs/story-116.md</text>
 
 <!-- road surface -->
 <rect x="140" y="200" width="1080" height="252" fill="#6f6f6b"/>
@@ -89,9 +89,9 @@
 <text x="140" y="610" class="m sm">The rules say a red line belongs on the kerb, that it marks the outer edge of the road, and that the lane is whatever the markings enclose</text>
 <text x="140" y="628" class="m sm">So the new line puts the drain strip and all seven grates inside the road. In 16 of 16 photos the new line runs straight across a grate</text>
 <text x="140" y="654" class="t lbl">⑥ The Highway Act asks for covers that sit flush (within 6 mm) and are not slippery</text>
-<text x="140" y="674" class="m sm">We have not measured the step or the grip, and whether that rule covers these grates has not been confirmed</text>
+<text x="140" y="674" class="m sm">I have not measured the step or the grip, and whether that rule covers these grates has not been confirmed</text>
 <text x="140" y="700" class="t lbl">⑦ On a scooter: you can't cross left, you get about 3.4 s to merge, and your right is grates and open drain holes</text>
-<text x="140" y="720" class="m sm">On winter mornings (mid-Nov to end-Jan, 7–8 am) the low sun is right in your eyes heading to the bridge (our calculation)</text>
+<text x="140" y="720" class="m sm">On winter mornings (mid-Nov to end-Jan, 7–8 am) the low sun is right in your eyes heading to the bridge (my calculation)</text>
 
 <!-- legend -->
 <g transform="translate(1230,580)">

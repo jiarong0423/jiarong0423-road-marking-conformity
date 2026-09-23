@@ -14,7 +14,7 @@
 <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#9a9a96"/></marker></defs>
 <rect width="1400" height="1060" fill="#fbfbfa"/>
 
-<text x="30" y="38" class="t hd">One street photo in. Out comes what we could measure, what we couldn't, and what to do next</text>
+<text x="30" y="38" class="t hd">One street photo in. Out comes what it could measure, what it couldn't, and what to do next</text>
 <text x="30" y="60" class="m sm">County Road 116, Shulin, New Taipei · OpenCV 5 on AWS Lambda · 23 Sep 2026</text>
 
 <!-- ============ 線上：endpoint ============ -->
@@ -29,7 +29,7 @@
 <text x="46" y="192" class="m sm">The camera's field of view</text>
 <text x="46" y="211" class="m sm">The speed limit</text>
 <text x="46" y="230" class="m sm">Lane width (optional)</text>
-<text x="46" y="248" class="m xs">the only number we don't measure</text>
+<text x="46" y="248" class="m xs">the only number not measured</text>
 
 <!-- 閘門 -->
 <rect class="box" x="262" y="112" width="196" height="150" rx="6"/>
@@ -84,7 +84,7 @@
 <text x="502" y="512" class="m sm">35 m of solid line + 50 m of island = 85 m · seven grates at 8, 16, 28, 44, 58, 74, 82 m</text>
 <text x="502" y="531" class="m sm">Red line moved out 0.63–0.68 m · about 3.4 s to merge at 30 km/h</text>
 <text x="502" y="550" class="m sm">Taper figure carries a note on its reliability</text>
-<text x="502" y="572" class="m xs">Generated from our result files; a test fails if they ever drift apart</text>
+<text x="502" y="572" class="m xs">Generated from the result files; a test fails if they ever drift apart</text>
 
 <!-- 輸出 -->
 <rect class="box" x="1028" y="112" width="338" height="150" rx="6"/>
@@ -127,7 +127,7 @@
 
 <!-- ============ 離線：證據管線 ============ -->
 <rect class="zone" x="20" y="612" width="1360" height="248" rx="8"/>
-<text x="34" y="632" class="m zh">OFFLINE: how we built the evidence for the story (every figure has its method printed under it)</text>
+<text x="34" y="632" class="m zh">OFFLINE: how I built the evidence for the story (every figure has its method printed under it)</text>
 
 <rect class="box" x="34" y="646" width="258" height="200" rx="6"/>
 <rect x="34" y="646" width="258" height="4" class="teal" rx="2"/>
@@ -150,7 +150,7 @@
 <text x="318" y="752" class="tt sm">About 12 to 1 (11.7–12.3)</text>
 <text x="318" y="771" class="m xs">6 of 7 variations agree; 1 caught by the check</text>
 <text x="318" y="794" class="tr xs">One photo refused: road climbs to the bridge</text>
-<text x="318" y="810" class="tr xs">Our earlier 10 to 1 is withdrawn</text>
+<text x="318" y="810" class="tr xs">My earlier 10 to 1 is withdrawn</text>
 <text x="318" y="830" class="m xs">consensus.py・horizon2.py</text>
 
 <rect class="box" x="578" y="646" width="258" height="200" rx="6"/>
@@ -179,7 +179,7 @@
 <rect class="box" x="1112" y="646" width="254" height="200" rx="6"/>
 <rect x="1112" y="646" width="254" height="4" class="grey" rx="2"/>
 <text x="1124" y="670" class="t lbl">Tried and dropped</text>
-<text x="1124" y="694" class="m xs">Auto-aligning Street View with our photos</text>
+<text x="1124" y="694" class="m xs">Auto-aligning Street View with my photos</text>
 <text x="1124" y="710" class="m xs">(too few matching points)</text>
 <text x="1124" y="734" class="m xs">A different line finder (less stable)</text>
 <text x="1124" y="758" class="m xs">Horizon from the stripe pattern</text>

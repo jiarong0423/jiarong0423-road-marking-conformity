@@ -673,7 +673,7 @@ the claim is judgeable at all.
 | requirement | state | what is missing |
 |---|---|---|
 | Technical report: problem, users, architecture, implementation, deployment, evaluation | **partial** | this file plus `docs/` covers all six; no single reader-facing report exists, and `docs/thesis.md` contradicts the registry (§2) |
-| Public or judge-accessible repository | **yes, stale** | public at `github.com/jiarong0423/road-marking-conformity`; `origin/main` at `a429e8c`, five commits behind local `a5e6f24`, missing the photographs, the licence and the `carriageway()` fix |
+| Public or judge-accessible repository | **yes (2026-09-23)**: `github.com/jiarong0423/jiarong0423-road-marking-conformity`, fresh single-commit history `e781c56` = local tree `c2310ba`; old repo deleted by owner. Superseded note follows: | public at `github.com/jiarong0423/road-marking-conformity`; `origin/main` at `a429e8c`, five commits behind local `a5e6f24`, missing the photographs, the licence and the `carriageway()` fix |
 | Pinned dependencies | **partial** | `requirements.txt` fully pinned; `aws/Dockerfile` leaves `numpy>=2.0` unpinned |
 | Clear instructions | **partial** | `README.md` install, `docs/deployment.md` rebuild; `docs/deployment.md` is stale on memory size and image tag |
 | Architecture diagram showing OpenCV 5 and AWS components | **yes, as of this file** | §1; it was absent from the repository before today |

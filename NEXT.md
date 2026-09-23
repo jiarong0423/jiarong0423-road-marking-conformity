@@ -25,7 +25,8 @@
    **部署卡兩件,都要使用者決定**:(a) 新量測只在原解析度站得住(2000 px 全拒答),原檔 5–10 MB > 3 MB 上限(Lambda 同步 6 MB);(b) 原解析度 assess 本機 35–38 s > 30 s。
    **故事數字要重驗**:`taper_phone` 的 10:1 對編碼不穩 —— F40 原檔 11.9,品質 97 重編一次 23.2(跨過 16:1),F17 重編即拒答。endpoint 已加四編碼一致才回報的閘;故事裡的 10:1 還沒改,待使用者決定。
    原本這條:**endpoint 沒接新東西**:`assess()`/`aws/handler.py` 還跑舊四偵測器(85 s vs 30 s 逾時,G14)。要把 redline gap、taper、extent、merge window 接成輸出 + `actions.py` 的 REQUEST_DOCUMENT。**這是比賽最該做的一件。**
-3. 雲端仍 v11;本地已推 GitHub(PRIVATE,`fca9f20`),redeploy 前先確認本地 ⊇ GitHub。
+3. **2026-09-23 公開 repo**:`jiarong0423/jiarong0423-road-marking-conformity`(PUBLIC),單一 commit `e781c56` = 本地 `c2310ba` 的樹;舊 PRIVATE repo 使用者已刪。之後更新用 `git commit-tree` 疊在 public-release 上再推 `public` remote,**不推本地完整歷史**。街景衍生圖不公開(Google 條款),本地在 `output/streetview-derived/`。
+   雲端仍 v11;v12 已建置測試,部署三指令待使用者在終端機執行。
 4. 影片沒拍;架構圖是上一版(缺兩把尺/消失點/拒答那條線);評分權重未查。
 5. 斜紋角度自動算:五種抽線 + 結構張量第一版都不收斂(`isolation/DETECTORS.md` 補四~七);外部建議 A/C/Se 2000 在 `isolation/EXTERNAL_STRIPE.md`。**不是故事需要的**,有空再做;槽化線不再進場拍。
 6. 三份文件要申請(故事結尾列了):改繪核定函及劃設圖說、許可 1140874494 交維計畫、側溝竣工圖與蓋板檢驗報告。
