@@ -2,7 +2,7 @@
 
 *A rider, a phone, and OpenCV 5 against one stretch of road in New Taipei.*
 
-**Video:** https://youtu.be/jNofo20hvyY
+**Video:** https://youtu.be/UkINgvk1z-E
 
 ![County Road 116: the stretch, drawn as a schematic](docs/figures/schematic.png)
 

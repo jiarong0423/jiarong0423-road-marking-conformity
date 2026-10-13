@@ -4,7 +4,7 @@
 
 Entry for the OpenCV AI Competition 2026. One author. 23 September 2026; revised 13 October 2026.
 
-Video: https://youtu.be/jNofo20hvyY · Code and evidence: https://github.com/jiarong0423/jiarong0423-road-marking-conformity
+Video: https://youtu.be/UkINgvk1z-E · Code and evidence: https://github.com/jiarong0423/jiarong0423-road-marking-conformity
 
 ---
 
