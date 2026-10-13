@@ -127,7 +127,7 @@ def handler(event, context):
                                     "true of this place and that this "
                                     "program did not measure - the drain "
                                     "covers under the red line, the bridge "
-                                    "430 m ahead. Kept apart from "
+                                    "ahead. Kept apart from "
                                     "`scenario` so an unearned sentence "
                                     "has nowhere to sit",
                         "findings": "the same thing itemised, each with "

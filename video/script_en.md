@@ -1,7 +1,7 @@
 # Video script (English)
 
 Format: `{{...}}` in a subtitle cell is spoken but not shown as subtitle.
-Format: slide edit, English subtitles burned in, about 4 min 15 s. The first 30 seconds state the point and the technique. Rows are in play order; # is the audio file number. Bilingual draft approved by the owner on 2026-10-14: `script_bilingual_draft.md`.
+Format: slide edit, English subtitles burned in, 4 min 57 s. The first 30 seconds state the point and the technique. Rows are in play order; # is the audio file number. The owner approved a bilingual draft (kept outside this repository) on 2026-10-14.
 No Google Street View imagery on any slide.
 
 | # | Time | On screen | Subtitle |
@@ -27,4 +27,4 @@ No Google Street View imagery on any slide.
 - #8: the old taper before repainting is not given (not established from my own photos; nothing from Street View is published).
 - Project name.
 - Voiceover: an external TTS would receive this text.
-- #11: screenshot from the cloud after deployment, or from the local container, labelled as such.
+- #11: settled: the live response from the Function URL on image v14 (`video/assets/api_F31_live_v14.json`).

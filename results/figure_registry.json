@@ -290,9 +290,7 @@
    "cited_in": [],
    "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
    "archival_only": true,
-   "expect": {
-    "$root/the_case_that_was_missed/registered_point_metres_from_site": 1892
-   }
+   "expect": {}
   },
   {
    "id": "excavation_permit_digarea",
@@ -328,18 +326,6 @@
    "archival_only": true,
    "expect": {
     "$root/the_case_that_was_missed/period": "2025-05-06 → 2026-09-30"
-   }
-  },
-  {
-   "id": "excavation_permit_point_distance_m",
-   "value": 1892,
-   "source": "results/excavation_live_2026-09-22.json#/the_case_that_was_missed/registered_point_metres_from_site",
-   "convention": "metres from the site point (coordinates not published) to the case's ONE registered point (coordinates not published). Recorder recomputed 1891.8 by hypot, which rounds to this. The trench is 750 m long, so this distance neither places nor excludes the trench at the photographed stretch - the file says so itself.",
-   "cited_in": [],
-   "regenerate": "no script; data.gov.tw 122989 → data.ntpc.gov.tw is a LIVE endpoint: re-fetching today returns a different file, so there is no script that reproduces this source. The handle is the snapshot's sha256, which is itself registered below. The recorder re-derived every field here from that CSV on 2026-09-22 (`shasum -a 256` on the fetched file, `csv.DictReader`, one row matching licno 1140874494).",
-   "archival_only": true,
-   "expect": {
-    "$root/the_case_that_was_missed/licno": "新北捷五所字第1140874494號"
    }
   },
   {

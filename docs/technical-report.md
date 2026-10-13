@@ -2,7 +2,7 @@
 
 **Seven drain grates on County Road 116: measuring one road's markings from a phone photo, with OpenCV 5 on AWS**
 
-Entry for the OpenCV AI Competition 2026. One author. 23 September 2026; revised 13 October 2026.
+Entry for the OpenCV AI Competition 2026. One author. 23 September 2026; revised 14 October 2026.
 
 Video: https://youtu.be/UkINgvk1z-E · Code and evidence: https://github.com/jiarong0423/jiarong0423-road-marking-conformity
 
@@ -125,12 +125,12 @@ Standing on the road, the island's far end is foreshortened to a sliver, so the 
 pip install -r requirements.txt                                    # opencv-python 5.0.0.93, numpy 2.4.4, scipy 1.17.1
 python3 -B -m pytest -q -p no:cacheprovider                        # all pass
 python3 -B scripts/check_figures.py                                # every figure vs. its source
-AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v15
+AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v16
 ```
 
 The container pins `opencv-python-headless==5.0.0.93` and `numpy==2.5.3` (`aws/Dockerfile`). The local interpreter that produced `results/` has numpy 2.4.4; the container was tested separately with 2.5.3 (below).
 
-**Measured in the v12 container** (arm64, 2 CPUs, locally): a 2000 px photo takes 14.3 s and the new measurements refuse (they need full resolution); a full-resolution photo (JPEG 90, 2.2 MB) takes 52.5 s and returns the red-line gap 0.668 m on F31. That exceeds API Gateway's 30 s limit, so the deployment script asks for 10 GB of Lambda memory (more vCPUs); the account is capped at 3008 MB, so the live function runs at 3008 MB. Error paths return clear answers: malformed JSON or a missing photo 400, over 3 MB 413, a non-road photo `NOT_A_ROAD_PHOTOGRAPH`. Since 14 October: image v15, and a second door, a Lambda Function URL (`https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`) with no 30 s limit; a full-size F31 took **145.5 s** live (3008 MB, the account's cap) and returned the red-line gap **0.668 m**, the same as the local container. Live from 23 September to 14 October: image v13. Measured live at 3008 MB: a 2000 px photo takes 25.6 s and the new measurements refuse; a full-resolution photo times out at 60 s, so the full-resolution path needs a 10 GB limit increase from AWS. POST requires an access token (`x-access-token`), given to judges with the submission; the API is throttled to 1 request/s with bursts of 3, and a $5 budget alert is set. See [`deployment.md`](deployment.md).
+**Measured in the v12 container** (arm64, 2 CPUs, locally): a 2000 px photo takes 14.3 s and the new measurements refuse (they need full resolution); a full-resolution photo (JPEG 90, 2.2 MB) takes 52.5 s and returns the red-line gap 0.668 m on F31. That exceeds API Gateway's 30 s limit. A 10 GB memory request (more vCPUs) was refused, so the live function runs at 3008 MB, the account's cap, and full-size photos go through the Function URL instead (below). Error paths return clear answers: malformed JSON or a missing photo 400, over 3 MB 413, a non-road photo `NOT_A_ROAD_PHOTOGRAPH`. Since 14 October: a second door, a Lambda Function URL (`https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`) with no 30 s limit; on image v14 a full-size F31 took **145.5 s** live (3008 MB, the account's cap) and returned the red-line gap **0.668 m**, the same as the local container; images v15 and v16, live since, change only the interface and site text. Before that, from 23 September to 14 October, image v13 ran only behind API Gateway: a 2000 px photo took 25.6 s and the new measurements refused, and a full-resolution photo timed out. POST requires an access token (`x-access-token`), given to judges with the submission; the API is throttled to 1 request/s with bursts of 3, and a $5 budget alert is set. See [`deployment.md`](deployment.md).
 
 ## 7. Regulations used
 

@@ -72,8 +72,8 @@ pip install -r requirements.txt
 Deploy your own copy (AWS CLI and Docker with buildx; arm64 image):
 
 ```sh
-AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v15
-MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v15, set access token, throttling, logs, budget
+AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v16
+MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v16, set access token, throttling, logs, budget
 ```
 
 Technical report: [`docs/technical-report.md`](docs/technical-report.md). Deployment: [`docs/deployment.md`](docs/deployment.md). OpenCV calls behind each piece of evidence: [`docs/opencv5.md`](docs/opencv5.md).
