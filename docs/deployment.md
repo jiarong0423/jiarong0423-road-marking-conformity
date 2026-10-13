@@ -1,6 +1,6 @@
 # The gate, live
 
-> The status table under *What is deployed* is current as of 2026-09-23 (concurrency raised 2026-10-13). The current response fields are listed in [`technical-report.md`](technical-report.md) §3; the scenario below shows the shape of the answer, not a measurement of this site.
+> The status table under *What is deployed* is current as of 2026-10-14 (image v15, Function URL added). The current response fields are listed in [`technical-report.md`](technical-report.md) §3; the scenario below shows the shape of the answer, not a measurement of this site.
 
     https://3p4k7s4bx7.execute-api.ap-southeast-2.amazonaws.com
 
@@ -69,12 +69,12 @@ which is a sentence about a person rather than an audit.
 | | |
 |---|---|
 | account / region | <account>, ap-southeast-2 |
-| function | `road-marking-gate`, container, arm64, **3008 MB** (the account's current cap; 10240 MB needs an AWS limit increase: a full-resolution photo takes 52.5 s on 2 CPUs, over the gateway's 30 s), 60 s |
+| function | `road-marking-gate`, container, arm64, **3008 MB** (the account's cap; 10240 MB was refused again on 2026-10-14), timeout **300 s**, reserved concurrency **3** |
 | access | POST requires the `x-access-token` header (token set on the function, given to judges with the submission); GET is open |
 | limits | API Gateway throttling 1 request/s, burst 3; the account's Lambda concurrency quota was raised from 10 to 1000 on 2026-10-13; $5/month budget alert |
-| entry points | API Gateway only; the unused Lambda Function URL was removed 2026-09-23 |
+| entry points | API Gateway (30 s limit) for small requests; since 2026-10-14 a Lambda Function URL, `https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`, with no 30 s limit, for full-size photos. A full-size photo (JPEG 90, 2.2 MB) took **145.5 s** live and returned the red-line gap 0.668 m on F31 |
 | logs | CloudWatch, 14-day retention |
-| image | `road-marking-gate:v13` (live 2026-09-23), `public.ecr.aws/lambda/python:3.12`, numpy pinned 2.5.3 |
+| image | `road-marking-gate:v15` (live 2026-10-14: v14 added the new site figures, v15 the GET text for the Function URL; v13 kept for rollback), `public.ecr.aws/lambda/python:3.12`, numpy pinned 2.5.3 |
 | OpenCV | `opencv-python-headless==5.0.0.93`, reported by the running function as 5.0.0 |
 | public entry | API Gateway HTTP API `3p4k7s4bx7`, proxy to the function |
 | role | `road-marking-gate-role`, basic execution only |
@@ -83,19 +83,30 @@ Cold start 7.3 s on the first call, 2.0-2.4 s warm. Costs nothing at this
 traffic: Lambda's free tier covers it and the HTTP API's first million
 requests are free.
 
-## Why API Gateway and not a Function URL
+## The Function URL, and why it returned 403 before
 
-A Lambda Function URL was created first and returned 403 to every request.
-Its `AuthType` is `NONE` and the resource policy carries the right statement
-- `Principal: "*"`, `lambda:InvokeFunctionUrl`, conditioned on
-`FunctionUrlAuthType: NONE` - and direct `aws lambda invoke` on the same
-function returns 200 with a full verdict, so the function was never the
-problem. The account is not in an Organization and the calling user has no
-permissions boundary, which leaves the account-level public access block for
-Lambda. The installed CLI (2.36.44) has no subcommand for it, so it could
-not be read or changed from here.
+A Lambda Function URL was created first, on 2026-09-20, and returned 403 to every
+request even though its resource policy carried `lambda:InvokeFunctionUrl` for
+`Principal: "*"` with `FunctionUrlAuthType: NONE`. It was removed and API Gateway
+used instead. API Gateway answers within 30 s, and a full-size photo needs about
+2.5 minutes, so full-size photos always timed out online.
 
-That is unresolved rather than fixed. The HTTP API goes around it.
+On 2026-10-14 the cause was found: a public Function URL now also needs
+`lambda:InvokeFunction` for `Principal: "*"`, conditioned on
+`lambda:InvokedViaFunctionUrl: true`. With both statements the new URL answers:
+`GET` 200, `POST` with a wrong token 401, and a full-size F31 measured in 145.5 s.
+The token check in the handler is the same for both doors; reserved concurrency 3
+caps how many requests can run at once, since a Function URL has no gateway throttle.
+
+```sh
+aws lambda create-function-url-config --function-name road-marking-gate --auth-type NONE
+aws lambda add-permission --function-name road-marking-gate --statement-id furl-invoke-url \
+  --action lambda:InvokeFunctionUrl --principal '*' --function-url-auth-type NONE
+aws lambda add-permission --function-name road-marking-gate --statement-id furl-invoke-fn \
+  --action lambda:InvokeFunction --principal '*' --invoked-via-function-url
+aws lambda put-function-concurrency --function-name road-marking-gate --reserved-concurrent-executions 3
+aws lambda update-function-configuration --function-name road-marking-gate --timeout 300
+```
 
 ## The size limit
 
@@ -115,9 +126,9 @@ name it. Set the profile to whatever your own credentials are called.
 
 ```sh
 AWS_PROFILE=<your-profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> \
-  ./aws/build-and-push.sh v13
+  ./aws/build-and-push.sh v15
 aws lambda update-function-code --function-name road-marking-gate \
-  --image-uri <account>.dkr.ecr.ap-southeast-2.amazonaws.com/road-marking-gate:v13
+  --image-uri <account>.dkr.ecr.ap-southeast-2.amazonaws.com/road-marking-gate:v15
 ```
 
 `--provenance=false --sbom=false` are in the script and are not optional:

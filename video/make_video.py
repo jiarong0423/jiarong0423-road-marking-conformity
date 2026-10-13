@@ -69,7 +69,7 @@ GLOSS = {"向交通局申請該路段的交通維持計畫": "Traffic Dept, traf
 
 
 def api_card():
-    b = json.loads((HERE / "assets/api_F31_local_v12.json").read_text())
+    b = json.loads((HERE / "assets/api_F31_live_v14.json").read_text())
     rg = b["red_line_gap"]; t = b["taper_table_4_2_7"]
     excerpt = {
         "findings": [f["code"] for f in b["findings"]],
@@ -79,7 +79,7 @@ def api_card():
     }
     c = Image.new("RGB", (W, H - 260), (30, 30, 30)); d = ImageDraw.Draw(c)
     d.text((80, 40), "POST /  (photo F31, 30 km/h)  ->  200", font=font(34, True), fill=(230, 230, 230))
-    d.text((1000, 46), "Local container test, full-size photo", font=font(26), fill=(190, 190, 190))
+    d.text((1000, 46), "Live, full-size photo, Function URL, 145.5 s", font=font(26), fill=(190, 190, 190))
     y = 100
     for ln in json.dumps(excerpt, ensure_ascii=False, indent=1).splitlines():
         d.text((80, y), ln, font=ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", 24), fill=(170, 220, 170)); y += 29
@@ -176,7 +176,7 @@ def visual(n):
         im2, pos2 = fit(ins, (30, 575, W - 30, H - 270)); c.paste(im2, pos2)
         return c
     if n == 15:
-        return text_card([("Online: full-size photos time out (account memory capped at 3 GB). The result shown is from a local run.", "body"),
+        return text_card([("Online: a full-size photo takes about 2.5 minutes (memory capped at 3 GB), through a door without the 30 s limit.", "body"),
                           ("The painted-over old end is measured on one photo, top-down, within about 10%.", "body"),
                           ("The red-line detector only points at a place. A person opens the box and decides.", "body"),
                           ("Not measured: the step and the grip of the grates.", "body"),

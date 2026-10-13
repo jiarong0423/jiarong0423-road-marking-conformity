@@ -104,10 +104,14 @@ def handler(event, context):
                                         "need the camera's original "
                                         "resolution: at 2000 px on the long "
                                         "side both refuse (checked "
-                                        "2026-09-23 on F17/F30-32/F40), and "
-                                        "originals are 5-10 MB, over this "
-                                        "cap. Until the upload path changes "
-                                        "they will usually say CANNOT_MEASURE",
+                                        "2026-09-23 on F17/F30-32/F40). "
+                                        "Re-save the full-size photo at JPEG "
+                                        "90 (about 2.2 MB, under this cap) "
+                                        "and send it to the Function URL "
+                                        "given with the submission: it has "
+                                        "no 30 s limit and takes about 2.5 "
+                                        "minutes. Through API Gateway (30 s) "
+                                        "a full-size photo times out",
                         "fov_deg": "horizontal field of view of the lens",
                         "posted_kmh": "speed limit in force",
                         "lane_width_m": "optional. Without it the width "

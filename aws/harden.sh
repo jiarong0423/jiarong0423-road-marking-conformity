@@ -1,5 +1,6 @@
 #!/bin/sh
-# Deploy v13 (with the access gate) and harden the function. Run by the owner.
+# Deploy v15 (with the access gate) and harden the function. Run by the owner.
+# The Function URL for full-size photos is set up separately: docs/deployment.md.
 # Safe to re-run: the token file is reused and every step is idempotent.
 #
 #   ./aws/harden.sh you@example.com
@@ -19,11 +20,11 @@ TOKEN_FILE="$HOME/road116_access_token.txt"
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 export ACCOUNT
 
-echo "1/7 build and push v13"
-./aws/build-and-push.sh v13 >/dev/null
-echo "2/7 point the function at v13"
+echo "1/7 build and push v15"
+./aws/build-and-push.sh v15 >/dev/null
+echo "2/7 point the function at v15"
 aws lambda update-function-code --function-name $FN \
-  --image-uri "$ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/road-marking-gate:v13" >/dev/null
+  --image-uri "$ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/road-marking-gate:v15" >/dev/null
 aws lambda wait function-updated --function-name $FN
 
 echo "3/7 access token and ${MEMORY} MB memory"

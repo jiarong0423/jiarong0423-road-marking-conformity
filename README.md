@@ -61,7 +61,7 @@ The decision step (perceive, decide, act) is drawn separately, with a trace and 
 
 Send one street photo. It checks the photo actually shows a road, runs its measurements, and only reports a number if at least three of four re-encoded versions of the image measure it and agree. It tells you what it measured, what it couldn't, and why. Then it tells you what to do next: which document to request from which office, tied to what it found in your photo. That step is `src/marking/actions.py`: a document request appears only when something in your photo calls for it, and it says what that was.
 
-It runs on AWS Lambda (arm64) with OpenCV 5.0.0. `GET` on the endpoint describes the interface; `POST` needs an access token in the `x-access-token` header, which is provided to judges with the submission.
+It runs on AWS Lambda (arm64) with OpenCV 5.0.0. `GET` on the endpoint describes the interface; `POST` needs an access token in the `x-access-token` header, which is provided to judges with the submission. A full-size photo (re-saved at JPEG 90, about 2.2 MB) takes about 2.5 minutes, longer than API Gateway waits, so send it to the second door, a Lambda Function URL with no 30 s limit: `https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`. On F31 it returned the red-line gap 0.668 m in 145.5 s.
 
 ```sh
 pip install -r requirements.txt
@@ -72,8 +72,8 @@ pip install -r requirements.txt
 Deploy your own copy (AWS CLI and Docker with buildx; arm64 image):
 
 ```sh
-AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v13
-MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v13, set access token, throttling, logs, budget
+AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v15
+MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v15, set access token, throttling, logs, budget
 ```
 
 Technical report: [`docs/technical-report.md`](docs/technical-report.md). Deployment: [`docs/deployment.md`](docs/deployment.md). OpenCV calls behind each piece of evidence: [`docs/opencv5.md`](docs/opencv5.md).
