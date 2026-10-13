@@ -1,0 +1,122 @@
+{
+  "withdrawn": "WITHDRAWN 2026-09-20. The imprint test fired on roughly half of all non-paint pixels at every depth, so this measured a threshold, not the marking. Superseded by results/erasure_ratio.json.",
+  "source": "evidence/field-2026-09-20/IMG_20260920_155843.jpg",
+  "ends_tested": 48,
+  "ends_with_imprint": 16,
+  "median_erased_share": 0.246,
+  "per_end": [
+    {
+      "cc": 4,
+      "side": "+",
+      "painted_px": 35.1,
+      "imprint_px": 30.5,
+      "share": 0.465
+    },
+    {
+      "cc": 30,
+      "side": "-",
+      "painted_px": 120.2,
+      "imprint_px": 117.5,
+      "share": 0.494
+    },
+    {
+      "cc": 31,
+      "side": "-",
+      "painted_px": 977.1,
+      "imprint_px": 21.5,
+      "share": 0.022
+    },
+    {
+      "cc": 40,
+      "side": "-",
+      "painted_px": 56.4,
+      "imprint_px": 30.5,
+      "share": 0.351
+    },
+    {
+      "cc": 49,
+      "side": "-",
+      "painted_px": 73.4,
+      "imprint_px": 8.0,
+      "share": 0.098
+    },
+    {
+      "cc": 119,
+      "side": "+",
+      "painted_px": 197.2,
+      "imprint_px": 63.5,
+      "share": 0.244
+    },
+    {
+      "cc": 119,
+      "side": "-",
+      "painted_px": 197.2,
+      "imprint_px": 41.0,
+      "share": 0.172
+    },
+    {
+      "cc": 195,
+      "side": "+",
+      "painted_px": 278.9,
+      "imprint_px": 57.5,
+      "share": 0.171
+    },
+    {
+      "cc": 195,
+      "side": "-",
+      "painted_px": 278.9,
+      "imprint_px": 66.5,
+      "share": 0.193
+    },
+    {
+      "cc": 295,
+      "side": "+",
+      "painted_px": 274.2,
+      "imprint_px": 57.5,
+      "share": 0.173
+    },
+    {
+      "cc": 295,
+      "side": "-",
+      "painted_px": 274.2,
+      "imprint_px": 90.5,
+      "share": 0.248
+    },
+    {
+      "cc": 319,
+      "side": "-",
+      "painted_px": 235.3,
+      "imprint_px": 149.0,
+      "share": 0.388
+    },
+    {
+      "cc": 368,
+      "side": "+",
+      "painted_px": 36.7,
+      "imprint_px": 44.0,
+      "share": 0.545
+    },
+    {
+      "cc": 368,
+      "side": "-",
+      "painted_px": 36.7,
+      "imprint_px": 54.5,
+      "share": 0.598
+    },
+    {
+      "cc": 374,
+      "side": "-",
+      "painted_px": 114.5,
+      "imprint_px": 204.5,
+      "share": 0.641
+    },
+    {
+      "cc": 401,
+      "side": "-",
+      "painted_px": 34.5,
+      "imprint_px": 8.0,
+      "share": 0.188
+    }
+  ],
+  "source_note": "F17 in results/field_index_2026-09-20.csv. Recorded as an absolute path under the author's home directory until 2026-09-21; the same file is in the repository and the hash is in evidence/field-2026-09-20/MANIFEST.csv."
+}

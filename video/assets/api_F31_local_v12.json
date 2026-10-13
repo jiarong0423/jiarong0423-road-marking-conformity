@@ -1,0 +1,311 @@
+{
+ "scenario": [
+  "這裡有兩條紅線。溝帶上的新線,和柏油上磨掉的舊線,相距約 0.67 公尺(用新紅線 10 公分的線寬當尺)。紅線往外移,溝帶被畫進了車道那一側。",
+  "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+  "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+ ],
+ "site_description_not_measured": [],
+ "findings": [
+  {
+   "code": "TWO_RED_LINES",
+   "what": "畫面裡有兩條紅線:溝帶上完整的新線,和它左側柏油上磨掉的舊線。新線內緣到舊線中心約 0.67 m(四種編碼讀數 0.64–0.67 m)。尺是新紅線自己的線寬",
+   "measured": {
+    "state": "MEASURED",
+    "gap_m": 0.668,
+    "min_m": 0.638,
+    "max_m": 0.672,
+    "probe": {
+     "readings": [
+      {
+       "encoding": "as_received",
+       "value": 0.672,
+       "why": null
+      },
+      {
+       "encoding": 97,
+       "value": 0.668,
+       "why": null
+      },
+      {
+       "encoding": 94,
+       "value": 0.638,
+       "why": null
+      },
+      {
+       "encoding": 91,
+       "value": null,
+       "why": "too few vertical segments"
+      }
+     ],
+     "stable": true,
+     "why": null,
+     "median": 0.668,
+     "spread": 0.034
+    },
+    "ruler": {
+     "m": 0.1,
+     "source": "道路交通標誌標線號誌設置規則 §169 紅實線 線寬一○公分"
+    },
+    "what_was_measured": "ground distance from the intact red line's inner edge (the edge nearer the carriageway) to the centre of the worn red line on the asphalt"
+   },
+   "basis": "設置規則 §169:本標線為紅色實線,線寬一○公分。本程式註記:線寬拿來當尺,不需相機姿態;2026-09-23 以標準卡片實測新漆線寬 95–97 mm"
+  },
+  {
+   "code": "SURFACE_IN_PIECES",
+   "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+   "measured": {
+    "surface_types": 3,
+    "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+   },
+   "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+  }
+ ],
+ "checked": [
+  "taper",
+  "taper_table_4_2_7",
+  "double_white",
+  "kerbside_red",
+  "red_line_gap",
+  "works_hoarding",
+  "surface",
+  "lane_width"
+ ],
+ "taper": {
+  "encodings": 9,
+  "attempted": 5,
+  "readings": 1,
+  "evidence": {
+   "segments_min": 36,
+   "segments_max": 61,
+   "encodings_with_candidates": 4,
+   "encodings_with_bordering": 1,
+   "candidates_total": 9,
+   "bordering_total": 2,
+   "cells": [
+    {
+     "px": 1000,
+     "q": 80,
+     "segments": 61,
+     "candidates": 0,
+     "bordering": 0,
+     "deg": null,
+     "cand_deg": []
+    },
+    {
+     "px": 1000,
+     "q": 90,
+     "segments": 47,
+     "candidates": 3,
+     "bordering": 2,
+     "deg": 14.4,
+     "cand_deg": [
+      19.21,
+      14.396,
+      16.597
+     ],
+     "members": 5,
+     "evidence": 0.51
+    },
+    {
+     "px": 1000,
+     "q": 100,
+     "segments": 54,
+     "candidates": 3,
+     "bordering": 0,
+     "deg": null,
+     "cand_deg": [
+      13.556,
+      18.463,
+      12.363
+     ]
+    },
+    {
+     "px": 1400,
+     "q": 80,
+     "segments": 36,
+     "candidates": 1,
+     "bordering": 0,
+     "deg": null,
+     "cand_deg": [
+      13.091
+     ]
+    },
+    {
+     "px": 1400,
+     "q": 90,
+     "segments": 50,
+     "candidates": 2,
+     "bordering": 0,
+     "deg": null,
+     "cand_deg": [
+      19.469,
+      10.83
+     ]
+    }
+   ]
+  },
+  "qualities": [
+   80,
+   90,
+   100
+  ],
+  "work_px": [
+   1000,
+   1400,
+   1800
+  ],
+  "required_rate": 0.1722,
+  "state": "CANNOT_MEASURE",
+  "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+ },
+ "taper_table_4_2_7": {
+  "source": "市區道路及附屬工程設計規範 113/09/12 修正 表 4.2.7 直行車道偏移漸變長度及縮減車道寬度漸變比例 (docs/evidence.md L19)",
+  "probe": {
+   "readings": [
+    {
+     "encoding": "as_received",
+     "value": null,
+     "why": "only 3 long white segments inside the chevron"
+    },
+    {
+     "encoding": 97,
+     "value": null,
+     "why": "only 4 long white segments inside the chevron"
+    },
+    {
+     "encoding": 94,
+     "value": null,
+     "why": "only 2 long white segments inside the chevron"
+    },
+    {
+     "encoding": 91,
+     "value": null,
+     "why": "only 2 long white segments inside the chevron"
+    }
+   ],
+   "stable": false,
+   "why": "only 0 of 4 encodings measured; 3 needed",
+   "median": null,
+   "spread": null
+  },
+  "need_ratio": 5.0,
+  "posted_kmh": 30.0,
+  "state": "CANNOT_MEASURE",
+  "why": "encodings disagree or refuse: only 0 of 4 encodings measured; 3 needed; as received: only 3 long white segments inside the chevron"
+ },
+ "red_line_gap": {
+  "state": "MEASURED",
+  "gap_m": 0.668,
+  "min_m": 0.638,
+  "max_m": 0.672,
+  "probe": {
+   "readings": [
+    {
+     "encoding": "as_received",
+     "value": 0.672,
+     "why": null
+    },
+    {
+     "encoding": 97,
+     "value": 0.668,
+     "why": null
+    },
+    {
+     "encoding": 94,
+     "value": 0.638,
+     "why": null
+    },
+    {
+     "encoding": 91,
+     "value": null,
+     "why": "too few vertical segments"
+    }
+   ],
+   "stable": true,
+   "why": null,
+   "median": 0.668,
+   "spread": 0.034
+  },
+  "ruler": {
+   "m": 0.1,
+   "source": "道路交通標誌標線號誌設置規則 §169 紅實線 線寬一○公分"
+  },
+  "what_was_measured": "ground distance from the intact red line's inner edge (the edge nearer the carriageway) to the centre of the worn red line on the asphalt"
+ },
+ "not_checked": [
+  "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+  "lane_width: 需提供車道寬，照片無比例尺",
+  "surface: 種類數是固定亂數種子下的單次分群。同樣的位元組會得到同樣的數,但「換一個種子會不會得到別的數」本程式沒有量 —— 未定種子時 F18 曾在同一個 process 內給出 4,4,5,5,4,5,4,4。跨種子散布見 G25,尚未量測",
+  "taper_table_4_2_7: encodings disagree or refuse: only 0 of 4 encodings measured; 3 needed; as received: only 3 long white segments inside the chevron",
+  "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+ ],
+ "segments": 21,
+ "carriageway_found": true,
+ "summary": "這條路在這張照片裡有 2 項問題",
+ "next_actions": [
+  {
+   "action": "REQUEST_DOCUMENT",
+   "what": "向交通局申請該路段的交通維持計畫",
+   "why": "本張偵測到施工佔用或多層鋪面,而佔用的核准範圍、期間與漸變段設計只寫在交維計畫裡,照片上量不到",
+   "basis": "政府資訊公開法(本程式未查證應依第幾條申請);養工處管路面,交通局管交通管制",
+   "to": "新北市政府交通局",
+   "evidence": {}
+  },
+  {
+   "action": "CHECK_PUBLIC_RECORD",
+   "what": "查該路段的道路挖掘許可",
+   "why": "挖掘許可是公開資料,會寫出核准的長寬、期間與施工時段",
+   "basis": "data.gov.tw 122989 新北市政府道路挖掘資訊",
+   "to": "民眾可自行查詢",
+   "evidence": {
+    "已查到的案件": "新北捷五所字第1140874494號,柏油長750公尺寬3公尺,2025-05-06 至 2026-09-30,拍照當日適用日間09-16時"
+   }
+  },
+  {
+   "action": "REQUEST_DOCUMENT",
+   "what": "向交通局申請該路段標線改繪核定函及劃設圖說",
+   "why": "本張量到新舊兩條紅線相距約 0.668 m,哪一條是現行要看核定函",
+   "basis": "政府資訊公開法(本程式未查證應依第幾條申請)",
+   "to": "新北市政府交通局",
+   "evidence": {}
+  },
+  {
+   "action": "REQUEST_DOCUMENT",
+   "what": "向區公所申請側溝工程竣工圖說與蓋板檢驗報告",
+   "why": "紅線外移後,側溝帶與溝蓋落在紅線內側;溝蓋與路面的落差、蓋板規格只在竣工資料裡",
+   "basis": "政府資訊公開法(本程式未查證應依第幾條申請)",
+   "to": "樹林區公所工務課",
+   "evidence": {}
+  },
+  {
+   "action": "CANNOT_FROM_PHOTO",
+   "what": "漸變段長度:這張照片答不了",
+   "why": "擾動集成的狀態是 CANNOT_MEASURE,after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+   "basis": "本程式在各編碼版本不一致時拒答,不給單一數值",
+   "to": "需現場量測或交維計畫",
+   "evidence": {}
+  },
+  {
+   "action": "CANNOT_FROM_PHOTO",
+   "what": "紅線外移以外的公分數:這張照片答不了",
+   "why": "本張唯一的尺是新紅線的線寬(§169 一○公分),只用在同一條線旁的距離;溝蓋落差、車道寬沒有同一深度的尺",
+   "basis": "scale_source = RED_LINE_WIDTH (only for red_line_gap)",
+   "to": "現場拉尺",
+   "evidence": {}
+  },
+  {
+   "action": "NOT_DETECTED",
+   "what": "水溝蓋:本程式辨識不到",
+   "why": "偵測器在三個畫面裡找到三個週期結構,沒有一個是溝蓋,已於 2026-09-21 移除",
+   "basis": "現場紀錄與照片可見,本程式未能辨識",
+   "to": "人眼",
+   "evidence": {}
+  }
+ ],
+ "image_px": [
+  3072,
+  4096
+ ],
+ "opencv": "5.0.0",
+ "_note": "Recorded response of the local v12 container. The site block was removed on 2026-10-13: it carried Street View-derived values."
+}

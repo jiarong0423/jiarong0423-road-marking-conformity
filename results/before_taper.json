@@ -1,0 +1,45 @@
+{
+  "who_did_what": {
+    "done_by_opencv_5": "paint mask (LAB, blur, morphology), connected components for the stripes and the far edge line, line fits and the cross-ratio against the vanishing point, the stripe-by-stripe ground distances",
+    "done_by_a_person": "the chevron's former edge was drawn by the site owner on the photograph (OpenCV could not find it: seven attempts are written up in docs/thesis.md); that the rough surface beyond it is milled carriageway is the owner's statement; whether the drawn edge is the chevron's or the milling boundary is unresolved",
+    "not_done": [
+      "detecting the former edge",
+      "detecting milled asphalt (a texture test separated nothing)",
+      "the far edge of the milled surface (the photograph ends first, so the milled layer is a lower bound)",
+      "any distance in metres (no object of known size in the frame)"
+    ]
+  },
+  "inputs": {
+    "erasure": "results/erasure_ratio.json",
+    "after_ratio": {
+      "median": 12.1,
+      "min": 11.7,
+      "max": 12.3,
+      "source": "isolation/taper-recheck/NOTES.md, F40: about 12:1 (11.7-12.3), 6 of 7 variations; not re-run here"
+    },
+    "drawn_edge_sensitivity": {
+      "erased_min": 0.549,
+      "erased_max": 0.683
+    }
+  },
+  "stripes": {
+    "cut_all_three_lines": 28,
+    "kept_by_robust_rule": 23,
+    "overran_the_band": 4,
+    "clean": 19
+  },
+  "erased_share": {
+    "median": 0.648,
+    "mean": 0.665,
+    "sd": 0.065,
+    "q25": 0.622,
+    "q75": 0.685
+  },
+  "layers_in_old_island_widths": {
+    "still_painted": 0.352,
+    "painted_over": 0.648,
+    "milled_surface_visible_beyond_drawn_edge_at_least": 2.58,
+    "note": "unit is the ground width from the far edge line to the drawn former edge; the third figure is how far the photograph shows road beyond that edge, not a measurement of the milled surface itself"
+  },
+  "before_ratio": "not given: the share painted over is not uniform along the island, so today's ratio cannot be scaled back to the old one"
+}

@@ -1,0 +1,11 @@
+{
+  "withdrawn": "WITHDRAWN 2026-09-20. Same cause as results/erasure.json. Superseded by results/erasure_ratio.json.",
+  "source": "evidence/field-2026-09-20/IMG_20260920_155843.jpg",
+  "datum_cc": 31,
+  "n_stripes": 5,
+  "width_now_px": 140.5,
+  "width_was_px": 168.5,
+  "erased_share_median": 0.164,
+  "erased_share_sd": 0.067,
+  "source_note": "F17 in results/field_index_2026-09-20.csv. Recorded as an absolute path under the author's home directory until 2026-09-21; the same file is in the repository and the hash is in evidence/field-2026-09-20/MANIFEST.csv."
+}

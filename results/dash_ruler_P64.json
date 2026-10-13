@@ -1,0 +1,105 @@
+{
+  "ruler": "\u9053\u8def\u4ea4\u901a\u6a19\u8a8c\u6a19\u7dda\u865f\u8a8c\u8a2d\u7f6e\u898f\u5247 \u00a7182: lane line dash 4 m + gap 6 m = 10 m per dash",
+  "photograph": "evidence/field-2026-09-23/IMG_20260923_063437.jpg (P64)",
+  "dash_centres_px": [
+    [
+      1982,
+      1667
+    ],
+    [
+      2006,
+      1629
+    ],
+    [
+      2020,
+      1604
+    ],
+    [
+      2031,
+      1588
+    ],
+    [
+      2038,
+      1577
+    ],
+    [
+      2044,
+      1566
+    ],
+    [
+      2048,
+      1560
+    ]
+  ],
+  "corner_px": [
+    1955,
+    1714
+  ],
+  "wall_base_px": [
+    1786,
+    1650
+  ],
+  "assumptions": [
+    "consecutive dashes, none skipped",
+    "road plane, camera roll 0",
+    "the wall-base end may sit on the ramp, so the length is less certain than the angle"
+  ],
+  "subsets": {
+    "first_4_dashes": {
+      "horizon_y": 1498,
+      "metres_per_plan_unit": 1.92,
+      "dash_spacing_spread_pct": 2.9,
+      "length_m": 11.1,
+      "angle_to_road_axis_deg": 13.8,
+      "taper_len_over_lateral": 4.1
+    },
+    "first_5_dashes": {
+      "horizon_y": 1506,
+      "metres_per_plan_unit": 1.69,
+      "dash_spacing_spread_pct": 3.6,
+      "length_m": 10.7,
+      "angle_to_road_axis_deg": 13.3,
+      "taper_len_over_lateral": 4.2
+    },
+    "first_6_dashes": {
+      "horizon_y": 1494,
+      "metres_per_plan_unit": 2.04,
+      "dash_spacing_spread_pct": 8.8,
+      "length_m": 11.3,
+      "angle_to_road_axis_deg": 14.0,
+      "taper_len_over_lateral": 4.0
+    },
+    "first_7_dashes": {
+      "horizon_y": 1500,
+      "metres_per_plan_unit": 1.88,
+      "dash_spacing_spread_pct": 11.5,
+      "length_m": 11.1,
+      "angle_to_road_axis_deg": 13.7,
+      "taper_len_over_lateral": 4.1
+    }
+  },
+  "slanted_end_edge": {
+    "length_m": 11.1,
+    "angle_deg": 13.8,
+    "taper_len_over_lateral": 4.1,
+    "angle_range_deg": [
+      13.3,
+      14.0
+    ]
+  },
+  "not_claimed": "this edge is the island's far end; it is not asserted to be the lane-shift taper of design table 4.2.7",
+  "monte_carlo": {
+    "trials": 400,
+    "angle_deg": {
+      "median": 14.1,
+      "p10": 11.7,
+      "p90": 17.3
+    },
+    "length_m": {
+      "median": 11.4,
+      "p10": 8.2,
+      "p90": 15.0
+    },
+    "perturbation": "dash centres 2 px, corner 6 px, wall end 10 px (1 sigma)"
+  }
+}

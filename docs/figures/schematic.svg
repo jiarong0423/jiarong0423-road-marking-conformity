@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 930" width="1400" height="930" font-family="PingFang TC, Noto Sans TC, Helvetica, Arial, sans-serif">
+<!-- Schematic drawn by the author. Not to scale along the road: positions are arbitrary and carry no distances. -->
+<style>
+ .t{fill:#1b1b1b} .m{fill:#5e5e5a}
+ .sm{font-size:12px} .xs{font-size:10.5px} .lbl{font-size:13px;font-weight:700} .hd{font-size:18px;font-weight:700}
+ .tt{fill:#0f7b7b} .ta{fill:#c07a1e} .tr{fill:#b03a2e}
+</style>
+<defs>
+ <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+  <rect width="10" height="10" fill="#ffffff"/><rect width="4" height="10" fill="#d9d9d4"/></pattern>
+ <pattern id="ghost" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+  <rect width="10" height="10" fill="#7d7d79"/><rect width="4" height="10" fill="#8f8f8a"/></pattern>
+ <pattern id="grate" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#3b3b39"/><rect width="4" height="1.4" fill="#9a9a96"/></pattern>
+ <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#1b1b1b"/></marker>
+</defs>
+<rect width="1400" height="760" fill="#fbfbfa"/>
+<text x="30" y="38" class="t hd">County Road 116: the painted island, two red lines and seven drain grates</text>
+<text x="30" y="60" class="m sm">A schematic I drew myself. Google Maps and Street View imagery is copyrighted and cannot be shown, so this drawing stands in for it. No distances along the road are shown.</text>
+
+<!-- road surface -->
+<rect x="140" y="200" width="1080" height="252" fill="#6f6f6b"/>
+<!-- main line (to bridge) lane marking -->
+<line x1="140" y1="236" x2="1220" y2="236" stroke="#f2f2ee" stroke-width="2" stroke-dasharray="36 36"/>
+<text x="150" y="222" class="xs" fill="#f2f2ee">Main road (up to the bridge)</text>
+
+<!-- double white solid line -->
+<line x1="140" y1="272" x2="600" y2="272" stroke="#ffffff" stroke-width="2.4"/>
+<line x1="140" y1="279" x2="600" y2="279" stroke="#ffffff" stroke-width="2.4"/>
+
+<!-- island before the paint-over: drawn about 3x as wide where measured; its taper is not established -->
+<polygon points="720,272 1160,272 1160,308 720,308" fill="#e0453a" fill-opacity="0.55" stroke="#ff8a7a" stroke-width="1.6" stroke-dasharray="6 3"/>
+<!-- island today: about 12 to 1, a third of the old width -->
+<polygon points="600,272 1050,272 1160,284 746,284" fill="url(#hatch)" stroke="#ffffff" stroke-width="1.6"/>
+
+<text x="760" y="328" class="xs" fill="#f2f2ee">Far end: a slanted edge back to the bridge wall, about 14° (12–17°) to the road axis</text>
+<text x="760" y="344" class="xs" fill="#f2f2ee">and about 11 m (8–15 m) long (my photo, lane dashes as the ruler). Not to scale.</text>
+<!-- the painted lane-reduction arrow where the lane reduction takes place (photos P64, F17): merge left early. Taiwan's reading is the rider's; the clause was not checked. -->
+<g transform="translate(1020,390) rotate(-28)" fill="#f2f2ee" stroke="none">
+ <polygon points="0,-6 52,-6 52,-15 80,0 52,15 52,6 0,6"/>
+</g>
+<text x="900" y="422" class="xs" fill="#f2f2ee">Painted arrow: the lane reduces, merge left early</text>
+<text x="900" y="437" class="xs" fill="#f2f2ee">(my reading; I have not checked the clause)</text>
+<text x="606" y="300" class="xs" fill="#f2f2ee">old start:</text>
+<text x="606" y="314" class="xs" fill="#f2f2ee">not established</text>
+<!-- rider lane label -->
+<text x="600" y="345" class="xs" fill="#f2f2ee">The rider's lane →</text>
+<path d="M600,360 L940,360" stroke="#f2f2ee" stroke-width="1.2" marker-end="url(#a)" opacity=".7"/>
+
+<!-- old red line on the asphalt edge, new red line on the drain strip -->
+<!-- asphalt edge / joint at y=446; gutter strip y=446..470 (2 m wide shown); kerb y=470..482 -->
+<rect x="140" y="446" width="1080" height="26" fill="#b9b7ae"/>
+<rect x="140" y="472" width="1080" height="12" fill="#d7d4c8" stroke="#a9a69a" stroke-width="1"/>
+<line x1="140" y1="443" x2="1220" y2="443" stroke="#e59a9a" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="140" y1="451" x2="1220" y2="451" stroke="#c0392b" stroke-width="2.2"/>
+<!-- seven grates on the new red line; spacing not to scale -->
+<g fill="url(#grate)" stroke="#2a2a28" stroke-width=".8">
+ <rect x="232" y="447" width="8" height="8"/><rect x="380" y="447" width="8" height="8"/>
+ <rect x="528" y="447" width="8" height="8"/><rect x="676" y="447" width="8" height="8"/>
+ <rect x="824" y="447" width="8" height="8"/><rect x="972" y="447" width="8" height="8"/>
+ <rect x="1120" y="447" width="8" height="8"/>
+</g>
+<!-- open round holes on/near the line (illustrative positions between grates) -->
+<g fill="#1b1b1b"><circle cx="700" cy="452" r="1.8"/><circle cx="760" cy="452" r="1.8"/><circle cx="880" cy="452" r="1.8"/></g>
+
+<!-- bridge wall and bridge head -->
+<rect x="980" y="258" width="180" height="6" fill="#bdbab0"/>
+<line x1="1160" y1="190" x2="1160" y2="462" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 3"/>
+
+<g class="m xs" text-anchor="middle">
+ <text x="236" y="500">1</text><text x="384" y="500">2</text><text x="532" y="500">3</text><text x="680" y="500">4</text>
+ <text x="828" y="500">5</text><text x="976" y="500">6</text><text x="1124" y="500">7</text>
+</g>
+<text x="1228" y="500" class="m xs">Grates 1–7 (not to scale)</text>
+
+<!-- callouts top -->
+<text x="140" y="112" class="t lbl">① A double white solid line: no changing lanes here</text>
+<path d="M300,118 L300,268" stroke="#1b1b1b" stroke-width="1" marker-end="url(#a)"/>
+<text x="560" y="112" class="t lbl">② The painted island starts</text>
+<text x="560" y="132" class="ta sm">Before: about 3× as wide where I measured it (red); its taper is not established</text>
+<text x="560" y="150" class="tt sm">Today: about 12 to 1, a third of the width (white stripes)</text>
+<text x="560" y="168" class="m xs">Reference (table 4.2.7, 30 km/h): 5 to 1</text>
+<path d="M700,174 L700,266" stroke="#1b1b1b" stroke-width="1" marker-end="url(#a)"/>
+<text x="940" y="112" class="t lbl">③ Bridge wall</text>
+<text x="1080" y="140" class="t lbl">④ Bridge</text>
+<path d="M1120,146 L1156,186" stroke="#1b1b1b" stroke-width="1" marker-end="url(#a)"/>
+
+<!-- callouts bottom -->
+<text x="140" y="590" class="t lbl">⑤ On the right, the red line moved out by 0.63–0.68 m: from the edge of the asphalt (dashed) onto the drain strip (solid)</text>
+<text x="140" y="610" class="m sm">The rules say a red line belongs on the kerb, that it marks the outer edge of the road, and that the lane is whatever the markings enclose</text>
+<text x="140" y="628" class="m sm">So the new line puts the drain strip and all seven grates inside the road. In all 16 top-down photos (grates 1–6) the new line runs straight across the grate</text>
+<text x="140" y="654" class="t lbl">⑥ The Highway Act sets ±0.6 cm flatness for repaired pavement and asks for non-slip surfaces</text>
+<text x="140" y="674" class="m sm">I have not measured the step or the grip, and whether that rule covers these grates has not been confirmed</text>
+<text x="140" y="700" class="t lbl">⑦ On a scooter: you can't cross left, there is little room to merge, and your right is grates and open drain holes</text>
+<text x="140" y="720" class="m sm">On winter mornings the low sun can be in your eyes heading to the bridge (my experience)</text>
+
+<!-- legend -->
+<g transform="translate(1230,580)">
+ <rect x="0" y="0" width="150" height="150" fill="#ffffff" stroke="#d8d8d4"/>
+ <text x="10" y="20" class="t xs" font-weight="700">Key</text>
+ <rect x="10" y="30" width="22" height="10" fill="url(#hatch)" stroke="#999"/><text x="38" y="39" class="m xs">Island today</text>
+ <rect x="10" y="48" width="22" height="10" fill="#e0453a" fill-opacity="0.55" stroke="#ff8a7a" stroke-dasharray="3 2"/><text x="38" y="57" class="m xs">Island before</text>
+ <line x1="10" y1="72" x2="32" y2="72" stroke="#e59a9a" stroke-width="1.6" stroke-dasharray="6 4"/><text x="38" y="75" class="m xs">Old red line</text>
+ <line x1="10" y1="90" x2="32" y2="90" stroke="#c0392b" stroke-width="2.2"/><text x="38" y="93" class="m xs">New red line</text>
+ <rect x="16" y="102" width="9" height="9" fill="url(#grate)" stroke="#2a2a28"/><text x="38" y="110" class="m xs">Drain grate</text>
+ <rect x="10" y="122" width="22" height="9" fill="#d7d4c8" stroke="#a9a69a"/><text x="38" y="130" class="m xs">Kerb</text>
+</g>
+
+<!-- cross-section: the layers, in relative widths only. Unit = ground width from the far edge line to the drawn former edge (results/before_taper.json). No metres: nothing of known size is in the photograph. -->
+<g transform="translate(0,770)">
+ <rect x="30" y="0" width="1340" height="150" rx="6" fill="#ffffff" stroke="#d8d8d4"/>
+ <text x="50" y="26" class="t lbl">Across the road at one place: what the old island took (relative widths, not metres)</text>
+ <rect x="140" y="52" width="52.8" height="34" fill="url(#hatch)" stroke="#1b1b1b" stroke-width="1"/>
+ <rect x="192.8" y="52" width="97.2" height="34" fill="#e0453a" fill-opacity="0.65" stroke="#e0453a" stroke-width="1"/>
+ <rect x="290" y="52" width="387" height="34" fill="#9a958a" fill-opacity="0.55" stroke="#6f6a5f" stroke-width="1" stroke-dasharray="6 3"/>
+ <path d="M677,69 L720,69" stroke="#6f6a5f" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#a)"/>
+ <line x1="140" y1="44" x2="140" y2="96" stroke="#1ba7d6" stroke-width="3"/>
+ <line x1="290" y1="44" x2="290" y2="96" stroke="#ff8c00" stroke-width="3"/>
+ <text x="140" y="112" class="m xs">far edge line</text>
+ <text x="150" y="128" class="ta sm">35% still painted</text>
+ <text x="196" y="144" class="tt sm" fill="#e0453a">65% painted over</text>
+ <text x="250" y="112" class="m xs">old edge (marked by me)</text>
+ <text x="330" y="128" class="m sm">milled road beside it: at least 2.6 island-widths, to the edge of the photo</text>
+ <text x="730" y="73" class="m xs">the photograph ends here, so this is a lower bound</text>
+ <text x="760" y="112" class="m xs">OpenCV measured the paint, the lines and the ratios. I marked the old edge; the milling is the site owner's statement.</text>
+ <text x="760" y="128" class="m xs">OpenCV could not find the old edge or the milled asphalt, and nothing in the photo gives metres.</text>
+</g>
+</svg>

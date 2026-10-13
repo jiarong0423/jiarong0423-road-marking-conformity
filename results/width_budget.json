@@ -1,0 +1,51 @@
+{
+  "clearance_m": 0.5,
+  "clearance_source": "道路交通安全規則 §101",
+  "motorcycle_m": 0.75,
+  "lane_widths_considered": [
+    3.0,
+    3.25,
+    3.5
+  ],
+  "rows": [
+    {
+      "vehicle": "小客車 (typical sedan)",
+      "width_m": 1.78,
+      "required_m": 3.03,
+      "spare_m": {
+        "3.0": -0.03,
+        "3.25": 0.22,
+        "3.5": 0.47
+      }
+    },
+    {
+      "vehicle": "小客車 at the legal maximum",
+      "width_m": 2.5,
+      "required_m": 3.75,
+      "spare_m": {
+        "3.0": -0.75,
+        "3.25": -0.5,
+        "3.5": -0.25
+      }
+    },
+    {
+      "vehicle": "大型車 / bus at the legal maximum",
+      "width_m": 2.5,
+      "required_m": 3.75,
+      "spare_m": {
+        "3.0": -0.75,
+        "3.25": -0.5,
+        "3.5": -0.25
+      }
+    }
+  ],
+  "lane_width_measured": false,
+  "why_not": "養工處 route inventory has no width column; the 0.1353 m/px orthophoto does not resolve lane lines here",
+  "rider_account": [
+    "queues form early",
+    "the right side jams",
+    "one lane",
+    "cars and motorcycles contest it",
+    "once had no room to get off the chevron in time"
+  ]
+}

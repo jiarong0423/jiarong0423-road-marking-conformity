@@ -1,0 +1,5 @@
+# Pinned to what the recorded figures were produced with. The interpreter is
+# /opt/anaconda3/bin/python3; see AGENTS.md.
+opencv-python==5.0.0.93
+numpy==2.4.4
+scipy==1.17.1

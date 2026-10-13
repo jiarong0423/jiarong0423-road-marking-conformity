@@ -1,0 +1,7362 @@
+{
+ "note": "assess() over the field set, at native resolution, field of view from each file's EXIF. The first recorded full-population run of this function - E24. Every count in `totals` is recomputable from `photographs`.",
+ "commit": "8c34e27b5b6cb15cb4198a09abcd26404e4dc694",
+ "tree_state": {
+  "commit": "8c34e27b5b6cb15cb4198a09abcd26404e4dc694",
+  "modified_tracked_files_at_start": [
+   "results/assess_2026-09-22.json",
+   "results/figure_registry.json"
+  ],
+  "src_clean_at_start": true,
+  "src_module_sha256_16": {
+   "src/marking/draw.py": "78184cf9dd71ef63",
+   "src/marking/extract.py": "863bbd5128f537c8",
+   "src/marking/gate2.py": "d60ba0d86056d2ea",
+   "src/marking/rectify.py": "d35fc3ddb37a5017",
+   "src/marking/sequential.py": "2a3b1c8d0ae7af34",
+   "src/marking/situation.py": "619ee4538d5f6823",
+   "src/marking/vanishing.py": "264211731e541e9a"
+  },
+  "note": "captured before the first photograph is read. When `src_clean_at_start` is false the run measured the working tree and not the commit, and `src_module_sha256_16` is then the only unambiguous record of what ran"
+ },
+ "generated": "2026-09-22T06:30:45+0800",
+ "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 30 --stability 0",
+ "posted_kmh": 30.0,
+ "lane_width_m": null,
+ "wall_s": 407.3,
+ "totals": {
+  "n": 42,
+  "assessed": 42,
+  "errors": 0,
+  "photographs_with_at_least_one_finding": 38,
+  "photographs_with_no_finding": 4,
+  "findings_total": 70,
+  "findings_by_code": {
+   "CARRIAGEWAY_OCCUPIED": 9,
+   "EDGE_NOT_CARRIAGEWAY": 25,
+   "NO_LANE_CHANGE": 1,
+   "SURFACE_IN_PIECES": 34,
+   "TAPER_TOO_STEEP": 1
+  },
+  "taper_states": {
+   "CANNOT_MEASURE": 20,
+   "INDETERMINATE": 21,
+   "STEEPER_THAN_REFERENCE": 1
+  },
+  "states": {
+   "ASSESSED": 42
+  },
+  "carriageway_found_true": 42,
+  "scenario_lines_total": 97,
+  "unmeasured_lines_total": 32,
+  "photographs_with_unmeasured_lines": 27,
+  "fov_deg": {
+   "distinct": [
+    31.516,
+    56.812
+   ],
+   "min": 31.516,
+   "max": 56.812
+  },
+  "captured": {
+   "first": "2026:09:20 15:56:03",
+   "last": "2026:09:20 16:01:07",
+   "span_s": 304,
+   "distinct_timestamps": 40,
+   "source": "evidence/field-2026-09-20/MANIFEST.csv, column `captured`, which tests/test_evidence_integrity.py checks against each file's own EXIF"
+  },
+  "surface_types_stability": {
+   "measured": false,
+   "repeats_each": 0,
+   "unstable": [],
+   "note": "E43. `assess()` is documented as pure - same bytes in, same verdict out. Any name listed here returned more than one answer for the same file in one run"
+  },
+  "roi_frac": {
+   "min": 0.555,
+   "max": 0.6001,
+   "note": "assess() reports this only when it refuses; on an assessed frame it is recomputed here from extract.road_region - E34"
+  },
+  "f35_mm_from_exif": {
+   "24.0": 39,
+   "46.0": 3
+  },
+  "f35_disagrees_with_manifest": [],
+  "distinct_finding_sets": [
+   {
+    "codes": [
+     "EDGE_NOT_CARRIAGEWAY",
+     "SURFACE_IN_PIECES"
+    ],
+    "photographs": 16,
+    "nos": [
+     "F09",
+     "F10",
+     "F11",
+     "F12",
+     "F14",
+     "F17",
+     "F22",
+     "F24",
+     "F25",
+     "F28",
+     "F30",
+     "F33",
+     "F37",
+     "F38",
+     "F39",
+     "F41"
+    ]
+   },
+   {
+    "codes": [
+     "SURFACE_IN_PIECES"
+    ],
+    "photographs": 8,
+    "nos": [
+     "F04",
+     "F13",
+     "F16",
+     "F18",
+     "F20",
+     "F32",
+     "F36",
+     "F40"
+    ]
+   },
+   {
+    "codes": [
+     "CARRIAGEWAY_OCCUPIED",
+     "EDGE_NOT_CARRIAGEWAY",
+     "SURFACE_IN_PIECES"
+    ],
+    "photographs": 5,
+    "nos": [
+     "F01",
+     "F03",
+     "F06",
+     "F26",
+     "F29"
+    ]
+   },
+   {
+    "codes": [],
+    "photographs": 4,
+    "nos": [
+     "F19",
+     "F23",
+     "F31",
+     "F34"
+    ]
+   },
+   {
+    "codes": [
+     "EDGE_NOT_CARRIAGEWAY"
+    ],
+    "photographs": 4,
+    "nos": [
+     "F21",
+     "F27",
+     "F35",
+     "F42"
+    ]
+   },
+   {
+    "codes": [
+     "CARRIAGEWAY_OCCUPIED",
+     "SURFACE_IN_PIECES"
+    ],
+    "photographs": 3,
+    "nos": [
+     "F02",
+     "F07",
+     "F08"
+    ]
+   },
+   {
+    "codes": [
+     "CARRIAGEWAY_OCCUPIED",
+     "SURFACE_IN_PIECES",
+     "TAPER_TOO_STEEP"
+    ],
+    "photographs": 1,
+    "nos": [
+     "F05"
+    ]
+   },
+   {
+    "codes": [
+     "NO_LANE_CHANGE",
+     "SURFACE_IN_PIECES"
+    ],
+    "photographs": 1,
+    "nos": [
+     "F15"
+    ]
+   }
+  ],
+  "distinct_finding_sets_n": 8
+ },
+ "photographs": [
+  {
+   "no": "F01",
+   "file": "IMG_20260920_155603.jpg",
+   "captured": "2026:09:20 15:56:03",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "78ee84be10f938ae9a9ee214a531b2bc0c9e7c56e5568e0fb9c8eceab79a715e",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "78ee84be10f938ae9a9ee214a531b2bc0c9e7c56e5568e0fb9c8eceab79a715e",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 48.2,
+   "roi_frac_recomputed": 0.576,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 3 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 10,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 1,
+    "evidence": {
+     "segments_min": 66,
+     "segments_max": 88,
+     "encodings_with_candidates": 5,
+     "encodings_with_bordering": 1,
+     "candidates_total": 7,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 83,
+       "candidates": 2,
+       "bordering": 2,
+       "deg": 19.33,
+       "cand_deg": [
+        19.327,
+        18.164
+       ],
+       "members": 10,
+       "evidence": 2.15
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 84,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        12.393
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 88,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        16.399,
+        18.122
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 66,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        9.253
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 75,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        8.542
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 641.6,
+      "area_px": 23452,
+      "bearing_deg": 73.9,
+      "px": [
+       2880,
+       2550,
+       192,
+       618
+      ],
+      "axis_px": [
+       [
+        2901.9,
+        2548.0
+       ],
+       [
+        3079.8,
+        3164.5
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "CARRIAGEWAY_OCCUPIED",
+     "what": "左側有施工圍籬，在行車高度佔去畫面寬度的 68%。被圍走的那一側原本是可行駛路面，車流被擠到剩下的寬度裡",
+     "measured": {
+      "side": "left",
+      "px": [
+       0,
+       1237,
+       2076,
+       807
+      ],
+      "width_frac": 0.676,
+      "height_frac": 0.197,
+      "area_frac": 0.044,
+      "hue": 98
+     },
+     "basis": "新北市道路挖掘作業審查原則：施工場所須設置施工告示牌（附貼路證影本）、交通錐、警示燈，並於施工位置前適當距離之路段，設置車道縮減警示並派員指揮交通，引導車輛依指示通行。（本程式偵測到圍籬的存在，未查證告示牌、警示燈或車道縮減警示是否設置。）"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "CARRIAGEWAY_OCCUPIED",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "先看你左手邊。那裡立著施工圍籬，在你行車的高度佔掉畫面寬度的 68%。那一側本來是路。車流沒有變少，路變窄了，所以所有人被擠進剩下的寬度裡——包含你。",
+    "往右邊看。那裡有一段連續 642 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這 3 項是同一張照片裡同時量到的，每一項的量測與依據條文列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。",
+    "所以剩下的選項是跟旁邊的車搶那不存在的半公尺，或者往右壓到紅線上去。這不是駕駛行為的問題,是施工佔用、標線設計和上橋動線被分開處理，沒有人負責它們疊在一起時一個人要怎麼過——這是對上列量測的解讀，不是量測本身。"
+   ],
+   "seconds_from_first": 0
+  },
+  {
+   "no": "F02",
+   "file": "IMG_20260920_155606.jpg",
+   "captured": "2026:09:20 15:56:06",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "e8d887b31ab2e270c910bc3819ab02d0e0bc765281cba66baf9d137a801162f0",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "e8d887b31ab2e270c910bc3819ab02d0e0bc765281cba66baf9d137a801162f0",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 47.0,
+   "roi_frac_recomputed": 0.5685,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 12,
+   "taper": {
+    "encodings": 9,
+    "attempted": 4,
+    "readings": 0,
+    "evidence": {
+     "segments_min": 41,
+     "segments_max": 61,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 0,
+     "candidates_total": 2,
+     "bordering_total": 0,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 61,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        3.366
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 50,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 54,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 41,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        2.283
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 4 of 9 encodings only 0 had yielded a reading, so the remaining 5 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 4 of 9 encodings only 0 had yielded a reading, so the remaining 5 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "CARRIAGEWAY_OCCUPIED",
+     "what": "左側有施工圍籬，在行車高度佔去畫面寬度的 86%。被圍走的那一側原本是可行駛路面，車流被擠到剩下的寬度裡",
+     "measured": {
+      "side": "left",
+      "px": [
+       0,
+       1144,
+       2636,
+       975
+      ],
+      "width_frac": 0.858,
+      "height_frac": 0.238,
+      "area_frac": 0.057,
+      "hue": 97
+     },
+     "basis": "新北市道路挖掘作業審查原則：施工場所須設置施工告示牌（附貼路證影本）、交通錐、警示燈，並於施工位置前適當距離之路段，設置車道縮減警示並派員指揮交通，引導車輛依指示通行。（本程式偵測到圍籬的存在，未查證告示牌、警示燈或車道縮減警示是否設置。）"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "CARRIAGEWAY_OCCUPIED",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "先看你左手邊。那裡立著施工圍籬，在你行車的高度佔掉畫面寬度的 86%。那一側本來是路。車流沒有變少，路變窄了，所以所有人被擠進剩下的寬度裡——包含你。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 3
+  },
+  {
+   "no": "F03",
+   "file": "IMG_20260920_155609.jpg",
+   "captured": "2026:09:20 15:56:09",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "2df0d42dae4c2a8bc7686e6f52e7bbd8661d40678f534e15f4777309370cba1c",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "2df0d42dae4c2a8bc7686e6f52e7bbd8661d40678f534e15f4777309370cba1c",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 36.4,
+   "roi_frac_recomputed": 0.5855,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 3 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 16,
+   "taper": {
+    "encodings": 9,
+    "attempted": 2,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 57,
+     "segments_max": 63,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 2,
+     "candidates_total": 2,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 63,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 8.84,
+       "cand_deg": [
+        8.839
+       ],
+       "members": 10,
+       "evidence": 1.71
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 57,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 14.33,
+       "cand_deg": [
+        14.331
+       ],
+       "members": 7,
+       "evidence": 1.47
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 8.84,
+    "taper_deg_max": 14.33,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.8-14.3°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.8-14.3°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 604.1,
+      "area_px": 34276,
+      "bearing_deg": 170.9,
+      "px": [
+       2481,
+       1872,
+       591,
+       239
+      ],
+      "axis_px": [
+       [
+        3076.7,
+        1948.2
+       ],
+       [
+        2480.2,
+        2044.0
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "CARRIAGEWAY_OCCUPIED",
+     "what": "左側有施工圍籬，在行車高度佔去畫面寬度的 64%。被圍走的那一側原本是可行駛路面，車流被擠到剩下的寬度裡",
+     "measured": {
+      "side": "left",
+      "px": [
+       0,
+       1222,
+       1973,
+       710
+      ],
+      "width_frac": 0.642,
+      "height_frac": 0.173,
+      "area_frac": 0.033,
+      "hue": 98
+     },
+     "basis": "新北市道路挖掘作業審查原則：施工場所須設置施工告示牌（附貼路證影本）、交通錐、警示燈，並於施工位置前適當距離之路段，設置車道縮減警示並派員指揮交通，引導車輛依指示通行。（本程式偵測到圍籬的存在，未查證告示牌、警示燈或車道縮減警示是否設置。）"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "CARRIAGEWAY_OCCUPIED",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "先看你左手邊。那裡立著施工圍籬，在你行車的高度佔掉畫面寬度的 64%。那一側本來是路。車流沒有變少，路變窄了，所以所有人被擠進剩下的寬度裡——包含你。",
+    "往右邊看。那裡有一段連續 604 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這 3 項是同一張照片裡同時量到的，每一項的量測與依據條文列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。",
+    "所以剩下的選項是跟旁邊的車搶那不存在的半公尺，或者往右壓到紅線上去。這不是駕駛行為的問題,是施工佔用、標線設計和上橋動線被分開處理，沒有人負責它們疊在一起時一個人要怎麼過——這是對上列量測的解讀，不是量測本身。"
+   ],
+   "seconds_from_first": 6
+  },
+  {
+   "no": "F04",
+   "file": "IMG_20260920_155613.jpg",
+   "captured": "2026:09:20 15:56:14",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "1beea8b88381581482fd607954683ab2c18e66c72f14adc039d39d56b0e976c6",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "1beea8b88381581482fd607954683ab2c18e66c72f14adc039d39d56b0e976c6",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 46.9,
+   "roi_frac_recomputed": 0.5561,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 50,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 1,
+    "evidence": {
+     "segments_min": 78,
+     "segments_max": 101,
+     "encodings_with_candidates": 4,
+     "encodings_with_bordering": 1,
+     "candidates_total": 4,
+     "bordering_total": 1,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 79,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        9.2
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 78,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 78,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        10.727
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 101,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 14.01,
+       "cand_deg": [
+        14.011
+       ],
+       "members": 8,
+       "evidence": 2.01
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 95,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        11.926
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 11
+  },
+  {
+   "no": "F05",
+   "file": "IMG_20260920_155731.jpg",
+   "captured": "2026:09:20 15:57:31",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "821bfac742fe6e5f39602206fb1d2eac83fb7c980c1e2e91651486e5dd046a86",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "821bfac742fe6e5f39602206fb1d2eac83fb7c980c1e2e91651486e5dd046a86",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 61.7,
+   "roi_frac_recomputed": 0.5902,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 3 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 102,
+   "taper": {
+    "encodings": 9,
+    "attempted": 9,
+    "readings": 6,
+    "evidence": {
+     "segments_min": 41,
+     "segments_max": 63,
+     "encodings_with_candidates": 9,
+     "encodings_with_bordering": 6,
+     "candidates_total": 22,
+     "bordering_total": 7,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 50,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 11.53,
+       "cand_deg": [
+        11.53,
+        11.248,
+        3.385
+       ],
+       "members": 7,
+       "evidence": 0.83
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 53,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 16.6,
+       "cand_deg": [
+        16.598,
+        6.836
+       ],
+       "members": 11,
+       "evidence": 1.17
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 63,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 11.53,
+       "cand_deg": [
+        11.532,
+        17.047,
+        10.43,
+        7.677
+       ],
+       "members": 9,
+       "evidence": 0.96
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 41,
+       "candidates": 2,
+       "bordering": 2,
+       "deg": 9.86,
+       "cand_deg": [
+        9.862,
+        2.841
+       ],
+       "members": 9,
+       "evidence": 0.98
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 52,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        7.201,
+        10.01
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 59,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        3.333,
+        14.048
+       ]
+      },
+      {
+       "px": 1800,
+       "q": 80,
+       "segments": 52,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        4.034,
+        4.58
+       ]
+      },
+      {
+       "px": 1800,
+       "q": 90,
+       "segments": 50,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 12.49,
+       "cand_deg": [
+        12.489,
+        4.306
+       ],
+       "members": 9,
+       "evidence": 0.86
+      },
+      {
+       "px": 1800,
+       "q": 100,
+       "segments": 55,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 11.75,
+       "cand_deg": [
+        11.749,
+        18.071,
+        17.677
+       ],
+       "members": 10,
+       "evidence": 1.37
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_median": 11.64,
+    "taper_deg_min": 9.86,
+    "taper_deg_max": 16.6,
+    "taper_deg_spread": 6.74,
+    "rate_median": 0.206,
+    "agree_steeper": 6,
+    "required_deg": 9.77,
+    "state": "STEEPER_THAN_REFERENCE",
+    "bound_from": "mildest reading",
+    "taper_deg_bound": 9.86,
+    "times_required_at_least": 1.01,
+    "equivalent_kmh_at_most": 29.9,
+    "why": "all 6 readings exceed the reference, the mildest (9.9°) by 1.0 times. The readings scatter over 6.7° so no single value is reportable, but the direction does not depend on which one is taken"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "TAPER_TOO_STEEP",
+     "what": "車道縮減的漸變段比 30 km/h 所需**至少**陡 1.0 倍，其幾何**至多**適合 30 km/h。這是 6 個編碼版本中最寬容的那個給的下界；讀數散布 6.7°，故不報單一數值",
+     "measured": {
+      "encodings": 9,
+      "attempted": 9,
+      "readings": 6,
+      "evidence": {
+       "segments_min": 41,
+       "segments_max": 63,
+       "encodings_with_candidates": 9,
+       "encodings_with_bordering": 6,
+       "candidates_total": 22,
+       "bordering_total": 7,
+       "cells": [
+        {
+         "px": 1000,
+         "q": 80,
+         "segments": 50,
+         "candidates": 3,
+         "bordering": 1,
+         "deg": 11.53,
+         "cand_deg": [
+          11.53,
+          11.248,
+          3.385
+         ],
+         "members": 7,
+         "evidence": 0.83
+        },
+        {
+         "px": 1000,
+         "q": 90,
+         "segments": 53,
+         "candidates": 2,
+         "bordering": 1,
+         "deg": 16.6,
+         "cand_deg": [
+          16.598,
+          6.836
+         ],
+         "members": 11,
+         "evidence": 1.17
+        },
+        {
+         "px": 1000,
+         "q": 100,
+         "segments": 63,
+         "candidates": 4,
+         "bordering": 1,
+         "deg": 11.53,
+         "cand_deg": [
+          11.532,
+          17.047,
+          10.43,
+          7.677
+         ],
+         "members": 9,
+         "evidence": 0.96
+        },
+        {
+         "px": 1400,
+         "q": 80,
+         "segments": 41,
+         "candidates": 2,
+         "bordering": 2,
+         "deg": 9.86,
+         "cand_deg": [
+          9.862,
+          2.841
+         ],
+         "members": 9,
+         "evidence": 0.98
+        },
+        {
+         "px": 1400,
+         "q": 90,
+         "segments": 52,
+         "candidates": 2,
+         "bordering": 0,
+         "deg": null,
+         "cand_deg": [
+          7.201,
+          10.01
+         ]
+        },
+        {
+         "px": 1400,
+         "q": 100,
+         "segments": 59,
+         "candidates": 2,
+         "bordering": 0,
+         "deg": null,
+         "cand_deg": [
+          3.333,
+          14.048
+         ]
+        },
+        {
+         "px": 1800,
+         "q": 80,
+         "segments": 52,
+         "candidates": 2,
+         "bordering": 0,
+         "deg": null,
+         "cand_deg": [
+          4.034,
+          4.58
+         ]
+        },
+        {
+         "px": 1800,
+         "q": 90,
+         "segments": 50,
+         "candidates": 2,
+         "bordering": 1,
+         "deg": 12.49,
+         "cand_deg": [
+          12.489,
+          4.306
+         ],
+         "members": 9,
+         "evidence": 0.86
+        },
+        {
+         "px": 1800,
+         "q": 100,
+         "segments": 55,
+         "candidates": 3,
+         "bordering": 1,
+         "deg": 11.75,
+         "cand_deg": [
+          11.749,
+          18.071,
+          17.677
+         ],
+         "members": 10,
+         "evidence": 1.37
+        }
+       ]
+      },
+      "qualities": [
+       80,
+       90,
+       100
+      ],
+      "work_px": [
+       1000,
+       1400,
+       1800
+      ],
+      "required_rate": 0.1722,
+      "taper_deg_median": 11.64,
+      "taper_deg_min": 9.86,
+      "taper_deg_max": 16.6,
+      "taper_deg_spread": 6.74,
+      "rate_median": 0.206,
+      "agree_steeper": 6,
+      "required_deg": 9.77,
+      "state": "STEEPER_THAN_REFERENCE",
+      "bound_from": "mildest reading",
+      "taper_deg_bound": 9.86,
+      "times_required_at_least": 1.01,
+      "equivalent_kmh_at_most": 29.9,
+      "why": "all 6 readings exceed the reference, the mildest (9.9°) by 1.0 times. The readings scatter over 6.7° so no single value is reportable, but the direction does not depend on which one is taken"
+     },
+     "basis": "L = W·V²/155, 施工之交通管制守則 p.9。本程式註記:該守則寫給國道，新北市的拘束鏈未規定漸變段長度"
+    },
+    {
+     "code": "CARRIAGEWAY_OCCUPIED",
+     "what": "左側有施工圍籬，在行車高度佔去畫面寬度的 44%。被圍走的那一側原本是可行駛路面，車流被擠到剩下的寬度裡",
+     "measured": {
+      "side": "left",
+      "px": [
+       0,
+       1010,
+       1346,
+       874
+      ],
+      "width_frac": 0.438,
+      "height_frac": 0.213,
+      "area_frac": 0.033,
+      "hue": 100
+     },
+     "basis": "新北市道路挖掘作業審查原則：施工場所須設置施工告示牌（附貼路證影本）、交通錐、警示燈，並於施工位置前適當距離之路段，設置車道縮減警示並派員指揮交通，引導車輛依指示通行。（本程式偵測到圍籬的存在，未查證告示牌、警示燈或車道縮減警示是否設置。）"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "TAPER_TOO_STEEP",
+    "CARRIAGEWAY_OCCUPIED",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "先看你左手邊。那裡立著施工圍籬，在你行車的高度佔掉畫面寬度的 44%。那一側本來是路。車流沒有變少，路變窄了，所以所有人被擠進剩下的寬度裡——包含你。",
+    "路面在你前方收窄，而你是看到才知道的。這個漸變段的幾何最寬容的讀法也只適合時速 30 公里，你正以 30 公里接近它；從進入到通過只有 1.7 秒，而一個人從察覺到手腳做出反應要 2.5 秒。等你反應過來，你已經在裡面了。這是所有編碼版本中最寬容的那個給的下界（至少 1.0 倍）。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這 3 項是同一張照片裡同時量到的，每一項的量測與依據條文列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "所以剩下的選項是跟旁邊的車搶那不存在的半公尺，或者往右壓到紅線上去。這不是駕駛行為的問題,是施工佔用、標線設計和上橋動線被分開處理，沒有人負責它們疊在一起時一個人要怎麼過——這是對上列量測的解讀，不是量測本身。"
+   ],
+   "seconds_from_first": 88
+  },
+  {
+   "no": "F06",
+   "file": "IMG_20260920_155732.jpg",
+   "captured": "2026:09:20 15:57:33",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "fe366501e2808945fe76c02598aaabb7e45606f11311aef1fd930455e6d9c6e9",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "fe366501e2808945fe76c02598aaabb7e45606f11311aef1fd930455e6d9c6e9",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 45.1,
+   "roi_frac_recomputed": 0.5575,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 3 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 65,
+   "taper": {
+    "encodings": 9,
+    "attempted": 3,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 45,
+     "segments_max": 55,
+     "encodings_with_candidates": 3,
+     "encodings_with_bordering": 2,
+     "candidates_total": 9,
+     "bordering_total": 5,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 55,
+       "candidates": 3,
+       "bordering": 2,
+       "deg": 8.3,
+       "cand_deg": [
+        9.972,
+        4.346,
+        8.305
+       ],
+       "members": 3,
+       "evidence": 0.39
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 54,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        7.492,
+        12.672
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 45,
+       "candidates": 4,
+       "bordering": 3,
+       "deg": 19.56,
+       "cand_deg": [
+        19.563,
+        3.336,
+        15.34,
+        18.43
+       ],
+       "members": 7,
+       "evidence": 1.0
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 8.3,
+    "taper_deg_max": 19.56,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.3-19.6°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.3-19.6°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 574.3,
+      "area_px": 40364,
+      "bearing_deg": 79.6,
+      "px": [
+       2632,
+       2421,
+       194,
+       561
+      ],
+      "axis_px": [
+       [
+        2663.4,
+        2419.1
+       ],
+       [
+        2767.2,
+        2983.9
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "CARRIAGEWAY_OCCUPIED",
+     "what": "左側有施工圍籬，在行車高度佔去畫面寬度的 47%。被圍走的那一側原本是可行駛路面，車流被擠到剩下的寬度裡",
+     "measured": {
+      "side": "left",
+      "px": [
+       0,
+       1308,
+       1449,
+       899
+      ],
+      "width_frac": 0.472,
+      "height_frac": 0.219,
+      "area_frac": 0.034,
+      "hue": 101
+     },
+     "basis": "新北市道路挖掘作業審查原則：施工場所須設置施工告示牌（附貼路證影本）、交通錐、警示燈，並於施工位置前適當距離之路段，設置車道縮減警示並派員指揮交通，引導車輛依指示通行。（本程式偵測到圍籬的存在，未查證告示牌、警示燈或車道縮減警示是否設置。）"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "CARRIAGEWAY_OCCUPIED",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "先看你左手邊。那裡立著施工圍籬，在你行車的高度佔掉畫面寬度的 47%。那一側本來是路。車流沒有變少，路變窄了，所以所有人被擠進剩下的寬度裡——包含你。",
+    "往右邊看。那裡有一段連續 574 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這 3 項是同一張照片裡同時量到的，每一項的量測與依據條文列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。",
+    "所以剩下的選項是跟旁邊的車搶那不存在的半公尺，或者往右壓到紅線上去。這不是駕駛行為的問題,是施工佔用、標線設計和上橋動線被分開處理，沒有人負責它們疊在一起時一個人要怎麼過——這是對上列量測的解讀，不是量測本身。"
+   ],
+   "seconds_from_first": 90
+  },
+  {
+   "no": "F07",
+   "file": "IMG_20260920_155735.jpg",
+   "captured": "2026:09:20 15:57:35",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "f7ffca88480b93eb580874ba5816dfe83d3e881a3413d521ba1542a56dcf1d28",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "f7ffca88480b93eb580874ba5816dfe83d3e881a3413d521ba1542a56dcf1d28",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 36.4,
+   "roi_frac_recomputed": 0.5766,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 58,
+   "taper": {
+    "encodings": 9,
+    "attempted": 2,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 41,
+     "segments_max": 52,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 2,
+     "candidates_total": 8,
+     "bordering_total": 4,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 52,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 8.4,
+       "cand_deg": [
+        8.403,
+        11.27,
+        19.098,
+        18.97
+       ],
+       "members": 10,
+       "evidence": 1.74
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 41,
+       "candidates": 4,
+       "bordering": 3,
+       "deg": 18.01,
+       "cand_deg": [
+        18.006,
+        19.885,
+        8.345,
+        13.908
+       ],
+       "members": 9,
+       "evidence": 1.6
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 8.4,
+    "taper_deg_max": 18.01,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.4-18.0°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.4-18.0°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "CARRIAGEWAY_OCCUPIED",
+     "what": "左側有施工圍籬，在行車高度佔去畫面寬度的 64%。被圍走的那一側原本是可行駛路面，車流被擠到剩下的寬度裡",
+     "measured": {
+      "side": "left",
+      "px": [
+       0,
+       1032,
+       1981,
+       1061
+      ],
+      "width_frac": 0.645,
+      "height_frac": 0.259,
+      "area_frac": 0.054,
+      "hue": 98
+     },
+     "basis": "新北市道路挖掘作業審查原則：施工場所須設置施工告示牌（附貼路證影本）、交通錐、警示燈，並於施工位置前適當距離之路段，設置車道縮減警示並派員指揮交通，引導車輛依指示通行。（本程式偵測到圍籬的存在，未查證告示牌、警示燈或車道縮減警示是否設置。）"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 5 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 5,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "CARRIAGEWAY_OCCUPIED",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "先看你左手邊。那裡立著施工圍籬，在你行車的高度佔掉畫面寬度的 64%。那一側本來是路。車流沒有變少，路變窄了，所以所有人被擠進剩下的寬度裡——包含你。",
+    "而你腳下這塊，路面分得出 5 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 92
+  },
+  {
+   "no": "F08",
+   "file": "IMG_20260920_155736.jpg",
+   "captured": "2026:09:20 15:57:36",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "3f686be89878ca256b0ff96fb7c3336b69855872e23f062e03b600e3b54583df",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "3f686be89878ca256b0ff96fb7c3336b69855872e23f062e03b600e3b54583df",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 43.5,
+   "roi_frac_recomputed": 0.5852,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 119,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 1,
+    "evidence": {
+     "segments_min": 41,
+     "segments_max": 52,
+     "encodings_with_candidates": 5,
+     "encodings_with_bordering": 1,
+     "candidates_total": 11,
+     "bordering_total": 1,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 52,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        13.444,
+        11.57,
+        3.073
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 41,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        14.41,
+        10.637
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 42,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 14.31,
+       "cand_deg": [
+        15.857,
+        14.314
+       ],
+       "members": 3,
+       "evidence": 0.39
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 43,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        3.55,
+        6.399
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 45,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        4.434,
+        17.781
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "CARRIAGEWAY_OCCUPIED",
+     "what": "左側有施工圍籬，在行車高度佔去畫面寬度的 38%。被圍走的那一側原本是可行駛路面，車流被擠到剩下的寬度裡",
+     "measured": {
+      "side": "left",
+      "px": [
+       0,
+       1129,
+       1178,
+       825
+      ],
+      "width_frac": 0.383,
+      "height_frac": 0.201,
+      "area_frac": 0.027,
+      "hue": 99
+     },
+     "basis": "新北市道路挖掘作業審查原則：施工場所須設置施工告示牌（附貼路證影本）、交通錐、警示燈，並於施工位置前適當距離之路段，設置車道縮減警示並派員指揮交通，引導車輛依指示通行。（本程式偵測到圍籬的存在，未查證告示牌、警示燈或車道縮減警示是否設置。）"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "CARRIAGEWAY_OCCUPIED",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "先看你左手邊。那裡立著施工圍籬，在你行車的高度佔掉畫面寬度的 38%。那一側本來是路。車流沒有變少，路變窄了，所以所有人被擠進剩下的寬度裡——包含你。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 93
+  },
+  {
+   "no": "F09",
+   "file": "IMG_20260920_155801.jpg",
+   "captured": "2026:09:20 15:58:01",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "49ffec1c027a79e0786b5978c46361cbe003d14fcce24ef1370b2239b777ab92",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "49ffec1c027a79e0786b5978c46361cbe003d14fcce24ef1370b2239b777ab92",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 44.4,
+   "roi_frac_recomputed": 0.5782,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 2,
+   "taper": {
+    "encodings": 9,
+    "attempted": 6,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 16,
+     "segments_max": 40,
+     "encodings_with_candidates": 6,
+     "encodings_with_bordering": 2,
+     "candidates_total": 9,
+     "bordering_total": 3,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 40,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        2.891,
+        19.098,
+        5.585
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 23,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 6.36,
+       "cand_deg": [
+        6.36
+       ],
+       "members": 6,
+       "evidence": 0.54
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 38,
+       "candidates": 2,
+       "bordering": 2,
+       "deg": 4.21,
+       "cand_deg": [
+        4.208,
+        2.096
+       ],
+       "members": 7,
+       "evidence": 0.73
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 20,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        17.156
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 22,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        7.613
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 16,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        10.369
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 6 of 9 encodings only 2 had yielded a reading, so the remaining 3 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 6 of 9 encodings only 2 had yielded a reading, so the remaining 3 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1113.8,
+      "area_px": 237279,
+      "bearing_deg": 166.0,
+      "px": [
+       302,
+       1638,
+       1125,
+       496
+      ],
+      "axis_px": [
+       [
+        355.8,
+        1949.4
+       ],
+       [
+        1436.4,
+        1679.5
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 1114 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 118
+  },
+  {
+   "no": "F10",
+   "file": "IMG_20260920_155802.jpg",
+   "captured": "2026:09:20 15:58:02",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "034993a29f471185cc3b3d713a11a8b6d47d6bd79b6702045716a119bd31c407",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "034993a29f471185cc3b3d713a11a8b6d47d6bd79b6702045716a119bd31c407",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 44.9,
+   "roi_frac_recomputed": 0.5643,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 15,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 1,
+    "evidence": {
+     "segments_min": 32,
+     "segments_max": 74,
+     "encodings_with_candidates": 5,
+     "encodings_with_bordering": 1,
+     "candidates_total": 10,
+     "bordering_total": 1,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 60,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        2.39,
+        14.488
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 69,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        5.328,
+        3.464
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 74,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 14.89,
+       "cand_deg": [
+        5.323,
+        14.887
+       ],
+       "members": 6,
+       "evidence": 0.63
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 46,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        5.88,
+        18.207
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 32,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        11.804,
+        17.15
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1059.4,
+      "area_px": 251496,
+      "bearing_deg": 174.6,
+      "px": [
+       434,
+       1676,
+       1059,
+       709
+      ],
+      "axis_px": [
+       [
+        438.4,
+        2126.8
+       ],
+       [
+        1493.1,
+        2027.3
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 1059 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 119
+  },
+  {
+   "no": "F11",
+   "file": "IMG_20260920_155803.jpg",
+   "captured": "2026:09:20 15:58:03",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "764148fa312242078761199e7abee64548346219ce59eb19835d47d0f3b58d56",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "764148fa312242078761199e7abee64548346219ce59eb19835d47d0f3b58d56",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 40.7,
+   "roi_frac_recomputed": 0.555,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 8,
+   "taper": {
+    "encodings": 9,
+    "attempted": 3,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 46,
+     "segments_max": 65,
+     "encodings_with_candidates": 3,
+     "encodings_with_bordering": 2,
+     "candidates_total": 5,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 46,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 13.8,
+       "cand_deg": [
+        13.805,
+        14.627
+       ],
+       "members": 7,
+       "evidence": 0.79
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 54,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        12.91,
+        4.674
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 65,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 8.8,
+       "cand_deg": [
+        8.804
+       ],
+       "members": 9,
+       "evidence": 0.92
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 8.8,
+    "taper_deg_max": 13.8,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.8-13.8°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.8-13.8°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1019.0,
+      "area_px": 226575,
+      "bearing_deg": 173.4,
+      "px": [
+       910,
+       1638,
+       1024,
+       640
+      ],
+      "axis_px": [
+       [
+        922.6,
+        2052.0
+       ],
+       [
+        1934.7,
+        1934.3
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 1019 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 120
+  },
+  {
+   "no": "F12",
+   "file": "IMG_20260920_155804.jpg",
+   "captured": "2026:09:20 15:58:04",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "419301d9c14d7749f4253a813ca1da470b8f5bf51c6128211d4f688ee39f2c5d",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "419301d9c14d7749f4253a813ca1da470b8f5bf51c6128211d4f688ee39f2c5d",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 45.6,
+   "roi_frac_recomputed": 0.5783,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 6,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 1,
+    "evidence": {
+     "segments_min": 34,
+     "segments_max": 45,
+     "encodings_with_candidates": 5,
+     "encodings_with_bordering": 1,
+     "candidates_total": 10,
+     "bordering_total": 1,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 37,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        10.57,
+        11.213
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 36,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 10.85,
+       "cand_deg": [
+        12.251,
+        10.851,
+        9.533
+       ],
+       "members": 4,
+       "evidence": 0.35
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 45,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        19.131,
+        11.777,
+        2.634
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 37,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        15.913
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 34,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        14.543
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1169.4,
+      "area_px": 255179,
+      "bearing_deg": 171.0,
+      "px": [
+       110,
+       1638,
+       1185,
+       620
+      ],
+      "axis_px": [
+       [
+        138.7,
+        2051.8
+       ],
+       [
+        1293.6,
+        1868.6
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 1169 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 121
+  },
+  {
+   "no": "F13",
+   "file": "IMG_20260920_155825.jpg",
+   "captured": "2026:09:20 15:58:25",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "0459c9310397c7263480e282da70de572ac72fd77685ea9f19f0c638f273b077",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "0459c9310397c7263480e282da70de572ac72fd77685ea9f19f0c638f273b077",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 42.7,
+   "roi_frac_recomputed": 0.5882,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 49,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 3,
+    "evidence": {
+     "segments_min": 81,
+     "segments_max": 109,
+     "encodings_with_candidates": 4,
+     "encodings_with_bordering": 3,
+     "candidates_total": 15,
+     "bordering_total": 6,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 109,
+       "candidates": 4,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        10.001,
+        2.916,
+        16.831,
+        7.136
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 93,
+       "candidates": 3,
+       "bordering": 2,
+       "deg": 4.15,
+       "cand_deg": [
+        4.15,
+        10.792,
+        10.199
+       ],
+       "members": 14,
+       "evidence": 1.91
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 98,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 8.99,
+       "cand_deg": [
+        8.989,
+        8.843,
+        8.345,
+        8.441
+       ],
+       "members": 14,
+       "evidence": 1.99
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 81,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 84,
+       "candidates": 4,
+       "bordering": 3,
+       "deg": 19.92,
+       "cand_deg": [
+        19.923,
+        3.255,
+        2.188,
+        13.555
+       ],
+       "members": 16,
+       "evidence": 2.41
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 4.15,
+    "taper_deg_max": 19.92,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 3 readings put the taper past the reference and 2 did not, on encodings of one photograph. The angle ranges 4.2-19.9°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 3 readings put the taper past the reference and 2 did not, on encodings of one photograph. The angle ranges 4.2-19.9°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 142
+  },
+  {
+   "no": "F14",
+   "file": "IMG_20260920_155826.jpg",
+   "captured": "2026:09:20 15:58:26",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "76a1958179abdd5370b84bffcad7e30af4a367c97043f30a003f106f422196a5",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "76a1958179abdd5370b84bffcad7e30af4a367c97043f30a003f106f422196a5",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 44.5,
+   "roi_frac_recomputed": 0.5778,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 41,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 3,
+    "evidence": {
+     "segments_min": 84,
+     "segments_max": 96,
+     "encodings_with_candidates": 5,
+     "encodings_with_bordering": 3,
+     "candidates_total": 16,
+     "bordering_total": 5,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 94,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 6.86,
+       "cand_deg": [
+        6.862,
+        19.995,
+        10.926
+       ],
+       "members": 14,
+       "evidence": 2.24
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 96,
+       "candidates": 4,
+       "bordering": 3,
+       "deg": 4.43,
+       "cand_deg": [
+        4.428,
+        5.218,
+        12.655,
+        5.358
+       ],
+       "members": 14,
+       "evidence": 1.82
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 84,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        7.542,
+        4.545,
+        7.834
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 87,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        6.712,
+        4.0,
+        18.298
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 88,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 17.5,
+       "cand_deg": [
+        17.502,
+        9.907,
+        11.629
+       ],
+       "members": 16,
+       "evidence": 2.26
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 4.43,
+    "taper_deg_max": 17.5,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 3 readings put the taper past the reference and 2 did not, on encodings of one photograph. The angle ranges 4.4-17.5°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 3 readings put the taper past the reference and 2 did not, on encodings of one photograph. The angle ranges 4.4-17.5°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 874.5,
+      "area_px": 86972,
+      "bearing_deg": 167.7,
+      "px": [
+       0,
+       2247,
+       843,
+       381
+      ],
+      "axis_px": [
+       [
+        833.7,
+        2257.2
+       ],
+       [
+        -20.5,
+        2444.2
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 874 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 143
+  },
+  {
+   "no": "F15",
+   "file": "IMG_20260920_155828.jpg",
+   "captured": "2026:09:20 15:58:28",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "1a5a9f2e9179d57c3aa5521b32d7f6a15183a34adb0142c430f05630d9a466d8",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "1a5a9f2e9179d57c3aa5521b32d7f6a15183a34adb0142c430f05630d9a466d8",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 42.2,
+   "roi_frac_recomputed": 0.589,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 50,
+   "taper": {
+    "encodings": 9,
+    "attempted": 3,
+    "readings": 3,
+    "evidence": {
+     "segments_min": 112,
+     "segments_max": 139,
+     "encodings_with_candidates": 3,
+     "encodings_with_bordering": 3,
+     "candidates_total": 11,
+     "bordering_total": 6,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 112,
+       "candidates": 4,
+       "bordering": 4,
+       "deg": 12.32,
+       "cand_deg": [
+        12.322,
+        6.393,
+        18.904,
+        17.041
+       ],
+       "members": 23,
+       "evidence": 5.22
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 128,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 12.31,
+       "cand_deg": [
+        12.307,
+        6.413,
+        19.516
+       ],
+       "members": 26,
+       "evidence": 5.29
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 139,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 2.34,
+       "cand_deg": [
+        13.947,
+        2.336,
+        17.719,
+        9.058
+       ],
+       "members": 16,
+       "evidence": 1.92
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 2.34,
+    "taper_deg_max": 12.32,
+    "agree_steeper": 2,
+    "state": "INDETERMINATE",
+    "why": "2 of the first 3 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 2.3-12.3°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 2 of the first 3 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 2.3-12.3°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "NO_LANE_CHANGE",
+     "what": "畫面內有雙白實線，該處禁止變換車道，被擠壓的車輛無法向左閃避",
+     "measured": {
+      "gap_px": 76.1,
+      "length_px": 680.4,
+      "colour": "white",
+      "section": "167",
+      "b_star": [
+       131.0,
+       133.0
+      ],
+      "outside_diff": 22.0,
+      "contrast": 56.0,
+      "bearing_deg": 170.5,
+      "px": [
+       [
+        0.0,
+        2129.0,
+        673.0,
+        2029.0
+       ],
+       [
+        552.0,
+        2137.0,
+        1221.1,
+        2011.3
+       ]
+      ]
+     },
+     "basis": "設置規則 §167：禁止變換車道線，用以禁止行車變換車道；雙邊禁止變換車道線為雙白實線；設於交通特別繁雜而同向具有多車道之橋樑、隧道、彎道、坡道、接近交岔路口或其他認為有必要之路段。本程式解讀:橋樑引道的雙白線一旦開始就不能變換，選車道的決策點因此被推到它起點之前"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "NO_LANE_CHANGE",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "看另一側。那裡是雙白實線，§167 禁止在此變換車道。畫面內量到的兩條線相距 76 像素、可見長度 680 像素（這是在這一張照片裡看得到的部分，不是這條線的全長）。",
+    "§167 規定這種線設於橋樑、隧道、彎道、坡道等路段。依該條，一旦進入就不能變換車道，所以要走哪一道必須在它起點之前決定。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "前方的橋是樹林陸橋 2B-2(A)，引道近端距此 430 公尺，全長 355.6 公尺(新北市轄內橋梁基本資料，results/control_group.json)。時速 50 公里跑 430 公尺是 31 秒。這是公文事實，不是從這張照片量出來的——10 公分的線在 20 公尺外只有 14.2 像素(results/pixel_budget.json)，430 公尺外的結構這批照片量不到任何東西。本程式也沒有量測這條線在畫面外的延伸，沒有量測任何兩個發現之間的前後順序:敘事的排列是作者手排的。「決定的時機被推到收窄之前」因此是現場描述，不是量測結果。"
+   ],
+   "seconds_from_first": 145
+  },
+  {
+   "no": "F16",
+   "file": "IMG_20260920_155830.jpg",
+   "captured": "2026:09:20 15:58:30",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "3158a8ef947ac76eba70d140099a9a1880d3c055aab101bc46942764dec837ec",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "3158a8ef947ac76eba70d140099a9a1880d3c055aab101bc46942764dec837ec",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 63.1,
+   "roi_frac_recomputed": 0.5888,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 44,
+   "taper": {
+    "encodings": 9,
+    "attempted": 6,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 72,
+     "segments_max": 97,
+     "encodings_with_candidates": 5,
+     "encodings_with_bordering": 2,
+     "candidates_total": 12,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 97,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        19.21
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 89,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 82,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 19.63,
+       "cand_deg": [
+        19.634,
+        3.814,
+        13.886
+       ],
+       "members": 19,
+       "evidence": 3.38
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 72,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        19.617,
+        4.001
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 75,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 19.59,
+       "cand_deg": [
+        19.595,
+        3.888,
+        9.0
+       ],
+       "members": 16,
+       "evidence": 2.52
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 91,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        19.436,
+        8.283,
+        3.737
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 6 of 9 encodings only 2 had yielded a reading, so the remaining 3 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 6 of 9 encodings only 2 had yielded a reading, so the remaining 3 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 147
+  },
+  {
+   "no": "F17",
+   "file": "IMG_20260920_155843.jpg",
+   "captured": "2026:09:20 15:58:43",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "a8686ebf3ee4b1ed71828b9385ad530dffc466f3904ce7a3a0c03ffca9f751e7",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "a8686ebf3ee4b1ed71828b9385ad530dffc466f3904ce7a3a0c03ffca9f751e7",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 52.7,
+   "roi_frac_recomputed": 0.5956,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 43,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 1,
+    "evidence": {
+     "segments_min": 84,
+     "segments_max": 112,
+     "encodings_with_candidates": 4,
+     "encodings_with_bordering": 1,
+     "candidates_total": 9,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 96,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        13.279
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 112,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        10.916,
+        19.174,
+        13.663
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 88,
+       "candidates": 4,
+       "bordering": 2,
+       "deg": 18.94,
+       "cand_deg": [
+        18.938,
+        10.501,
+        11.317,
+        2.081
+       ],
+       "members": 16,
+       "evidence": 2.66
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 104,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 84,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        18.757
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 929.1,
+      "area_px": 10302,
+      "bearing_deg": 168.1,
+      "px": [
+       335,
+       1796,
+       910,
+       199
+      ],
+      "axis_px": [
+       [
+        1243.8,
+        1797.8
+       ],
+       [
+        334.7,
+        1989.7
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 929 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 160
+  },
+  {
+   "no": "F18",
+   "file": "IMG_20260920_155844.jpg",
+   "captured": "2026:09:20 15:58:44",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "27d7db2f0c3188d563055070de8b6c52a9211790b0d72b6ee7d9f44f10179709",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "27d7db2f0c3188d563055070de8b6c52a9211790b0d72b6ee7d9f44f10179709",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 52.2,
+   "roi_frac_recomputed": 0.5966,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 45,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 1,
+    "evidence": {
+     "segments_min": 74,
+     "segments_max": 100,
+     "encodings_with_candidates": 3,
+     "encodings_with_bordering": 1,
+     "candidates_total": 7,
+     "bordering_total": 3,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 96,
+       "candidates": 4,
+       "bordering": 3,
+       "deg": 8.22,
+       "cand_deg": [
+        6.734,
+        8.216,
+        15.221,
+        10.199
+       ],
+       "members": 7,
+       "evidence": 1.7
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 94,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        5.305
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 100,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 77,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 74,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        14.301,
+        12.836
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 161
+  },
+  {
+   "no": "F19",
+   "file": "IMG_20260920_155845.jpg",
+   "captured": "2026:09:20 15:58:45",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "f6531f3c298b669f8083e9115f744e9c4ede34156ef0732fcdb524e5facdb0ef",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "f6531f3c298b669f8083e9115f744e9c4ede34156ef0732fcdb524e5facdb0ef",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 45.3,
+   "roi_frac_recomputed": 0.5978,
+   "state": "ASSESSED",
+   "summary": "這張照片裡沒有偵測到可判定的問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 67,
+   "taper": {
+    "encodings": 9,
+    "attempted": 4,
+    "readings": 0,
+    "evidence": {
+     "segments_min": 97,
+     "segments_max": 107,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 0,
+     "candidates_total": 3,
+     "bordering_total": 0,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 97,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        18.04
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 101,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        13.699,
+        18.417
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 103,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 107,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 4 of 9 encodings only 0 had yielded a reading, so the remaining 5 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 4 of 9 encodings only 0 had yielded a reading, so the remaining 5 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [],
+   "codes": [],
+   "scenario": [],
+   "site_description_not_measured": [],
+   "seconds_from_first": 162
+  },
+  {
+   "no": "F20",
+   "file": "IMG_20260920_155847.jpg",
+   "captured": "2026:09:20 15:58:47",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "259dc493e71ccf3e20713bdc01b98af01fc5a551be669a33b49222e58c21db42",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "259dc493e71ccf3e20713bdc01b98af01fc5a551be669a33b49222e58c21db42",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 44.9,
+   "roi_frac_recomputed": 0.6,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 19,
+   "taper": {
+    "encodings": 9,
+    "attempted": 3,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 85,
+     "segments_max": 96,
+     "encodings_with_candidates": 3,
+     "encodings_with_bordering": 2,
+     "candidates_total": 12,
+     "bordering_total": 4,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 90,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        12.068,
+        9.546
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 85,
+       "candidates": 5,
+       "bordering": 2,
+       "deg": 3.21,
+       "cand_deg": [
+        3.205,
+        17.328,
+        9.521,
+        9.554,
+        10.038
+       ],
+       "members": 20,
+       "evidence": 3.91
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 96,
+       "candidates": 5,
+       "bordering": 2,
+       "deg": 12.77,
+       "cand_deg": [
+        2.904,
+        17.063,
+        12.766,
+        11.401,
+        15.574
+       ],
+       "members": 10,
+       "evidence": 2.49
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 3.21,
+    "taper_deg_max": 12.77,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 3.2-12.8°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 3.2-12.8°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 164
+  },
+  {
+   "no": "F21",
+   "file": "IMG_20260920_155927.jpg",
+   "captured": "2026:09:20 15:59:27",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "c989788f077e31d1d5660e165ee80c24e30807d297bc0e5df9ef8d8c47c36488",
+   "redacted": "plate",
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "c989788f077e31d1d5660e165ee80c24e30807d297bc0e5df9ef8d8c47c36488",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 42.0,
+   "roi_frac_recomputed": 0.5952,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 18,
+   "taper": {
+    "encodings": 9,
+    "attempted": 3,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 50,
+     "segments_max": 66,
+     "encodings_with_candidates": 3,
+     "encodings_with_bordering": 2,
+     "candidates_total": 7,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 66,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        6.608,
+        18.326
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 50,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 9.24,
+       "cand_deg": [
+        9.245,
+        13.127
+       ],
+       "members": 6,
+       "evidence": 0.74
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 58,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 16.82,
+       "cand_deg": [
+        12.308,
+        7.194,
+        16.816
+       ],
+       "members": 3,
+       "evidence": 0.36
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 9.24,
+    "taper_deg_max": 16.82,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 9.2-16.8°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 9.2-16.8°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 839.9,
+      "area_px": 129375,
+      "bearing_deg": 99.9,
+      "px": [
+       2718,
+       3212,
+       354,
+       818
+      ],
+      "axis_px": [
+       [
+        3007.9,
+        3204.5
+       ],
+       [
+        2863.7,
+        4031.9
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 840 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 204
+  },
+  {
+   "no": "F22",
+   "file": "IMG_20260920_155928.jpg",
+   "captured": "2026:09:20 15:59:28",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "c29773756fbf072a29c1c8bce8d1bc3ee997170988341933333eaa97a0bd9a42",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "c29773756fbf072a29c1c8bce8d1bc3ee997170988341933333eaa97a0bd9a42",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 41.5,
+   "roi_frac_recomputed": 0.5805,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 11,
+   "taper": {
+    "encodings": 9,
+    "attempted": 2,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 41,
+     "segments_max": 42,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 2,
+     "candidates_total": 6,
+     "bordering_total": 4,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 42,
+       "candidates": 3,
+       "bordering": 3,
+       "deg": 13.25,
+       "cand_deg": [
+        14.722,
+        5.891,
+        13.252
+       ],
+       "members": 3,
+       "evidence": 0.48
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 41,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 8.56,
+       "cand_deg": [
+        6.319,
+        8.561,
+        17.175
+       ],
+       "members": 5,
+       "evidence": 0.53
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 8.56,
+    "taper_deg_max": 13.25,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.6-13.3°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.6-13.3°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1461.6,
+      "area_px": 487745,
+      "bearing_deg": 93.3,
+      "px": [
+       2472,
+       2646,
+       600,
+       1450
+      ],
+      "axis_px": [
+       [
+        2876.1,
+        2652.1
+       ],
+       [
+        2791.0,
+        4111.2
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 1462 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 205
+  },
+  {
+   "no": "F23",
+   "file": "IMG_20260920_155929.jpg",
+   "captured": "2026:09:20 15:59:29",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "76620dc9cf1f9a350f0f99af37cfa8605fe83ead454f5d0d64a9e0be97571187",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "76620dc9cf1f9a350f0f99af37cfa8605fe83ead454f5d0d64a9e0be97571187",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 38.5,
+   "roi_frac_recomputed": 0.5938,
+   "state": "ASSESSED",
+   "summary": "這張照片裡沒有偵測到可判定的問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 28,
+   "taper": {
+    "encodings": 9,
+    "attempted": 3,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 49,
+     "segments_max": 58,
+     "encodings_with_candidates": 3,
+     "encodings_with_bordering": 2,
+     "candidates_total": 8,
+     "bordering_total": 4,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 58,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        8.375,
+        11.624
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 49,
+       "candidates": 3,
+       "bordering": 2,
+       "deg": 7.61,
+       "cand_deg": [
+        7.605,
+        15.939,
+        15.022
+       ],
+       "members": 10,
+       "evidence": 1.37
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 51,
+       "candidates": 3,
+       "bordering": 2,
+       "deg": 13.3,
+       "cand_deg": [
+        8.984,
+        13.3,
+        2.885
+       ],
+       "members": 5,
+       "evidence": 0.53
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 7.61,
+    "taper_deg_max": 13.3,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 7.6-13.3°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 7.6-13.3°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [],
+   "codes": [],
+   "scenario": [],
+   "site_description_not_measured": [],
+   "seconds_from_first": 206
+  },
+  {
+   "no": "F24",
+   "file": "IMG_20260920_155930.jpg",
+   "captured": "2026:09:20 15:59:30",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "8f032af8ce4337d63e940fa83dc9d1b6dbe03285da2beae361bbade6764d65cf",
+   "redacted": "plate",
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "8f032af8ce4337d63e940fa83dc9d1b6dbe03285da2beae361bbade6764d65cf",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 44.9,
+   "roi_frac_recomputed": 0.5768,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 18,
+   "taper": {
+    "encodings": 9,
+    "attempted": 3,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 53,
+     "segments_max": 62,
+     "encodings_with_candidates": 3,
+     "encodings_with_bordering": 2,
+     "candidates_total": 12,
+     "bordering_total": 5,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 62,
+       "candidates": 5,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        16.921,
+        8.205,
+        15.12,
+        4.961,
+        3.264
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 60,
+       "candidates": 3,
+       "bordering": 2,
+       "deg": 4.43,
+       "cand_deg": [
+        16.346,
+        11.51,
+        4.435
+       ],
+       "members": 6,
+       "evidence": 0.64
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 53,
+       "candidates": 4,
+       "bordering": 3,
+       "deg": 15.72,
+       "cand_deg": [
+        16.059,
+        10.491,
+        15.716,
+        2.113
+       ],
+       "members": 7,
+       "evidence": 0.82
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 4.43,
+    "taper_deg_max": 15.72,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 4.4-15.7°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 4.4-15.7°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1427.7,
+      "area_px": 460591,
+      "bearing_deg": 84.8,
+      "px": [
+       2412,
+       2702,
+       660,
+       1394
+      ],
+      "axis_px": [
+       [
+        2711.4,
+        2694.1
+       ],
+       [
+        2840.9,
+        4116.0
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 1428 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 207
+  },
+  {
+   "no": "F25",
+   "file": "IMG_20260920_155931.jpg",
+   "captured": "2026:09:20 15:59:31",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "bd6c1f90d79410967c78faacdd15114c30dc9f72d0ae3505c11b86d8a9727966",
+   "redacted": "plate",
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "bd6c1f90d79410967c78faacdd15114c30dc9f72d0ae3505c11b86d8a9727966",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 56.6,
+   "roi_frac_recomputed": 0.5942,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 15,
+   "taper": {
+    "encodings": 9,
+    "attempted": 7,
+    "readings": 4,
+    "evidence": {
+     "segments_min": 36,
+     "segments_max": 70,
+     "encodings_with_candidates": 7,
+     "encodings_with_bordering": 4,
+     "candidates_total": 20,
+     "bordering_total": 5,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 60,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        10.617,
+        17.869,
+        8.054
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 61,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 18.68,
+       "cand_deg": [
+        18.681,
+        11.21,
+        13.108,
+        6.698
+       ],
+       "members": 12,
+       "evidence": 1.13
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 55,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        11.222,
+        16.3,
+        8.019
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 36,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        12.489
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 55,
+       "candidates": 4,
+       "bordering": 2,
+       "deg": 19.21,
+       "cand_deg": [
+        9.109,
+        19.208,
+        12.447,
+        17.434
+       ],
+       "members": 5,
+       "evidence": 0.46
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 39,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 9.86,
+       "cand_deg": [
+        9.856,
+        18.669
+       ],
+       "members": 10,
+       "evidence": 1.1
+      },
+      {
+       "px": 1800,
+       "q": 80,
+       "segments": 70,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 3.05,
+       "cand_deg": [
+        3.049,
+        15.586,
+        12.125
+       ],
+       "members": 8,
+       "evidence": 0.9
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 3.05,
+    "taper_deg_max": 19.21,
+    "agree_steeper": 3,
+    "state": "INDETERMINATE",
+    "why": "3 of the first 4 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 3.0-19.2°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 3 of the first 4 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 3.0-19.2°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 593.9,
+      "area_px": 46829,
+      "bearing_deg": 48.1,
+      "px": [
+       2571,
+       3680,
+       479,
+       416
+      ],
+      "axis_px": [
+       [
+        2601.8,
+        3676.5
+       ],
+       [
+        2998.2,
+        4118.8
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 594 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 208
+  },
+  {
+   "no": "F26",
+   "file": "IMG_20260920_155957.jpg",
+   "captured": "2026:09:20 15:59:57",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "e47e43d184529720cb1763ee893f4efaa943d3fc61e719c0ae68508d38e1c510",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "e47e43d184529720cb1763ee893f4efaa943d3fc61e719c0ae68508d38e1c510",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 53.8,
+   "roi_frac_recomputed": 0.5804,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 3 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 1,
+   "taper": {
+    "encodings": 9,
+    "attempted": 8,
+    "readings": 4,
+    "evidence": {
+     "segments_min": 10,
+     "segments_max": 69,
+     "encodings_with_candidates": 8,
+     "encodings_with_bordering": 4,
+     "candidates_total": 17,
+     "bordering_total": 5,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 61,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 19.74,
+       "cand_deg": [
+        19.744
+       ],
+       "members": 13,
+       "evidence": 1.45
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 54,
+       "candidates": 4,
+       "bordering": 2,
+       "deg": 13.76,
+       "cand_deg": [
+        19.973,
+        13.763,
+        17.176,
+        15.817
+       ],
+       "members": 7,
+       "evidence": 1.06
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 69,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 15.85,
+       "cand_deg": [
+        18.342,
+        15.853
+       ],
+       "members": 7,
+       "evidence": 1.08
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 24,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        13.069,
+        16.069,
+        17.124
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 27,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 13.18,
+       "cand_deg": [
+        13.18,
+        16.575
+       ],
+       "members": 8,
+       "evidence": 0.99
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 24,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        12.922,
+        17.243
+       ]
+      },
+      {
+       "px": 1800,
+       "q": 80,
+       "segments": 16,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        14.068,
+        14.502
+       ]
+      },
+      {
+       "px": 1800,
+       "q": 90,
+       "segments": 10,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        8.421
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 8 of 9 encodings only 4 had yielded a reading, so the remaining 1 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 8 of 9 encodings only 4 had yielded a reading, so the remaining 1 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1433.1,
+      "area_px": 161607,
+      "bearing_deg": 82.0,
+      "px": [
+       2294,
+       2688,
+       320,
+       1408
+      ],
+      "axis_px": [
+       [
+        2337.2,
+        2685.3
+       ],
+       [
+        2535.7,
+        4104.6
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "CARRIAGEWAY_OCCUPIED",
+     "what": "右側有施工圍籬，在行車高度佔去畫面寬度的 23%。被圍走的那一側原本是可行駛路面，車流被擠到剩下的寬度裡",
+     "measured": {
+      "side": "right",
+      "px": [
+       2358,
+       1144,
+       714,
+       895
+      ],
+      "width_frac": 0.232,
+      "height_frac": 0.219,
+      "area_frac": 0.015,
+      "hue": 101
+     },
+     "basis": "新北市道路挖掘作業審查原則：施工場所須設置施工告示牌（附貼路證影本）、交通錐、警示燈，並於施工位置前適當距離之路段，設置車道縮減警示並派員指揮交通，引導車輛依指示通行。（本程式偵測到圍籬的存在，未查證告示牌、警示燈或車道縮減警示是否設置。）"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "CARRIAGEWAY_OCCUPIED",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "先看你右手邊。那裡立著施工圍籬，在你行車的高度佔掉畫面寬度的 23%。那一側本來是路。車流沒有變少，路變窄了，所以所有人被擠進剩下的寬度裡——包含你。",
+    "往右邊看。那裡有一段連續 1433 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這 3 項是同一張照片裡同時量到的，每一項的量測與依據條文列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。",
+    "所以剩下的選項是跟旁邊的車搶那不存在的半公尺，或者往右壓到紅線上去。這不是駕駛行為的問題,是施工佔用、標線設計和上橋動線被分開處理，沒有人負責它們疊在一起時一個人要怎麼過——這是對上列量測的解讀，不是量測本身。"
+   ],
+   "seconds_from_first": 234
+  },
+  {
+   "no": "F27",
+   "file": "IMG_20260920_155958.jpg",
+   "captured": "2026:09:20 15:59:58",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "3ce7f4240bc60a0df78d28dd0f5405977746835fead796ee7813d85b4b9f2732",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "3ce7f4240bc60a0df78d28dd0f5405977746835fead796ee7813d85b4b9f2732",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 42.9,
+   "roi_frac_recomputed": 0.573,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 10,
+   "taper": {
+    "encodings": 9,
+    "attempted": 2,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 124,
+     "segments_max": 131,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 2,
+     "candidates_total": 9,
+     "bordering_total": 3,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 124,
+       "candidates": 3,
+       "bordering": 2,
+       "deg": 3.16,
+       "cand_deg": [
+        3.16,
+        8.66,
+        8.862
+       ],
+       "members": 31,
+       "evidence": 4.02
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 131,
+       "candidates": 6,
+       "bordering": 1,
+       "deg": 19.86,
+       "cand_deg": [
+        19.856,
+        3.424,
+        6.908,
+        7.165,
+        18.644,
+        12.959
+       ],
+       "members": 22,
+       "evidence": 3.11
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 3.16,
+    "taper_deg_max": 19.86,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 3.2-19.9°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 3.2-19.9°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 934.9,
+      "area_px": 95248,
+      "bearing_deg": 80.5,
+      "px": [
+       2492,
+       3187,
+       254,
+       909
+      ],
+      "axis_px": [
+       [
+        2530.5,
+        3181.9
+       ],
+       [
+        2684.4,
+        4104.1
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 935 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 235
+  },
+  {
+   "no": "F28",
+   "file": "IMG_20260920_155959.jpg",
+   "captured": "2026:09:20 15:59:59",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "8707e483f4ba1936f5a91921e7444797d74aa282a4f2ec2bfe5f27bddb095c34",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "8707e483f4ba1936f5a91921e7444797d74aa282a4f2ec2bfe5f27bddb095c34",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 40.0,
+   "roi_frac_recomputed": 0.5779,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 40,
+   "taper": {
+    "encodings": 9,
+    "attempted": 4,
+    "readings": 0,
+    "evidence": {
+     "segments_min": 26,
+     "segments_max": 54,
+     "encodings_with_candidates": 4,
+     "encodings_with_bordering": 0,
+     "candidates_total": 8,
+     "bordering_total": 0,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 46,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        3.4,
+        19.944,
+        17.991
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 54,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        2.41,
+        14.963,
+        5.797
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 54,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        3.998
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 26,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        7.058
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 4 of 9 encodings only 0 had yielded a reading, so the remaining 5 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 4 of 9 encodings only 0 had yielded a reading, so the remaining 5 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1219.7,
+      "area_px": 131592,
+      "bearing_deg": 79.7,
+      "px": [
+       2630,
+       2913,
+       328,
+       1183
+      ],
+      "axis_px": [
+       [
+        2889.1,
+        4106.3
+       ],
+       [
+        2670.5,
+        2906.4
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 1220 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 236
+  },
+  {
+   "no": "F29",
+   "file": "IMG_20260920_160000.jpg",
+   "captured": "2026:09:20 16:00:00",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "09377c59aff556d13fb8587a5bde7a031649731de6a8cc4a2c693b3aa7aa7752",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "09377c59aff556d13fb8587a5bde7a031649731de6a8cc4a2c693b3aa7aa7752",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 34.5,
+   "roi_frac_recomputed": 0.5686,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 3 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 13,
+   "taper": {
+    "encodings": 9,
+    "attempted": 2,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 37,
+     "segments_max": 52,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 2,
+     "candidates_total": 4,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 52,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 3.52,
+       "cand_deg": [
+        3.519,
+        18.783
+       ],
+       "members": 12,
+       "evidence": 1.15
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 37,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 17.12,
+       "cand_deg": [
+        5.015,
+        17.119
+       ],
+       "members": 5,
+       "evidence": 0.72
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 3.52,
+    "taper_deg_max": 17.12,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 3.5-17.1°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 3.5-17.1°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1265.4,
+      "area_px": 128013,
+      "bearing_deg": 80.2,
+      "px": [
+       2298,
+       2863,
+       321,
+       1233
+      ],
+      "axis_px": [
+       [
+        2338.4,
+        2858.9
+       ],
+       [
+        2553.1,
+        4106.0
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "CARRIAGEWAY_OCCUPIED",
+     "what": "右側有施工圍籬，在行車高度佔去畫面寬度的 25%。被圍走的那一側原本是可行駛路面，車流被擠到剩下的寬度裡",
+     "measured": {
+      "side": "right",
+      "px": [
+       2305,
+       1270,
+       767,
+       919
+      ],
+      "width_frac": 0.25,
+      "height_frac": 0.224,
+      "area_frac": 0.017,
+      "hue": 101
+     },
+     "basis": "新北市道路挖掘作業審查原則：施工場所須設置施工告示牌（附貼路證影本）、交通錐、警示燈，並於施工位置前適當距離之路段，設置車道縮減警示並派員指揮交通，引導車輛依指示通行。（本程式偵測到圍籬的存在，未查證告示牌、警示燈或車道縮減警示是否設置。）"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "CARRIAGEWAY_OCCUPIED",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "先看你右手邊。那裡立著施工圍籬，在你行車的高度佔掉畫面寬度的 25%。那一側本來是路。車流沒有變少，路變窄了，所以所有人被擠進剩下的寬度裡——包含你。",
+    "往右邊看。那裡有一段連續 1265 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這 3 項是同一張照片裡同時量到的，每一項的量測與依據條文列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。",
+    "所以剩下的選項是跟旁邊的車搶那不存在的半公尺，或者往右壓到紅線上去。這不是駕駛行為的問題,是施工佔用、標線設計和上橋動線被分開處理，沒有人負責它們疊在一起時一個人要怎麼過——這是對上列量測的解讀，不是量測本身。"
+   ],
+   "seconds_from_first": 237
+  },
+  {
+   "no": "F30",
+   "file": "IMG_20260920_160015.jpg",
+   "captured": "2026:09:20 16:00:15",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "d3fb6a3511c180d7c8c3eea4c494fb6515db46f41f9cca2ddbb185427fac7779",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "d3fb6a3511c180d7c8c3eea4c494fb6515db46f41f9cca2ddbb185427fac7779",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 59.6,
+   "roi_frac_recomputed": 0.5907,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 24,
+   "taper": {
+    "encodings": 9,
+    "attempted": 9,
+    "readings": 5,
+    "evidence": {
+     "segments_min": 32,
+     "segments_max": 63,
+     "encodings_with_candidates": 8,
+     "encodings_with_bordering": 5,
+     "candidates_total": 16,
+     "bordering_total": 6,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 44,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        10.341
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 42,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 17.79,
+       "cand_deg": [
+        17.789
+       ],
+       "members": 4,
+       "evidence": 0.52
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 32,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 17.03,
+       "cand_deg": [
+        17.027
+       ],
+       "members": 5,
+       "evidence": 0.47
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 55,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 16.84,
+       "cand_deg": [
+        16.839,
+        15.866,
+        13.049
+       ],
+       "members": 13,
+       "evidence": 1.86
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 60,
+       "candidates": 3,
+       "bordering": 2,
+       "deg": 15.39,
+       "cand_deg": [
+        15.387,
+        18.391,
+        9.814
+       ],
+       "members": 13,
+       "evidence": 1.63
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 57,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        6.864,
+        19.499,
+        14.593
+       ]
+      },
+      {
+       "px": 1800,
+       "q": 80,
+       "segments": 58,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 17.19,
+       "cand_deg": [
+        15.712,
+        17.193
+       ],
+       "members": 4,
+       "evidence": 0.57
+      },
+      {
+       "px": 1800,
+       "q": 90,
+       "segments": 56,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        16.61,
+        2.554
+       ]
+      },
+      {
+       "px": 1800,
+       "q": 100,
+       "segments": 63,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 9 of 9 encodings only 5 had yielded a reading, so the remaining 0 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 9 of 9 encodings only 5 had yielded a reading, so the remaining 0 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 496.9,
+      "area_px": 52968,
+      "bearing_deg": 117.0,
+      "px": [
+       2268,
+       3624,
+       300,
+       472
+      ],
+      "axis_px": [
+       [
+        2513.6,
+        3632.4
+       ],
+       [
+        2288.1,
+        4075.2
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 497 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 252
+  },
+  {
+   "no": "F31",
+   "file": "IMG_20260920_160016.jpg",
+   "captured": "2026:09:20 16:00:16",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "42555d8701a8e573c03b1af2593b215e0f47969849f5380d1fddbdebcc8606d3",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "42555d8701a8e573c03b1af2593b215e0f47969849f5380d1fddbdebcc8606d3",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 48.6,
+   "roi_frac_recomputed": 0.589,
+   "state": "ASSESSED",
+   "summary": "這張照片裡沒有偵測到可判定的問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 25,
+   "taper": {
+    "encodings": 9,
+    "attempted": 7,
+    "readings": 3,
+    "evidence": {
+     "segments_min": 40,
+     "segments_max": 57,
+     "encodings_with_candidates": 7,
+     "encodings_with_bordering": 3,
+     "candidates_total": 14,
+     "bordering_total": 3,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 57,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        10.464,
+        17.368
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 51,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 18.02,
+       "cand_deg": [
+        10.701,
+        18.023,
+        16.388
+       ],
+       "members": 4,
+       "evidence": 0.53
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 53,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 12.49,
+       "cand_deg": [
+        12.495,
+        9.186
+       ],
+       "members": 15,
+       "evidence": 1.64
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 43,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 18.64,
+       "cand_deg": [
+        19.753,
+        18.638,
+        12.377
+       ],
+       "members": 5,
+       "evidence": 0.58
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 40,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        18.703,
+        11.733
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 49,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        18.241
+       ]
+      },
+      {
+       "px": 1800,
+       "q": 80,
+       "segments": 50,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        16.619
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 7 of 9 encodings only 3 had yielded a reading, so the remaining 2 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 7 of 9 encodings only 3 had yielded a reading, so the remaining 2 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [],
+   "codes": [],
+   "scenario": [],
+   "site_description_not_measured": [],
+   "seconds_from_first": 253
+  },
+  {
+   "no": "F32",
+   "file": "IMG_20260920_160017.jpg",
+   "captured": "2026:09:20 16:00:17",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "0cc46a47ad57acf1784947b42825e1e509a819934d36072418f21e74c224cd2d",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "0cc46a47ad57acf1784947b42825e1e509a819934d36072418f21e74c224cd2d",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 32.6,
+   "roi_frac_recomputed": 0.5887,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 33,
+   "taper": {
+    "encodings": 9,
+    "attempted": 2,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 51,
+     "segments_max": 56,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 2,
+     "candidates_total": 4,
+     "bordering_total": 3,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 56,
+       "candidates": 2,
+       "bordering": 2,
+       "deg": 13.46,
+       "cand_deg": [
+        13.456,
+        17.08
+       ],
+       "members": 14,
+       "evidence": 1.61
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 51,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 8.11,
+       "cand_deg": [
+        8.107,
+        17.858
+       ],
+       "members": 9,
+       "evidence": 1.0
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 8.11,
+    "taper_deg_max": 13.46,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.1-13.5°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 8.1-13.5°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 254
+  },
+  {
+   "no": "F33",
+   "file": "IMG_20260920_160018.jpg",
+   "captured": "2026:09:20 16:00:18",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "d0477d0cd5fc04757a9dbf20a7818530e339383d9829985600c800eccf8d3c92",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "d0477d0cd5fc04757a9dbf20a7818530e339383d9829985600c800eccf8d3c92",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 43.6,
+   "roi_frac_recomputed": 0.5899,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 8,
+   "taper": {
+    "encodings": 9,
+    "attempted": 6,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 18,
+     "segments_max": 26,
+     "encodings_with_candidates": 6,
+     "encodings_with_bordering": 2,
+     "candidates_total": 8,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 20,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        18.476
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 20,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        12.55
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 19,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        17.958
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 18,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 13.77,
+       "cand_deg": [
+        13.767,
+        7.652
+       ],
+       "members": 5,
+       "evidence": 0.87
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 26,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 10.87,
+       "cand_deg": [
+        10.809,
+        10.871
+       ],
+       "members": 3,
+       "evidence": 0.39
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 22,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        16.652
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 6 of 9 encodings only 2 had yielded a reading, so the remaining 3 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 6 of 9 encodings only 2 had yielded a reading, so the remaining 3 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1076.7,
+      "area_px": 114223,
+      "bearing_deg": 114.7,
+      "px": [
+       2248,
+       3036,
+       552,
+       990
+      ],
+      "axis_px": [
+       [
+        2750.9,
+        3030.9
+       ],
+       [
+        2301.4,
+        4009.3
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 1077 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 255
+  },
+  {
+   "no": "F34",
+   "file": "IMG_20260920_160046.jpg",
+   "captured": "2026:09:20 16:00:47",
+   "manifest_f35_mm": 46.0,
+   "manifest_sha256": "f48c4e4de9d1b1440e344e01487c8b4f15dc66c618f83ad6fe355e0892d8d2be",
+   "redacted": "plate",
+   "size": "3072x4096",
+   "exif_f35_mm": 46.0,
+   "focal_px": 5443.4,
+   "fov_deg": 31.516,
+   "provenance_notes": [],
+   "sha256": "f48c4e4de9d1b1440e344e01487c8b4f15dc66c618f83ad6fe355e0892d8d2be",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 54.9,
+   "roi_frac_recomputed": 0.5904,
+   "state": "ASSESSED",
+   "summary": "這張照片裡沒有偵測到可判定的問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 46,
+   "taper": {
+    "encodings": 9,
+    "attempted": 9,
+    "readings": 5,
+    "evidence": {
+     "segments_min": 105,
+     "segments_max": 165,
+     "encodings_with_candidates": 5,
+     "encodings_with_bordering": 5,
+     "candidates_total": 21,
+     "bordering_total": 11,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 165,
+       "candidates": 5,
+       "bordering": 3,
+       "deg": 16.42,
+       "cand_deg": [
+        16.422,
+        1.908,
+        7.038,
+        16.443,
+        15.711
+       ],
+       "members": 24,
+       "evidence": 3.58
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 137,
+       "candidates": 5,
+       "bordering": 4,
+       "deg": 12.96,
+       "cand_deg": [
+        12.964,
+        1.562,
+        1.853,
+        17.711,
+        19.804
+       ],
+       "members": 28,
+       "evidence": 4.23
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 151,
+       "candidates": 3,
+       "bordering": 2,
+       "deg": 13.17,
+       "cand_deg": [
+        13.173,
+        2.192,
+        2.949
+       ],
+       "members": 26,
+       "evidence": 4.08
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 128,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 135,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 14.06,
+       "cand_deg": [
+        14.064,
+        18.318,
+        1.738,
+        14.936
+       ],
+       "members": 14,
+       "evidence": 2.88
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 131,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 18.21,
+       "cand_deg": [
+        18.211,
+        3.057,
+        4.67,
+        14.606
+       ],
+       "members": 9,
+       "evidence": 1.65
+      },
+      {
+       "px": 1800,
+       "q": 80,
+       "segments": 105,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1800,
+       "q": 90,
+       "segments": 106,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1800,
+       "q": 100,
+       "segments": 112,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 9 of 9 encodings only 5 had yielded a reading, so the remaining 0 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 9 of 9 encodings only 5 had yielded a reading, so the remaining 0 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [],
+   "codes": [],
+   "scenario": [],
+   "site_description_not_measured": [],
+   "seconds_from_first": 284
+  },
+  {
+   "no": "F35",
+   "file": "IMG_20260920_160047.jpg",
+   "captured": "2026:09:20 16:00:47",
+   "manifest_f35_mm": 46.0,
+   "manifest_sha256": "162fc421a6befa88a0a83156e09bbfb085025cca5c2bb84ea615022f4ac5e96d",
+   "redacted": "plate",
+   "size": "3072x4096",
+   "exif_f35_mm": 46.0,
+   "focal_px": 5443.4,
+   "fov_deg": 31.516,
+   "provenance_notes": [],
+   "sha256": "162fc421a6befa88a0a83156e09bbfb085025cca5c2bb84ea615022f4ac5e96d",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 58.2,
+   "roi_frac_recomputed": 0.5944,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 21,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 1,
+    "evidence": {
+     "segments_min": 72,
+     "segments_max": 107,
+     "encodings_with_candidates": 4,
+     "encodings_with_bordering": 1,
+     "candidates_total": 11,
+     "bordering_total": 1,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 94,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        11.067,
+        7.972,
+        2.542
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 107,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        3.3,
+        7.485
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 94,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 10.71,
+       "cand_deg": [
+        10.332,
+        10.715,
+        8.519
+       ],
+       "members": 8,
+       "evidence": 1.42
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 78,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        8.571,
+        16.757,
+        2.381
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 72,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 841.5,
+      "area_px": 13320,
+      "bearing_deg": 163.9,
+      "px": [
+       0,
+       1964,
+       807,
+       248
+      ],
+      "axis_px": [
+       [
+        806.3,
+        1970.2
+       ],
+       [
+        -2.0,
+        2204.0
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 842 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 284
+  },
+  {
+   "no": "F36",
+   "file": "IMG_20260920_160049.jpg",
+   "captured": "2026:09:20 16:00:49",
+   "manifest_f35_mm": 46.0,
+   "manifest_sha256": "74704710f02b91db80d52ba3f597423fd8566c1b144764bba7c6761a555290e4",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 46.0,
+   "focal_px": 5443.4,
+   "fov_deg": 31.516,
+   "provenance_notes": [],
+   "sha256": "74704710f02b91db80d52ba3f597423fd8566c1b144764bba7c6761a555290e4",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 52.7,
+   "roi_frac_recomputed": 0.6001,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 22,
+   "taper": {
+    "encodings": 9,
+    "attempted": 4,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 48,
+     "segments_max": 68,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 2,
+     "candidates_total": 2,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 62,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 16.1,
+       "cand_deg": [
+        16.101
+       ],
+       "members": 3,
+       "evidence": 0.39
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 61,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 68,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 48,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 5.28,
+       "cand_deg": [
+        5.278
+       ],
+       "members": 3,
+       "evidence": 0.29
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 5.28,
+    "taper_deg_max": 16.1,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 5.3-16.1°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 5.3-16.1°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 286
+  },
+  {
+   "no": "F37",
+   "file": "IMG_20260920_160101.jpg",
+   "captured": "2026:09:20 16:01:02",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "532affc13ca4d7c092c593969cc922e508fb75bd81cb332a69786d6113c05ee1",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "532affc13ca4d7c092c593969cc922e508fb75bd81cb332a69786d6113c05ee1",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 61.1,
+   "roi_frac_recomputed": 0.5939,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 25,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 1,
+    "evidence": {
+     "segments_min": 59,
+     "segments_max": 83,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 1,
+     "candidates_total": 6,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 83,
+       "candidates": 5,
+       "bordering": 2,
+       "deg": 5.29,
+       "cand_deg": [
+        5.288,
+        18.654,
+        17.398,
+        12.454,
+        2.156
+       ],
+       "members": 15,
+       "evidence": 2.26
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 65,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 77,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 59,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        4.129
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 63,
+       "candidates": 0,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": []
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 5 of 9 encodings only 1 had yielded a reading, so the remaining 4 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1104.4,
+      "area_px": 348934,
+      "bearing_deg": 97.1,
+      "px": [
+       2342,
+       3025,
+       730,
+       1071
+      ],
+      "axis_px": [
+       [
+        2862.6,
+        3005.3
+       ],
+       [
+        2725.6,
+        4101.2
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 1104 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 299
+  },
+  {
+   "no": "F38",
+   "file": "IMG_20260920_160102.jpg",
+   "captured": "2026:09:20 16:01:02",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "65e7efa6208dc4c5f96556f421b5f479d9312ac5807d5f8274c0834df2bcfea6",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "65e7efa6208dc4c5f96556f421b5f479d9312ac5807d5f8274c0834df2bcfea6",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 57.8,
+   "roi_frac_recomputed": 0.5864,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 29,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 86,
+     "segments_max": 112,
+     "encodings_with_candidates": 5,
+     "encodings_with_bordering": 2,
+     "candidates_total": 12,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 104,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        15.726
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 112,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        9.107
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 105,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        2.085,
+        14.158
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 86,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 15.62,
+       "cand_deg": [
+        12.466,
+        15.621,
+        10.059,
+        1.683
+       ],
+       "members": 8,
+       "evidence": 1.21
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 91,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 4.91,
+       "cand_deg": [
+        4.906,
+        16.69,
+        16.047,
+        12.694
+       ],
+       "members": 14,
+       "evidence": 2.04
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 4.91,
+    "taper_deg_max": 15.62,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 4.9-15.6°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 4.9-15.6°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 745.6,
+      "area_px": 127375,
+      "bearing_deg": 117.0,
+      "px": [
+       2531,
+       3448,
+       541,
+       648
+      ],
+      "axis_px": [
+       [
+        3003.8,
+        3485.4
+       ],
+       [
+        2665.2,
+        4149.7
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 4 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 4,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往右邊看。那裡有一段連續 746 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 4 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 299
+  },
+  {
+   "no": "F39",
+   "file": "IMG_20260920_160103.jpg",
+   "captured": "2026:09:20 16:01:03",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "ea617d8ecc853baf84ac2abcf5191eda848dff28508c71378399643ed931e9bd",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "ea617d8ecc853baf84ac2abcf5191eda848dff28508c71378399643ed931e9bd",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 51.3,
+   "roi_frac_recomputed": 0.5841,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 40,
+   "taper": {
+    "encodings": 9,
+    "attempted": 5,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 92,
+     "segments_max": 113,
+     "encodings_with_candidates": 5,
+     "encodings_with_bordering": 2,
+     "candidates_total": 10,
+     "bordering_total": 4,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 103,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        11.474
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 99,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        2.303
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 113,
+       "candidates": 3,
+       "bordering": 2,
+       "deg": 2.14,
+       "cand_deg": [
+        2.136,
+        18.031,
+        12.442
+       ],
+       "members": 23,
+       "evidence": 4.7
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 92,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        15.732,
+        13.244,
+        5.035
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 98,
+       "candidates": 2,
+       "bordering": 2,
+       "deg": 19.02,
+       "cand_deg": [
+        19.021,
+        10.423
+       ],
+       "members": 18,
+       "evidence": 2.2
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 2.14,
+    "taper_deg_max": 19.02,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 2.1-19.0°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 2.1-19.0°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1205.5,
+      "area_px": 12709,
+      "bearing_deg": 170.7,
+      "px": [
+       0,
+       2058,
+       1190,
+       200
+      ],
+      "axis_px": [
+       [
+        1189.1,
+        2058.9
+       ],
+       [
+        -0.6,
+        2253.4
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 5 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 5,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 1206 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 5 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 300
+  },
+  {
+   "no": "F40",
+   "file": "IMG_20260920_160105.jpg",
+   "captured": "2026:09:20 16:01:05",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "e76a878251d78e71c5787dca53d6db3ed2d3b2d1af70f1c3975872a00ea31183",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "e76a878251d78e71c5787dca53d6db3ed2d3b2d1af70f1c3975872a00ea31183",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 38.4,
+   "roi_frac_recomputed": 0.5992,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 81,
+   "taper": {
+    "encodings": 9,
+    "attempted": 6,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 114,
+     "segments_max": 156,
+     "encodings_with_candidates": 6,
+     "encodings_with_bordering": 2,
+     "candidates_total": 11,
+     "bordering_total": 2,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 151,
+       "candidates": 2,
+       "bordering": 1,
+       "deg": 10.36,
+       "cand_deg": [
+        15.278,
+        10.355
+       ],
+       "members": 15,
+       "evidence": 1.58
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 153,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        14.483,
+        14.002
+       ]
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 156,
+       "candidates": 3,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        2.053,
+        18.04,
+        19.519
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 114,
+       "candidates": 2,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        17.31,
+        2.986
+       ]
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 131,
+       "candidates": 1,
+       "bordering": 1,
+       "deg": 14.05,
+       "cand_deg": [
+        14.052
+       ],
+       "members": 16,
+       "evidence": 2.1
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 117,
+       "candidates": 1,
+       "bordering": 0,
+       "deg": null,
+       "cand_deg": [
+        10.188
+       ]
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "state": "CANNOT_MEASURE",
+    "why": "after 6 of 9 encodings only 2 had yielded a reading, so the remaining 3 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: CANNOT_MEASURE — after 6 of 9 encodings only 2 had yielded a reading, so the remaining 3 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。"
+   ],
+   "site_description_not_measured": [],
+   "seconds_from_first": 302
+  },
+  {
+   "no": "F41",
+   "file": "IMG_20260920_160106.jpg",
+   "captured": "2026:09:20 16:01:06",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "c1630f7b386bab620a98d63c3bf3467694eb8fbf7a88860f0b3d67709af72da4",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "c1630f7b386bab620a98d63c3bf3467694eb8fbf7a88860f0b3d67709af72da4",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 28.9,
+   "roi_frac_recomputed": 0.5819,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 2 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 67,
+   "taper": {
+    "encodings": 9,
+    "attempted": 2,
+    "readings": 2,
+    "evidence": {
+     "segments_min": 121,
+     "segments_max": 141,
+     "encodings_with_candidates": 2,
+     "encodings_with_bordering": 2,
+     "candidates_total": 9,
+     "bordering_total": 3,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 141,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 6.27,
+       "cand_deg": [
+        6.268,
+        16.382,
+        17.009,
+        9.799
+       ],
+       "members": 22,
+       "evidence": 2.4
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 121,
+       "candidates": 5,
+       "bordering": 2,
+       "deg": 16.93,
+       "cand_deg": [
+        12.586,
+        10.338,
+        16.928,
+        19.862,
+        11.925
+       ],
+       "members": 9,
+       "evidence": 0.97
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 6.27,
+    "taper_deg_max": 16.93,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 6.3-16.9°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 2 readings put the taper past the reference and 1 did not, on encodings of one photograph. The angle ranges 6.3-16.9°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 957.4,
+      "area_px": 92027,
+      "bearing_deg": 2.1,
+      "px": [
+       57,
+       1638,
+       953,
+       245
+      ],
+      "axis_px": [
+       [
+        54.5,
+        1706.6
+       ],
+       [
+        1011.3,
+        1740.9
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    },
+    {
+     "code": "SURFACE_IN_PIECES",
+     "what": "行車道內可分辨出 3 種不同鋪面，代表存在新舊路面銜接處",
+     "measured": {
+      "surface_types": 3,
+      "note": "此為鋪面種類，非高低差。高低差需 3 米直規量測"
+     },
+     "basis": "新北市道路挖掘作業審查原則 6.0:「新舊路面銜接處與原有路面之高低差，以 3 米直規量取單點高低差不得超過正負 0.6 公分」。本程式數的是鋪面種類,未量高低差"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY",
+    "SURFACE_IN_PIECES"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 957 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。",
+    "而你腳下這塊，路面分得出 3 種鋪面。挖掘審查原則 6.0:新舊銜接處的高低差，3 米直規量測不得超過正負 0.6 公分。本程式數的是鋪面的種類，沒有量高低差——那需要比例尺。",
+    "這兩項是同一張照片裡同時量到的，量測與依據列在 findings。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 303
+  },
+  {
+   "no": "F42",
+   "file": "IMG_20260920_160107.jpg",
+   "captured": "2026:09:20 16:01:07",
+   "manifest_f35_mm": 24.0,
+   "manifest_sha256": "7bf4f086b9587c2e82dec2fb56dbf17b25e43bd630e6aa2891b0e66cf7e8f1a6",
+   "redacted": null,
+   "size": "3072x4096",
+   "exif_f35_mm": 24.0,
+   "focal_px": 2840.0,
+   "fov_deg": 56.812,
+   "provenance_notes": [],
+   "sha256": "7bf4f086b9587c2e82dec2fb56dbf17b25e43bd630e6aa2891b0e66cf7e8f1a6",
+   "posted_kmh": 30.0,
+   "lane_width_m": null,
+   "wall_s": 31.4,
+   "roi_frac_recomputed": 0.5784,
+   "state": "ASSESSED",
+   "summary": "這條路在這張照片裡有 1 項問題",
+   "roi_frac": null,
+   "carriageway_found": true,
+   "segments": 40,
+   "taper": {
+    "encodings": 9,
+    "attempted": 6,
+    "readings": 6,
+    "evidence": {
+     "segments_min": 60,
+     "segments_max": 102,
+     "encodings_with_candidates": 6,
+     "encodings_with_bordering": 6,
+     "candidates_total": 22,
+     "bordering_total": 13,
+     "cells": [
+      {
+       "px": 1000,
+       "q": 80,
+       "segments": 90,
+       "candidates": 4,
+       "bordering": 3,
+       "deg": 8.46,
+       "cand_deg": [
+        8.463,
+        13.711,
+        9.018,
+        6.609
+       ],
+       "members": 29,
+       "evidence": 6.27
+      },
+      {
+       "px": 1000,
+       "q": 90,
+       "segments": 78,
+       "candidates": 3,
+       "bordering": 3,
+       "deg": 6.31,
+       "cand_deg": [
+        6.31,
+        7.799,
+        2.958
+       ],
+       "members": 32,
+       "evidence": 3.88
+      },
+      {
+       "px": 1000,
+       "q": 100,
+       "segments": 102,
+       "candidates": 4,
+       "bordering": 1,
+       "deg": 8.74,
+       "cand_deg": [
+        8.737,
+        5.172,
+        8.977,
+        19.518
+       ],
+       "members": 30,
+       "evidence": 3.33
+      },
+      {
+       "px": 1400,
+       "q": 80,
+       "segments": 72,
+       "candidates": 3,
+       "bordering": 1,
+       "deg": 3.8,
+       "cand_deg": [
+        3.803,
+        9.052,
+        13.01
+       ],
+       "members": 16,
+       "evidence": 1.65
+      },
+      {
+       "px": 1400,
+       "q": 90,
+       "segments": 60,
+       "candidates": 4,
+       "bordering": 2,
+       "deg": 3.46,
+       "cand_deg": [
+        3.459,
+        14.77,
+        2.335,
+        6.728
+       ],
+       "members": 11,
+       "evidence": 1.29
+      },
+      {
+       "px": 1400,
+       "q": 100,
+       "segments": 79,
+       "candidates": 4,
+       "bordering": 3,
+       "deg": 15.94,
+       "cand_deg": [
+        15.936,
+        16.037,
+        3.213,
+        14.259
+       ],
+       "members": 14,
+       "evidence": 3.03
+      }
+     ]
+    },
+    "qualities": [
+     80,
+     90,
+     100
+    ],
+    "work_px": [
+     1000,
+     1400,
+     1800
+    ],
+    "required_rate": 0.1722,
+    "taper_deg_min": 3.46,
+    "taper_deg_max": 15.94,
+    "agree_steeper": 1,
+    "state": "INDETERMINATE",
+    "why": "1 of the first 6 readings put the taper past the reference and 5 did not, on encodings of one photograph. The angle ranges 3.5-15.9°, so this frame does not settle it"
+   },
+   "checked": [
+    "taper",
+    "double_white",
+    "kerbside_red",
+    "works_hoarding",
+    "surface",
+    "lane_width"
+   ],
+   "not_checked": [
+    "taper: INDETERMINATE — 1 of the first 6 readings put the taper past the reference and 5 did not, on encodings of one photograph. The angle ranges 3.5-15.9°, so this frame does not settle it",
+    "lane_width: 需提供車道寬，照片無比例尺",
+    "grated_cover: 現場有水溝蓋，但週期性條紋偵測器在三張圖各誤判為槽化線、補綻、塗銷痕跡，已移除，不列為已偵測項目"
+   ],
+   "findings": [
+    {
+     "code": "EDGE_NOT_CARRIAGEWAY",
+     "what": "右側有路緣紅線，依規定紅線劃設於緣石，故可行駛路面至此為止，機車無法再向右閃避",
+     "measured": {
+      "run_px": 1807.4,
+      "area_px": 313389,
+      "bearing_deg": 176.8,
+      "px": [
+       0,
+       1638,
+       1806,
+       339
+      ],
+      "axis_px": [
+       [
+        -4.5,
+        1893.3
+       ],
+       [
+        1800.2,
+        1793.2
+       ]
+      ]
+     },
+     "basis": "設置規則 §169：以劃設於道路緣石正面或頂面為原則"
+    }
+   ],
+   "codes": [
+    "EDGE_NOT_CARRIAGEWAY"
+   ],
+   "scenario": [
+    "往左邊看。那裡有一段連續 1807 像素的紅色沿著路緣延伸。§169 說紅線以劃設於緣石正面或頂面為原則，所以依該條，可以行駛的路面到這裡為止。"
+   ],
+   "site_description_not_measured": [
+    "紅線下方是水溝蓋，貼著紅線騎就是騎在溝蓋上。現場紀錄與照片可見，本程式未能辨識——偵測器 _grated_cover 於 2026-09-21 移除,因為它在三個畫面裡找到三個週期結構,沒有一個是溝蓋。"
+   ],
+   "seconds_from_first": 304
+  }
+ ]
+}

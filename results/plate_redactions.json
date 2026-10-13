@@ -1,0 +1,949 @@
+{
+ "note": "Registration plates redacted 2026-09-21. Five frames, three vehicles: F24 and F25 are the same car one second apart, and F34 and F35 carry plates that motion blur had already made illegible - masked anyway, because the cost of doing so is nothing and the cost of being wrong is a stranger. Solid fill, not blur, which can be partially inverted. Every box lies on a vehicle body; no road-surface pixel was touched, and no measurement reads from these regions.",
+ "redactions": {
+  "F21": {
+   "file": "IMG_20260920_155927.jpg",
+   "box_xywh": [
+    1446,
+    1356,
+    57,
+    39
+   ],
+   "method": "solid fill, red outline; no blur, which can be partially inverted",
+   "sha256_after": "c989788f077e31d1d5660e165ee80c24e30807d297bc0e5df9ef8d8c47c36488"
+  },
+  "F24": {
+   "file": "IMG_20260920_155930.jpg",
+   "box_xywh": [
+    674,
+    1949,
+    221,
+    144
+   ],
+   "method": "solid fill, red outline; no blur, which can be partially inverted",
+   "sha256_after": "8f032af8ce4337d63e940fa83dc9d1b6dbe03285da2beae361bbade6764d65cf"
+  },
+  "F25": {
+   "file": "IMG_20260920_155931.jpg",
+   "box_xywh": [
+    2004,
+    1489,
+    73,
+    46
+   ],
+   "method": "solid fill, red outline; no blur, which can be partially inverted",
+   "sha256_after": "bd6c1f90d79410967c78faacdd15114c30dc9f72d0ae3505c11b86d8a9727966"
+  },
+  "F34": {
+   "file": "IMG_20260920_160046.jpg",
+   "box_xywh": [
+    856,
+    1881,
+    95,
+    65
+   ],
+   "note": "plate present but motion-blurred beyond legibility; masked anyway",
+   "sha256_after": "f48c4e4de9d1b1440e344e01487c8b4f15dc66c618f83ad6fe355e0892d8d2be"
+  },
+  "F35": {
+   "file": "IMG_20260920_160047.jpg",
+   "box_xywh": [
+    2622,
+    1313,
+    62,
+    42
+   ],
+   "note": "plate present but motion-blurred beyond legibility; masked anyway",
+   "sha256_after": "162fc421a6befa88a0a83156e09bbfb085025cca5c2bb84ea615022f4ac5e96d"
+  }
+ },
+ "exif": "The redaction pass wrote these five without carrying the EXIF over, so they shipped with zero tags while the manifest still recorded their 35mm-equivalent focal length - the one camera parameter every measurement here needs, and the reader had no way to check it. Found 2026-09-21 by the pipeline returning focal_px=None on exactly these five. Repaired by copying the original APP1 segment back in, which leaves the compressed data untouched: the masked pixels are bit-identical to the reviewed files, asserted above before the hashes were rewritten. The reinstated EXIF was audited on its own terms - GPS present but degenerate (0/0), no serial, owner, copyright, artist or software tag, and a Xiaomi MakerNote of at most 88 bytes whose only readable string is 'Xiaomi'.",
+ "second_pass_2026-10-13": {
+  "note": "Three frame-by-frame reviews found more legible plates than the first pass covered. 77 boxes on 25 files, every box on a vehicle body. Same method: solid fill with a red outline, no blur. Re-encoded with the original quantisation tables, subsampling and EXIF. Results computed before this date read the pre-redaction bytes; sha256_before records them. Produced by scripts/redact_plates.py. The re-encode does not carry over the XMP block or the HDR gain map appended after the main image; the first pass dropped them too. The gain map is a second, smaller image of the same scene and would have kept the plates.",
+  "files": {
+   "IMG_20260920_155603.jpg": {
+    "boxes_xywh": [
+     [
+      1914,
+      1542,
+      61,
+      26
+     ]
+    ],
+    "precaution": [],
+    "sha256_before": "78ee84be10f938ae9a9ee214a531b2bc0c9e7c56e5568e0fb9c8eceab79a715e",
+    "sha256_after": "e3ca4d363d41782be9d36aa3e28d074bf93b8944c26ce3cc2a00f7f14a08dab9"
+   },
+   "IMG_20260920_155606.jpg": {
+    "boxes_xywh": [
+     [
+      2234,
+      1509,
+      94,
+      48
+     ],
+     [
+      3022,
+      1367,
+      32,
+      14
+     ]
+    ],
+    "precaution": [
+     [
+      3022,
+      1367,
+      32,
+      14
+     ]
+    ],
+    "sha256_before": "e8d887b31ab2e270c910bc3819ab02d0e0bc765281cba66baf9d137a801162f0",
+    "sha256_after": "b07cb54b1e572acc000bee294e4297a7468bef5b8ed442a5415491297dabbb91"
+   },
+   "IMG_20260920_155609.jpg": {
+    "boxes_xywh": [
+     [
+      1971,
+      1418,
+      28,
+      17
+     ],
+     [
+      2092,
+      1386,
+      22,
+      10
+     ]
+    ],
+    "precaution": [
+     [
+      2092,
+      1386,
+      22,
+      10
+     ]
+    ],
+    "sha256_before": "2df0d42dae4c2a8bc7686e6f52e7bbd8661d40678f534e15f4777309370cba1c",
+    "sha256_after": "7f880a60547d8811b799d4e7d6a03874e399eb566b8d57fe0a4ed3362a83c4e8"
+   },
+   "IMG_20260920_155801.jpg": {
+    "boxes_xywh": [
+     [
+      1773,
+      1502,
+      47,
+      17
+     ],
+     [
+      1868,
+      1433,
+      48,
+      15
+     ],
+     [
+      1884,
+      1456,
+      26,
+      13
+     ],
+     [
+      2192,
+      1356,
+      46,
+      20
+     ],
+     [
+      2204,
+      1382,
+      26,
+      16
+     ],
+     [
+      2088,
+      1381,
+      28,
+      13
+     ],
+     [
+      2283,
+      1386,
+      18,
+      14
+     ],
+     [
+      2300,
+      1365,
+      18,
+      12
+     ]
+    ],
+    "precaution": [
+     [
+      2088,
+      1381,
+      28,
+      13
+     ],
+     [
+      2283,
+      1386,
+      18,
+      14
+     ],
+     [
+      2300,
+      1365,
+      18,
+      12
+     ]
+    ],
+    "sha256_before": "49ffec1c027a79e0786b5978c46361cbe003d14fcce24ef1370b2239b777ab92",
+    "sha256_after": "a2f9362b91d392e434616155609168bc42c68dd0c10046250cef6ee5b90bafe0"
+   },
+   "IMG_20260920_155802.jpg": {
+    "boxes_xywh": [
+     [
+      1842,
+      1809,
+      37,
+      16
+     ],
+     [
+      1991,
+      1761,
+      33,
+      12
+     ],
+     [
+      1999,
+      1777,
+      24,
+      13
+     ],
+     [
+      2249,
+      1712,
+      40,
+      16
+     ],
+     [
+      2258,
+      1732,
+      24,
+      14
+     ],
+     [
+      2150,
+      1720,
+      22,
+      13
+     ],
+     [
+      2322,
+      1745,
+      20,
+      10
+     ],
+     [
+      2340,
+      1733,
+      12,
+      7
+     ],
+     [
+      2352,
+      1722,
+      20,
+      10
+     ]
+    ],
+    "precaution": [
+     [
+      1999,
+      1777,
+      24,
+      13
+     ],
+     [
+      2150,
+      1720,
+      22,
+      13
+     ],
+     [
+      2322,
+      1745,
+      20,
+      10
+     ],
+     [
+      2340,
+      1733,
+      12,
+      7
+     ],
+     [
+      2352,
+      1722,
+      20,
+      10
+     ]
+    ],
+    "sha256_before": "034993a29f471185cc3b3d713a11a8b6d47d6bd79b6702045716a119bd31c407",
+    "sha256_after": "1287b79778f89e4954114d3ffd7ce89b5d4e0ce7c8372323e70cc7e55cdde0bb"
+   },
+   "IMG_20260920_155803.jpg": {
+    "boxes_xywh": [
+     [
+      2367,
+      1696,
+      34,
+      14
+     ],
+     [
+      2764,
+      1610,
+      40,
+      15
+     ],
+     [
+      2773,
+      1628,
+      22,
+      14
+     ],
+     [
+      2656,
+      1604,
+      24,
+      12
+     ],
+     [
+      2820,
+      1640,
+      15,
+      8
+     ],
+     [
+      2843,
+      1630,
+      12,
+      7
+     ],
+     [
+      2850,
+      1615,
+      20,
+      10
+     ]
+    ],
+    "precaution": [
+     [
+      2656,
+      1604,
+      24,
+      12
+     ],
+     [
+      2820,
+      1640,
+      15,
+      8
+     ],
+     [
+      2843,
+      1630,
+      12,
+      7
+     ],
+     [
+      2850,
+      1615,
+      20,
+      10
+     ]
+    ],
+    "sha256_before": "764148fa312242078761199e7abee64548346219ce59eb19835d47d0f3b58d56",
+    "sha256_after": "c5e95ae786836eb5cd37f353c27b810153a70f0a58b7464f62ddd2cb2e687a4b"
+   },
+   "IMG_20260920_155845.jpg": {
+    "boxes_xywh": [
+     [
+      2607,
+      1484,
+      20,
+      14
+     ],
+     [
+      2326,
+      1564,
+      44,
+      20
+     ]
+    ],
+    "precaution": [
+     [
+      2607,
+      1484,
+      20,
+      14
+     ],
+     [
+      2326,
+      1564,
+      44,
+      20
+     ]
+    ],
+    "sha256_before": "f6531f3c298b669f8083e9115f744e9c4ede34156ef0732fcdb524e5facdb0ef",
+    "sha256_after": "597a73156b0b79199d566a6bd09e28246c34d69f39967d6fc9f4b98126e677d9"
+   },
+   "IMG_20260920_155847.jpg": {
+    "boxes_xywh": [
+     [
+      1742,
+      1317,
+      37,
+      21
+     ],
+     [
+      2148,
+      1208,
+      16,
+      14
+     ]
+    ],
+    "precaution": [
+     [
+      2148,
+      1208,
+      16,
+      14
+     ]
+    ],
+    "sha256_before": "259dc493e71ccf3e20713bdc01b98af01fc5a551be669a33b49222e58c21db42",
+    "sha256_after": "f788f331efcff48549b32050a9c8b6bac8069d4a2432c8ed4ba9adcecf062132"
+   },
+   "IMG_20260920_155927.jpg": {
+    "boxes_xywh": [
+     [
+      1766,
+      1464,
+      59,
+      37
+     ],
+     [
+      1960,
+      1235,
+      55,
+      26
+     ]
+    ],
+    "precaution": [],
+    "sha256_before": "c989788f077e31d1d5660e165ee80c24e30807d297bc0e5df9ef8d8c47c36488",
+    "sha256_after": "26948cb39afc39c12f52bde9b660f173718fd08532ab869b4130124647f50561"
+   },
+   "IMG_20260920_155928.jpg": {
+    "boxes_xywh": [
+     [
+      1913,
+      1315,
+      28,
+      12
+     ],
+     [
+      1971,
+      1419,
+      34,
+      22
+     ],
+     [
+      1695,
+      1372,
+      37,
+      21
+     ],
+     [
+      2160,
+      1150,
+      25,
+      12
+     ]
+    ],
+    "precaution": [
+     [
+      2160,
+      1150,
+      25,
+      12
+     ]
+    ],
+    "sha256_before": "c29773756fbf072a29c1c8bce8d1bc3ee997170988341933333eaa97a0bd9a42",
+    "sha256_after": "73959016aa6c842a6d47ddc6eab2d78e6e08895d3f3577ee8beab88649dc240f"
+   },
+   "IMG_20260920_155929.jpg": {
+    "boxes_xywh": [
+     [
+      2148,
+      1380,
+      35,
+      21
+     ],
+     [
+      2411,
+      1420,
+      31,
+      22
+     ],
+     [
+      2325,
+      1328,
+      50,
+      22
+     ],
+     [
+      2538,
+      1185,
+      20,
+      8
+     ]
+    ],
+    "precaution": [
+     [
+      2325,
+      1328,
+      50,
+      22
+     ],
+     [
+      2538,
+      1185,
+      20,
+      8
+     ]
+    ],
+    "sha256_before": "76620dc9cf1f9a350f0f99af37cfa8605fe83ead454f5d0d64a9e0be97571187",
+    "sha256_after": "aa722506ec310a8e577fff374b0d46cfe6870ccf793c6b59e296a739bc4fedf4"
+   },
+   "IMG_20260920_155930.jpg": {
+    "boxes_xywh": [
+     [
+      1912,
+      1366,
+      25,
+      16
+     ],
+     [
+      2128,
+      1405,
+      32,
+      20
+     ],
+     [
+      2030,
+      1318,
+      50,
+      22
+     ],
+     [
+      2160,
+      1213,
+      20,
+      10
+     ]
+    ],
+    "precaution": [
+     [
+      1912,
+      1366,
+      25,
+      16
+     ],
+     [
+      2128,
+      1405,
+      32,
+      20
+     ],
+     [
+      2030,
+      1318,
+      50,
+      22
+     ],
+     [
+      2160,
+      1213,
+      20,
+      10
+     ]
+    ],
+    "sha256_before": "8f032af8ce4337d63e940fa83dc9d1b6dbe03285da2beae361bbade6764d65cf",
+    "sha256_after": "a07229a42f9b88a98bed99d550cb1edfdcc5078bef205bdea51d620cf6c9c367"
+   },
+   "IMG_20260920_155931.jpg": {
+    "boxes_xywh": [
+     [
+      680,
+      1714,
+      62,
+      35
+     ],
+     [
+      1662,
+      1482,
+      41,
+      22
+     ],
+     [
+      2105,
+      1332,
+      36,
+      20
+     ],
+     [
+      2290,
+      1400,
+      28,
+      16
+     ],
+     [
+      2235,
+      1243,
+      18,
+      10
+     ],
+     [
+      2175,
+      1300,
+      40,
+      25
+     ]
+    ],
+    "precaution": [
+     [
+      2290,
+      1400,
+      28,
+      16
+     ],
+     [
+      2235,
+      1243,
+      18,
+      10
+     ],
+     [
+      2175,
+      1300,
+      40,
+      25
+     ]
+    ],
+    "sha256_before": "bd6c1f90d79410967c78faacdd15114c30dc9f72d0ae3505c11b86d8a9727966",
+    "sha256_after": "de9da8079b2fd475d6dae3882af9e0fa0bf9adcee3b8d2d594ebfb13de87e6c7"
+   },
+   "IMG_20260920_155957.jpg": {
+    "boxes_xywh": [
+     [
+      1678,
+      1664,
+      37,
+      19
+     ],
+     [
+      1880,
+      1415,
+      28,
+      14
+     ]
+    ],
+    "precaution": [
+     [
+      1880,
+      1415,
+      28,
+      14
+     ]
+    ],
+    "sha256_before": "e47e43d184529720cb1763ee893f4efaa943d3fc61e719c0ae68508d38e1c510",
+    "sha256_after": "8722bde2aa9f56ead4591a2336471bdb08e9609872aabfeb51bf4052f46753d4"
+   },
+   "IMG_20260920_160018.jpg": {
+    "boxes_xywh": [
+     [
+      2545,
+      989,
+      40,
+      17
+     ],
+     [
+      2127,
+      1113,
+      59,
+      32
+     ]
+    ],
+    "precaution": [],
+    "sha256_before": "d0477d0cd5fc04757a9dbf20a7818530e339383d9829985600c800eccf8d3c92",
+    "sha256_after": "f69c0fcfce53186d547912c80cd08da9c24791dc380a6c81acabe5e5ef63d28b"
+   },
+   "IMG_20260920_160046.jpg": {
+    "boxes_xywh": [
+     [
+      2777,
+      1343,
+      52,
+      26
+     ]
+    ],
+    "precaution": [],
+    "sha256_before": "f48c4e4de9d1b1440e344e01487c8b4f15dc66c618f83ad6fe355e0892d8d2be",
+    "sha256_after": "f36c8cf513eb3cdc682db96956efbe660569f701708b4f5512d5e96e4f8552b6"
+   },
+   "IMG_20260920_160107.jpg": {
+    "boxes_xywh": [
+     [
+      662,
+      1704,
+      42,
+      21
+     ],
+     [
+      140,
+      1650,
+      60,
+      30
+     ]
+    ],
+    "precaution": [
+     [
+      140,
+      1650,
+      60,
+      30
+     ]
+    ],
+    "sha256_before": "7bf4f086b9587c2e82dec2fb56dbf17b25e43bd630e6aa2891b0e66cf7e8f1a6",
+    "sha256_after": "47e498d235d0a9fa12b2a4dbc964f6aa0a26ba4148ed9bf311512dac901503f7"
+   },
+   "IMG_20260923_063345.jpg": {
+    "boxes_xywh": [
+     [
+      2532,
+      1837,
+      63,
+      38
+     ]
+    ],
+    "precaution": [],
+    "sha256_before": "eaac782d15423c511ec2dff5f4365088b64dab90c160ca5e65becd42cc146504",
+    "sha256_after": "8db879aa0b69d9d085f43ae485e5f14de29f5a206ca37c1f31e97da3e3aa8547"
+   },
+   "IMG_20260923_063347.jpg": {
+    "boxes_xywh": [
+     [
+      2605,
+      1875,
+      59,
+      37
+     ]
+    ],
+    "precaution": [],
+    "sha256_before": "18ea71e1a495ef8628aafda771f868ba7724a38e2e122b718e4ecf0c07111cad",
+    "sha256_after": "3d7290b3f217ae3d9b8e50788cb3ffede05e2faf9fd32b03d94ed680bde5a1df"
+   },
+   "IMG_20260920_155804.jpg": {
+    "boxes_xywh": [
+     [
+      2080,
+      1565,
+      38,
+      15
+     ],
+     [
+      2089,
+      1582,
+      20,
+      12
+     ],
+     [
+      1798,
+      1626,
+      26,
+      16
+     ],
+     [
+      1900,
+      1600,
+      20,
+      13
+     ],
+     [
+      1990,
+      1544,
+      20,
+      12
+     ],
+     [
+      2146,
+      1569,
+      20,
+      12
+     ]
+    ],
+    "precaution": [
+     [
+      1798,
+      1626,
+      26,
+      16
+     ],
+     [
+      1900,
+      1600,
+      20,
+      13
+     ],
+     [
+      1990,
+      1544,
+      20,
+      12
+     ],
+     [
+      2146,
+      1569,
+      20,
+      12
+     ]
+    ],
+    "sha256_before": "419301d9c14d7749f4253a813ca1da470b8f5bf51c6128211d4f688ee39f2c5d",
+    "sha256_after": "3fc445bc2f8aeb1ac232182bb42a9a72111270d01fdaacb70faffa33e09798b6"
+   },
+   "IMG_20260920_160000.jpg": {
+    "boxes_xywh": [
+     [
+      1368,
+      1688,
+      30,
+      14
+     ],
+     [
+      1880,
+      1706,
+      28,
+      16
+     ]
+    ],
+    "precaution": [],
+    "sha256_before": "09377c59aff556d13fb8587a5bde7a031649731de6a8cc4a2c693b3aa7aa7752",
+    "sha256_after": "e3f5cb7c5874f477fceb0a973a91c319a831b1df092f5855095eb5ebe08cd704"
+   },
+   "IMG_20260920_155958.jpg": {
+    "boxes_xywh": [
+     [
+      1968,
+      2000,
+      38,
+      24
+     ],
+     [
+      1838,
+      1852,
+      40,
+      16
+     ]
+    ],
+    "precaution": [
+     [
+      1838,
+      1852,
+      40,
+      16
+     ]
+    ],
+    "sha256_before": "3ce7f4240bc60a0df78d28dd0f5405977746835fead796ee7813d85b4b9f2732",
+    "sha256_after": "8f8c84f2fc5dba4a832f5b047e2f5e7c968f89250a58cc3ae7e1e721be9ed20f"
+   },
+   "IMG_20260920_155959.jpg": {
+    "boxes_xywh": [
+     [
+      2148,
+      1718,
+      30,
+      20
+     ],
+     [
+      1836,
+      1628,
+      32,
+      16
+     ]
+    ],
+    "precaution": [
+     [
+      1836,
+      1628,
+      32,
+      16
+     ]
+    ],
+    "sha256_before": "8707e483f4ba1936f5a91921e7444797d74aa282a4f2ec2bfe5f27bddb095c34",
+    "sha256_after": "a30f2fcf63ae854443040a078f10bfddfba5b8ba4f89364594440aaabc4789c1"
+   },
+   "IMG_20260920_155844.jpg": {
+    "boxes_xywh": [
+     [
+      2285,
+      1425,
+      30,
+      12
+     ],
+     [
+      2650,
+      1437,
+      20,
+      10
+     ]
+    ],
+    "precaution": [
+     [
+      2650,
+      1437,
+      20,
+      10
+     ]
+    ],
+    "sha256_before": "27d7db2f0c3188d563055070de8b6c52a9211790b0d72b6ee7d9f44f10179709",
+    "sha256_after": "4e5df10eaa85c8ff6375cb8614beec48922bd55aa740bf0674daaa0e7e8725ab"
+   },
+   "IMG_20260920_155613.jpg": {
+    "boxes_xywh": [
+     [
+      2770,
+      1466,
+      35,
+      15
+     ]
+    ],
+    "precaution": [
+     [
+      2770,
+      1466,
+      35,
+      15
+     ]
+    ],
+    "sha256_before": "1beea8b88381581482fd607954683ab2c18e66c72f14adc039d39d56b0e976c6",
+    "sha256_after": "ffd44275d674c1150d6fd7729a21e532d432f9ba9575b9a406fbfe0a1ae089dc"
+   }
+  },
+  "assess_rerun": {
+   "photos": "the 23 affected 09-20 photographs: F01-F04, F09-F12, F18-F29, F33, F34, F42",
+   "pre_redaction": "results/assess_2026-09-22.json and results/assess_2026-09-22_kmh30.json; results/assess_2026-10-13_pre_redaction_17.json shows the current code reproduces them (same codes on all 17 it covers)",
+   "post_redaction": "results/assess_2026-10-13_post_redaction_23.json (posted 50); results/assess_2026-10-13_post_redaction_kmh30_23.json (posted 30)",
+   "result": "posted 30: 22 of 23 return the same codes; F24 gains TAPER_TOO_STEEP. posted 50: 20 of 23 the same; F24, F29 and F42 gain TAPER_TOO_STEEP. No other code changes. Pixels outside the boxes moved by at most 9 grey levels; the taper reading is sensitive to re-encoding noise, the instability already documented, and is not counted in docs/four-scenarios.md."
+  }
+ }
+}

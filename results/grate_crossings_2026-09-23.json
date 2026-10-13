@@ -1,0 +1,761 @@
+[
+ {
+  "frame": "P01",
+  "group": "溝蓋1",
+  "file": "IMG_20260923_063056.jpg",
+  "grate": {
+   "area": 1925736,
+   "rect": [
+    [
+     1590.5909423828125,
+     2260.22900390625
+    ],
+    [
+     1436.7557373046875,
+     1503.931884765625
+    ],
+    -89.63699340820312
+   ],
+   "bbox": [
+    835,
+    1538,
+    1505,
+    1438
+   ],
+   "fill": 0.891,
+   "period_x": 18.7,
+   "period_y": 39.1,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "3 patch centroids",
+  "ruler": {
+   "px_per_10cm": 256.0,
+   "rows": 108
+  },
+  "grate_cm": {
+   "w": 56.1,
+   "h": 58.7
+  },
+  "red_axis_to_grate_centre_cm": 1.0,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ },
+ {
+  "frame": "P08",
+  "group": "溝蓋2",
+  "file": "IMG_20260923_063111.jpg",
+  "grate": {
+   "area": 2460960,
+   "rect": [
+    [
+     1782.657470703125,
+     1844.5662841796875
+    ],
+    [
+     1930.5601806640625,
+     1478.6751708984375
+    ],
+    -85.8175048828125
+   ],
+   "bbox": [
+    990,
+    922,
+    1596,
+    1909
+   ],
+   "fill": 0.862,
+   "period_x": 49.0,
+   "period_y": 37.5,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "2 patch centroids",
+  "ruler": {
+   "px_per_10cm": 270.0,
+   "rows": 55
+  },
+  "grate_cm": {
+   "w": 71.5,
+   "h": 54.8
+  },
+  "red_axis_to_grate_centre_cm": 2.2,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ },
+ {
+  "frame": "P09",
+  "group": "溝蓋2",
+  "file": "IMG_20260923_063112.jpg",
+  "grate": {
+   "area": 2154625,
+   "rect": [
+    [
+     1759.4400634765625,
+     1971.385009765625
+    ],
+    [
+     1706.3243408203125,
+     1488.2427978515625
+    ],
+    -86.93993377685547
+   ],
+   "bbox": [
+    982,
+    1091,
+    1532,
+    1750
+   ],
+   "fill": 0.848,
+   "period_x": 33.9,
+   "period_y": 38.3,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "2 patch centroids",
+  "ruler": {
+   "px_per_10cm": 273.0,
+   "rows": 55
+  },
+  "grate_cm": {
+   "w": 62.5,
+   "h": 54.5
+  },
+  "red_axis_to_grate_centre_cm": 2.2,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ },
+ {
+  "frame": "P10",
+  "group": "溝蓋2",
+  "file": "IMG_20260923_063112_1.jpg",
+  "grate": {
+   "area": 2252159,
+   "rect": [
+    [
+     1719.148681640625,
+     1969.482666015625
+    ],
+    [
+     1732.719970703125,
+     1490.02880859375
+    ],
+    -87.17784118652344
+   ],
+   "bbox": [
+    942,
+    1096,
+    1534,
+    1755
+   ],
+   "fill": 0.872,
+   "period_x": 34.1,
+   "period_y": 33.2,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "2 patch centroids",
+  "ruler": {
+   "px_per_10cm": 274.5,
+   "rows": 56
+  },
+  "grate_cm": {
+   "w": 63.1,
+   "h": 54.3
+  },
+  "red_axis_to_grate_centre_cm": 2.4,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ },
+ {
+  "frame": "P19",
+  "group": "溝蓋3",
+  "file": "IMG_20260923_063130.jpg",
+  "grate": {
+   "area": 2205844,
+   "rect": [
+    [
+     1584.0,
+     2048.5
+    ],
+    [
+     1669.0,
+     1458.0
+    ],
+    -90.0
+   ],
+   "bbox": [
+    855,
+    1214,
+    1459,
+    1670
+   ],
+   "fill": 0.906,
+   "period_x": 22.9,
+   "period_y": 30.6,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "4 patch centroids",
+  "ruler": {
+   "px_per_10cm": 235.0,
+   "rows": 87
+  },
+  "grate_cm": {
+   "w": 71.0,
+   "h": 62.0
+  },
+  "red_axis_to_grate_centre_cm": 7.4,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ },
+ {
+  "frame": "P20",
+  "group": "溝蓋3",
+  "file": "IMG_20260923_063130_1.jpg",
+  "grate": {
+   "area": 2325711,
+   "rect": [
+    [
+     1569.5,
+     2192.5
+    ],
+    [
+     1715.0,
+     1489.0
+    ],
+    -90.0
+   ],
+   "bbox": [
+    825,
+    1335,
+    1490,
+    1716
+   ],
+   "fill": 0.911,
+   "period_x": 22.0,
+   "period_y": 35.5,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "4 patch centroids",
+  "ruler": {
+   "px_per_10cm": 194.0,
+   "rows": 79
+  },
+  "grate_cm": {
+   "w": 88.4,
+   "h": 76.8
+  },
+  "red_axis_to_grate_centre_cm": 8.9,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ },
+ {
+  "frame": "P21",
+  "group": "溝蓋3",
+  "file": "IMG_20260923_063131.jpg",
+  "grate": {
+   "area": 2329129,
+   "rect": [
+    [
+     1577.4998779296875,
+     2170.999755859375
+    ],
+    [
+     1719.999755859375,
+     1480.999755859375
+    ],
+    -90.0
+   ],
+   "bbox": [
+    837,
+    1311,
+    1482,
+    1721
+   ],
+   "fill": 0.914,
+   "period_x": 22.2,
+   "period_y": 36.4,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "4 patch centroids",
+  "ruler": {
+   "px_per_10cm": 195.0,
+   "rows": 79
+  },
+  "grate_cm": {
+   "w": 88.2,
+   "h": 75.9
+  },
+  "red_axis_to_grate_centre_cm": 9.2,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ },
+ {
+  "frame": "P28",
+  "group": "溝蓋4",
+  "file": "IMG_20260923_063148.jpg",
+  "grate": {
+   "area": 1875999,
+   "rect": [
+    [
+     1493.8955078125,
+     1612.7745361328125
+    ],
+    [
+     1497.6591796875,
+     1364.521484375
+    ],
+    -87.92058563232422
+   ],
+   "bbox": [
+    796,
+    888,
+    1390,
+    1482
+   ],
+   "fill": 0.918,
+   "period_x": 34.8,
+   "period_y": 19.4,
+   "dark_threshold": 45,
+   "open_px": 251
+  },
+  "red_axis_from": "one patch, its principal axis",
+  "ruler": {
+   "px_per_10cm": 230.5,
+   "rows": 19
+  },
+  "grate_cm": {
+   "w": 65.0,
+   "h": 59.2
+  },
+  "red_axis_to_grate_centre_cm": 6.6,
+  "red_axis_crosses_grate": true,
+  "holes": [
+   {
+    "xy": [
+     1284,
+     3455
+    ],
+    "diam_cm": 9.5,
+    "circularity": 0.82,
+    "off_red_axis_cm": 3.8
+   }
+  ]
+ },
+ {
+  "frame": "P29",
+  "group": "溝蓋4",
+  "file": "IMG_20260923_063149.jpg",
+  "grate": {
+   "area": 1885226,
+   "rect": [
+    [
+     1510.52734375,
+     1613.9532470703125
+    ],
+    [
+     1496.27734375,
+     1382.16259765625
+    ],
+    -88.2878646850586
+   ],
+   "bbox": [
+    807,
+    878,
+    1405,
+    1491
+   ],
+   "fill": 0.912,
+   "period_x": 38.8,
+   "period_y": 19.9,
+   "dark_threshold": 45,
+   "open_px": 251
+  },
+  "red_axis_from": "one patch, its principal axis",
+  "ruler": {
+   "px_per_10cm": 232.0,
+   "rows": 19
+  },
+  "grate_cm": {
+   "w": 64.5,
+   "h": 59.6
+  },
+  "red_axis_to_grate_centre_cm": 6.4,
+  "red_axis_crosses_grate": true,
+  "holes": [
+   {
+    "xy": [
+     1284,
+     3456
+    ],
+    "diam_cm": 9.5,
+    "circularity": 0.81,
+    "off_red_axis_cm": 4.1
+   }
+  ]
+ },
+ {
+  "frame": "P30",
+  "group": "溝蓋4",
+  "file": "IMG_20260923_063149_1.jpg",
+  "grate": {
+   "area": 1904603,
+   "rect": [
+    [
+     1478.5,
+     1617.5
+    ],
+    [
+     1501.0,
+     1387.0
+    ],
+    -90.0
+   ],
+   "bbox": [
+    785,
+    867,
+    1388,
+    1502
+   ],
+   "fill": 0.915,
+   "period_x": 32.5,
+   "period_y": 22.9,
+   "dark_threshold": 45,
+   "open_px": 251
+  },
+  "red_axis_from": "one patch, its principal axis",
+  "ruler": {
+   "px_per_10cm": 229.5,
+   "rows": 19
+  },
+  "grate_cm": {
+   "w": 65.4,
+   "h": 60.4
+  },
+  "red_axis_to_grate_centre_cm": 6.8,
+  "red_axis_crosses_grate": true,
+  "holes": [
+   {
+    "xy": [
+     1286,
+     3464
+    ],
+    "diam_cm": 9.5,
+    "circularity": 0.8,
+    "off_red_axis_cm": 4.0
+   }
+  ]
+ },
+ {
+  "frame": "P37",
+  "group": "溝蓋5",
+  "file": "IMG_20260923_063205.jpg",
+  "grate": {
+   "area": 1158158,
+   "rect": [
+    [
+     1290.275146484375,
+     1899.4862060546875
+    ],
+    [
+     1241.083984375,
+     1236.4224853515625
+    ],
+    -89.49446105957031
+   ],
+   "bbox": [
+    669,
+    1278,
+    1238,
+    1247
+   ],
+   "fill": 0.755,
+   "period_x": 25.9,
+   "period_y": 35.5,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "3 patch centroids",
+  "ruler": {
+   "px_per_10cm": 190.0,
+   "rows": 71
+  },
+  "grate_cm": {
+   "w": 65.3,
+   "h": 65.1
+  },
+  "red_axis_to_grate_centre_cm": 14.2,
+  "red_axis_crosses_grate": true,
+  "holes": [
+   {
+    "xy": [
+     1224,
+     3629
+    ],
+    "diam_cm": 11.1,
+    "circularity": 0.91,
+    "off_red_axis_cm": 11.6
+   },
+   {
+    "xy": [
+     1409,
+     502
+    ],
+    "diam_cm": 7.8,
+    "circularity": 0.68,
+    "off_red_axis_cm": 13.0
+   }
+  ]
+ },
+ {
+  "frame": "P38",
+  "group": "溝蓋5",
+  "file": "IMG_20260923_063206.jpg",
+  "grate": {
+   "area": 1730946,
+   "rect": [
+    [
+     1293.44482421875,
+     1860.833984375
+    ],
+    [
+     1441.7130126953125,
+     1322.42919921875
+    ],
+    -86.53382873535156
+   ],
+   "bbox": [
+    594,
+    1131,
+    1360,
+    1478
+   ],
+   "fill": 0.908,
+   "period_x": 38.9,
+   "period_y": 29.9,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "2 patch centroids",
+  "ruler": {
+   "px_per_10cm": 184.0,
+   "rows": 69
+  },
+  "grate_cm": {
+   "w": 78.4,
+   "h": 71.9
+  },
+  "red_axis_to_grate_centre_cm": 14.3,
+  "red_axis_crosses_grate": true,
+  "holes": [
+   {
+    "xy": [
+     1189,
+     3654
+    ],
+    "diam_cm": 11.5,
+    "circularity": 0.93,
+    "off_red_axis_cm": 12.2
+   },
+   {
+    "xy": [
+     1418,
+     483
+    ],
+    "diam_cm": 7.8,
+    "circularity": 0.67,
+    "off_red_axis_cm": 13.5
+   }
+  ]
+ },
+ {
+  "frame": "P39",
+  "group": "溝蓋5",
+  "file": "IMG_20260923_063206_1.jpg",
+  "grate": {
+   "area": 1785641,
+   "rect": [
+    [
+     1288.716796875,
+     1873.617919921875
+    ],
+    [
+     1470.13818359375,
+     1314.3902587890625
+    ],
+    -87.5262451171875
+   ],
+   "bbox": [
+    614,
+    1130,
+    1327,
+    1493
+   ],
+   "fill": 0.924,
+   "period_x": 35.5,
+   "period_y": 23.6,
+   "dark_threshold": 45,
+   "open_px": 251
+  },
+  "red_axis_from": "2 patch centroids",
+  "ruler": {
+   "px_per_10cm": 189.0,
+   "rows": 68
+  },
+  "grate_cm": {
+   "w": 77.8,
+   "h": 69.5
+  },
+  "red_axis_to_grate_centre_cm": 13.7,
+  "red_axis_crosses_grate": true,
+  "holes": [
+   {
+    "xy": [
+     1180,
+     3648
+    ],
+    "diam_cm": 11.3,
+    "circularity": 0.86,
+    "off_red_axis_cm": 11.8
+   },
+   {
+    "xy": [
+     1410,
+     468
+    ],
+    "diam_cm": 8.1,
+    "circularity": 0.61,
+    "off_red_axis_cm": 13.3
+   }
+  ]
+ },
+ {
+  "frame": "P49",
+  "group": "溝蓋6",
+  "file": "IMG_20260923_063227.jpg",
+  "grate": {
+   "area": 2002088,
+   "rect": [
+    [
+     1721.5,
+     2154.0
+    ],
+    [
+     1610.0,
+     1385.0
+    ],
+    -90.0
+   ],
+   "bbox": [
+    1029,
+    1349,
+    1386,
+    1611
+   ],
+   "fill": 0.898,
+   "period_x": 24.7,
+   "period_y": 24.4,
+   "dark_threshold": 45,
+   "open_px": 61
+  },
+  "red_axis_from": "3 patch centroids",
+  "ruler": {
+   "px_per_10cm": 284.0,
+   "rows": 105
+  },
+  "grate_cm": {
+   "w": 56.7,
+   "h": 48.8
+  },
+  "red_axis_to_grate_centre_cm": 8.0,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ },
+ {
+  "frame": "P50",
+  "group": "溝蓋6",
+  "file": "IMG_20260923_063228.jpg",
+  "grate": {
+   "area": 2104780,
+   "rect": [
+    [
+     1625.5,
+     2131.0
+    ],
+    [
+     1636.0,
+     1387.0
+    ],
+    -90.0
+   ],
+   "bbox": [
+    932,
+    1313,
+    1388,
+    1637
+   ],
+   "fill": 0.928,
+   "period_x": 24.8,
+   "period_y": 27.4,
+   "dark_threshold": 45,
+   "open_px": 151
+  },
+  "red_axis_from": "3 patch centroids",
+  "ruler": {
+   "px_per_10cm": 283.0,
+   "rows": 107
+  },
+  "grate_cm": {
+   "w": 57.8,
+   "h": 49.0
+  },
+  "red_axis_to_grate_centre_cm": 7.5,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ },
+ {
+  "frame": "P51",
+  "group": "溝蓋6",
+  "file": "IMG_20260923_063228_1.jpg",
+  "grate": {
+   "area": 2156714,
+   "rect": [
+    [
+     1577.883544921875,
+     2102.913330078125
+    ],
+    [
+     1648.546630859375,
+     1404.5684814453125
+    ],
+    -88.68092346191406
+   ],
+   "bbox": [
+    863,
+    1286,
+    1407,
+    1653
+   ],
+   "fill": 0.931,
+   "period_x": 26.2,
+   "period_y": 26.3,
+   "dark_threshold": 45,
+   "open_px": 151
+  },
+  "red_axis_from": "3 patch centroids",
+  "ruler": {
+   "px_per_10cm": 284.0,
+   "rows": 107
+  },
+  "grate_cm": {
+   "w": 58.0,
+   "h": 49.5
+  },
+  "red_axis_to_grate_centre_cm": 7.3,
+  "red_axis_crosses_grate": true,
+  "holes": []
+ }
+]

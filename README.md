@@ -1,0 +1,87 @@
+# Seven drain grates on County Road 116
+
+*A rider, a phone, and OpenCV 5 against one stretch of road in New Taipei.*
+
+**Video:** https://youtu.be/jNofo20hvyY
+
+![County Road 116: the stretch, drawn as a schematic](docs/figures/schematic.png)
+
+## The road
+
+I ride County Road 116 in Shulin every day. Just before it climbs onto a bridge, the lane I'm in gets squeezed.
+
+First a double white line says I can't change lanes. Then a painted island narrows the lane from the left. On my right, the whole way, there's a drain strip with seven steel grates set into it.
+
+Before the island was repainted, I had to move over in a hurry. After it, the rush was gone, but the asphalt beside the drain strip had been dug up and patched, and at night I'd find myself riding over those seven grates, one after another.
+
+Nothing here is obviously illegal. That's the problem. Every piece sits right at the edge of what's allowed, and they all land on the same stretch and the same person.
+
+This project turns that feeling into numbers anyone can check.
+
+## What the photos show
+
+**The red line moved onto the drains.** There are two red no-stopping lines. The old one runs along the edge of the asphalt. The new one is painted 0.63–0.68 m further out, on the concrete drain strip, straight across the grates. Taiwan's marking rules say a red line belongs on the kerb (§169), that it marks the outer edge of the road (§183), and that a lane is whatever the markings enclose (Urban Road Standard §2). So the new line puts the drains inside the road.
+
+![The new red line crosses every grate I photographed](docs/figures/red-line-over-grates.jpg)
+
+In all 16 top-down photos (grates 1–6; grate 7 has no top-down photo), OpenCV finds the new red line's axis running across the grate, 1.0–14.3 cm from its centre (`results/grate_crossings_2026-09-23.json`). That result needs no scale at all.
+
+**The ruler is the line itself.** A red line is 10 cm wide by law. A card of standard ID-1 size (85.60 mm) laid across the freshly painted line, measured automatically on P55 and P56 (P59's reading failed; `isolation/field-2026-09-23/card_vs_redline.json`), gives 95–97 mm: close enough to use the line as the ruler. The shift is the median gap from the new line's inner edge to the old line's centre, 0.63–0.68 m on three photos, using the legal 10 cm. If the line is really about 96 mm wide, every gap is about 4% smaller (about 0.61–0.65 m).
+
+**The island got better.** Today the island closes at about 12 to 1. For reference, Taiwan's urban road design table asks for at least 5 to 1 at 30 km/h for a through-lane shift; that table is written for lane shifts at turning lanes, so I use it only as a reference. The rider's own words were: "it's better since they painted over it."
+
+**Before the paint-over, the island was wider; its old taper I could not establish.** From my own photograph and one mark I drew by hand (OpenCV cannot find the old edge): about two thirds of the island's width was painted over where I measured it. I did not find the same share at the island's start, so I do not give an old taper. What OpenCV did and what it could not do is in `docs/technical-report.md` section 4.4.
+
+**My first number was wrong, and I withdrew it.** I originally published 10 to 1. When I drew the lines the program had actually picked, they weren't the island's two edges at all, and re-saving the photo once turned 11.9 into 23.2. In the offline analysis two independent edge finders now have to agree. The online endpoint still runs the older single-method taper check, and every online measurement is re-run on four versions of the image and reported only if at least three of them measure and agree.
+
+![The island today: both edges confirmed by two independent tools, horizon from poles and walls](docs/figures/taper-2026-after-erasure.jpg)
+
+**The rest of the stack.** On winter mornings the low sun can sit in your eyes heading for the bridge (my experience; the hours I had computed used a road bearing read from Street View, so I don't give them). The Highway Act (§72) sets a flatness tolerance for repaired pavement (±0.6 cm on a 3 m straightedge) and asks for non-slip surfaces; whether that applies to these covers is not established. I haven't measured either the step or the grip. That's written down as a gap, not claimed.
+
+The full story, with a source for every number: [`docs/story-116.md`](docs/story-116.md). Every figure made by image recognition has its method printed underneath and is indexed in [`docs/materials-2026-09-23.md`](docs/materials-2026-09-23.md).
+
+## What the system does
+
+![Architecture](docs/figures/architecture.png)
+
+The decision step (perceive, decide, act) is drawn separately, with a trace and a 20-photo evaluation, in [`docs/figures/agent-workflow.png`](docs/figures/agent-workflow.png) and section 8 of the technical report.
+
+Send one street photo. It checks the photo actually shows a road, runs its measurements, and only reports a number if at least three of four re-encoded versions of the image measure it and agree. It tells you what it measured, what it couldn't, and why. Then it tells you what to do next: which document to request from which office, tied to what it found in your photo. That step is `src/marking/actions.py`: a document request appears only when something in your photo calls for it, and it says what that was.
+
+It runs on AWS Lambda (arm64) with OpenCV 5.0.0. `GET` on the endpoint describes the interface; `POST` needs an access token in the `x-access-token` header, which is provided to judges with the submission.
+
+```sh
+pip install -r requirements.txt
+/opt/anaconda3/bin/python3 -B -m pytest -q -p no:cacheprovider   # all pass
+/opt/anaconda3/bin/python3 -B scripts/check_figures.py            # every published number vs. its source
+```
+
+Deploy your own copy (AWS CLI and Docker with buildx; arm64 image):
+
+```sh
+AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v13
+MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v13, set access token, throttling, logs, budget
+```
+
+Technical report: [`docs/technical-report.md`](docs/technical-report.md). Deployment: [`docs/deployment.md`](docs/deployment.md). OpenCV calls behind each piece of evidence: [`docs/opencv5.md`](docs/opencv5.md).
+
+## What's in here
+
+| | |
+|---|---|
+| `evidence/field-2026-09-20/`, `evidence/field-2026-09-23/` | The original photos (106), each with a SHA-256 manifest. Licence plates are covered (82 boxes on 26 photos). |
+| `results/` | Published numbers, each produced by a script in `scripts/` |
+| `src/marking/` | What runs in the cloud |
+| `isolation/` | Experiments, re-checks, and the methods that didn't work |
+| `docs/evidence.md` | The regulations, quoted word for word from the official database |
+
+## What I can't tell you yet
+
+- How far the grates sit below the road, or how slippery they are when wet. That needs a 3 m straightedge and a skid tester on site.
+- Anything at night. There are no night photos.
+- How much of the lane a scooter can really use.
+- Which red line is the official one, and what design speed applies. Those answers are in documents, and the system's last step is to ask for them.
+
+Google Street View was used only privately, to compare with my own photos while working. Google's terms don't allow sharing Street View images or data derived from them, so nothing from it is published here: no image, no distance along the road, and no before-repainting figure (those were withdrawn on 2026-10-13). The schematic shows no distances along the road.
+
+MIT licence. Photos by the author.
