@@ -32,6 +32,7 @@ def build():
     crossing = [r for r in gc if r.get("red_axis_crosses_grate")]
     dist = [r["red_axis_to_grate_centre_cm"] for r in crossing]
     dr = load("dash_ruler_P64.json")
+    et = load("erased_triangle_P64.json")
     return {
         "site": "116 縣道 樹林中正路,雙白實線起點(「往板橋/往樹林」標字)往橋頭",
         "measured_from_this_photograph": False,
@@ -44,10 +45,22 @@ def build():
                              "grates": sorted({r["group"] for r in crossing})},
              "value_cm": {"min": min(dist), "max": max(dist)},
              "source": "results/grate_crossings_2026-09-23.json"},
-            {"what": "槽化線島遠端斜邊與路軸夾角(車道虛線 4 m + 6 m 為尺)",
+            {"what": "槽化線島舊遠端斜邊(已塗銷,僅存淡痕)與路軸夾角(車道虛線 4 m + 6 m 為尺)",
              "value_deg": dr["slanted_end_edge"]["angle_deg"],
              "range_deg": [dr["monte_carlo"]["angle_deg"]["p10"], dr["monte_carlo"]["angle_deg"]["p90"]],
              "source": "results/dash_ruler_P64.json#/slanted_end_edge"},
+            {"what": "被塗銷的舊島尾三角形(P64 俯視,車道虛線為尺,約 ±10%)",
+             "value_m": {"along_wall": et["erased_triangle"]["along_wall_m"],
+                         "width": et["erased_triangle"]["width_at_stripes_end_m"]},
+             "value_m2": et["erased_triangle"]["area_m2"],
+             "source": "results/erased_triangle_P64.json#/erased_triangle"},
+            {"what": "三角錐前島外緣張開角度(P64 俯視,Hough;車道虛線為尺,約 ±10%,虛線中心由人給點)",
+             "value_deg": et["island_opens_before_the_cone"]["angle_deg_median"],
+             "range_deg": et["island_opens_before_the_cone"]["angle_deg_p25_p75"],
+             "source": "results/erased_triangle_P64.json#/island_opens_before_the_cone"},
+            {"what": "島後併入的車道寬(橋牆側線到車道線;P64 俯視,約 ±10%)",
+             "value_m": et["lanes_after_the_island"]["left_lane_m"],
+             "source": "results/erased_triangle_P64.json#/lanes_after_the_island/left_lane_m"},
         ],
     }
 

@@ -66,6 +66,9 @@ The taper ratio is the ground angle between the island's two edges. In the offli
 | | Ratio | Reference only: 5:1 at 30 km/h in design table 4.2.7 (written for through-lane shifts at turning lanes) |
 |---|---|---|
 | Today (phone, F40, September 2026) | about 12 : 1 (11.7–12.3) | gentler than the reference |
+| Near the cone (phone, P64, September 2026; top-down view, section 4.5) | about 6 : 1 (outer edge at 9.0°, 8.5–9.4°) | just gentler than the reference |
+
+The two are different places on the island: it opens more steeply near the cone.
 
 
 ### 4.4 The island before it was painted over: what OpenCV did, what a person did, what is not done
@@ -79,11 +82,28 @@ No Street View is used for this. Inputs: field photograph F17 (20 September 2026
 | **Result** | of the island's old width, about 35% is still painted and about 65% was painted over (median of 19 clean stripes, sd 6.5%; of 28 stripes, 5 were excluded as outliers and 4 more because they overran the band), measured in the full-width section on F17 (`results/before_taper.json`). An old taper is **not** given: the share was not shown to be the same at the island's start |
 | **Milled surface** | the photograph shows road beyond the drawn edge for at least 2.6 island-widths, to the image edge: a lower bound on how much was milled, not a measurement of milled asphalt |
 | **Not done** | detecting the former edge; detecting milled asphalt (a texture test separated nothing); the far edge of the milled surface (the photograph ends first); any distance in metres (nothing of known size is in the frame) |
-| **Slanted end** | the island ends in a slanted edge: from the corner where its lane-side edge stops, back up and to the left to the base of the bridge wall (visible in the 2026 photographs; located on `IMG_20260923_063437.jpg` and confirmed by the owner). Measured on that photograph with the lane line's dashes as the ruler (§182: 4 m dash + 6 m gap = 10 m; `scripts/dash_ruler.py`): about **11 m** long (8 to 15 m) at about **14 degrees** to the road axis (12 to 17 degrees; 13.3 to 14.0 over four to seven dashes). Ranges are the 10th to 90th percentile of 400 error draws (dash centres 2 px, corner 6 px, wall end 10 px). The length is less certain than the angle (the wall end may sit on the ramp). It is the island's far end, not asserted to be the lane-shift taper of table 4.2.7. An earlier estimate of this edge (45 to 49 and 60 to 71 degrees) used a vanishing point read off hand-traced lines and is withdrawn |
+| **Slanted end (old)** | the faint slanted edge from the corner where the lane-side edge line stops back to the base of the bridge wall is the island's **old** far end, now painted over (section 4.5). Measured on `IMG_20260923_063437.jpg` with the lane line's dashes as the ruler (§182: 4 m dash + 6 m gap; `scripts/dash_ruler.py`): about **11 m** long (8 to 15 m) at about **14 degrees** to the road axis (12 to 17 degrees). Ranges are the 10th to 90th percentile of 400 error draws (dash centres 2 px, corner 6 px, wall end 10 px). Not asserted to be the lane-shift taper of table 4.2.7. An earlier estimate (45 to 49 and 60 to 71 degrees) used a vanishing point read off hand-traced lines and is withdrawn |
 | **Assumption** | an old taper would need the painted-over share to be the same along the whole island. A rough look at P62 (image pixels, not perspective-corrected, not saved as a result) suggested it is not, so no old taper is stated. The start point has not been located on a field photograph |
 | **Open** | the drawn edge may be the milling boundary rather than the chevron's former edge; moving it by 20 px moves the painted-over share between 55% and 68% |
 
-The sentence "scooters and cars can easily ride onto the island" in the video is the rider's own observation, not a measurement.
+The sentence that scooters and cars would both ride partly over the painted chevrons during the works is the rider's own observation, not a measurement.
+
+### 4.5 Top-down view of P64: the old far end, and the lane everyone merges into (`scripts/erased_triangle.py`)
+
+Standing on the road, the island's far end is foreshortened to a sliver, so the old and new paint cannot be compared in the photograph. OpenCV reprojects the road plane of P64 to a top-down view, with the lane line's dashes as the ruler, and everything below is measured there (`results/erased_triangle_P64.json`, ±10% from the ruler).
+
+| | |
+|---|---|
+| **OpenCV 5 did** | `fitLine` on the dash centres for the road direction; `getPerspectiveTransform` and `warpPerspective` for the top-down view; LAB lightness and `adaptiveThreshold` for the paint; `HoughLinesP` for the lane-side edge line, a lane dash (4.1 m, which checks the 4 m ruler) and the island's outer edge; `connectedComponentsWithStats` to mask the painted arrow; then, on those OpenCV masks and images, the share of paint per row to find where today's stripes stop and line brightness to tell today's edge from the old one; `contourArea` for the triangle; `perspectiveTransform`, `fillPoly` and `polylines` to draw it back on the photograph |
+| **A person did** | the dash centres and the old edge's two ends (confirmed by the owner on the photograph); the line the old triangle's tip touches (X = −4.3 m, confirmed by the owner; OpenCV's wall-side line is at −4.54 m); the reading that the faint diagonal is the old edge and that the arrow is painted on erased stripes |
+| **The island opens** | before the cone, the outer edge opens at **9.0°** to the road (8.5–9.4°, 59 Hough segments, length-weighted): about **6 : 1**. The lane-side edge is straight |
+| **Today's end** | past the cone the stripes run on beside the bridge wall and stop at **30 m** from the camera (the paint share falls to zero and stays there; the same at a second threshold) |
+| **The old end, painted over** | a triangle from there to where the old slanted edge meets the wall: about **8.5 m** along the wall, **2.1 m** wide at its base, about **8.9 m²**. The old edge reads 12.4 on the brightness scale, today's edge line 30.4. The left lane's straight-ahead arrow is painted on it |
+| **After the island** | two lanes; the right one is painted to merge left. The left lane, which everyone merges into, is **3.13 m** (wall-side line to lane line, median over 30–39 m). Before the merge the right lane is 4.05 m to the asphalt edge; beyond it is the drain strip with the grates |
+| **Side by side, after the merge** | a typical car (1.78 m) + 0.5 m + a scooter (0.75 m) needs 3.03 m, leaving about 0.1 m, inside the error; a bus or truck (2.5 m) is about 0.6 m short (`results/width_budget.json`). The 3.03 m sum is mine, using §101's 0.5 m clearance; it is not a lane-width rule |
+| **Not measured** | wet grip, night visibility, and where the right lane finally ends (beyond the photograph). In rain or at night the risk is the rider's experience plus published reference values (2.5 s to react; at least 3.65 s of preview at night, `docs/evidence.md` M5) |
+
+![The old end, painted over, in P64's top-down view](figures/erased-triangle-P64-topdown.jpg)
 
 ## 5. Evaluation, including what failed
 
@@ -171,5 +191,5 @@ What this shows and does not: the decision step follows the vision output exactl
 - One road, one author, 106 photos. The method is general; the evidence is local.
 - The before-repainting taper was measured on Google Street View imagery and has been withdrawn (2026-10-13): Google's terms prohibit sharing screenshots or data derived from Street View. The schematic shows no distances along the road.
 - 26 photos have licence plates covered (82 boxes); no photo carries a GPS fix.
-- The taper after repainting rests on one photo (F40).
+- The taper after repainting rests on one photo at each place: F40 (about 12:1) and P64 near the cone (about 6:1). The P64 measurements use one photo, a ruler good to about ±10%, and points given by a person (section 4.5).
 - Which red line is official, and which design speed applies, are questions for documents. The system's last step is to request them.

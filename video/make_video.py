@@ -19,7 +19,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 OUT = HERE / "out"; FR = OUT / "frames"
 W, H = 1920, 1080
-PAD = 0.6                      # silence after each slide's voiceover, seconds
+PAD = 0.9                      # silence after each slide's voiceover, seconds
 FONT = "/System/Library/Fonts/Helvetica.ttc"
 BG = (251, 251, 250); INK = (27, 27, 27); MUTED = (94, 94, 90); TEAL = (15, 123, 123); AMBER = (192, 122, 30)
 
@@ -96,31 +96,64 @@ def visual(n):
         ph = Image.eval(ph, lambda v: int(v * 0.45)); c.paste(ph, (0, 0)); d = ImageDraw.Draw(c)
         d.text((120, 300), "Seven drain grates on County Road 116", font=font(88, True), fill=(255, 255, 255))
         d.text((120, 420), "County Road 116, Shulin, New Taipei", font=font(48), fill=(230, 230, 230))
-        d.text((120, 490), "OpenCV 5 on AWS Lambda", font=font(40), fill=(200, 200, 200))
+        d.text((120, 490), "OpenCV 5 + AWS measure a road from a rider's phone photos", font=font(40), fill=(200, 200, 200))
         return c
     if n == 3:
         return text_card([("Solo: one rider, one smartphone.", "big"),
                           ("Not here to say who broke the rules.", "body"),
                           ("Here to turn what a rider feels into numbers anyone can check.", "teal")], "Team")
     if n == 6:
-        return text_card([("§169  A red line belongs on the kerb.", "body"),
-                          ("§183  A red line marks the outer edge of the road.", "body"),
-                          ("Urban Road Standard §2  A lane is whatever the markings enclose.", "body"),
-                          ("So the new line puts the drain strip inside the road.", "teal"),
-                          ("Quoted word for word from Taiwan's national law database. The last line is my reading, not the law's text.", "muted")],
-                         "What the rules say")
+        c = text_card([("§169  A red line belongs on the kerb.", "body"),
+                       ("§183  It marks the road's outer edge.", "body"),
+                       ("Urban Road Standard §2  A lane is what the", "body"),
+                       ("markings enclose.", "body"),
+                       ("So the drain strip is now inside the road.", "teal"),
+                       ("Quoted from Taiwan's law database.", "muted"),
+                       ("The last line is my reading.", "muted")], "What the rules say")
+        im, pos = fit(img("video/assets/p22_en.jpg"), (1320, 20, W - 30, H - 290)); c.paste(im, pos)
+        return c
     if n == 8:
         c = Image.new("RGB", (W, H - 260), BG)
-        both = img("isolation/taper-recheck/consensus_f17_f40.jpg")          # right half is F40; left is F17 (refused)
-        im, pos = fit(both.crop((both.width // 2, 0, both.width, both.height)), (40, 30, 1180, H - 290)); c.paste(im, pos)
+        sch = img("docs/figures/schematic.png"); sw, sh = sch.size
+        im, pos = fit(sch.crop((int(sw * 0.07), int(sh * 0.08), int(sw * 0.93), int(sh * 0.60))), (30, 20, 1200, H - 290)); c.paste(im, pos)
         d = ImageDraw.Draw(c); x = 1240
         d.text((x, 90), "Lane shift at 30 km/h", font=font(40, True), fill=INK)
         d.text((x, 150), "Reference: 5 to 1 (table 4.2.7)", font=font(34), fill=MUTED)
         d.text((x, 280), "Today", font=font(38, True), fill=TEAL)
         d.text((x, 330), "about 12 to 1", font=font(52, True), fill=TEAL)
         d.text((x, 420), "Gentler than the reference", font=font(34), fill=INK)
-        d.text((x, 600), "Left: F40 today, both edges", font=font(26), fill=MUTED)
-        d.text((x, 636), "confirmed by two tools", font=font(26), fill=MUTED)
+        d.text((x, 520), "Where I measured it (photo F40),", font=font(26), fill=MUTED)
+        d.text((x, 556), "both edges confirmed by two tools", font=font(26), fill=MUTED)
+        d.text((x, 640), "Near the cone (photo P64, top-down):", font=font(26), fill=MUTED)
+        d.text((x, 676), "about 6 to 1, steeper", font=font(26), fill=MUTED)
+        return c
+    if n == 18:
+        c = Image.new("RGB", (W, H - 260), BG); d = ImageDraw.Draw(c)
+        a, pa = fit(img("docs/figures/erased-triangle-P64-topdown.jpg"), (40, 70, 520, H - 290)); c.paste(a, pa)
+        b, pb = fit(img("docs/figures/red-line-over-grates.jpg"), (560, 70, 1240, H - 290)); c.paste(b, pb)
+        d.text((40, 14), "top-down view, lane dashes as the ruler", font=font(26, True), fill=TEAL)
+        d.text((560, 14), "red line over the grates", font=font(26, True), fill=TEAL)
+        x = 1300
+        d.text((x, 110), "OpenCV 5 on AWS", font=font(48, True), fill=INK)
+        d.text((x, 180), "from a rider's phone photos", font=font(32), fill=MUTED)
+        d.text((x, 300), "Red line across", font=font(40, True), fill=AMBER)
+        d.text((x, 350), "the drain grates", font=font(40, True), fill=AMBER)
+        d.text((x, 470), "Merged lane: car + scooter", font=font(34, True), fill=INK)
+        d.text((x, 520), "about 10 cm to spare", font=font(40, True), fill=AMBER)
+        d.text((x, 575), "my own sum, inside the error", font=font(26), fill=MUTED)
+        return c
+    if n == 17:
+        c = Image.new("RGB", (W, H - 260), BG); d = ImageDraw.Draw(c)
+        a, pa = fit(img("docs/figures/erased-triangle-P64.jpg"), (30, 20, 1250, H - 290)); c.paste(a, pa)
+        b, pb = fit(img("docs/figures/erased-triangle-P64-topdown.jpg"), (1270, 20, 1600, H - 290)); c.paste(b, pb)
+        x = 1630
+        d.text((x, 60), "Painted over", font=font(32, True), fill=AMBER)
+        d.text((x, 104), "about 8.5 m", font=font(40, True), fill=AMBER)
+        d.text((x, 200), "Merged lane", font=font(32, True), fill=INK)
+        d.text((x, 244), "about 3.1 m", font=font(40, True), fill=INK)
+        d.text((x, 340), "lane dashes", font=font(26), fill=MUTED)
+        d.text((x, 374), "as the ruler,", font=font(26), fill=MUTED)
+        d.text((x, 408), "about ±10%", font=font(26), fill=MUTED)
         return c
     if n == 11:
         return api_card()
@@ -144,7 +177,7 @@ def visual(n):
         return c
     if n == 15:
         return text_card([("Online: full-size photos time out (account memory capped at 3 GB). The result shown is from a local run.", "body"),
-                          ("The far end's slanted edge: about 14 degrees (12-17); its length is uncertain.", "body"),
+                          ("The painted-over old end is measured on one photo, top-down, within about 10%.", "body"),
                           ("The red-line detector only points at a place. A person opens the box and decides.", "body"),
                           ("Not measured: the step and the grip of the grates.", "body"),
                           ("The system files nothing and contacts no one.", "teal")], "What it can't do yet")
@@ -153,6 +186,7 @@ def visual(n):
                           ("Right: the red line painted over seven drain grates and open drain holes.", "body"),
                           ("Ahead: the lane narrowing as the island widens.", "body"),
                           ("Winter mornings: the low sun in your eyes (my own experience).", "body"),
+                          ("After the merge: scooters and cars fight for one lane; worse in rain or at night (my experience).", "body"),
                           ("Each one sits at the limit. All of them land on the same stretch.", "teal")], "The stack")
     if n == 13:
         return text_card([("New Taipei Traffic Department: the approved marking plans for this stretch.", "body"),
@@ -195,15 +229,17 @@ def chunks(text, width=62):
     return out
 
 
-ACTS = {1: "1 The road", 2: "1 The road", 3: "1 The road", 4: "1 The road",
-        5: "2 What I measured", 16: "2 What I measured", 6: "2 What I measured", 7: "2 What I measured", 8: "2 What I measured", 9: "2 What I measured",
-        10: "3 How it works", 14: "3 How it works", 11: "3 How it works",
-        15: "4 Limits and next", 12: "4 Limits and next", 13: "4 Limits and next"}
+ACTS = {18: "1 The point", 1: "1 The point", 3: "1 The point",
+        5: "2 The red line", 6: "2 The red line", 7: "2 The red line",
+        8: "3 The island and the merge", 16: "3 The island and the merge", 17: "3 The island and the merge",
+        10: "4 How it works", 14: "4 How it works", 11: "4 How it works",
+        9: "5 Limits and next", 15: "5 Limits and next", 12: "5 Limits and next", 13: "5 Limits and next"}
 
 
-SRC = {1: "my photo", 2: "my photo", 3: "my words", 4: "schematic I drew (stands in for Google imagery, which can't be shown)",
-       5: "my photos", 6: "the law's text", 7: "my photo", 8: "my photo", 16: "my photo + OpenCV + my mark",
-       9: "my photos", 10: "diagram", 14: "diagram", 11: "local run", 15: "text", 12: "text", 13: "text"}
+SRC = {18: "my photos + OpenCV", 1: "my photo", 3: "my words", 5: "my photos", 6: "the law's text + my photo", 7: "my photo",
+       8: "schematic I drew (stands in for Google imagery, which can't be shown)", 16: "my photo + OpenCV + my mark",
+       17: "my photo + OpenCV + my marks", 9: "my photos", 10: "diagram", 14: "diagram", 11: "local run",
+       15: "text", 12: "text", 13: "text"}
 
 
 def frame(vis, heading, sub):

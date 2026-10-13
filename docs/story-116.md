@@ -22,7 +22,7 @@ Across the two periods, the constant is those seven grates. Before, the rider wa
 
 ## This stretch
 
-**From the start of the solid line to the bridge.** The whole stretch is limited to 30 km/h. Distances along the road are not given: the ones I had came from Street View, which I cannot share.
+**From the start of the solid line to the bridge.** During the works the whole stretch was limited to about 30 km/h (my observation). Distances along the road are not given: the ones I had came from Street View, which I cannot share.
 
 - **First, a double white solid line: no changing lanes.**
 - **Then the painted island, and the lane narrows.** The Urban Road Design Specification, table 4.2.7 ("through-lane shift"), asks for 5:1 at 30 km/h and 16:1 at 50 km/h for through-lane shifts at turning lanes; I use it only as a reference. (`docs/evidence.md` L19)
@@ -30,6 +30,9 @@ Across the two periods, the constant is those seven grates. Before, the rider wa
 | | Taper | Against 5:1 at 30 km/h | Source |
 |---|---|---|---|
 | **Today** (20 Sep 2026, photo F40) | **about 12 : 1** (11.7–12.3) | gentler than the reference | ![After](figures/taper-2026-after-erasure.jpg) |
+| **Near the cone** (23 Sep 2026, photo P64, top-down view) | **about 6 : 1** (outer edge at 9°, 8.5–9.4°) | just gentler than the reference | ![Top-down](figures/erased-triangle-P64-topdown.jpg) |
+
+- **The island opens more steeply near the cone, and its old end was painted over.** Seen from above (OpenCV turns my photo P64 into a top-down view with the lane dashes as the ruler), the stripes past the cone stop about 8.5 m short of where they used to end. The painted-over triangle is about 2.1 m wide at its base and about 9 m²; the left lane's arrow is painted on it. Its old slanted edge (about 14° to the road) is still faintly visible. OpenCV made the top-down view and found where today's stripes stop; I gave the dash centres, the old edge's two ends and the line its tip reaches. (`results/erased_triangle_P64.json`, about ±10%)
 
 - **Withdrawn:** an earlier version said "about 10:1 (9.2–11.9)". That came from the program grouping different painted lines together, and could not be reproduced once the image was re-saved. The 9.2 was from F17, which looks up the bridge ramp where the ground is not flat, so plane geometry does not apply. (`isolation/taper-recheck/NOTES.md`)
 
@@ -73,7 +76,9 @@ What the rules say. The Chinese text is the law (the national law database state
 
 ## On a scooter here
 
-The right is closed (red line, grates, open holes). The left cannot be crossed on the solid stretch (§167, no-lane-change line, `evidence.md` L1). The only place to move left is the island stretch, and it keeps narrowing. How long the rider has to do it depends on the lengths of those stretches. I had worked it out from Street View distances, so I do not publish the seconds here.
+The right is closed (red line, grates, open holes). The left cannot be crossed on the solid stretch (§167, no-lane-change line, `evidence.md` L1). The only place to move left is the island stretch.
+
+**The risk is after the merge.** Past the island the right lane is painted to merge left, so everyone ends up in one lane. Measured in P64's top-down view, that lane is about **3.1 m** wide. A car, 0.5 m of clearance and a scooter need 3.03 m: about 0.1 m to spare, inside the error. Next to a bus or truck it is about 0.6 m short. (That 3.03 m is a sum I made, using §101's 0.5 m; it is not a lane-width rule. `results/erased_triangle_P64.json`, `results/width_budget.json`.) The right lane before the merge is about 4.05 m to the edge of the asphalt, and beyond that are the grates. During the works the limit was about 30 km/h (my observation). In my experience, scooters and cars compete for the same lane at the merge. In rain, with poor visibility, or at night it is worse; that is my experience, not a measurement.
 
 ## Stacked together
 

@@ -1,0 +1,290 @@
+{
+ "photograph": "evidence/field-2026-09-23/IMG_20260923_063437.jpg",
+ "why_top_down": "standing up, the far end is foreshortened to a sliver; the old and new island can only be compared in a reprojected plan view",
+ "ruler": {
+  "metres_per_plan_unit": 1.88,
+  "horizon_y": 1500,
+  "vanishing_point_px": [
+   2084.9,
+   1500.0
+  ],
+  "first_dash_m": [
+   31.4,
+   35.5
+  ],
+  "first_dash_length_m": 4.1,
+  "check": "§182 lane dash is 4 m"
+ },
+ "today": {
+  "right_edge_x_m": -1.22,
+  "right_edge_line_ends_m": 24.0,
+  "stripes_end_m": 30.0,
+  "stripes_end_m_at_threshold_-8": 30.0,
+  "bare_below_pct": 1.0,
+  "bare_for_m": 2.0,
+  "paint_pct_profile_threshold_-6": [
+   [
+    18.0,
+    18.2
+   ],
+   [
+    18.5,
+    18.9
+   ],
+   [
+    19.0,
+    16.0
+   ],
+   [
+    19.5,
+    14.6
+   ],
+   [
+    20.0,
+    18.9
+   ],
+   [
+    20.5,
+    13.4
+   ],
+   [
+    21.0,
+    12.8
+   ],
+   [
+    21.5,
+    16.3
+   ],
+   [
+    22.0,
+    17.7
+   ],
+   [
+    22.5,
+    19.3
+   ],
+   [
+    23.0,
+    21.4
+   ],
+   [
+    23.5,
+    18.9
+   ],
+   [
+    24.0,
+    19.6
+   ],
+   [
+    24.5,
+    20.2
+   ],
+   [
+    25.0,
+    16.9
+   ],
+   [
+    25.5,
+    14.0
+   ],
+   [
+    26.0,
+    16.1
+   ],
+   [
+    26.5,
+    18.0
+   ],
+   [
+    27.0,
+    13.7
+   ],
+   [
+    27.5,
+    9.9
+   ],
+   [
+    28.0,
+    9.4
+   ],
+   [
+    28.5,
+    11.1
+   ],
+   [
+    29.0,
+    8.3
+   ],
+   [
+    29.5,
+    4.3
+   ],
+   [
+    30.0,
+    0.0
+   ],
+   [
+    30.5,
+    0.0
+   ],
+   [
+    31.0,
+    0.0
+   ],
+   [
+    31.5,
+    0.0
+   ],
+   [
+    32.0,
+    0.0
+   ],
+   [
+    32.5,
+    0.0
+   ],
+   [
+    33.0,
+    0.0
+   ],
+   [
+    33.5,
+    0.0
+   ],
+   [
+    34.0,
+    0.0
+   ],
+   [
+    34.5,
+    0.0
+   ],
+   [
+    35.0,
+    0.0
+   ]
+  ],
+  "edge_line_strength": 30.4
+ },
+ "old_edge": {
+  "from_m": [
+   -1.16,
+   25.8
+  ],
+  "to_wall_base_m": [
+   -3.8,
+   36.5
+  ],
+  "angle_to_road_deg": 13.8,
+  "line_strength_today": 12.4,
+  "reading": "faint: the island's old far end, painted over"
+ },
+ "lanes_after_the_island": {
+  "wall_side_x_m": -4.26,
+  "lane_line_x_m": -1.13,
+  "asphalt_edge_x_m": 2.92,
+  "left_lane_m": 3.13,
+  "right_lane_to_asphalt_edge_m": 4.05,
+  "side_by_side_needed_m": {
+   "小客車 (typical sedan)": 3.03,
+   "小客車 at the legal maximum": 3.75,
+   "大型車 / bus at the legal maximum": 3.75
+  },
+  "spare_in_left_lane_m": {
+   "小客車 (typical sedan)": 0.1,
+   "小客車 at the legal maximum": -0.62,
+   "大型車 / bus at the legal maximum": -0.62
+  },
+  "spare_with_typical_car_m": 0.1,
+  "spare_with_bus_or_truck_m": -0.62,
+  "rows_used": {
+   "30.0": {
+    "wall_side": -4.28,
+    "lane_line": -1.17,
+    "asphalt_edge": 2.94
+   },
+   "31.0": {
+    "wall_side": -4.27,
+    "lane_line": -1.03,
+    "asphalt_edge": 2.92
+   },
+   "32.0": {
+    "wall_side": -4.26,
+    "lane_line": -1.14,
+    "asphalt_edge": 2.92
+   },
+   "33.0": {
+    "wall_side": null,
+    "lane_line": -1.13,
+    "asphalt_edge": 2.91
+   },
+   "34.0": {
+    "wall_side": -4.24,
+    "lane_line": -1.22,
+    "asphalt_edge": 2.98
+   },
+   "35.0": {
+    "wall_side": -4.26,
+    "lane_line": -1.23,
+    "asphalt_edge": 2.96
+   },
+   "36.0": {
+    "wall_side": null,
+    "lane_line": null,
+    "asphalt_edge": 2.89
+   },
+   "37.0": {
+    "wall_side": null,
+    "lane_line": -0.95,
+    "asphalt_edge": null
+   },
+   "38.0": {
+    "wall_side": -4.25,
+    "lane_line": -0.92,
+    "asphalt_edge": null
+   },
+   "39.0": {
+    "wall_side": -4.22,
+    "lane_line": -0.9,
+    "asphalt_edge": 2.79
+   }
+  },
+  "note": "after the island the right lane is marked to merge left (painted arrow); everyone then shares the left lane. Side-by-side needs are results/width_budget.json: vehicle + 0.5 m clearance + 0.75 m scooter, a sum I made, using the 0.5 m of 道路交通安全規則 §101; not a rule for lane width"
+ },
+ "island_opens_before_the_cone": {
+  "segments": 59,
+  "angle_deg_median": 9.0,
+  "angle_deg_p25_p75": [
+   8.5,
+   9.4
+  ],
+  "ratio_length_per_lateral": 6.3,
+  "method": "cv2.HoughLinesP on the soft paint mask, outer edge zone X -7.5..-3.5 m, Z 2..21 m; length-weighted"
+ },
+ "triangle_tip_line_x_m": -4.3,
+ "wall_side_line_detected_x_m": -4.54,
+ "erased_triangle": {
+  "vertices_m": [
+   [
+    -4.3,
+    30.0
+   ],
+   [
+    -2.2,
+    30.0
+   ],
+   [
+    -4.3,
+    38.5
+   ]
+  ],
+  "along_wall_m": 8.5,
+  "width_at_stripes_end_m": 2.1,
+  "area_m2": 8.9
+ },
+ "uncertainty": "the ruler's own spread is about +-10% (dash_ruler_P64.json subsets: 1.69-2.04 m per unit)",
+ "who_did_what": {
+  "opencv_5": "fitLine, getPerspectiveTransform, warpPerspective, cvtColor, adaptiveThreshold, HoughLinesP, connectedComponentsWithStats, erode, dilate, blur, contourArea, perspectiveTransform, fillPoly, polylines",
+  "a_person": "dash centres and the old edge's two ends (confirmed by the owner on the photograph); the line the triangle's tip touches (X = -4.3 m, owner confirmed); the reading that the faint diagonal is the old edge and the arrow is painted on erased stripes"
+ }
+}
