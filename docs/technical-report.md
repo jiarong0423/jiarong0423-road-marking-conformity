@@ -29,7 +29,7 @@ The output is written for both: a plain-language scenario, itemised findings wit
 
 ![Architecture](figures/architecture.png)
 
-**Online** (`aws/handler.py` → `src/marking/situation.py:assess`), on AWS Lambda (arm64 container, `opencv-python-headless==5.0.0.93`) behind an API Gateway HTTP API:
+**Online** (`aws/handler.py` → `src/marking/situation.py:assess`), on AWS Lambda (arm64 container, `opencv-python-headless==5.0.0.93`), behind an API Gateway HTTP API (30 s) and a Lambda Function URL (300 s, for full-size photos). A photo arrives as `image_base64` or as `image_url` (https on raw.githubusercontent.com, fetched by the function):
 
 1. **Is it a road?** The road region must cover at least 30% of the frame (random noise 0.0%). Otherwise the system measures nothing and asks for a retake.
 2. **First-pass checks** (double white/yellow lines, kerbside red line, works fencing, patched surface, a rough taper ensemble). These point to regions worth opening; their counts are not cited as evidence.
@@ -37,6 +37,9 @@ The output is written for both: a plain-language scenario, itemised findings wit
 4. **Four-encoding gate** (`phone.encoding_probe`): each measurement runs on the photo as received and on JPEG re-encodes at quality 97, 94 and 91, and is reported only if at least three of the four measure and agree (red line within 5 cm, taper within 10%).
 5. **Site notes**: the published numbers for this stretch are attached to every response, marked as not measured from the photo sent. They are generated from `results/` by `scripts/build_site_dossier.py`; a test fails if they drift.
 6. **Next actions** (`src/marking/actions.py`): which document to request from which office, which box in the photo to open, and what the photo cannot answer. Document requests and "open this box" actions appear only when a finding in the photo calls for them, and each carries that finding. Two notes are always included: what a photo cannot answer, and that grates are not detected online.
+
+7. **Second loop** (`src/marking/burst.py`, since image v17): when the red-line gap is refused but was seen, or was measured and can be confirmed, the photos taken within 3 s are fetched, registered by ECC and measured again (Section 8).
+8. **The reply** opens with an English `en` block (`src/marking/english.py`): the summary, the findings, what was measured, what was refused and why, and the next actions. The fields after it keep the regulations' Traditional Chinese wording.
 
 **Offline** (`isolation/`): the evidence pipeline behind the story's figures. Every figure made by image recognition has its method printed under it and is indexed in [`materials-2026-09-23.md`](materials-2026-09-23.md).
 
@@ -127,7 +130,7 @@ Standing on the road, the island's far end is foreshortened to a sliver, so the 
 pip install -r requirements.txt                                    # opencv-python 5.0.0.93, numpy 2.4.4, scipy 1.17.1
 python3 -B -m pytest -q -p no:cacheprovider                        # all pass
 python3 -B scripts/check_figures.py                                # every figure vs. its source
-AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v17
+AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v18
 ```
 
 The container pins `opencv-python-headless==5.0.0.93` and `numpy==2.5.3` (`aws/Dockerfile`). The local interpreter that produced `results/` has numpy 2.4.4; the container was tested separately with 2.5.3 (below).
@@ -156,8 +159,8 @@ The vision result decides what the system returns next (`src/marking/actions.py`
 
 1. *decide*: is more evidence worth fetching? Yes if the gap was measured (it can be confirmed) or if at least one of the four re-encodings saw the red-line pair; no if none did, because more photos of the same nothing would not help. Photos the caller attached are always measured.
 2. *act*: find the photos taken within 3 s by capture time in the evidence MANIFEST (F31 → F30, F32), or take the caller's (`burst_urls`, `burst_base64`), and fetch them (https on raw.githubusercontent.com only, 15 MB, 20 s, no redirects).
-3. *perceive*: register each to the first with OpenCV 5's `cv2.findTransformECCMultiScale`. A photo is used only at correlation ≥ 0.90, because ECC reports convergence on another place too (P64: 0.753). Then measure the gap on it.
-4. *decide*: report the gap only if two or more photos measure it and agree within 5 cm; otherwise add a RETAKE_BURST action with the reason.
+3. *perceive*: register each to the first with OpenCV 5's `cv2.findTransformECCMultiScale`. A photo is used only at correlation ≥ 0.90, because ECC reports convergence on another view or place too (P64: 0.753). Then measure the gap on it.
+4. *decide*: report the gap only if two or more photos measure it and all read within 5 cm of each other; otherwise add a RETAKE_BURST action with the reason. A gap measured on the first photo stands when nothing can confirm it. Each extra photo is started only if about 45 s of the function's 300 s remain, so a slow burst cannot cost the first answer.
 
 | Case (`isolation/agentic/burst_demo.py` → `results/agentic_burst_2026-10-14.json`) | First photo | Burst | Decision |
 |---|---|---|---|

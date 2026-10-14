@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """How accurate is it? Every check this project has, gathered from the result files that hold it.
 
-There is no surveyed ground truth for this road. What there is:
+No one measured this road with a tape (it stayed open to traffic). What there is:
   1. sizes fixed by law or by a standard, measured back with the same method (the only truth available)
   2. the same thing measured on different photographs (repeatability)
   3. the same photograph re-saved (stability under JPEG re-encoding)
@@ -18,7 +18,8 @@ import os
 from collections import defaultdict
 
 R = lambda p: json.load(open(p, encoding="utf-8"))
-out = {"date": "2026-10-14", "no_surveyed_ground_truth": True}
+out = {"date": "2026-10-14",
+       "measured_with": "the markings' legal sizes and an ID-1 card on the red line; no tape: the road stayed open to traffic and every photo was taken from the kerb"}
 
 # 1. against a size fixed by law or by a standard
 card = R("isolation/field-2026-09-23/card_vs_redline.json")

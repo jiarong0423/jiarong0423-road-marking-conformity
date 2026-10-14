@@ -200,10 +200,10 @@ re-encoding, or when it was measured and can be confirmed, the photos taken with
 found by capture time (or taken from the caller), fetched, and each is registered to the
 first with `cv2.findTransformECCMultiScale` (`cv2.ECCParameters`, homography, 768 px wide
 greys). A photo is used only if the correlation reaches 0.90: convergence alone is not a
-gate, for the reason above. The 0.90 is set on few pairs (0.70-0.75 for another place,
+gate, for the reason above. The 0.90 is set on few pairs (0.70-0.75 for another view of the spot or another place,
 0.993-0.996 for the same view, in this trial and in `results/agentic_burst_2026-10-14.json`),
 so it is not the only guard: the gap is reported only if two or more photos measure it and
-agree within 5 cm. Registration takes 0.0-0.3 s a photo on this machine.
+all read within 5 cm of each other. Registration takes 0.0-0.3 s a photo on this machine.
 
 | case | first photo | ECC correlation | gaps | decision |
 |---|---|---|---|---|

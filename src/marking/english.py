@@ -62,8 +62,8 @@ def _finding(f: dict) -> str:
     return f"{code}"
 
 
-def _why(text):
-    return None if text is None else str(text).replace("表 4.2.7", "design table 4.2.7")
+def _why(text, default="no reason recorded"):
+    return default if text is None else str(text).replace("表 4.2.7", "design table 4.2.7")
 
 
 def english(result: dict) -> dict:
@@ -90,15 +90,18 @@ def english(result: dict) -> dict:
             "how": burst.get("how")}
     elif burst.get("state"):
         refused["red_line_gap_across_photos"] = burst.get("why")
-    if t427.get("ratio") is not None and t427.get("state") != "CANNOT_MEASURE":
+    if not t427:
+        pass
+    elif t427.get("ratio") is not None and t427.get("state") != "CANNOT_MEASURE":
         measured["island_taper_ratio"] = {"value": t427.get("ratio"), "state": t427.get("state"),
                                           "reference": t427.get("need_ratio"),
                                           "note": _why(t427.get("why"))}
     else:
         refused["island_taper_ratio"] = _why(t427.get("why"))
-    if te.get("state") != "STEEPER_THAN_REFERENCE":
+    if te and te.get("state") != "STEEPER_THAN_REFERENCE":
         refused["lane_closing_taper"] = f"{te.get('state')}: {_why(te.get('why'))}"
-    refused["lane_width"] = "not checked: send lane_width_m; a photo has no scale of its own"
+    if any(str(x).startswith("lane_width") for x in result.get("not_checked") or []):
+        refused["lane_width"] = "not checked: send lane_width_m; a photo has no scale of its own"
     refused["drain_grates"] = "not recognised online (detector removed 2026-09-21)"
 
     n = len(findings)
@@ -111,6 +114,9 @@ def english(result: dict) -> dict:
     elif burst.get("state") == "CONFIRMED_ACROSS_BURST":
         summary += (f"; the red line's shift ({rg.get('gap_m')} m) was confirmed on "
                     f"{len(burst.get('readings_m') or [])} photos taken seconds apart")
+    elif burst.get("state") == "DISAGREE":
+        summary += (f"; the photos taken seconds apart disagree on the red line's shift "
+                    f"({burst.get('why')}), so a retake is asked for")
     return {"summary": summary + ".",
             "findings": [{"code": f.get("code"), "what": _finding(f)} for f in findings],
             "measured": measured,

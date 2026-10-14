@@ -39,11 +39,11 @@ All four at once:
 ## The taper angle on phone photographs: set by the parameters, not by the road
 
 One photograph through two marking masks × two line-finder settings × two scales:
-the taper angle came out anywhere from 3.3° to 19.0°. Six readings, 4.0 / 8.5 / 10.1 / 14.1 /
-17.7 / 19.1°, filled the whole search range of 1-20°. The sets of photographs where a
+the taper angle came out anywhere from 3.3° to 19.0° across those eight combinations. Over the
+search range of 1-20°, six readings of 4.0 / 8.5 / 10.1 / 14.1 / 17.7 / 19.1° filled it. The sets of photographs where a
 reading "held" barely overlapped between settings (31 of 42, 9 of 42, and only 6 in common).
 `results/assess_2026-09-22.json` shows the same from the other side: one photograph at nine
-JPEG qualities gives 2°-20°.
+encodings (three JPEG qualities × three working sizes) gives 2°-20°.
 
 **Any single taper number from a phone photograph is therefore not citable.** A cleaner mask
 (Otsu) changed which photographs report, not whether the numbers mean anything.

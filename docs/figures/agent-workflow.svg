@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1160" width="1400" height="1160" font-family="Helvetica, Arial, sans-serif">
 <style>
  .t{fill:#1b1b1b} .m{fill:#5e5e5a} .tt{fill:#0f7b7b} .ta{fill:#c07a1e} .tr{fill:#b03a2e} .tb{fill:#2f5f9e}
  .box{fill:#fff;stroke:#d8d8d4;stroke-width:1.4}
@@ -8,9 +8,9 @@
  .ard{stroke:#7a7a76;stroke-width:1.6;fill:none;stroke-dasharray:5 4;marker-end:url(#a)}
 </style>
 <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 z" fill="#7a7a76"/></marker></defs>
-<rect width="1400" height="820" fill="#fbfbfa"/>
+<rect width="1400" height="1160" fill="#fbfbfa"/>
 <text x="30" y="40" class="t hd">Perceive, decide, act: what the photo shows decides what happens next</text>
-<text x="30" y="64" class="m sm">One pass per photo inside the endpoint (src/marking/situation.py → actions.py). The loop closes through a person: a retake, a document request, a look at a flagged box.</text>
+<text x="30" y="64" class="m sm">Two loops inside the endpoint: situation.py → actions.py, then burst.py when the red-line gap is refused or can be confirmed. The rest closes through a person.</text>
 
 <!-- PERCEIVE -->
 <rect class="zone" x="20" y="86" width="430" height="470" rx="8"/>
@@ -41,32 +41,33 @@
 <rect class="box" x="496" y="124" width="368" height="420" rx="6"/>
 <text x="510" y="148" class="t lbl">actions.next_actions(result)</text>
 <text x="510" y="176" class="m sm">Not a road</text>
-<text x="700" y="176" class="t sm">→ RETAKE, nothing else</text>
+<text x="688" y="176" class="t sm">→ RETAKE, nothing else</text>
 <text x="510" y="206" class="m sm">Two red lines measured</text>
-<text x="700" y="206" class="t sm">→ marking plans,</text>
-<text x="700" y="224" class="t sm">   drain records</text>
+<text x="688" y="206" class="t sm">→ marking plans,</text>
+<text x="688" y="224" class="t sm">   drain records</text>
 <text x="510" y="254" class="m sm">Double white line</text>
-<text x="700" y="254" class="t sm">→ marking plans,</text>
-<text x="700" y="272" class="t sm">   HUMAN_LOOK at its box</text>
+<text x="688" y="254" class="t sm">→ marking plans,</text>
+<text x="688" y="272" class="t sm">   HUMAN_LOOK at its box</text>
 <text x="510" y="302" class="m sm">Works fencing or</text>
 <text x="510" y="320" class="m sm">patched surface</text>
-<text x="700" y="302" class="t sm">→ traffic plan,</text>
-<text x="700" y="320" class="t sm">   dig permit record</text>
+<text x="688" y="302" class="t sm">→ traffic plan,</text>
+<text x="688" y="320" class="t sm">   dig permit record</text>
 <text x="510" y="350" class="m sm">Taper measured</text>
-<text x="700" y="350" class="t sm">→ works traffic plan</text>
-<text x="700" y="368" class="t sm">   (design speed decides)</text>
+<text x="688" y="350" class="t sm">→ works traffic plan</text>
+<text x="688" y="368" class="t sm">   (design speed decides)</text>
 <text x="510" y="398" class="m sm">Measurement refused</text>
-<text x="700" y="398" class="t sm">→ CANNOT_FROM_PHOTO</text>
-<text x="700" y="416" class="t sm">   with the reason</text>
-<text x="510" y="452" class="tr sm">Document requests and HUMAN_LOOK appear only</text>
-<text x="510" y="471" class="tr sm">when a finding in this photo calls for them, and</text>
-<text x="510" y="490" class="tr sm">carry it as "why". Two notes are always added.</text>
+<text x="688" y="398" class="t sm">→ CANNOT_FROM_PHOTO</text>
+<text x="688" y="416" class="t sm">   with the reason;</text>
+<text x="688" y="434" class="ta sm">   red-line gap: step 4</text>
+<text x="510" y="466" class="tr sm">Document requests and HUMAN_LOOK appear only</text>
+<text x="510" y="485" class="tr sm">when a finding in this photo calls for them, and</text>
+<text x="510" y="504" class="tr sm">carry it as "why". Two notes are always added.</text>
 <text x="510" y="526" class="m xs">Deterministic rule set, not a learned or LLM agent</text>
 
 <!-- ACT -->
 <rect class="zone" x="910" y="86" width="470" height="470" rx="8"/>
 <text x="926" y="110" class="tb zh">3  ACT (returned to the caller)</text>
-<rect class="box" x="926" y="124" width="438" height="232" rx="6"/>
+<rect class="box" x="926" y="124" width="438" height="258" rx="6"/>
 <text x="940" y="148" class="t lbl">next_actions in the JSON response</text>
 <text x="940" y="176" class="tb sm">RETAKE</text><text x="1122" y="176" class="m sm">photograph again, road in the lower half</text>
 <text x="940" y="204" class="tb sm">REQUEST_DOCUMENT</text><text x="1122" y="204" class="m sm">which office, which document</text>
@@ -74,28 +75,71 @@
 <text x="940" y="260" class="tb sm">HUMAN_LOOK</text><text x="1122" y="260" class="m sm">open this box at full resolution</text>
 <text x="940" y="288" class="tb sm">CANNOT_FROM_PHOTO</text><text x="1122" y="288" class="m sm">what needs a tape or a document</text>
 <text x="940" y="316" class="tb sm">NOT_DETECTED</text><text x="1122" y="316" class="m sm">what the online pipeline cannot see</text>
-<text x="940" y="342" class="m xs">each with what, why, basis (the rule) and to (who)</text>
-<rect class="box" x="926" y="370" width="438" height="174" rx="6"/>
-<text x="940" y="394" class="t lbl">Human control</text>
-<text x="940" y="418" class="m sm">The system files nothing and contacts no one.</text>
-<text x="940" y="440" class="m sm">A person decides whether to request a document,</text>
-<text x="940" y="462" class="m sm">open the flagged box, or take the photo again.</text>
-<text x="940" y="490" class="ta sm">A retake or a new photo goes back to step 1:</text>
-<text x="940" y="510" class="ta sm">that is where the loop closes.</text>
+<text x="940" y="344" class="tb sm">RETAKE_BURST</text><text x="1122" y="344" class="m sm">2-3 photos a second apart (step 4)</text>
+<text x="940" y="370" class="m xs">each with what, why, basis and to; the reply opens in English ("en")</text>
+<rect class="box" x="926" y="394" width="438" height="150" rx="6"/>
+<text x="940" y="416" class="t lbl">Human control</text>
+<text x="940" y="440" class="m sm">The system files nothing and contacts no one.</text>
+<text x="940" y="460" class="m sm">A person decides whether to request a document,</text>
+<text x="940" y="480" class="m sm">open the flagged box, or take the photo again.</text>
+<text x="940" y="506" class="ta sm">A retake or a new photo goes back to step 1:</text>
+<text x="940" y="526" class="ta sm">that is where the loop closes.</text>
 
 <path class="ar" d="M450,320 L476,320"/>
 <path class="ar" d="M880,320 L906,320"/>
 <path class="ard" d="M1145,556 C1145,604 235,604 235,562"/>
-<text x="620" y="584" class="ta sm">retake / new photo</text>
+<text x="330" y="590" class="ta sm">retake / new photo</text>
+
+<!-- SECOND LOOP (v17) -->
+<path class="ar" d="M640,556 L640,650"/>
+<text x="648" y="640" class="ta sm">refused, or measured and confirmable</text>
+<rect class="zone" x="20" y="656" width="1360" height="222" rx="8"/>
+<text x="36" y="680" class="ta zh">4  SECOND LOOP (src/marking/burst.py, since v17): a refusal fetches more evidence</text>
+<rect class="box" x="36" y="694" width="300" height="140" rx="6"/>
+<text x="50" y="716" class="ta lbl">Decide: worth fetching?</text>
+<text x="50" y="740" class="m sm">Yes if the gap was measured (confirm it),</text>
+<text x="50" y="759" class="m sm">or 1+ of the 4 re-encodings saw the</text>
+<text x="50" y="778" class="m sm">red-line pair; no if none did.</text>
+<text x="50" y="802" class="m sm">Photos the caller attached: always.</text>
+<text x="50" y="824" class="m xs">burst.worth_trying</text>
+<rect class="box" x="362" y="694" width="306" height="140" rx="6"/>
+<text x="376" y="716" class="tb lbl">Act: fetch the burst</text>
+<text x="376" y="740" class="m sm">Photos taken within 3 s (MANIFEST capture</text>
+<text x="376" y="759" class="m sm">times), or the caller's burst_urls /</text>
+<text x="376" y="778" class="m sm">burst_base64. https on raw.githubusercontent</text>
+<text x="376" y="797" class="m sm">.com only, 15 MB, no redirects.</text>
+<text x="376" y="824" class="m xs">burst.neighbours · handler._fetch</text>
+<rect class="box" x="694" y="694" width="330" height="140" rx="6"/>
+<text x="708" y="716" class="tt lbl">Perceive: same view? then measure</text>
+<text x="708" y="740" class="t sm">cv2.findTransformECCMultiScale (OpenCV 5)</text>
+<text x="708" y="759" class="m sm">used only at correlation ≥ 0.90: ECC also</text>
+<text x="708" y="778" class="m sm">"converges" on another view (0.70-0.75)</text>
+<text x="708" y="797" class="m sm">Then the red-line gap on each photo</text>
+<text x="708" y="824" class="m xs">burst.register · phone.redline_gap</text>
+<rect class="box" x="1050" y="694" width="314" height="140" rx="6"/>
+<text x="1064" y="716" class="ta lbl">Decide: do they agree?</text>
+<text x="1064" y="740" class="m sm">2+ measured, all within 5 cm →</text>
+<text x="1064" y="759" class="t sm">MEASURED / CONFIRMED_ACROSS_BURST</text>
+<text x="1064" y="778" class="m sm">else RETAKE_BURST; a gap measured on</text>
+<text x="1064" y="797" class="m sm">the first photo stands. 45 s per photo.</text>
+<text x="1064" y="824" class="m xs">burst.decide · burst.actions</text>
+<path class="ar" d="M336,764 L358,764"/>
+<path class="ar" d="M668,764 L690,764"/>
+<path class="ar" d="M1024,764 L1046,764"/>
+<path class="ar" d="M1300,694 L1300,560"/>
+<text x="1308" y="640" class="tb sm">to the reply</text>
+<text x="36" y="864" class="m sm">Every step is in red_line_gap_burst.trace with its tool, result and time; a skipped or failed photo is a trace entry, never a crash.</text>
 
 <!-- TRACE -->
-<rect class="zone" x="20" y="616" width="1360" height="190" rx="8"/>
-<text x="36" y="640" class="t zh">TRACE: same pipeline, different photos, different next steps (isolation/agentic/trace.py, 30 km/h)</text>
-<text x="36" y="668" class="t sm" font-weight="700">Input</text><text x="360" y="668" class="t sm" font-weight="700">What OpenCV found</text><text x="760" y="668" class="t sm" font-weight="700">Next actions produced</text>
-<line x1="36" y1="676" x2="1364" y2="676" stroke="#d8d8d4"/>
-<text x="36" y="698" class="m sm">Random noise</text><text x="360" y="698" class="m sm">not a road (0% road region)</text><text x="760" y="698" class="m sm">RETAKE only</text>
-<text x="36" y="724" class="m sm">F31, full size</text><text x="360" y="724" class="m sm">two red lines, gap 0.673 m (MEASURED)</text><text x="760" y="724" class="m sm">request marking plans; request drain records; say which distances need a tape</text>
-<text x="36" y="750" class="m sm">F31, same photo at 2000 px</text><text x="360" y="750" class="m sm">red-line gap CANNOT_MEASURE; patched surface</text><text x="760" y="750" class="m sm">request traffic plan; check dig permit; "no distance can be answered from this photo"</text>
-<text x="36" y="776" class="m sm">F40, full size</text><text x="360" y="776" class="m sm">double white line; patched surface</text><text x="760" y="776" class="m sm">request traffic plan and marking plans; check dig permit; HUMAN_LOOK at the line's box</text>
-<text x="36" y="798" class="tr xs">The same scene gives different next steps depending on whether the measurement held: the vision result, not a fixed script, decides.</text>
+<rect class="zone" x="20" y="896" width="1360" height="250" rx="8"/>
+<text x="36" y="920" class="t zh">TRACE: same pipeline, different photos, different next steps (isolation/agentic/trace.py; last two rows: the live v17 run and burst_demo.py)</text>
+<text x="36" y="948" class="t sm" font-weight="700">Input</text><text x="360" y="948" class="t sm" font-weight="700">What OpenCV found</text><text x="760" y="948" class="t sm" font-weight="700">Next actions produced</text>
+<line x1="36" y1="956" x2="1364" y2="956" stroke="#d8d8d4"/>
+<text x="36" y="978" class="m sm">Random noise</text><text x="360" y="978" class="m sm">not a road (0% road region)</text><text x="760" y="978" class="m sm">RETAKE only</text>
+<text x="36" y="1004" class="m sm">F31, full size</text><text x="360" y="1004" class="m sm">two red lines, gap 0.673 m (MEASURED)</text><text x="760" y="1004" class="m sm">request marking plans; request drain records; say which distances need a tape</text>
+<text x="36" y="1030" class="m sm">F31, same photo at 2000 px</text><text x="360" y="1030" class="m sm">red-line gap CANNOT_MEASURE; patched surface</text><text x="760" y="1030" class="m sm">request traffic plan; check dig permit; "no distance can be answered from this photo"</text>
+<text x="36" y="1056" class="m sm">F40, full size</text><text x="360" y="1056" class="m sm">double white line; patched surface</text><text x="760" y="1056" class="m sm">request traffic plan and marking plans; check dig permit; HUMAN_LOOK at the line's box</text>
+<text x="36" y="1082" class="m sm">F31 by URL (v17, live)</text><text x="360" y="1082" class="m sm">gap 0.673 m; F30, F32 fetched, ECC 0.996, 0.994</text><text x="760" y="1082" class="m sm">CONFIRMED_ACROSS_BURST (0.673, 0.680, 0.635 m) in 221.7 s</text>
+<text x="36" y="1104" class="m sm">F31 at 2000 px + P64, F30</text><text x="360" y="1104" class="m sm">refused; P64 refused by ECC (0.753); F30 0.680 m</text><text x="760" y="1104" class="m sm">one photo is too few: RETAKE_BURST</text>
+<text x="36" y="1134" class="tr xs">The same scene gives different next steps depending on whether the measurement held: the vision result, not a fixed script, decides.</text>
 </svg>

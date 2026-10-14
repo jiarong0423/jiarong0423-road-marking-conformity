@@ -19,9 +19,16 @@ starts a second loop, and the image result decides each step of it:
             gave 0.993-0.995 and a different view gave 0.70-0.73 while ECC
             still reported convergence, so convergence alone is not the gate.
             Then measure the gap on each, once, as received.
-  decide    report the gap only if at least two photos measure it and they
-            agree within 5 cm (the same tolerance as the encoding gate);
-            otherwise ask for a retake, with the reason.
+  decide    report the gap only if at least two photos measure it and every
+            reading agrees within 5 cm of the others (the same tolerance as the
+            encoding gate); otherwise ask for a retake, with the reason. If the
+            first photo was measured and nothing could confirm it, its answer
+            stands and no retake is asked for.
+
+A time budget: the function has 300 s and the first loop can use 160 of them, so
+an extra photo is started only if about 45 s remain for it before the deadline the
+handler passes in; a skipped photo is a trace entry, and the first answer is
+never lost to a timeout.
 
 The I/O (fetching a URL) is the handler's; everything here takes images or
 loader callables, so it runs the same in tests.
@@ -40,6 +47,7 @@ from marking import phone
 
 SAME_VIEW_MIN_CORRELATION = 0.90
 AGREE_M = 0.05
+SECONDS_PER_EXTRA = 45          # fetch + register + measure took 24-36 s a photo on Lambda
 MAX_GAP_S = 3
 MAX_EXTRA = 2
 REPO_RAW = "https://raw.githubusercontent.com/jiarong0423/jiarong0423-road-marking-conformity/main/evidence"
@@ -129,14 +137,23 @@ def decide(rg: dict, readings: list[dict]) -> dict:
     return {"state": state, "gap_m": round(float(np.median(vals)), 3), "readings_m": vals,
             "spread_m": spread,
             "how": f"{len(vals)} photos taken seconds apart, each registered to the first by "
-                   f"ECC (correlation >= {SAME_VIEW_MIN_CORRELATION}), agree within {AGREE_M} m"}
+                   f"ECC (correlation >= {SAME_VIEW_MIN_CORRELATION}), all read within {AGREE_M} m "
+                   f"of each other"}
 
 
-def run(first, rg: dict, fov_deg: float, extras: list[dict], attached: bool = False) -> dict:
+def run(first, rg: dict, fov_deg: float, extras: list[dict], attached: bool = False,
+        deadline: float | None = None) -> dict:
     """The second loop. `extras`: [{"label", "load": callable -> BGR image}], nearest first.
 
     `attached`: the caller sent these photos, which is a request to measure them;
-    the worth-trying gate is for photos this function would go and fetch itself."""
+    the worth-trying gate is for photos this function would go and fetch itself.
+    `deadline`: time.time() by which the loop must be done (None: no limit)."""
+    out = _run(first, rg, fov_deg, extras, attached, deadline)
+    out["first_state"] = rg.get("state")
+    return out
+
+
+def _run(first, rg, fov_deg, extras, attached, deadline):
     trace, t0 = [], time.time()
     go, reason = worth_trying(rg)
     if attached and extras and not go:
@@ -152,6 +169,12 @@ def run(first, rg: dict, fov_deg: float, extras: list[dict], attached: bool = Fa
     readings = []
     for x in extras[:MAX_EXTRA]:
         rec = {"photo": x["label"]}
+        if deadline is not None and time.time() + SECONDS_PER_EXTRA > deadline:
+            rec.update(gap_m=None, why=f"skipped: under {SECONDS_PER_EXTRA} s of the time budget left")
+            trace.append({"step": "decide", "what": "time left for another photo?", "photo": x["label"],
+                          "result": False, "why": rec["why"]})
+            readings.append(rec)
+            continue
         t = time.time()
         try:
             img = x["load"]()
@@ -191,16 +214,20 @@ def actions(burst: dict) -> list[dict]:
     """What the burst's outcome asks the person to do next (same shape as actions.next_actions)."""
     from marking.actions import _act
     st = burst.get("state")
+    # A gap measured on the first photo stands when nothing could confirm it;
+    # asking for a retake then would undo an answer the gate already accepted.
+    if burst.get("first_state") == "MEASURED" and st in ("NO_BURST", "NOT_ENOUGH"):
+        return []
     if st in ("NO_BURST", "NOT_ENOUGH", "DISAGREE"):
         return [_act("RETAKE_BURST",
                      "在同一個位置連拍 2–3 張(間隔約 1 秒),連同這張一起送",
-                     f"本程式的紅線位移需要至少兩張照片量到且相差 5 公分以內;"
+                     f"本程式的紅線位移需要至少兩張照片量到且彼此相差 5 公分以內;"
                      f"這次的結果是 {st}",
-                     basis="本程式的判準:兩張以上照片一致才報數字",
+                     basis="本程式的判準:兩張以上照片量到且彼此一致才報數字",
                      to="拍攝者",
                      en={"what": "Take 2-3 photos a second apart from the same spot and send "
                                  "them with this one (burst_base64 or burst_urls)",
-                         "why": f"the red-line gap needs at least two photos that measure it "
-                                f"and agree within 5 cm; this time: {st} ({burst.get('why')})",
+                         "why": f"the red-line gap needs at least two photos that measure it, "
+                                f"all within 5 cm of each other; this time: {st} ({burst.get('why')})",
                          "to": "the photographer"})]
     return []

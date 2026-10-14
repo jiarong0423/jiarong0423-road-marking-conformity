@@ -1,6 +1,6 @@
 # The gate, live
 
-> The status table under *What is deployed* is current as of 2026-10-14 (image v17: image_url, the burst loop and the English block; Function URL since v14). The current response fields are listed in [`technical-report.md`](technical-report.md) §3; the scenario below shows the shape of the answer, not a measurement of this site.
+> The status table under *What is deployed* is current as of 2026-10-14 (image v18: image_url, the burst loop with a time budget, and the English block; Function URL since v14). The current response fields are listed in [`technical-report.md`](technical-report.md) §3; the scenario below shows the shape of the answer, not a measurement of this site.
 
     https://3p4k7s4bx7.execute-api.ap-southeast-2.amazonaws.com
 
@@ -8,6 +8,16 @@
 
 ```json
 { "image_base64": "...", "fov_deg": 60, "posted_kmh": 50, "lane_width_m": 3.0 }
+```
+
+or, since image v17, a photo's raw GitHub URL instead of the bytes, with optional
+photos taken a second apart (the response then opens with an English `en` block and
+carries `red_line_gap_burst` with every step traced):
+
+```json
+{ "image_url": "https://raw.githubusercontent.com/<owner>/<repo>/main/evidence/<set>/<file>.jpg",
+  "burst_urls": ["<a photo taken a second earlier>", "<a second later>"],
+  "fov_deg": 56.812, "posted_kmh": 50 }
 ```
 
 `lane_width_m` is optional. Without it the width check is skipped, and the
@@ -74,7 +84,7 @@ which is a sentence about a person rather than an audit.
 | limits | API Gateway throttling 1 request/s, burst 3; the account's Lambda concurrency quota was raised from 10 to 1000 on 2026-10-13; $5/month budget alert |
 | entry points | API Gateway (30 s limit) for small requests; since 2026-10-14 a Lambda Function URL, `https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`, with no 30 s limit, for full-size photos. A full-size photo (JPEG 90, 2.2 MB) took **145.5 s** live on image v14 and returned the red-line gap 0.668 m on F31 |
 | logs | CloudWatch, 14-day retention |
-| image | `road-marking-gate:v17` (live 2026-10-14: v14 added the new site figures, v15 the GET text for the Function URL, v16 dropped the bridge's distance from a site point that came from Google Maps, v17 added image_url, the burst loop and the English block, and copies the two evidence MANIFESTs into the image; v16 kept for rollback), `public.ecr.aws/lambda/python:3.12`, numpy pinned 2.5.3 |
+| image | `road-marking-gate:v18` (live 2026-10-14: v14 added the new site figures, v15 the GET text for the Function URL, v16 dropped the bridge's distance from a site point that came from Google Maps, v17 added image_url, the burst loop and the English block, and copies the two evidence MANIFESTs into the image, v18 the review fixes (a measured gap stands without a burst, a time budget, size caps); v17 kept for rollback), `public.ecr.aws/lambda/python:3.12`, numpy pinned 2.5.3 |
 | OpenCV | `opencv-python-headless==5.0.0.93`, reported by the running function as 5.0.0 |
 | public entry | API Gateway HTTP API `3p4k7s4bx7`, proxy to the function |
 | role | `road-marking-gate-role`, basic execution only |
@@ -89,7 +99,7 @@ A Lambda Function URL was created first, on 2026-09-20, and returned 403 to ever
 request even though its resource policy carried `lambda:InvokeFunctionUrl` for
 `Principal: "*"` with `FunctionUrlAuthType: NONE`. It was removed and API Gateway
 used instead. API Gateway answers within 30 s, and a full-size photo needs about
-2.5 minutes, so full-size photos always timed out through API Gateway.
+2.5 minutes (about 4 with v17's burst check), so full-size photos always timed out through API Gateway.
 
 On 2026-10-14 the cause was found: a public Function URL now also needs
 `lambda:InvokeFunction` for `Principal: "*"`, conditioned on
@@ -126,9 +136,9 @@ name it. Set the profile to whatever your own credentials are called.
 
 ```sh
 AWS_PROFILE=<your-profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> \
-  ./aws/build-and-push.sh v17
+  ./aws/build-and-push.sh v18
 aws lambda update-function-code --function-name road-marking-gate \
-  --image-uri <account>.dkr.ecr.ap-southeast-2.amazonaws.com/road-marking-gate:v17
+  --image-uri <account>.dkr.ecr.ap-southeast-2.amazonaws.com/road-marking-gate:v18
 ```
 
 `--provenance=false --sbom=false` are in the script and are not optional:

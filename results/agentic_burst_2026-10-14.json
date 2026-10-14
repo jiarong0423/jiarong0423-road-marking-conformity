@@ -11,7 +11,7 @@
   {
    "case": "F31 sent whole; neighbours found by capture time",
    "status": 200,
-   "seconds": 43.2,
+   "seconds": 50.3,
    "first_photo_red_line_gap": {
     "state": "MEASURED",
     "gap_m": 0.673,
@@ -27,7 +27,7 @@
     ],
     "spread_m": 0.045,
     "why": null,
-    "how": "3 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m",
+    "how": "3 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), all read within 0.05 m of each other",
     "extras_source": "found by capture time: this photo is F31 in evidence/field-2026-09-20",
     "trace": [
      {
@@ -55,7 +55,7 @@
       "correlation": 0.996,
       "same_view": true,
       "why": null,
-      "s": 0.0
+      "s": 0.1
      },
      {
       "step": "perceive",
@@ -63,7 +63,7 @@
       "photo": "F30 (1 s apart)",
       "gap_m": 0.68,
       "why": null,
-      "s": 3.9
+      "s": 4.5
      },
      {
       "step": "act",
@@ -92,13 +92,13 @@
       "photo": "F32 (1 s apart)",
       "gap_m": 0.635,
       "why": null,
-      "s": 2.7
+      "s": 3.6
      },
      {
       "step": "decide",
       "what": "do the photos agree?",
       "result": "CONFIRMED_ACROSS_BURST",
-      "why": "3 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m"
+      "why": "3 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), all read within 0.05 m of each other"
      }
     ]
    },
@@ -114,7 +114,7 @@
   {
    "case": "F31 at 2000 px; F30 and F32 attached",
    "status": 200,
-   "seconds": 21.2,
+   "seconds": 22.7,
    "first_photo_red_line_gap": {
     "state": "CANNOT_MEASURE",
     "gap_m": null,
@@ -129,7 +129,7 @@
     ],
     "spread_m": 0.045,
     "why": null,
-    "how": "2 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m",
+    "how": "2 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), all read within 0.05 m of each other",
     "extras_source": "attached by the caller",
     "trace": [
      {
@@ -165,7 +165,7 @@
       "photo": "IMG_20260920_160015.jpg",
       "gap_m": 0.68,
       "why": null,
-      "s": 4.5
+      "s": 4.7
      },
      {
       "step": "act",
@@ -176,7 +176,7 @@
        3072,
        4096
       ],
-      "s": 0.0
+      "s": 0.1
      },
      {
       "step": "perceive",
@@ -194,13 +194,13 @@
       "photo": "IMG_20260920_160017.jpg",
       "gap_m": 0.635,
       "why": null,
-      "s": 3.0
+      "s": 3.8
      },
      {
       "step": "decide",
       "what": "do the photos agree?",
       "result": "MEASURED_ACROSS_BURST",
-      "why": "2 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m"
+      "why": "2 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), all read within 0.05 m of each other"
      }
     ]
    },
@@ -216,7 +216,7 @@
   {
    "case": "F31 at 2000 px; P64 (another place) and F30 attached",
    "status": 200,
-   "seconds": 17.6,
+   "seconds": 18.5,
    "first_photo_red_line_gap": {
     "state": "CANNOT_MEASURE",
     "gap_m": null,
@@ -279,7 +279,7 @@
       "correlation": 0.996,
       "same_view": true,
       "why": null,
-      "s": 0.1
+      "s": 0.0
      },
      {
       "step": "perceive",
@@ -287,7 +287,7 @@
       "photo": "IMG_20260920_160015.jpg",
       "gap_m": 0.68,
       "why": null,
-      "s": 4.1
+      "s": 4.0
      },
      {
       "step": "decide",

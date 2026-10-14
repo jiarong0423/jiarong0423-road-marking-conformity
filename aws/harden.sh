@@ -1,5 +1,5 @@
 #!/bin/sh
-# Deploy v17 (with the access gate) and harden the function. Run by the owner.
+# Deploy v18 (with the access gate) and harden the function. Run by the owner.
 # The Function URL for full-size photos is set up separately: docs/deployment.md.
 # Safe to re-run: the token file is reused and every step is idempotent.
 #
@@ -20,11 +20,11 @@ TOKEN_FILE="$HOME/road116_access_token.txt"
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 export ACCOUNT
 
-echo "1/7 build and push v17"
-./aws/build-and-push.sh v17 >/dev/null
-echo "2/7 point the function at v17"
+echo "1/7 build and push v18"
+./aws/build-and-push.sh v18 >/dev/null
+echo "2/7 point the function at v18"
 aws lambda update-function-code --function-name $FN \
-  --image-uri "$ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/road-marking-gate:v17" >/dev/null
+  --image-uri "$ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/road-marking-gate:v18" >/dev/null
 aws lambda wait function-updated --function-name $FN
 
 echo "3/7 access token and ${MEMORY} MB memory"
@@ -37,8 +37,8 @@ aws lambda update-function-configuration --function-name $FN --memory-size "$MEM
 aws lambda wait function-updated --function-name $FN
 
 echo "4/7 throttle the API: 1 request/s, bursts of 3"
-# Reserved concurrency is not possible on this account: its total concurrency is 10
-# and AWS keeps 10 unreserved, so the account limit itself already caps it at 10.
+# The function also has reserved concurrency 3 since 2026-10-14 (set once by
+# hand; docs/deployment.md), which caps the Function URL as well.
 API_ID=$(aws apigatewayv2 get-apis --query "Items[?Name=='road-marking-gate'].ApiId | [0]" --output text)
 aws apigatewayv2 update-stage --api-id "$API_ID" --stage-name '$default' \
   --default-route-settings ThrottlingRateLimit=1,ThrottlingBurstLimit=3 >/dev/null

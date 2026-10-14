@@ -2,13 +2,12 @@ __pycache__/
 *.pyc
 .DS_Store
 .venv*/
-# The imagery: 4.6 GB from Zenodo, CC0 and freely re-obtainable.
-# scripts/fetch_seoul.sh puts it here.
+# Local working data (large, not evidence); never committed.
 data/
 # Run outputs. Large, and not evidence until a script can regenerate them.
 output/
 
-# Google Maps API key, read by scripts/fetch_streetview.sh and never printed.
+# A local API key file; never committed or printed.
 .mapskey
 
 # M-LSD weights and the ONNX it exports to: third-party, 5 MB, and this

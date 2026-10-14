@@ -132,3 +132,71 @@ def test_the_response_starts_with_english_and_the_second_loop_can_be_skipped(mon
         body = json.loads(r["body"])
         assert r["statusCode"] == 200 and next(iter(body)) == "en"
         assert ("red_line_gap_burst" in body) is (not skip and body.get("state") != "NOT_A_ROAD_PHOTOGRAPH")
+
+
+# 2026-10-14, after the three-way review of v17
+
+
+def test_a_measured_first_photo_is_not_told_to_retake_when_nothing_confirms_it():
+    for extras in ([], [{"label": "x", "load": lambda: 1 / 0}]):
+        b = burst.run(None, MEASURED, 56.8, extras)
+        assert b["state"] in ("NO_BURST", "NOT_ENOUGH") and b["first_state"] == "MEASURED"
+        assert burst.actions(b) == []
+    refused = burst.run(None, SEEN_ONCE, 56.8, [])
+    assert [a["action"] for a in burst.actions(refused)] == ["RETAKE_BURST"]
+    disagree = dict(burst.decide(MEASURED, [{"gap_m": 0.55}]), first_state="MEASURED")
+    assert [a["action"] for a in burst.actions(disagree)] == ["RETAKE_BURST"]
+
+
+def test_no_extra_photo_is_started_without_time_left():
+    import time
+    loads = []
+    b = burst.run(None, MEASURED, 56.8, [{"label": "x", "load": lambda: loads.append(1)}],
+                  deadline=time.time() + 10)          # 10 s left: too little for a photo
+    assert loads == [] and "time budget" in b["photos"][0]["why"]
+
+
+def test_lane_width_is_called_unchecked_only_when_it_was_not_given():
+    r = _all_findings_result()
+    assert "lane_width" not in english(r)["not_measured_and_why"]
+    r["not_checked"] = ["lane_width: 需提供車道寬,照片無比例尺"]
+    assert "lane_width" in english(r)["not_measured_and_why"]
+
+
+def test_the_english_block_never_prints_none():
+    text = json.dumps(english({"findings": [], "next_actions": []}), ensure_ascii=False)
+    assert "None" not in text and "null" not in text
+
+
+def test_a_disagreeing_burst_is_said_in_the_summary():
+    r = _all_findings_result()
+    r["red_line_gap_burst"] = {"state": "DISAGREE", "why": "the photos read 0.55-0.68 m"}
+    assert "disagree" in english(r)["summary"]
+
+
+def test_only_this_repositorys_urls_are_recognised_by_file_name(monkeypatch):
+    monkeypatch.delenv("ACCESS_TOKEN", raising=False)
+    h = _handler()
+    calls = []
+    h._fetch = lambda u: calls.append(u) or cv2.imencode(".jpg", np.full((900, 1200, 3), 128, np.uint8))[1].tobytes()
+    seen = []
+    real = h.burst.identify
+    h.burst.identify = lambda ix, sha256=None, filename=None: seen.append(filename) or real(ix, sha256=sha256, filename=filename)
+    try:
+        for url in ("https://raw.githubusercontent.com/someone/else/main/IMG_20260920_160016.jpg",
+                    burst.REPO_RAW + "/field-2026-09-20/IMG_20260920_160016.jpg"):
+            h.handler({"requestContext": {"http": {"method": "POST"}},
+                       "body": json.dumps({"image_url": url, "fov_deg": 56.8, "posted_kmh": 50})}, None)
+    finally:
+        h.burst.identify = real
+    assert seen == [None, "IMG_20260920_160016.jpg"]
+
+
+def test_attached_photos_have_the_same_size_limit_and_a_pixel_cap():
+    import base64
+    h = _handler()
+    with pytest.raises(ValueError):
+        h._b64_photo(base64.b64encode(b"\0" * (h.MAX_BYTES + 1)).decode())
+    big = cv2.imencode(".png", np.zeros((8000, 7000), np.uint8))[1].tobytes()   # 56 MP, small file
+    with pytest.raises(ValueError):
+        h._decode(big)

@@ -38,7 +38,7 @@ In all 16 top-down photos (grates 1–6; grate 7 has no top-down photo), OpenCV 
 
 **What it means on a scooter: the risk is after the merge.** Past the island the road has two lanes, and the right one has a painted arrow I read as "merge left" (I have not checked the clause). So everyone ends up in the left lane. Measured the same way, in P64's top-down view, that lane is about 3.1 m wide (3.13 m, ±10%) between the wall-side line and the lane line.
 
-- **Side by side.** A typical car (1.78 m), 0.5 m of clearance and a scooter (0.75 m) need 3.03 m. That is a sum I made, using the 0.5 m of Road Traffic Safety Rules §101; it is not a lane-width rule. It leaves about 0.1 m, which is inside the measurement's error. With a bus or truck (2.5 m) it is about 0.6 m short (`results/width_budget.json`).
+- **Side by side.** A typical car (1.78 m), 0.5 m of clearance and a scooter (0.75 m) need 3.03 m. That is a sum I made, using the 0.5 m of Road Traffic Safety Rules §101; it is not a lane-width rule. It leaves about 0.1 m, which is inside the measurement's error. With a bus or truck (2.5 m) it is about 0.6 m short (`results/erased_triangle_P64.json`, the needs from `results/width_budget.json`).
 - **No escape to the right.** Before the merge, the right lane is about 4.05 m to the edge of the asphalt. Beyond that is the drain strip: the new red line runs over the grates, with open drain holes beside them, so it is not a place to ride.
 - **The lane reduction itself.** The right lane's arrow says to merge left, after the island. During the works the limit was about 30 km/h (my observation). Against the 30 km/h reference, the island's opening (about 6 to 1) is just inside 5 to 1, so I am not calling the paint non-compliant. The squeeze is in what comes after it: in my experience, scooters and cars compete for one lane.
 - **Rain and night.** In rain, with poor visibility, or at night, all of this gets worse: the grates and paint are slippery when wet (not measured), and the lane lines are harder to see. As a reference, the literature allows 2.5 s to perceive and react, and asks for at least 3.65 s of preview at night (`docs/evidence.md` M5). That is my experience as a rider plus published reference values, not a measurement of this site.
@@ -61,11 +61,11 @@ The decision step (perceive, decide, act) is drawn separately, with a trace and 
 
 Send one street photo. It checks the photo actually shows a road, runs its measurements, and only reports a number if at least three of four re-encoded versions of the image measure it and agree. It tells you what it measured, what it couldn't, and why. Then it tells you what to do next: which document to request from which office, tied to what it found in your photo. That step is `src/marking/actions.py`: a document request appears only when something in your photo calls for it, and it says what that was.
 
-**When it refuses, it goes and gets more evidence.** A phone takes a burst, so a refusal is not the end. If the red-line gap is refused on the photo sent but the red-line pair was seen, or if it was measured and can be confirmed, the system finds the photos taken within 3 seconds of it (from the evidence MANIFEST's capture times) or takes the ones you attached, fetches them, registers each to the first with OpenCV 5's `cv2.findTransformECCMultiScale`, and measures the gap on each. It reports the gap only if two or more photos agree within 5 cm. ECC alone is not trusted: on a photo of another place it still reports convergence, so a photo is used only if the correlation reaches 0.90 (same view a second apart: 0.993–0.996; another place: 0.70–0.75). Three cases, with every step traced, in `results/agentic_burst_2026-10-14.json` (`isolation/agentic/burst_demo.py`): F31 sent whole is confirmed on F30 and F32 (0.673, 0.680, 0.635 m); F31 shrunk to 2000 px is refused alone and measured across F30 and F32 (0.657 m); with P64 attached instead, ECC refuses P64 and the system asks for a retake. That loop is `src/marking/burst.py`.
+**When it refuses, it goes and gets more evidence.** A phone takes a burst, so a refusal is not the end. If the red-line gap is refused on the photo sent but the red-line pair was seen, or if it was measured and can be confirmed, the system finds the photos taken within 3 seconds of it (from the evidence MANIFEST's capture times) or takes the ones you attached, fetches them, registers each to the first with OpenCV 5's `cv2.findTransformECCMultiScale`, and measures the gap on each. It reports the gap only if two or more photos measure it and all read within 5 cm of each other; if the first photo was measured and nothing can confirm it, that answer stands. ECC alone is not trusted: on another view of the spot, or another place, it still reports convergence, so a photo is used only if the correlation reaches 0.90 (same view a second apart: 0.993–0.996; another view or place: 0.70–0.75). Photos taken seconds apart are found by capture time only for this project's own photos (recognised by content, or by their raw GitHub URL); for your own photos, attach the burst with `burst_urls` or `burst_base64`. Each extra photo is started only if about 45 s of the 300 s remain. Three cases, with every step traced, in `results/agentic_burst_2026-10-14.json` (`isolation/agentic/burst_demo.py`): F31 sent whole is confirmed on F30 and F32 (0.673, 0.680, 0.635 m); F31 shrunk to 2000 px is refused alone and measured across F30 and F32 (0.657 m); with P64 attached instead, ECC refuses P64 and the system asks for a retake. That loop is `src/marking/burst.py`.
 
 **Every answer starts in English.** The response opens with an `en` block: the summary, each finding, what was measured, what was refused and why, and the next actions. The fields after it keep the regulations' own Traditional Chinese wording, which the tests check against the documents.
 
-It runs on AWS Lambda (arm64) with OpenCV 5.0.0. `GET` on the endpoint describes the interface; `POST` needs an access token in the `x-access-token` header, which is provided to judges with the submission. A full-size photo (re-saved at JPEG 90, about 2.2 MB) takes about 2.5 minutes, longer than API Gateway waits, so send it to the second door, a Lambda Function URL with no 30 s limit: `https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`. On F31 it returned the red-line gap 0.668 m in 145.5 s.
+It runs on AWS Lambda (arm64) with OpenCV 5.0.0. `GET` on the endpoint describes the interface; `POST` needs an access token in the `x-access-token` header, which is provided to judges with the submission. A full-size photo (re-saved at JPEG 90, about 2.2 MB) takes about 2.5 minutes, about 4 with the burst check below, longer than API Gateway waits, so send it to the second door, a Lambda Function URL with no 30 s limit: `https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`. On F31 it returned the red-line gap 0.668 m in 145.5 s on image v14 (`video/assets/api_F31_live_v14.json`).
 
 Or send `image_url`: a photo's raw GitHub address, fetched by the function as it came off the phone (https on raw.githubusercontent.com only, up to 15 MB), so no re-saving and no base64:
 
@@ -75,19 +75,19 @@ curl -X POST https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.
   -d '{"image_url":"https://raw.githubusercontent.com/jiarong0423/jiarong0423-road-marking-conformity/main/evidence/field-2026-09-20/IMG_20260920_160016.jpg","fov_deg":56.812,"posted_kmh":50}'
 ```
 
-On image v17 that call took 221.7 s: F31 measured 0.673 m, and the second loop found F30 and F32 by capture time, registered them (ECC 0.996, 0.994), measured 0.680 and 0.635 m, and confirmed the gap (`results/agentic_burst_live_v17_2026-10-14.json`). The 0.668 m above came from the JPEG 90 re-save on v14; the two inputs are different bytes. The burst adds about a minute on Lambda, so a call takes about 4 of the 5 minutes allowed.
+On image v17 that call took 221.7 s (v18, live since, adds the review fixes and a time budget): F31 measured 0.673 m, and the second loop found F30 and F32 by capture time, registered them (ECC 0.996, 0.994), measured 0.680 and 0.635 m, and confirmed the gap (`results/agentic_burst_live_v17_2026-10-14.json`). The 0.668 m above came from the JPEG 90 re-save on v14; the two inputs are different bytes. The burst adds about a minute on Lambda, so a call takes about 4 of the 5 minutes allowed.
 
 ```sh
 pip install -r requirements.txt                # Python 3.12
 python3 -B -m pytest -q -p no:cacheprovider   # all pass
-python3 -B scripts/check_figures.py            # every published number vs. its source
+python3 -B scripts/check_figures.py            # every registered figure vs. its source
 ```
 
 Deploy your own copy (AWS CLI and Docker with buildx; arm64 image):
 
 ```sh
-AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v17
-MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v17, set access token, throttling, logs, budget; keeps the Function URL
+AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v18
+MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v18, set access token, throttling, logs, budget; keeps the Function URL
 ```
 
 Technical report: [`docs/technical-report.md`](docs/technical-report.md). Deployment: [`docs/deployment.md`](docs/deployment.md). OpenCV calls behind each piece of evidence: [`docs/opencv5.md`](docs/opencv5.md).
@@ -99,7 +99,7 @@ Technical report: [`docs/technical-report.md`](docs/technical-report.md). Deploy
 | | |
 |---|---|
 | `evidence/field-2026-09-20/`, `evidence/field-2026-09-23/` | The original photos (106), each with a SHA-256 manifest. Licence plates are covered (82 boxes on 26 photos). |
-| `results/` | Published numbers, each produced by a script in `scripts/` |
+| `results/` | Published numbers, each produced by a script in `scripts/` or `isolation/`, or recorded from a live run (named in the file) |
 | `src/marking/` | What runs in the cloud |
 | `isolation/` | Experiments, re-checks, and the methods that didn't work |
 | `docs/evidence.md` | The regulations, quoted word for word from the official database |

@@ -1,6 +1,6 @@
 {
  "date": "2026-10-14",
- "no_surveyed_ground_truth": true,
+ "measured_with": "the markings' legal sizes and an ID-1 card on the red line; no tape: the road stayed open to traffic and every photo was taken from the kerb",
  "against_a_known_size": {
   "red_line_width_with_a_card": {
    "known": "red line 100 mm wide (設置規則 §169); scale from an ID-1 card, 85.60 mm (ISO/IEC 7810)",

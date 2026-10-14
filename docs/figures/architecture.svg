@@ -24,8 +24,8 @@
 <!-- 輸入 -->
 <rect class="box" x="34" y="112" width="196" height="150" rx="6"/>
 <text x="46" y="134" class="t lbl">You send</text>
-<text x="46" y="156" class="m sm">A photo (up to 3 MB)</text>
-<text x="46" y="173" class="m xs">full size fits if saved at JPEG 90</text>
+<text x="46" y="156" class="m sm">A photo (up to 3 MB) or its URL</text>
+<text x="46" y="173" class="m xs">a URL is fetched as taken (GitHub)</text>
 <text x="46" y="192" class="m sm">The camera's field of view</text>
 <text x="46" y="211" class="m sm">The speed limit</text>
 <text x="46" y="230" class="m sm">Lane width (optional)</text>
@@ -72,8 +72,8 @@
 <text x="796" y="342" class="m sm">Re-saves the photo 3 more ways</text>
 <text x="796" y="360" class="m sm">and reports only if 3 of 4 agree</text>
 <text x="796" y="380" class="m xs">(red line within 5 cm, angle within 10%)</text>
-<text x="796" y="404" class="ta xs">Why: one photo read 11.9 to 1,</text>
-<text x="796" y="419" class="ta xs">and 23.2 to 1 after a single re-save</text>
+<text x="796" y="404" class="ta xs">Then a 2nd loop: photos taken ±3 s,</text>
+<text x="796" y="419" class="ta xs">aligned by ECC (≥ 0.90), re-measured</text>
 <text x="796" y="440" class="m xs">Otherwise: "can't measure" + why</text>
 
 <!-- 現場資料 -->
@@ -89,7 +89,7 @@
 <rect class="box" x="1028" y="112" width="338" height="150" rx="6"/>
 <rect x="1028" y="112" width="338" height="4" class="teal" rx="2"/>
 <text x="1040" y="136" class="t lbl">You get back</text>
-<text x="1040" y="158" class="m sm">The story: what a rider meets, in order</text>
+<text x="1040" y="158" class="m sm">English first; then what a rider meets</text>
 <text x="1040" y="177" class="m sm">Each finding with its number and the rule behind it</text>
 <text x="1040" y="196" class="m sm">The two measurements, or why they refused</text>
 <text x="1040" y="215" class="m sm">The notes about this stretch</text>
@@ -178,8 +178,8 @@
 <rect class="box" x="1112" y="646" width="254" height="200" rx="6"/>
 <rect x="1112" y="646" width="254" height="4" class="grey" rx="2"/>
 <text x="1124" y="670" class="t lbl">Tried and dropped</text>
-<text x="1124" y="694" class="m xs">Auto-aligning a second set of photos</text>
-<text x="1124" y="710" class="m xs">(too few matching points)</text>
+<text x="1124" y="694" class="m xs">Aligning photos across views or days</text>
+<text x="1124" y="710" class="m xs">(SIFT and ALIKED+LightGlue both fail)</text>
 <text x="1124" y="734" class="m xs">A different line finder (less stable)</text>
 <text x="1124" y="758" class="m xs">Horizon from the stripe pattern</text>
 <text x="1124" y="774" class="m xs">(stripes too short to trust)</text>
@@ -210,11 +210,11 @@
 <text x="902" y="961" class="m xs">3 GB, the account cap for now</text>
 <rect class="box" x="1136" y="906" width="230" height="62" rx="6"/>
 <text x="1148" y="928" class="t lbl">Container image</text>
-<text x="1148" y="946" class="m xs">v17 live since 14 Oct</text>
+<text x="1148" y="946" class="m xs">v18 live since 14 Oct</text>
 <text x="1148" y="961" class="m xs">code only, no data or keys</text>
 <path class="ar" d="M866,937 L886,937"/>
 <path class="ard" d="M1136,937 L1116,937"/>
-<text x="716" y="992" class="m xs">Live at 3 GB: a full-size photo via the Function URL takes about 2.5 min and measures (F31: 0.668 m)</text>
+<text x="716" y="992" class="m xs">v17 live (3 GB): F31 by URL took 221.7 s, 0.673 m, confirmed on F30 and F32 by the 2nd loop</text>
 <text x="716" y="1010" class="m xs">Bad requests, oversize photos and non-road photos all get a clear answer (tested live)</text>
-<text x="716" y="1030" class="m xs">Two doors: API Gateway (30 s) and a Function URL (300 s, 3 at a time). Logs 14 days. $5 budget alert. Rollback: v13</text>
+<text x="716" y="1030" class="m xs">Two doors: API Gateway (30 s) and a Function URL (300 s, 3 at a time). Logs 14 days. $5 budget alert. Rollback: v17</text>
 </svg>

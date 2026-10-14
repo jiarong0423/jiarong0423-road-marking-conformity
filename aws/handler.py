@@ -28,6 +28,7 @@ import hmac
 import json
 import os
 import sys
+import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -83,11 +84,23 @@ def _fetch(url):
     return data
 
 
+MAX_PIXELS = 50_000_000         # a 12 MP phone photo is 12.6 M; this stops a decompression bomb
+
+
 def _decode(blob):
     image = cv2.imdecode(np.frombuffer(blob, np.uint8), cv2.IMREAD_COLOR)
     if image is None:
         raise ValueError("the bytes did not decode as an image")
+    if image.shape[0] * image.shape[1] > MAX_PIXELS:
+        raise ValueError(f"the image is {image.shape[1]}x{image.shape[0]}, over {MAX_PIXELS // 1_000_000} MP")
     return image
+
+
+def _b64_photo(b64):
+    blob = base64.b64decode(b64)
+    if len(blob) > MAX_BYTES:
+        raise ValueError(f"the photo is {len(blob) // 1024} kB and the limit is {MAX_BYTES // 1024} kB")
+    return _decode(blob)
 
 
 def _plain(value):
@@ -158,7 +171,8 @@ def handler(event, context):
                                         "and send it to the Function URL "
                                         "given with the submission: it has "
                                         "no 30 s limit and takes about 2.5 "
-                                        "minutes. Through API Gateway (30 s) "
+                                        "minutes, about 4 when the burst check "
+                                        "below runs. Through API Gateway (30 s) "
                                         "a full-size photo times out",
                         "image_url": "instead of image_base64: an https URL on "
                                      "raw.githubusercontent.com, fetched by the "
@@ -329,28 +343,38 @@ def handler(event, context):
             extras = []
             for i, b64 in enumerate((req.get("burst_base64") or [])[:burst.MAX_EXTRA]):
                 extras.append({"label": f"burst_base64[{i}]",
-                               "load": lambda b64=b64: _decode(base64.b64decode(b64))})
+                               "load": lambda b64=b64: _b64_photo(b64)})
                 source = "attached by the caller"
             for u in (req.get("burst_urls") or [])[:burst.MAX_EXTRA - len(extras)]:
                 extras.append({"label": str(u).rsplit("/", 1)[-1], "load": lambda u=u: _decode(_fetch(u))})
                 source = "attached by the caller"
             if not extras:
+                # by content, or by name only when the URL is this repository's own evidence
                 me = burst.identify(INDEX, sha256=hashlib.sha256(blob).hexdigest(),
-                                    filename=(url or "").rsplit("/", 1)[-1] or None)
+                                    filename=(url.rsplit("/", 1)[-1] if url and url.startswith(burst.REPO_RAW)
+                                              else None))
                 if me:
                     for n in burst.neighbours(INDEX, me):
                         extras.append({"label": f"{n['no']} ({n['seconds_apart']:.0f} s apart)",
                                        "load": lambda u=n["url"]: _decode(_fetch(u))})
                     source = f"found by capture time: this photo is {me['no']} in evidence/{me['set']}"
+            # leave 20 s for the response; context is None when run outside Lambda
+            deadline = (time.time() + context.get_remaining_time_in_millis() / 1000 - 20
+                        if hasattr(context, "get_remaining_time_in_millis") else None)
             b = burst.run(image, out.get("red_line_gap") or {}, float(req["fov_deg"]), extras,
-                          attached=source == "attached by the caller")
+                          attached=source == "attached by the caller", deadline=deadline)
         except Exception as exc:
             b = {"state": "ERROR", "why": f"{type(exc).__name__}: {exc}"}
         b["extras_source"] = source
         out["red_line_gap_burst"] = b
         out["next_actions"] = (out.get("next_actions") or []) + burst.actions(b)
 
-    out = {"en": english(out), **out}
+    try:
+        en = english(out)
+    except Exception as exc:                       # the measurement still goes back
+        en = {"summary": f"the English summary could not be built ({type(exc).__name__}: {exc}); "
+                         "the fields below are complete"}
+    out = {"en": en, **out}
     return {"statusCode": 200,
             "headers": {"content-type": "application/json"},
             # `default=` because a numpy scalar anywhere in the result
