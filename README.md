@@ -75,7 +75,7 @@ curl -X POST https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.
   -d '{"image_url":"https://raw.githubusercontent.com/jiarong0423/jiarong0423-road-marking-conformity/main/evidence/field-2026-09-20/IMG_20260920_160016.jpg","fov_deg":56.812,"posted_kmh":50}'
 ```
 
-On image v17 that call took 221.7 s (v18, live since, adds the review fixes and a time budget): F31 measured 0.673 m, and the second loop found F30 and F32 by capture time, registered them (ECC 0.996, 0.994), measured 0.680 and 0.635 m, and confirmed the gap (`results/agentic_burst_live_v17_2026-10-14.json`). The 0.668 m above came from the JPEG 90 re-save on v14; the two inputs are different bytes. The burst adds about a minute on Lambda, so a call takes about 4 of the 5 minutes allowed.
+On image v17 that call took 221.7 s; on v18 (live since: the review fixes and a time budget) the same call took 89.7 s with the same answer, the burst 16.0 s instead of 60.7 s (`results/agentic_burst_live_v18_2026-10-14.json`), so Lambda timing varies between runs. On v17: F31 measured 0.673 m, and the second loop found F30 and F32 by capture time, registered them (ECC 0.996, 0.994), measured 0.680 and 0.635 m, and confirmed the gap (`results/agentic_burst_live_v17_2026-10-14.json`). The 0.668 m above came from the JPEG 90 re-save on v14; the two inputs are different bytes. The burst adds about a minute on Lambda, so a call takes about 4 of the 5 minutes allowed.
 
 ```sh
 pip install -r requirements.txt                # Python 3.12
