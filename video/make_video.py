@@ -7,7 +7,7 @@ chunks of at most two lines, and each chunk is shown for a share of the slide's 
 proportional to its length. This ffmpeg build has no subtitles/drawtext filter, so the
 subtitles are drawn into the frames with PIL. A matching .srt is written as well.
 
-    /opt/anaconda3/bin/python3 -B video/make_video.py
+    python3 -B video/make_video.py
 
 Writes video/out/road116.mp4 and video/out/road116.srt.
 """

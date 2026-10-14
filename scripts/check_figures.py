@@ -1,6 +1,6 @@
 """Fail when a published figure no longer equals the file that produced it.
 
-Prose did not work. On 2026-09-17 the claim rule was written into AGENTS.md;
+Prose did not work. On 2026-09-17 the claim rule was written into the project's working rules (not published);
 on 2026-09-18 the same session quoted a figure from a heredoc that was never
 saved, corrected a document and left the sentences that depended on the old
 number, and added the sentence "source for every figure here is

@@ -1,5 +1,7 @@
-# Pinned to what the recorded figures were produced with. The interpreter is
-# /opt/anaconda3/bin/python3; see AGENTS.md.
+# Pinned to what the recorded figures were produced with (Python 3.12).
+# The online service (aws/Dockerfile) runs the headless build of the same OpenCV with
+# numpy 2.5.3; .github/workflows/tests.yml runs the tests on both numpy versions.
 opencv-python==5.0.0.93
 numpy==2.4.4
 scipy==1.17.1
+pillow==12.2.0

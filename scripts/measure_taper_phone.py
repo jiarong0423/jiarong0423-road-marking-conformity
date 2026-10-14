@@ -13,7 +13,7 @@ from the lane at the taper angle; its right edge runs with the lane. So
 the angle between the chevron's own two edges is the taper angle, and it
 is a ground angle between two families of parallel lines - which
 marking.vanishing measures from their vanishing points and K alone,
-rotation-invariant, no pitch. No stripe is used: isolation/DETECTORS.md
+rotation-invariant, no pitch. No stripe is used: docs/detectors.md
 records five stripe-selection strategies that did not converge.
 
 The chevron polygon is found from the density of white paint, not from
@@ -29,7 +29,7 @@ degree, and the pair must be the two LARGEST pencils - a 14 degree
 reading on F18 came from two short pencils at the far tip, and a 7.5 on
 F19 from a five-member pencil with sd 8.
 
-    /opt/anaconda3/bin/python3 scripts/measure_taper_phone.py --frames 17 37 40 --write
+    python3 scripts/measure_taper_phone.py --frames 17 37 40 --write
 """
 from __future__ import annotations
 

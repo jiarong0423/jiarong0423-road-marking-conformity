@@ -17,6 +17,9 @@ models/mlsd/*.pth
 models/mlsd/*.onnx
 models/mlsd/layers.py
 models/mlsd/mbv2_mlsd*.py
+# ALIKED (BSD-3) and its LightGlue matcher (Apache-2.0), ONNX, 52 MB: the files and
+# sha1 that opencv_extra's testdata/dnn/download_models.py lists. scripts/fetch_aliked.sh fetches them.
+models/aliked/
 
 # 診斷圖:由 isolation/scripts/*.py 的 draw 步驟重建,不進版控
 isolation/out/

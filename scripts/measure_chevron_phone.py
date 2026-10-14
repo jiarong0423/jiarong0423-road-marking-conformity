@@ -12,7 +12,7 @@ the road.
 
 theta is measured here, per frame, with the rotation-invariant construction
 in marking.vanishing - the angle between K^-1 v_stripe and K^-1 v_road -
-so no datum is assumed and no pitch is needed. isolation/DETECTORS.md
+so no datum is assumed and no pitch is needed. docs/detectors.md
 records why the OLD taper reading on phone frames was worthless: it was
 set by the parameters. This one carries its own spread from jittered
 segments, and the equal-spacing test below is the check that the ruler is
@@ -25,7 +25,7 @@ median over every crossing found is the answer; 2.00 says the stripes are
 evenly spaced on the ground and the vanishing point is right, either
 failing would move it.
 
-    /opt/anaconda3/bin/python3 scripts/measure_chevron_phone.py --frame 37 --write
+    python3 scripts/measure_chevron_phone.py --frame 37 --write
 """
 from __future__ import annotations
 

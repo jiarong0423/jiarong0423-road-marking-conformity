@@ -35,7 +35,7 @@ HDR:照片內含 gain map,跟 09-20 那批一樣;量測只用底下的一般影�
 
 ```sh
 cd evidence/field-2026-09-23
-/opt/anaconda3/bin/python3 -B - <<'PY'
+python3 -B - <<'PY'
 import csv, hashlib
 rows = list(csv.DictReader(open("MANIFEST.csv")))
 bad = sum(hashlib.sha256(open(r["file"], "rb").read()).hexdigest() != r["sha256"] for r in rows)

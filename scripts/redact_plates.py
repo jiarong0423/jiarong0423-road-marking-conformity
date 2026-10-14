@@ -16,8 +16,8 @@ are not: the gain map is a second image of the same scene and would keep
 the plate. The pre-redaction files stay in the
 git-ignored `data/` tree.
 
-    /opt/anaconda3/bin/python3 -B scripts/redact_plates.py            # dry run
-    /opt/anaconda3/bin/python3 -B scripts/redact_plates.py --apply
+    python3 -B scripts/redact_plates.py            # dry run
+    python3 -B scripts/redact_plates.py --apply
 """
 import csv, hashlib, json, shutil, sys
 from pathlib import Path

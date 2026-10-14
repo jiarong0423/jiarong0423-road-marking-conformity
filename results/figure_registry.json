@@ -51,7 +51,7 @@
    "source": "results/pixel_budget.json#/field_photographs/distinct_sizes/0/width",
    "convention": "pixels, the width every one of the 42 field photographs has; the census refuses to report anything if they are not all one size",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "regenerate": "python3 scripts/pixel_budget.py --write",
    "expect": {
     "$root/field_photographs/n": 42,
     "$root/field_photographs/uniform": true
@@ -63,7 +63,7 @@
    "source": "results/pixel_budget.json#/field_photographs/distinct_sizes/0/height",
    "convention": "pixels, the height every one of the 42 field photographs has",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "regenerate": "python3 scripts/pixel_budget.py --write",
    "expect": {
     "$root/field_photographs/n": 42,
     "$root/field_photographs/uniform": true
@@ -75,7 +75,7 @@
    "source": "results/pixel_budget.json#/red_line_10cm_at_20m_px/original",
    "convention": "pixels subtended by §169's 10 cm red line at a stated 20 m, in the 3072x4096 original; f_px from EXIF FocalLengthIn35mmFilm on the diagonal convention. 20 m is a reference distance, not a measured one",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "regenerate": "python3 scripts/pixel_budget.py --write",
    "expect": {
     "$root/camera/f_px": 2840.1,
     "$root/reference_distance_m": 20.0
@@ -87,7 +87,7 @@
    "source": "results/pixel_budget.json#/red_line_10cm_at_20m_px/1400",
    "convention": "the same at the 1400 px working size",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "regenerate": "python3 scripts/pixel_budget.py --write",
    "expect": {
     "$root/camera/f_px": 2840.1,
     "$root/reference_distance_m": 20.0
@@ -99,7 +99,7 @@
    "source": "results/pixel_budget.json#/red_line_10cm_at_20m_px/1000",
    "convention": "the same at the 1000 px working size",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "regenerate": "python3 scripts/pixel_budget.py --write",
    "expect": {
     "$root/camera/f_px": 2840.1,
     "$root/reference_distance_m": 20.0
@@ -111,7 +111,7 @@
    "source": "results/pixel_budget.json#/width_tolerance_6mm_at_20m_px/original",
    "convention": "pixels subtended by the ±6 mm marking width tolerance at a stated 20 m, in the original",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "regenerate": "python3 scripts/pixel_budget.py --write",
    "expect": {
     "$root/camera/f_px": 2840.1,
     "$root/reference_distance_m": 20.0
@@ -123,7 +123,7 @@
    "source": "results/pixel_budget.json#/width_tolerance_6mm_at_20m_px/1000",
    "convention": "the same at the 1000 px working size",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "regenerate": "python3 scripts/pixel_budget.py --write",
    "expect": {
     "$root/camera/f_px": 2840.1,
     "$root/reference_distance_m": 20.0
@@ -135,7 +135,7 @@
    "source": "results/pixel_budget.json#/stripe_to_pitch_ratio",
    "convention": "§171's 20 cm stripe over its 20+30 cm pitch. Arithmetic on a declared regulation constant, not a measurement of any road",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/pixel_budget.py --write",
+   "regenerate": "python3 scripts/pixel_budget.py --write",
    "expect": {
     "$root/regulation_cm/s171_stripe_width_cm": 20.0,
     "$root/regulation_cm/s171_gap_cm": 30.0
@@ -149,7 +149,7 @@
    "cited_in": [
     "docs/opencv5.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "regenerate": "python3 scripts/opencv5_build.py --write",
    "expect": {
     "$root/opencv_python_package": "opencv-python-headless==5.0.0.93",
     "$root/platform/machine": "arm64"
@@ -163,7 +163,7 @@
    "cited_in": [
     "docs/opencv5.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "regenerate": "python3 scripts/opencv5_build.py --write",
    "expect": {
     "$root/new_element_types_missing": []
    }
@@ -176,7 +176,7 @@
    "cited_in": [
     "docs/opencv5.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write"
+   "regenerate": "python3 scripts/opencv5_build.py --write"
   },
   {
    "id": "cv5_calib3d_submodules_present",
@@ -188,7 +188,7 @@
    "cited_in": [
     "docs/opencv5.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write"
+   "regenerate": "python3 scripts/opencv5_build.py --write"
   },
   {
    "id": "cv5_features_module_present",
@@ -198,7 +198,7 @@
    "cited_in": [
     "docs/opencv5.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write"
+   "regenerate": "python3 scripts/opencv5_build.py --write"
   },
   {
    "id": "cv5_dnn_engines_present",
@@ -213,7 +213,7 @@
    "cited_in": [
     "docs/opencv5.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "regenerate": "python3 scripts/opencv5_build.py --write",
    "expect": {
     "$root/cpu_features_line_present": true
    }
@@ -226,7 +226,7 @@
    "cited_in": [
     "docs/opencv5.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "regenerate": "python3 scripts/opencv5_build.py --write",
    "expect": {
     "$root/platform/machine": "arm64"
    }
@@ -239,7 +239,7 @@
    "cited_in": [
     "docs/opencv5.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "regenerate": "python3 scripts/opencv5_build.py --write",
    "expect": {
     "$root/mlsd_onnx/bytes": 2485936
    }
@@ -252,7 +252,7 @@
    "cited_in": [
     "docs/opencv5.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/opencv5_build.py --write",
+   "regenerate": "python3 scripts/opencv5_build.py --write",
    "expect": {
     "$root/mlsd_forward/n": 20,
     "$root/mlsd_forward/engine": "ENGINE_NEW"
@@ -349,7 +349,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -365,7 +365,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0
@@ -380,7 +380,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0
@@ -395,7 +395,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -411,7 +411,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0
@@ -426,7 +426,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0
@@ -441,7 +441,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0
@@ -456,7 +456,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0
@@ -471,7 +471,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -487,7 +487,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0
@@ -502,7 +502,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0
@@ -517,7 +517,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$parent/first": "2026:09:20 15:56:03",
     "$parent/last": "2026:09:20 16:01:07"
@@ -532,7 +532,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0
@@ -547,7 +547,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 5",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -563,7 +563,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -579,7 +579,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -595,7 +595,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -611,7 +611,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -627,7 +627,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -643,7 +643,7 @@
     "docs/four-scenarios.md",
     "scripts/assess_field.py"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
+   "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22_kmh30.json --posted-kmh 30",
    "expect": {
     "$root/totals/n": 42,
     "$root/totals/errors": 0,
@@ -656,7 +656,7 @@
    "source": "results/redline_gap_F31.json#/summary/median_m",
    "convention": "median over five stations of the ground distance from the intact kerbside red line's inner edge to the worn red line's centre; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --write",
+   "regenerate": "python3 scripts/measure_redline_gap.py --write",
    "expect": {
     "$root/summary/stations_measured": 5,
     "$root/ruler/m": 0.1
@@ -668,7 +668,7 @@
    "source": "results/redline_gap_F31.json#/summary/min_m",
    "convention": "smallest of the five station readings; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --write",
+   "regenerate": "python3 scripts/measure_redline_gap.py --write",
    "expect": {
     "$root/summary/stations_measured": 5
    }
@@ -679,7 +679,7 @@
    "source": "results/redline_gap_F31.json#/summary/max_m",
    "convention": "largest of the five station readings; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --write",
+   "regenerate": "python3 scripts/measure_redline_gap.py --write",
    "expect": {
     "$root/summary/stations_measured": 5
    }
@@ -690,7 +690,7 @@
    "source": "results/redline_gap_F31.json#/summary/affine_median_m",
    "convention": "the same five stations with NO perspective correction - the plain image ratio times 10 cm. Kept as the size of the correction the vanishing point supplies, +9 cm",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --write",
+   "regenerate": "python3 scripts/measure_redline_gap.py --write",
    "expect": {
     "$root/summary/stations_measured": 5
    }
@@ -701,7 +701,7 @@
    "source": "results/redline_gap_F30.json#/summary/median_m",
    "convention": "median over five stations on F30, an independent handheld frame of the same stretch as F31; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --frame 30 --write",
+   "regenerate": "python3 scripts/measure_redline_gap.py --frame 30 --write",
    "expect": {
     "$root/summary/stations_measured": 5,
     "$root/ruler/m": 0.1
@@ -713,7 +713,7 @@
    "source": "results/redline_gap_F32.json#/summary/median_m",
    "convention": "median over five stations on F32, an independent handheld frame of the same stretch as F31; metres on the ground; §169's 10 cm line width as the ruler; cross-ratio with the cross-road vanishing point built from EXIF K, a RANSAC road vanishing point and a polar-line vote for the vertical; no pitch, roll or height",
    "cited_in": [],
-   "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --frame 32 --write",
+   "regenerate": "python3 scripts/measure_redline_gap.py --frame 32 --write",
    "expect": {
     "$root/summary/stations_measured": 5,
     "$root/ruler/m": 0.1
@@ -728,7 +728,7 @@
     "video/script_en.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erasure_ratio.py && /opt/anaconda3/bin/python3 -B scripts/before_taper.py",
+   "regenerate": "python3 -B scripts/erasure_ratio.py && python3 -B scripts/before_taper.py",
    "expect": {
     "$root/stripes/clean": 19
    }
@@ -742,7 +742,7 @@
     "video/script_en.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erasure_ratio.py && /opt/anaconda3/bin/python3 -B scripts/before_taper.py",
+   "regenerate": "python3 -B scripts/erasure_ratio.py && python3 -B scripts/before_taper.py",
    "expect": {
     "$root/stripes/clean": 19
    }
@@ -801,7 +801,7 @@
     "video/script_en.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erasure_ratio.py && /opt/anaconda3/bin/python3 -B scripts/before_taper.py",
+   "regenerate": "python3 -B scripts/erasure_ratio.py && python3 -B scripts/before_taper.py",
    "expect": {
     "$root/stripes/clean": 19
    }
@@ -815,7 +815,7 @@
     "video/script_en.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erasure_ratio.py && /opt/anaconda3/bin/python3 -B scripts/before_taper.py",
+   "regenerate": "python3 -B scripts/erasure_ratio.py && python3 -B scripts/before_taper.py",
    "expect": {
     "$root/stripes/clean": 19
    }
@@ -829,7 +829,7 @@
     "video/script_en.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erasure_ratio.py && /opt/anaconda3/bin/python3 -B scripts/before_taper.py",
+   "regenerate": "python3 -B scripts/erasure_ratio.py && python3 -B scripts/before_taper.py",
    "expect": {
     "$root/stripes/clean": 19
    }
@@ -842,7 +842,7 @@
    "cited_in": [
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/dash_ruler.py",
+   "regenerate": "python3 -B scripts/dash_ruler.py",
    "expect": {
     "$root/ruler": "道路交通標誌標線號誌設置規則 §182: lane line dash 4 m + gap 6 m = 10 m per dash"
    }
@@ -855,7 +855,7 @@
    "cited_in": [
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/dash_ruler.py",
+   "regenerate": "python3 -B scripts/dash_ruler.py",
    "expect": {
     "$root/ruler": "道路交通標誌標線號誌設置規則 §182: lane line dash 4 m + gap 6 m = 10 m per dash"
    }
@@ -868,7 +868,7 @@
    "cited_in": [
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/dash_ruler.py",
+   "regenerate": "python3 -B scripts/dash_ruler.py",
    "expect": {
     "$root/monte_carlo/trials": 400
    }
@@ -881,7 +881,7 @@
    "cited_in": [
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/dash_ruler.py",
+   "regenerate": "python3 -B scripts/dash_ruler.py",
    "expect": {
     "$root/monte_carlo/trials": 400
    }
@@ -894,7 +894,7 @@
    "cited_in": [
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/dash_ruler.py",
+   "regenerate": "python3 -B scripts/dash_ruler.py",
    "expect": {
     "$root/monte_carlo/trials": 400
    }
@@ -907,7 +907,7 @@
    "cited_in": [
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/dash_ruler.py",
+   "regenerate": "python3 -B scripts/dash_ruler.py",
    "expect": {
     "$root/monte_carlo/trials": 400
    }
@@ -921,7 +921,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -935,7 +935,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -949,7 +949,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -963,7 +963,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -977,7 +977,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -991,7 +991,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -1005,7 +1005,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -1019,7 +1019,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -1033,7 +1033,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -1047,7 +1047,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -1061,7 +1061,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -1075,7 +1075,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -1089,7 +1089,7 @@
     "README.md",
     "docs/technical-report.md"
    ],
-   "regenerate": "/opt/anaconda3/bin/python3 -B scripts/erased_triangle.py",
+   "regenerate": "python3 -B scripts/erased_triangle.py",
    "expect": {
     "$root/ruler/check": "§182 lane dash is 4 m"
    }
@@ -1106,10 +1106,10 @@
     "source": "results/taper_phone.json#/summary/taper_deg_median",
     "convention": "median over the frames that pass (F17 6.20, F40 4.79); ground angle between the chevron's two edge pencils (its left edge diverging from the lane, its right edge along it), angle_between(K^-1 v1, K^-1 v2) with K from EXIF; rotation-invariant, no pitch; polygon found from white-paint density; the two LARGEST pencils inside it, each >=5 segments, jittered sd <=1 deg, polygon <=0.25 of frame",
     "cited_in": [
-     "isolation/DETECTORS.md",
+     "docs/detectors.md",
      "AXIS.md"
     ],
-    "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_taper_phone.py --write",
+    "regenerate": "python3 scripts/measure_taper_phone.py --write",
     "expect": {
      "$root/summary/frames_ok": [
       "F17",
@@ -1125,10 +1125,10 @@
     "source": "results/taper_phone.json#/summary/ratio_median",
     "convention": "L/W = 1/tan(taper); 表 4.2.7 asks 16:1 at 50 km/h, 23:1 at 60, 5:1 at 30; ground angle between the chevron's two edge pencils (its left edge diverging from the lane, its right edge along it), angle_between(K^-1 v1, K^-1 v2) with K from EXIF; rotation-invariant, no pitch; polygon found from white-paint density; the two LARGEST pencils inside it, each >=5 segments, jittered sd <=1 deg, polygon <=0.25 of frame",
     "cited_in": [
-     "isolation/DETECTORS.md",
+     "docs/detectors.md",
      "AXIS.md"
     ],
-    "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_taper_phone.py --write",
+    "regenerate": "python3 scripts/measure_taper_phone.py --write",
     "expect": {
      "$root/summary/frames_ok": [
       "F17",
@@ -1144,9 +1144,9 @@
     "source": "results/taper_phone.json#/summary/ratio_min",
     "convention": "F17; ground angle between the chevron's two edge pencils (its left edge diverging from the lane, its right edge along it), angle_between(K^-1 v1, K^-1 v2) with K from EXIF; rotation-invariant, no pitch; polygon found from white-paint density; the two LARGEST pencils inside it, each >=5 segments, jittered sd <=1 deg, polygon <=0.25 of frame",
     "cited_in": [
-     "isolation/DETECTORS.md"
+     "docs/detectors.md"
     ],
-    "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_taper_phone.py --write",
+    "regenerate": "python3 scripts/measure_taper_phone.py --write",
     "expect": {
      "$root/summary/frames_ok": [
       "F17",
@@ -1162,9 +1162,9 @@
     "source": "results/taper_phone.json#/summary/ratio_max",
     "convention": "F40; ground angle between the chevron's two edge pencils (its left edge diverging from the lane, its right edge along it), angle_between(K^-1 v1, K^-1 v2) with K from EXIF; rotation-invariant, no pitch; polygon found from white-paint density; the two LARGEST pencils inside it, each >=5 segments, jittered sd <=1 deg, polygon <=0.25 of frame",
     "cited_in": [
-     "isolation/DETECTORS.md"
+     "docs/detectors.md"
     ],
-    "regenerate": "/opt/anaconda3/bin/python3 scripts/measure_taper_phone.py --write",
+    "regenerate": "python3 scripts/measure_taper_phone.py --write",
     "expect": {
      "$root/summary/frames_ok": [
       "F17",

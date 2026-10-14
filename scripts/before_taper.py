@@ -13,7 +13,7 @@ Stripes that overran the band (the paint end falls outside the datum..drawn-edge
 interval) are dropped: they are wrong measurements, found on 2026-10-13 by
 drawing every stripe on the photograph.
 
-    /opt/anaconda3/bin/python3 -B scripts/before_taper.py       (writes results/before_taper.json)
+    python3 -B scripts/before_taper.py       (writes results/before_taper.json)
 """
 import json, numpy as np
 

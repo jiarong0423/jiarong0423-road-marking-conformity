@@ -23,7 +23,7 @@ cannot be read as more than they are:
     one machine under whatever else it was doing. `n` is in the output.
     It is the weakest figure here and is registered as such.
 
-    /opt/anaconda3/bin/python3 scripts/opencv5_build.py --write
+    python3 scripts/opencv5_build.py --write
 """
 
 from __future__ import annotations

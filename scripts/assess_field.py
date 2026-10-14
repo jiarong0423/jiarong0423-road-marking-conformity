@@ -43,9 +43,9 @@ on F18, 4 surfacings against 5. `--stability N` measures that instead of
 asserting it either way: E43, and `totals.surface_types_stability` names
 every photograph that gave more than one answer.
 
-    /opt/anaconda3/bin/python3 scripts/assess_field.py \
+    python3 scripts/assess_field.py \
         --out results/assess_2026-09-22.json --stability 5
-    /opt/anaconda3/bin/python3 scripts/assess_field.py --photo F14 F09
+    python3 scripts/assess_field.py --photo F14 F09
 """
 from __future__ import annotations
 
@@ -413,7 +413,7 @@ def main() -> int:
         "commit": tree["commit"],
         "tree_state": tree,
         "generated": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "regenerate": (f"/opt/anaconda3/bin/python3 scripts/assess_field.py "
+        "regenerate": (f"python3 scripts/assess_field.py "
                        f"--out results/assess_2026-09-22.json "
                        f"--posted-kmh {a.posted_kmh:g} "
                        f"--stability {a.stability}"),

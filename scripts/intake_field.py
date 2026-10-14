@@ -13,7 +13,7 @@ For every JPEG:
   fix if the phone left one (the earlier batch had none); the sha256,
   so the manifest can be written the same way as evidence/field-2026-09-20.
 
-    /opt/anaconda3/bin/python3 scripts/intake_field.py <folder> [--manifest out.csv]
+    python3 scripts/intake_field.py <folder> [--manifest out.csv]
 """
 import argparse, csv, glob, hashlib, os, re, sys
 from collections import Counter

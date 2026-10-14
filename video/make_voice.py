@@ -4,8 +4,8 @@
 The key is read from GEMINI_API_KEY only; it is never printed or written.
 The subtitle text of each row in script_en.md is sent to the API.
 
-    GEMINI_API_KEY=... /opt/anaconda3/bin/python3 -B video/make_voice.py [--voice Charon]
-    /opt/anaconda3/bin/python3 -B video/make_voice.py --vertex [--project P --location L]
+    GEMINI_API_KEY=... python3 -B video/make_voice.py [--voice Charon]
+    python3 -B video/make_voice.py --vertex [--project P --location L]
         (Vertex AI with gcloud Application Default Credentials; no key handled here)
 
 Writes video/audio/NN.wav (24 kHz mono 16-bit).

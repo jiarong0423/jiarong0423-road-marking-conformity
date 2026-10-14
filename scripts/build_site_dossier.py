@@ -10,7 +10,7 @@ None of this is measured from the caller's photograph. The endpoint
 attaches it to every response, by the owner's decision (2026-09-23), under
 a key that says so.
 
-    /opt/anaconda3/bin/python3 -B scripts/build_site_dossier.py
+    python3 -B scripts/build_site_dossier.py
 """
 import json
 import pprint

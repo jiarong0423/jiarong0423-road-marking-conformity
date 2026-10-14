@@ -1,0 +1,163 @@
+{
+ "date": "2026-10-14",
+ "opencv": "5.0.0",
+ "weights": {
+  "aliked-n16rot-top1k-640.onnx": "41faa7bf5d7eb68a2851471ba03aa20c9db30e4c",
+  "aliked_lightglue.onnx": "02723aa521990e57fe33d90b67977590c460e351",
+  "note": "sha1 as listed in opencv_extra testdata/dnn/download_models.py; ALIKED BSD-3-Clause, LightGlue Apache-2.0"
+ },
+ "photographs": {
+  "F30": "evidence/field-2026-09-20/IMG_20260920_160015.jpg",
+  "F31": "evidence/field-2026-09-20/IMG_20260920_160016.jpg",
+  "F32": "evidence/field-2026-09-20/IMG_20260920_160017.jpg",
+  "F34": "evidence/field-2026-09-20/IMG_20260920_160046.jpg",
+  "F35": "evidence/field-2026-09-20/IMG_20260920_160047.jpg",
+  "P64": "evidence/field-2026-09-23/IMG_20260923_063437.jpg"
+ },
+ "road_from_y_px": {
+  "F30": 2200,
+  "F31": 2200,
+  "F32": 2200,
+  "F34": 1900,
+  "F35": 1900,
+  "P64": 1500
+ },
+ "pairs": [
+  {
+   "pair": [
+    "F30",
+    "F31"
+   ],
+   "kind": "same direction, 1 s apart",
+   "sift": {
+    "matches": 2017,
+    "inliers": 1939,
+    "inliers_on_road": 640,
+    "seconds": 2.8
+   },
+   "aliked_lightglue": {
+    "matches": 649,
+    "inliers": 510,
+    "inliers_on_road": 104,
+    "seconds": 1.8
+   },
+   "ecc_multiscale": {
+    "converged": true,
+    "correlation": 0.995,
+    "max_change_from_identity": 452.0082,
+    "seconds": 0.0
+   },
+   "sift_vs_lightglue_on_road_px": 2.9,
+   "sift_vs_ecc_on_road_px": 2.2
+  },
+  {
+   "pair": [
+    "F31",
+    "F32"
+   ],
+   "kind": "same direction, 1 s apart",
+   "sift": {
+    "matches": 1980,
+    "inliers": 1859,
+    "inliers_on_road": 516,
+    "seconds": 3.1
+   },
+   "aliked_lightglue": {
+    "matches": 757,
+    "inliers": 615,
+    "inliers_on_road": 185,
+    "seconds": 2.0
+   },
+   "ecc_multiscale": {
+    "converged": true,
+    "correlation": 0.994,
+    "max_change_from_identity": 89.179,
+    "seconds": 0.1
+   },
+   "sift_vs_lightglue_on_road_px": 1.5,
+   "sift_vs_ecc_on_road_px": 2.4
+  },
+  {
+   "pair": [
+    "F30",
+    "F32"
+   ],
+   "kind": "same direction, 2 s apart",
+   "sift": {
+    "matches": 1765,
+    "inliers": 1617,
+    "inliers_on_road": 418,
+    "seconds": 2.4
+   },
+   "aliked_lightglue": {
+    "matches": 648,
+    "inliers": 525,
+    "inliers_on_road": 122,
+    "seconds": 1.6
+   },
+   "ecc_multiscale": {
+    "converged": true,
+    "correlation": 0.993,
+    "max_change_from_identity": 359.1865,
+    "seconds": 0.1
+   },
+   "sift_vs_lightglue_on_road_px": 7.4,
+   "sift_vs_ecc_on_road_px": 8.9
+  },
+  {
+   "pair": [
+    "P64",
+    "F34"
+   ],
+   "kind": "across views, 3 days apart",
+   "sift": {
+    "matches": 114,
+    "inliers": 9,
+    "inliers_on_road": 0,
+    "seconds": 2.1
+   },
+   "aliked_lightglue": {
+    "matches": 89,
+    "inliers": 6,
+    "inliers_on_road": 0,
+    "seconds": 1.6
+   },
+   "ecc_multiscale": {
+    "converged": true,
+    "correlation": 0.73,
+    "max_change_from_identity": 1609.0437,
+    "seconds": 0.3
+   },
+   "sift_vs_lightglue_on_road_px": 1727.1,
+   "sift_vs_ecc_on_road_px": 1821.3
+  },
+  {
+   "pair": [
+    "P64",
+    "F35"
+   ],
+   "kind": "across views, 3 days apart",
+   "sift": {
+    "matches": 99,
+    "inliers": 8,
+    "inliers_on_road": 0,
+    "seconds": 2.1
+   },
+   "aliked_lightglue": {
+    "matches": 101,
+    "inliers": 7,
+    "inliers_on_road": 1,
+    "seconds": 1.8
+   },
+   "ecc_multiscale": {
+    "converged": true,
+    "correlation": 0.698,
+    "max_change_from_identity": 959.8683,
+    "seconds": 0.2
+   },
+   "sift_vs_lightglue_on_road_px": 4710.0,
+   "sift_vs_ecc_on_road_px": 3607.4
+  }
+ ],
+ "not_ground_truth": "these counts say whether a registration exists, not how accurate it is"
+}

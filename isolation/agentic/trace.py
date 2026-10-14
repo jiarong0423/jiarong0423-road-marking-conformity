@@ -4,7 +4,7 @@ Runs assess() (the endpoint's own function) on a few inputs chosen to differ in 
 they show, and records for each: the OpenCV findings and measurement states, and the
 next actions they produced. Writes output/agentic/trace.json and prints a table.
 
-    /opt/anaconda3/bin/python3 -B isolation/agentic/trace.py
+    python3 -B isolation/agentic/trace.py
 """
 import json, math, sys, time
 from pathlib import Path

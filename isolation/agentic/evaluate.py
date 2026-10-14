@@ -4,7 +4,7 @@ For each photo: assess() state, findings, measurement states, and the next actio
 Summarises how often each action is produced, how often the system refuses, and
 whether every action carries a reason. Writes output/agentic/evaluate.json.
 
-    /opt/anaconda3/bin/python3 -B isolation/agentic/evaluate.py [N]   # N per batch, evenly spaced; omit for all 106
+    python3 -B isolation/agentic/evaluate.py [N]   # N per batch, evenly spaced; omit for all 106
 """
 import json, math, sys, time
 from collections import Counter

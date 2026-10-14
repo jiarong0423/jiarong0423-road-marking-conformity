@@ -11,7 +11,7 @@ WHY IT IS NOT A LIST OF FINDINGS. Over 42 photographs of this road the
 detectors report counts that do not survive being opened and looked at:
 25 red lines of which 13 of 23 opened are something else, a hoarding box
 that is 31.8 % hoarding by area, one §167 hit that is a false positive
-while the line that does exist is missed. `isolation/DETECTORS.md` has
+while the line that does exist is missed. `docs/detectors.md` has
 the table.
 
 So the honest product is not "here is what is wrong with this road". It
@@ -127,7 +127,7 @@ def next_actions(result: dict, *, photo: str | None = None) -> list[dict]:
                 "HUMAN_LOOK",
                 f"打開這張的原解析度,確認{label}的框裡真的是那個東西",
                 "本程式的這一類判定經逐張人眼檢查後,有相當比例不成立",
-                basis="isolation/DETECTORS.md 的對照表",
+                basis="docs/detectors.md 的對照表",
                 to="判讀者",
                 evidence={"框": (findings[code].get("measured") or {}).get("px")}))
 

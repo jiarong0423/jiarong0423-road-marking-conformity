@@ -16,7 +16,7 @@ not repeated.
 
 ## What the release adds, and what this build exposes
 
-Re-derived: `/opt/anaconda3/bin/python3 scripts/opencv5_build.py`. Every
+Re-derived: `python3 scripts/opencv5_build.py`. Every
 cell in the "in this build" column below is an assertion in
 `results/opencv5_build.json`.
 
@@ -34,8 +34,8 @@ cell in the "in this build" column below is an assertion in
 
 Most of the list is not applicable here and saying so is part of the
 answer. The marking mask is a `uint8` 0/255 image; making it `CV_Bool`
-changes its type and detects nothing new. There is no stereo pair, no
-point cloud, no feature matching. Adding those calls would put OpenCV 5
+changes its type and detects nothing new. There is no stereo pair and no
+point cloud; feature matching was tried on 2026-10-14 (last section). Adding those calls would put OpenCV 5
 API names in the source without changing a single measurement, and the
 rubric asks for depth, not vocabulary.
 
@@ -140,3 +140,50 @@ view onto the 2026 phone photograph (`SIFT_create`, `findHomography`
 USAC_MAGSAC: too few inliers), and a black-hat or background-relative grate detector (both fired
 on pitted concrete). Recorded in the author's notes and in the
 comments of `cv_evidence.py`.
+
+## 2026-10-14: OpenCV 5's new matchers, tried on my own photographs
+
+The question was whether OpenCV 5's ALIKED keypoints with its LightGlue matcher, or its
+new multi-scale ECC alignment, could register two of my photographs on the road surface,
+so that one thing could be measured twice. The one measurement that most needs it is the
+island's old end: only P64 sees it from a usable angle. F34 and F35 (20 September) show the
+same spot from the kerb beside the cone. The photographs taken further back on 23 September
+(P62, P63) were checked first and dropped: there, the old end is a few dozen pixels.
+
+`scripts/opencv5_matchers_trial.py`, written to `results/opencv5_matchers_trial.json`.
+ALIKED and LightGlue run as ONNX through the new DNN engine. The weights are the two files
+OpenCV's own tests use (`scripts/fetch_aliked.sh` checks their SHA-1; ALIKED is BSD-3-Clause,
+LightGlue Apache-2.0). Homographies from matches use MAGSAC. ECC starts from the identity on
+quarter-size images. Inliers on the road are those below the horizon. "Disagreement" is the
+median distance between where two methods put the same grid of road points.
+
+| pair | kind | SIFT inliers (on road) | ALIKED+LightGlue inliers (on road) | ECC correlation | SIFT vs LightGlue, px | SIFT vs ECC, px |
+|---|---|---|---|---|---|---|
+| F30 / F31 | same direction, 1 s apart | 1939 (640) | 510 (104) | 0.995 | 2.9 | 2.2 |
+| F31 / F32 | same direction, 1 s apart | 1859 (516) | 615 (185) | 0.994 | 1.5 | 2.4 |
+| F30 / F32 | same direction, 2 s apart | 1617 (418) | 525 (122) | 0.993 | 7.4 | 8.9 |
+| P64 / F34 | across views, 3 days apart | 9 (0) | 6 (0) | 0.73 | 1727 | 1821 |
+| P64 / F35 | across views, 3 days apart | 8 (0) | 7 (1) | 0.70 | 4710 | 3607 |
+
+What it shows:
+
+- **Across views, nothing registers.** All three methods fail, the new ones included: no
+  inliers on the road, and the methods put the same points thousands of pixels apart. The
+  angle between the two views, three days of different light and the repeating chevrons are
+  too much. So the old end stays measured on one photograph, and the docs keep saying so.
+- **ECC said it had converged when it had not.** On the across-view pairs it returned a
+  correlation of 0.70-0.73 and no error. Only the comparison with the other two methods
+  shows the result is meaningless. A registration used for measuring would need that
+  cross-check; ECC's own correlation is not enough.
+- **A second apart, all three agree** to within 1.5-8.9 px on the road. Here SIFT finds about
+  four times as many road inliers as ALIKED+LightGlue, so the new matcher buys nothing on
+  these photographs. ECC took 0.0-0.1 s against 2.4-3.1 s for SIFT (this machine, one run).
+  That speed is the one finding worth keeping: it would let the online service line up a
+  burst of photographs and check that the red-line gap reads the same on each. That is not
+  built.
+
+ALIKED's network takes a fixed 640 x 640 input; asking for a larger one fails inside the
+model. Cutting the photograph into tiles raised the road inliers across views only to 4-11
+(a scratch test, not in the script), still too few to trust.
+
+Not used in the pipeline. Nothing here changes a published measurement.

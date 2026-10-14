@@ -24,7 +24,7 @@ confirmed), the line the triangle's tip touches (X = -4.3 m, owner confirmed; th
 wall-side line OpenCV finds is recorded beside it), and the reading that the faint diagonal is the old edge and the arrow sits on
 erased stripes (owner, 2026-10-14).
 
-    /opt/anaconda3/bin/python3 -B scripts/erased_triangle.py
+    python3 -B scripts/erased_triangle.py
       writes results/erased_triangle_P64.json, docs/figures/erased-triangle-P64.jpg,
       docs/figures/erased-triangle-P64-topdown.jpg
 """

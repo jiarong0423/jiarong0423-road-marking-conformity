@@ -31,7 +31,7 @@ Error budget, measured on synthetic ground truth (scratch, 2026-09-22):
   1.5 px jitter on A, B, C        ->  about +-2 cm (reported per station)
   a 10 cm ruler at 3 m is ~90 px; +-1 px per endpoint is +-4 cm at 95 %
 
-    /opt/anaconda3/bin/python3 scripts/measure_redline_gap.py --write
+    python3 scripts/measure_redline_gap.py --write
 """
 from __future__ import annotations
 

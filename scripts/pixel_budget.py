@@ -37,7 +37,7 @@ at 20 m subtends 0.10/20 * 2840.1 = 14.2 px. The long-side convention
 convention is load-bearing and is recorded in the output rather than left
 to be guessed at.
 
-    /opt/anaconda3/bin/python3 scripts/pixel_budget.py --write
+    python3 scripts/pixel_budget.py --write
 """
 
 from __future__ import annotations

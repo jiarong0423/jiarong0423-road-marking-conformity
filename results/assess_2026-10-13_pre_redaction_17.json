@@ -22,7 +22,7 @@
   "edited": "file list replaced by its count on 2026-10-13 before publishing; src_module_sha256_16 is unchanged and is the record of what ran"
  },
  "generated": "2026-10-13T18:25:32+0800",
- "regenerate": "/opt/anaconda3/bin/python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 0",
+ "regenerate": "python3 scripts/assess_field.py --out results/assess_2026-09-22.json --posted-kmh 50 --stability 0",
  "posted_kmh": 50.0,
  "lane_width_m": null,
  "wall_s": 247.7,

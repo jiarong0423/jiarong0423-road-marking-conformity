@@ -12,7 +12,7 @@ Inputs (read by eye / by threshold from IMG_20260923_063437.jpg, P64, and record
   (the lane-side corner, and where it meets the base of the bridge wall; the owner confirmed
   both on the photograph).
 
-    /opt/anaconda3/bin/python3 -B scripts/dash_ruler.py        (writes results/dash_ruler_P64.json)
+    python3 -B scripts/dash_ruler.py        (writes results/dash_ruler_P64.json)
 """
 import json, numpy as np
 from scipy.optimize import least_squares

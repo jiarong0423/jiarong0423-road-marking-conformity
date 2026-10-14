@@ -64,9 +64,9 @@ Send one street photo. It checks the photo actually shows a road, runs its measu
 It runs on AWS Lambda (arm64) with OpenCV 5.0.0. `GET` on the endpoint describes the interface; `POST` needs an access token in the `x-access-token` header, which is provided to judges with the submission. A full-size photo (re-saved at JPEG 90, about 2.2 MB) takes about 2.5 minutes, longer than API Gateway waits, so send it to the second door, a Lambda Function URL with no 30 s limit: `https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`. On F31 it returned the red-line gap 0.668 m in 145.5 s.
 
 ```sh
-pip install -r requirements.txt
-/opt/anaconda3/bin/python3 -B -m pytest -q -p no:cacheprovider   # all pass
-/opt/anaconda3/bin/python3 -B scripts/check_figures.py            # every published number vs. its source
+pip install -r requirements.txt                # Python 3.12
+python3 -B -m pytest -q -p no:cacheprovider   # all pass
+python3 -B scripts/check_figures.py            # every published number vs. its source
 ```
 
 Deploy your own copy (AWS CLI and Docker with buildx; arm64 image):
@@ -78,6 +78,8 @@ MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v16, se
 
 Technical report: [`docs/technical-report.md`](docs/technical-report.md). Deployment: [`docs/deployment.md`](docs/deployment.md). OpenCV calls behind each piece of evidence: [`docs/opencv5.md`](docs/opencv5.md).
 
+**How accurate is it?** There is no surveyed ground truth for this road, so every figure is checked the ways a rider with a phone can: against sizes fixed by law (a lane dash reads 4.1 m against 4 m; the red line 95–97 mm against 100 mm), on repeat photographs (the red line's offset from a grate centre agrees within 1.8 cm), and on re-saved copies. All of it, with the failures: [`docs/accuracy.md`](docs/accuracy.md). What the detectors may and may not claim: [`docs/detectors.md`](docs/detectors.md). The tests run on every push ([`.github/workflows/tests.yml`](.github/workflows/tests.yml)) with OpenCV 5.0.0.93 and both numpy versions in use (2.4.4 here, 2.5.3 in the online service).
+
 ## What's in here
 
 | | |
@@ -87,6 +89,7 @@ Technical report: [`docs/technical-report.md`](docs/technical-report.md). Deploy
 | `src/marking/` | What runs in the cloud |
 | `isolation/` | Experiments, re-checks, and the methods that didn't work |
 | `docs/evidence.md` | The regulations, quoted word for word from the official database |
+| `docs/accuracy.md` | Every accuracy check, and what failed |
 
 ## What I can't tell you yet
 
