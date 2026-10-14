@@ -1,5 +1,5 @@
 #!/bin/sh
-# Deploy v16 (with the access gate) and harden the function. Run by the owner.
+# Deploy v17 (with the access gate) and harden the function. Run by the owner.
 # The Function URL for full-size photos is set up separately: docs/deployment.md.
 # Safe to re-run: the token file is reused and every step is idempotent.
 #
@@ -20,11 +20,11 @@ TOKEN_FILE="$HOME/road116_access_token.txt"
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 export ACCOUNT
 
-echo "1/7 build and push v16"
-./aws/build-and-push.sh v16 >/dev/null
-echo "2/7 point the function at v16"
+echo "1/7 build and push v17"
+./aws/build-and-push.sh v17 >/dev/null
+echo "2/7 point the function at v17"
 aws lambda update-function-code --function-name $FN \
-  --image-uri "$ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/road-marking-gate:v16" >/dev/null
+  --image-uri "$ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/road-marking-gate:v17" >/dev/null
 aws lambda wait function-updated --function-name $FN
 
 echo "3/7 access token and ${MEMORY} MB memory"
@@ -46,11 +46,12 @@ aws apigatewayv2 update-stage --api-id "$API_ID" --stage-name '$default' \
 echo "5/7 keep logs 14 days"
 aws logs put-retention-policy --log-group-name /aws/lambda/$FN --retention-in-days 14
 
-echo "6/7 remove the unused Function URL (it returned 403) and its two public permissions"
-aws lambda delete-function-url-config --function-name $FN 2>/dev/null || echo "   no Function URL"
-for sid in public-invoke FunctionURLAllowPublicAccess; do
-  aws lambda remove-permission --function-name $FN --statement-id $sid 2>/dev/null || echo "   no statement $sid"
-done
+echo "6/7 the Function URL"
+# Until 2026-10-14 this step deleted the Function URL (it returned 403 at the
+# time). Since v14 it is the door for full-size photos and the burst loop, so it
+# is kept; creating it and its two permissions is in docs/deployment.md.
+aws lambda get-function-url-config --function-name $FN --query FunctionUrl --output text 2>/dev/null \
+  || echo "   no Function URL: see docs/deployment.md to add one"
 
 echo "7/7 budget alert"
 if [ -n "$EMAIL" ]; then

@@ -127,12 +127,12 @@ Standing on the road, the island's far end is foreshortened to a sliver, so the 
 pip install -r requirements.txt                                    # opencv-python 5.0.0.93, numpy 2.4.4, scipy 1.17.1
 python3 -B -m pytest -q -p no:cacheprovider                        # all pass
 python3 -B scripts/check_figures.py                                # every figure vs. its source
-AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v16
+AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v17
 ```
 
 The container pins `opencv-python-headless==5.0.0.93` and `numpy==2.5.3` (`aws/Dockerfile`). The local interpreter that produced `results/` has numpy 2.4.4; the container was tested separately with 2.5.3 (below).
 
-**Measured in the v12 container** (arm64, 2 CPUs, locally): a 2000 px photo takes 14.3 s and the new measurements refuse (they need full resolution); a full-resolution photo (JPEG 90, 2.2 MB) takes 52.5 s and returns the red-line gap 0.668 m on F31. That exceeds API Gateway's 30 s limit. A 10 GB memory request (more vCPUs) was refused, so the live function runs at 3008 MB, the account's cap, and full-size photos go through the Function URL instead (below). Error paths return clear answers: malformed JSON or a missing photo 400, over 3 MB 413, a non-road photo `NOT_A_ROAD_PHOTOGRAPH`. Since 14 October: a second door, a Lambda Function URL (`https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`) with no 30 s limit; on image v14 a full-size F31 took **145.5 s** live (3008 MB, the account's cap) and returned the red-line gap **0.668 m**, the same as the local container; images v15 and v16, live since, change only the interface and site text. Before that, from 23 September to 14 October, image v13 ran only behind API Gateway: a 2000 px photo took 25.6 s and the new measurements refused, and a full-resolution photo timed out. POST requires an access token (`x-access-token`), given to judges with the submission; the API is throttled to 1 request/s with bursts of 3, and a $5 budget alert is set. See [`deployment.md`](deployment.md).
+**Measured in the v12 container** (arm64, 2 CPUs, locally): a 2000 px photo takes 14.3 s and the new measurements refuse (they need full resolution); a full-resolution photo (JPEG 90, 2.2 MB) takes 52.5 s and returns the red-line gap 0.668 m on F31. That exceeds API Gateway's 30 s limit. A 10 GB memory request (more vCPUs) was refused, so the live function runs at 3008 MB, the account's cap, and full-size photos go through the Function URL instead (below). Error paths return clear answers: malformed JSON or a missing photo 400, over 3 MB 413, a non-road photo `NOT_A_ROAD_PHOTOGRAPH`. Since 14 October: a second door, a Lambda Function URL (`https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`) with no 30 s limit; on image v14 a full-size F31 took **145.5 s** live (3008 MB, the account's cap) and returned the red-line gap **0.668 m**, the same as the local container; images v15 and v16 changed only the interface and site text. Image v17 (14 October) adds `image_url`, the burst loop and the English `en` block: F31 sent by URL, as it came off the phone, took **221.7 s** live, measured **0.673 m** and confirmed it on F30 and F32 (`results/agentic_burst_live_v17_2026-10-14.json`); the burst took 60.7 s of that, so a call now uses about 4 of the 5 minutes the function allows. Before that, from 23 September to 14 October, image v13 ran only behind API Gateway: a 2000 px photo took 25.6 s and the new measurements refused, and a full-resolution photo timed out. POST requires an access token (`x-access-token`), given to judges with the submission; the API is throttled to 1 request/s with bursts of 3, and a $5 budget alert is set. See [`deployment.md`](deployment.md).
 
 ## 7. Regulations used
 
@@ -151,6 +151,21 @@ Two clauses quoted by an AI assistant during this work (Design Standard §14 and
 ![Perceive, decide, act](figures/agent-workflow.png)
 
 The vision result decides what the system returns next (`src/marking/actions.py`, called inside `assess()`). It is a deterministic rule set over the OpenCV output, not a learned or LLM agent; the loop closes through a person, who decides whether to retake the photo, request a document or open a flagged box.
+
+**Second loop: a refusal fetches more evidence** (added 14 October; `src/marking/burst.py`, called by `aws/handler.py`). A phone takes a burst, so a refused red-line gap now starts another loop, and each step is decided by the step before:
+
+1. *decide*: is more evidence worth fetching? Yes if the gap was measured (it can be confirmed) or if at least one of the four re-encodings saw the red-line pair; no if none did, because more photos of the same nothing would not help. Photos the caller attached are always measured.
+2. *act*: find the photos taken within 3 s by capture time in the evidence MANIFEST (F31 → F30, F32), or take the caller's (`burst_urls`, `burst_base64`), and fetch them (https on raw.githubusercontent.com only, 15 MB, 20 s, no redirects).
+3. *perceive*: register each to the first with OpenCV 5's `cv2.findTransformECCMultiScale`. A photo is used only at correlation ≥ 0.90, because ECC reports convergence on another place too (P64: 0.753). Then measure the gap on it.
+4. *decide*: report the gap only if two or more photos measure it and agree within 5 cm; otherwise add a RETAKE_BURST action with the reason.
+
+| Case (`isolation/agentic/burst_demo.py` → `results/agentic_burst_2026-10-14.json`) | First photo | Burst | Decision |
+|---|---|---|---|
+| F31 sent whole | 0.673 m measured | F30 0.680, F32 0.635 (ECC 0.996, 0.994) | confirmed, 0.673 m |
+| F31 at 2000 px, F30 and F32 attached | refused | F30 0.680, F32 0.635 | measured across the burst, 0.657 m |
+| F31 at 2000 px, P64 and F30 attached | refused | P64 refused by ECC (0.753); F30 0.680 | one photo is too few: retake asked for |
+
+Every step is in the response's `red_line_gap_burst.trace`, with its tool, result and time. The thresholds (0.90, 5 cm, 3 s) are set on few photos; the 5 cm is the same tolerance as the re-encoding gate. Every response now opens with an English `en` block: summary, findings, measured and refused with reasons, and next actions.
 
 **Trace** (`isolation/agentic/trace.py`, 30 km/h, the endpoint's own function):
 

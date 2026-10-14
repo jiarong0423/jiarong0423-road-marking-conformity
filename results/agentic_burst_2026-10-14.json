@@ -1,0 +1,311 @@
+{
+ "date": "2026-10-14",
+ "opencv": "5.0.0",
+ "note": "aws/handler.py run locally; URLs read from evidence/ instead of the network",
+ "thresholds": {
+  "ecc_same_view_min_correlation": 0.9,
+  "agree_m": 0.05,
+  "max_seconds_apart": 3
+ },
+ "runs": [
+  {
+   "case": "F31 sent whole; neighbours found by capture time",
+   "status": 200,
+   "seconds": 43.2,
+   "first_photo_red_line_gap": {
+    "state": "MEASURED",
+    "gap_m": 0.673,
+    "why": null
+   },
+   "burst": {
+    "state": "CONFIRMED_ACROSS_BURST",
+    "gap_m": 0.673,
+    "readings_m": [
+     0.673,
+     0.68,
+     0.635
+    ],
+    "spread_m": 0.045,
+    "why": null,
+    "how": "3 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m",
+    "extras_source": "found by capture time: this photo is F31 in evidence/field-2026-09-20",
+    "trace": [
+     {
+      "step": "decide",
+      "what": "is more evidence worth fetching?",
+      "result": true,
+      "why": "measured on this photo; more photos can confirm it"
+     },
+     {
+      "step": "act",
+      "tool": "fetch",
+      "photo": "F30 (1 s apart)",
+      "ok": true,
+      "px": [
+       3072,
+       4096
+      ],
+      "s": 0.1
+     },
+     {
+      "step": "perceive",
+      "tool": "cv2.findTransformECCMultiScale",
+      "photo": "F30 (1 s apart)",
+      "converged": true,
+      "correlation": 0.996,
+      "same_view": true,
+      "why": null,
+      "s": 0.0
+     },
+     {
+      "step": "perceive",
+      "tool": "red-line gap",
+      "photo": "F30 (1 s apart)",
+      "gap_m": 0.68,
+      "why": null,
+      "s": 3.9
+     },
+     {
+      "step": "act",
+      "tool": "fetch",
+      "photo": "F32 (1 s apart)",
+      "ok": true,
+      "px": [
+       3072,
+       4096
+      ],
+      "s": 0.0
+     },
+     {
+      "step": "perceive",
+      "tool": "cv2.findTransformECCMultiScale",
+      "photo": "F32 (1 s apart)",
+      "converged": true,
+      "correlation": 0.994,
+      "same_view": true,
+      "why": null,
+      "s": 0.1
+     },
+     {
+      "step": "perceive",
+      "tool": "red-line gap",
+      "photo": "F32 (1 s apart)",
+      "gap_m": 0.635,
+      "why": null,
+      "s": 2.7
+     },
+     {
+      "step": "decide",
+      "what": "do the photos agree?",
+      "result": "CONFIRMED_ACROSS_BURST",
+      "why": "3 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m"
+     }
+    ]
+   },
+   "en_summary": "1 issue found in this photo; the red line's shift (0.673 m) was confirmed on 3 photos taken seconds apart.",
+   "next_actions": [
+    "REQUEST_DOCUMENT",
+    "REQUEST_DOCUMENT",
+    "CANNOT_FROM_PHOTO",
+    "CANNOT_FROM_PHOTO",
+    "NOT_DETECTED"
+   ]
+  },
+  {
+   "case": "F31 at 2000 px; F30 and F32 attached",
+   "status": 200,
+   "seconds": 21.2,
+   "first_photo_red_line_gap": {
+    "state": "CANNOT_MEASURE",
+    "gap_m": null,
+    "why": "encodings disagree or refuse: only 0 of 4 encodings measured; 3 needed; as received: None"
+   },
+   "burst": {
+    "state": "MEASURED_ACROSS_BURST",
+    "gap_m": 0.657,
+    "readings_m": [
+     0.68,
+     0.635
+    ],
+    "spread_m": 0.045,
+    "why": null,
+    "how": "2 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m",
+    "extras_source": "attached by the caller",
+    "trace": [
+     {
+      "step": "decide",
+      "what": "is more evidence worth fetching?",
+      "result": true,
+      "why": "the caller attached photos taken seconds apart, so they are measured"
+     },
+     {
+      "step": "act",
+      "tool": "fetch",
+      "photo": "IMG_20260920_160015.jpg",
+      "ok": true,
+      "px": [
+       3072,
+       4096
+      ],
+      "s": 0.1
+     },
+     {
+      "step": "perceive",
+      "tool": "cv2.findTransformECCMultiScale",
+      "photo": "IMG_20260920_160015.jpg",
+      "converged": true,
+      "correlation": 0.996,
+      "same_view": true,
+      "why": null,
+      "s": 0.1
+     },
+     {
+      "step": "perceive",
+      "tool": "red-line gap",
+      "photo": "IMG_20260920_160015.jpg",
+      "gap_m": 0.68,
+      "why": null,
+      "s": 4.5
+     },
+     {
+      "step": "act",
+      "tool": "fetch",
+      "photo": "IMG_20260920_160017.jpg",
+      "ok": true,
+      "px": [
+       3072,
+       4096
+      ],
+      "s": 0.0
+     },
+     {
+      "step": "perceive",
+      "tool": "cv2.findTransformECCMultiScale",
+      "photo": "IMG_20260920_160017.jpg",
+      "converged": true,
+      "correlation": 0.994,
+      "same_view": true,
+      "why": null,
+      "s": 0.1
+     },
+     {
+      "step": "perceive",
+      "tool": "red-line gap",
+      "photo": "IMG_20260920_160017.jpg",
+      "gap_m": 0.635,
+      "why": null,
+      "s": 3.0
+     },
+     {
+      "step": "decide",
+      "what": "do the photos agree?",
+      "result": "MEASURED_ACROSS_BURST",
+      "why": "2 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m"
+     }
+    ]
+   },
+   "en_summary": "1 issue found in this photo; the red line's shift, refused on this photo alone, was measured across 2 photos taken seconds apart: 0.657 m.",
+   "next_actions": [
+    "REQUEST_DOCUMENT",
+    "CHECK_PUBLIC_RECORD",
+    "CANNOT_FROM_PHOTO",
+    "CANNOT_FROM_PHOTO",
+    "NOT_DETECTED"
+   ]
+  },
+  {
+   "case": "F31 at 2000 px; P64 (another place) and F30 attached",
+   "status": 200,
+   "seconds": 17.6,
+   "first_photo_red_line_gap": {
+    "state": "CANNOT_MEASURE",
+    "gap_m": null,
+    "why": "encodings disagree or refuse: only 0 of 4 encodings measured; 3 needed; as received: None"
+   },
+   "burst": {
+    "state": "NOT_ENOUGH",
+    "gap_m": null,
+    "readings_m": [
+     0.68
+    ],
+    "spread_m": null,
+    "why": "only 1 photo(s) measured the gap; 2 that agree are needed",
+    "how": null,
+    "extras_source": "attached by the caller",
+    "trace": [
+     {
+      "step": "decide",
+      "what": "is more evidence worth fetching?",
+      "result": true,
+      "why": "the caller attached photos taken seconds apart, so they are measured"
+     },
+     {
+      "step": "act",
+      "tool": "fetch",
+      "photo": "IMG_20260923_063437.jpg",
+      "ok": true,
+      "px": [
+       3072,
+       4096
+      ],
+      "s": 0.1
+     },
+     {
+      "step": "perceive",
+      "tool": "cv2.findTransformECCMultiScale",
+      "photo": "IMG_20260923_063437.jpg",
+      "converged": true,
+      "correlation": 0.753,
+      "same_view": false,
+      "why": "ECC converged but the correlation 0.753 is under 0.9: not the same view",
+      "s": 0.2
+     },
+     {
+      "step": "act",
+      "tool": "fetch",
+      "photo": "IMG_20260920_160015.jpg",
+      "ok": true,
+      "px": [
+       3072,
+       4096
+      ],
+      "s": 0.1
+     },
+     {
+      "step": "perceive",
+      "tool": "cv2.findTransformECCMultiScale",
+      "photo": "IMG_20260920_160015.jpg",
+      "converged": true,
+      "correlation": 0.996,
+      "same_view": true,
+      "why": null,
+      "s": 0.1
+     },
+     {
+      "step": "perceive",
+      "tool": "red-line gap",
+      "photo": "IMG_20260920_160015.jpg",
+      "gap_m": 0.68,
+      "why": null,
+      "s": 4.1
+     },
+     {
+      "step": "decide",
+      "what": "do the photos agree?",
+      "result": "NOT_ENOUGH",
+      "why": "only 1 photo(s) measured the gap; 2 that agree are needed"
+     }
+    ]
+   },
+   "en_summary": "1 issue found in this photo.",
+   "next_actions": [
+    "REQUEST_DOCUMENT",
+    "CHECK_PUBLIC_RECORD",
+    "CANNOT_FROM_PHOTO",
+    "CANNOT_FROM_PHOTO",
+    "NOT_DETECTED",
+    "RETAKE_BURST"
+   ]
+  }
+ ]
+}

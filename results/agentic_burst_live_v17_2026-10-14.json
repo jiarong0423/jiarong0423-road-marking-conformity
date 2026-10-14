@@ -1,0 +1,183 @@
+{
+ "date": "2026-10-14",
+ "image": "road-marking-gate:v17 on AWS Lambda (arm64, 3008 MB, timeout 300 s)",
+ "door": "Lambda Function URL",
+ "request": {
+  "image_url": "https://raw.githubusercontent.com/jiarong0423/jiarong0423-road-marking-conformity/main/evidence/field-2026-09-20/IMG_20260920_160016.jpg",
+  "fov_deg": 56.812,
+  "posted_kmh": 50
+ },
+ "http_status": 200,
+ "seconds_total_measured_by_curl": 221.7,
+ "note": "run by the owner with the access token, which is not stored here; the response is trimmed to the fields below",
+ "opencv": "5.0.0",
+ "image_px": [
+  3072,
+  4096
+ ],
+ "en": {
+  "summary": "1 issue found in this photo; the red line's shift (0.673 m) was confirmed on 3 photos taken seconds apart.",
+  "findings": [
+   {
+    "code": "TWO_RED_LINES",
+    "what": "Two red lines: the intact new line and the worn old line beside it. The new line's inner edge is 0.67 m from the old line's centre (re-encoded readings 0.66-0.68 m). The ruler is the new line's own 10 cm width (§169)"
+   }
+  ],
+  "measured": {
+   "red_line_gap_m": {
+    "value": 0.673,
+    "range": [
+     0.658,
+     0.678
+    ],
+    "how": "3 of 4 re-encodings of this photo agree within 5 cm"
+   },
+   "red_line_gap_across_photos_m": {
+    "value": 0.673,
+    "readings": [
+     0.673,
+     0.68,
+     0.635
+    ],
+    "how": "3 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m"
+   }
+  },
+  "not_measured_and_why": {
+   "island_taper_ratio": "encodings disagree or refuse: only 0 of 4 encodings measured; 3 needed; as received: only 3 long white segments inside the chevron",
+   "lane_closing_taper": "CANNOT_MEASURE: after 7 of 9 encodings only 3 had yielded a reading, so the remaining 2 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+   "lane_width": "not checked: send lane_width_m; a photo has no scale of its own",
+   "drain_grates": "not recognised online (detector removed 2026-09-21)"
+  },
+  "next_actions": [
+   {
+    "what": "Request the approval letter and marking plans for the repainting from the Traffic Department",
+    "why": "this photo measured the new and old red lines about 0.673 m apart; which one is in force is in the approval letter",
+    "to": "New Taipei City Traffic Department",
+    "action": "REQUEST_DOCUMENT"
+   },
+   {
+    "what": "Request the drain works' as-built drawings and the grate inspection reports from the district office",
+    "why": "with the red line moved out, the drain strip and its grates lie on the road side of it; the step between grate and road and the grate specification are only in the as-built records",
+    "to": "Shulin District Office, Public Works Section",
+    "action": "REQUEST_DOCUMENT"
+   },
+   {
+    "what": "Length of the lane-closing taper: this photo cannot answer it",
+    "why": "the re-encoding check came out CANNOT_MEASURE: after 7 of 9 encodings only 3 had yielded a reading, so the remaining 2 could not bring this photograph to the 6 needed; the rest found no boundary in the regulated corridor",
+    "to": "the traffic management plan",
+    "action": "CANNOT_FROM_PHOTO"
+   },
+   {
+    "what": "Any distance other than the red line's shift: this photo cannot answer it",
+    "why": "the only ruler in this photo is the new red line's width (10 cm by §169), and it holds only beside that line; the grate step and the lane width have no ruler at their depth",
+    "to": "the as-built records",
+    "action": "CANNOT_FROM_PHOTO"
+   },
+   {
+    "what": "Drain grates: this program cannot recognise them online",
+    "why": "the grate detector found three periodic structures in three frames and none was a grate, so it was removed on 2026-09-21; the grate evidence comes from a separate offline script checked photo by photo",
+    "to": "a person looking at the photo",
+    "action": "NOT_DETECTED"
+   }
+  ],
+  "language": "English summary first; the fields after this block keep the regulations' own Traditional Chinese wording"
+ },
+ "red_line_gap": {
+  "state": "MEASURED",
+  "gap_m": 0.673,
+  "min_m": 0.658,
+  "max_m": 0.678
+ },
+ "red_line_gap_burst": {
+  "state": "CONFIRMED_ACROSS_BURST",
+  "gap_m": 0.673,
+  "readings_m": [
+   0.673,
+   0.68,
+   0.635
+  ],
+  "spread_m": 0.045,
+  "how": "3 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m",
+  "extras_source": "found by capture time: this photo is F31 in evidence/field-2026-09-20",
+  "seconds": 60.7,
+  "trace": [
+   {
+    "step": "decide",
+    "what": "is more evidence worth fetching?",
+    "result": true,
+    "why": "measured on this photo; more photos can confirm it"
+   },
+   {
+    "step": "act",
+    "tool": "fetch",
+    "photo": "F30 (1 s apart)",
+    "ok": true,
+    "px": [
+     3072,
+     4096
+    ],
+    "s": 0.5
+   },
+   {
+    "step": "perceive",
+    "tool": "cv2.findTransformECCMultiScale",
+    "photo": "F30 (1 s apart)",
+    "converged": true,
+    "correlation": 0.996,
+    "same_view": true,
+    "why": null,
+    "s": 0.2
+   },
+   {
+    "step": "perceive",
+    "tool": "red-line gap",
+    "photo": "F30 (1 s apart)",
+    "gap_m": 0.68,
+    "why": null,
+    "s": 35.6
+   },
+   {
+    "step": "act",
+    "tool": "fetch",
+    "photo": "F32 (1 s apart)",
+    "ok": true,
+    "px": [
+     3072,
+     4096
+    ],
+    "s": 0.4
+   },
+   {
+    "step": "perceive",
+    "tool": "cv2.findTransformECCMultiScale",
+    "photo": "F32 (1 s apart)",
+    "converged": true,
+    "correlation": 0.994,
+    "same_view": true,
+    "why": null,
+    "s": 0.2
+   },
+   {
+    "step": "perceive",
+    "tool": "red-line gap",
+    "photo": "F32 (1 s apart)",
+    "gap_m": 0.635,
+    "why": null,
+    "s": 23.7
+   },
+   {
+    "step": "decide",
+    "what": "do the photos agree?",
+    "result": "CONFIRMED_ACROSS_BURST",
+    "why": "3 photos taken seconds apart, each registered to the first by ECC (correlation >= 0.9), agree within 0.05 m"
+   }
+  ]
+ },
+ "next_actions": [
+  "REQUEST_DOCUMENT",
+  "REQUEST_DOCUMENT",
+  "CANNOT_FROM_PHOTO",
+  "CANNOT_FROM_PHOTO",
+  "NOT_DETECTED"
+ ]
+}

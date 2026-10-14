@@ -172,18 +172,41 @@ What it shows:
   angle between the two views, three days of different light and the repeating chevrons are
   too much. So the old end stays measured on one photograph, and the docs keep saying so.
 - **ECC said it had converged when it had not.** On the across-view pairs it returned a
-  correlation of 0.70-0.73 and no error. Only the comparison with the other two methods
-  shows the result is meaningless. A registration used for measuring would need that
-  cross-check; ECC's own correlation is not enough.
+  correlation of 0.70-0.73 and no error; the comparison with the other two methods shows
+  the result is meaningless. So ECC's convergence cannot be trusted on its own. Its
+  correlation, though, did separate the cases: 0.70-0.73 across views against
+  0.993-0.995 a second apart. (Revised the same day: this sentence first said the
+  correlation was not enough either. On these pairs it is; see the next section for how
+  the pipeline uses it and what guards it.)
 - **A second apart, all three agree** to within 1.5-8.9 px on the road. Here SIFT finds about
   four times as many road inliers as ALIKED+LightGlue, so the new matcher buys nothing on
   these photographs. ECC took 0.0-0.1 s against 2.4-3.1 s for SIFT (this machine, one run).
-  That speed is the one finding worth keeping: it would let the online service line up a
-  burst of photographs and check that the red-line gap reads the same on each. That is not
-  built.
+  That speed is the one finding worth keeping: it lets the online service line up a
+  burst of photographs and check that the red-line gap reads the same on each. Built the
+  same day; next section.
 
 ALIKED's network takes a fixed 640 x 640 input; asking for a larger one fails inside the
 model. Cutting the photograph into tiles raised the road inliers across views only to 4-11
 (a scratch test, not in the script), still too few to trust.
 
-Not used in the pipeline. Nothing here changes a published measurement.
+ALIKED and LightGlue are not used in the pipeline. Nothing here changes a published
+measurement.
+
+## 2026-10-14: ECC in the pipeline, for a burst
+
+`src/marking/burst.py`, called by `aws/handler.py` after the first measurement. When the
+red-line gap is refused on the photo sent but the red-line pair was seen by at least one
+re-encoding, or when it was measured and can be confirmed, the photos taken within 3 s are
+found by capture time (or taken from the caller), fetched, and each is registered to the
+first with `cv2.findTransformECCMultiScale` (`cv2.ECCParameters`, homography, 768 px wide
+greys). A photo is used only if the correlation reaches 0.90: convergence alone is not a
+gate, for the reason above. The 0.90 is set on few pairs (0.70-0.75 for another place,
+0.993-0.996 for the same view, in this trial and in `results/agentic_burst_2026-10-14.json`),
+so it is not the only guard: the gap is reported only if two or more photos measure it and
+agree within 5 cm. Registration takes 0.0-0.3 s a photo on this machine.
+
+| case | first photo | ECC correlation | gaps | decision |
+|---|---|---|---|---|
+| F31 sent whole | measured 0.673 m | F30 0.996, F32 0.994 | 0.673, 0.680, 0.635 | confirmed, 0.673 m |
+| F31 at 2000 px, F30 and F32 attached | refused | F30 0.996, F32 0.994 | 0.680, 0.635 | measured across the burst, 0.657 m |
+| F31 at 2000 px, P64 and F30 attached | refused | P64 0.753 (refused), F30 0.996 | 0.680 | too few photos: retake asked for |

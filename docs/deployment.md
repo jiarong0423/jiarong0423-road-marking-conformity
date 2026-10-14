@@ -1,6 +1,6 @@
 # The gate, live
 
-> The status table under *What is deployed* is current as of 2026-10-14 (image v16, Function URL added). The current response fields are listed in [`technical-report.md`](technical-report.md) §3; the scenario below shows the shape of the answer, not a measurement of this site.
+> The status table under *What is deployed* is current as of 2026-10-14 (image v17: image_url, the burst loop and the English block; Function URL since v14). The current response fields are listed in [`technical-report.md`](technical-report.md) §3; the scenario below shows the shape of the answer, not a measurement of this site.
 
     https://3p4k7s4bx7.execute-api.ap-southeast-2.amazonaws.com
 
@@ -74,7 +74,7 @@ which is a sentence about a person rather than an audit.
 | limits | API Gateway throttling 1 request/s, burst 3; the account's Lambda concurrency quota was raised from 10 to 1000 on 2026-10-13; $5/month budget alert |
 | entry points | API Gateway (30 s limit) for small requests; since 2026-10-14 a Lambda Function URL, `https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`, with no 30 s limit, for full-size photos. A full-size photo (JPEG 90, 2.2 MB) took **145.5 s** live on image v14 and returned the red-line gap 0.668 m on F31 |
 | logs | CloudWatch, 14-day retention |
-| image | `road-marking-gate:v16` (live 2026-10-14: v14 added the new site figures, v15 the GET text for the Function URL, v16 dropped the bridge's distance from a site point that came from Google Maps; v13 kept for rollback), `public.ecr.aws/lambda/python:3.12`, numpy pinned 2.5.3 |
+| image | `road-marking-gate:v17` (live 2026-10-14: v14 added the new site figures, v15 the GET text for the Function URL, v16 dropped the bridge's distance from a site point that came from Google Maps, v17 added image_url, the burst loop and the English block, and copies the two evidence MANIFESTs into the image; v16 kept for rollback), `public.ecr.aws/lambda/python:3.12`, numpy pinned 2.5.3 |
 | OpenCV | `opencv-python-headless==5.0.0.93`, reported by the running function as 5.0.0 |
 | public entry | API Gateway HTTP API `3p4k7s4bx7`, proxy to the function |
 | role | `road-marking-gate-role`, basic execution only |
@@ -126,9 +126,9 @@ name it. Set the profile to whatever your own credentials are called.
 
 ```sh
 AWS_PROFILE=<your-profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> \
-  ./aws/build-and-push.sh v16
+  ./aws/build-and-push.sh v17
 aws lambda update-function-code --function-name road-marking-gate \
-  --image-uri <account>.dkr.ecr.ap-southeast-2.amazonaws.com/road-marking-gate:v16
+  --image-uri <account>.dkr.ecr.ap-southeast-2.amazonaws.com/road-marking-gate:v17
 ```
 
 `--provenance=false --sbom=false` are in the script and are not optional:

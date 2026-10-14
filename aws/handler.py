@@ -23,16 +23,30 @@ unsettled. A verdict without its basis is an assertion.
 """
 
 import base64
+import hashlib
 import hmac
 import json
 import os
 import sys
+import urllib.parse
+import urllib.request
+from pathlib import Path
 
 import cv2
 import numpy as np
 
 sys.path.insert(0, "/var/task/src")
-from marking.situation import assess     # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))   # running from the repo
+from marking import burst                 # noqa: E402
+from marking.english import english       # noqa: E402
+from marking.situation import assess      # noqa: E402
+
+# The evidence MANIFESTs, so a photo of this project's own can be recognised and
+# the photos taken seconds before and after it found. In the image they sit in
+# evidence_index/ (aws/Dockerfile); in the repository, in evidence/.
+INDEX = burst.load_index([p for p in (Path(__file__).resolve().parent / "evidence_index",
+                                      Path(__file__).resolve().parent.parent / "evidence")
+                          if p.is_dir()])
 
 # Lambda's synchronous request payload is capped at 6 MB and base64 adds a
 # third, so anything over about 4.4 MB of encoded text never reaches this
@@ -40,6 +54,40 @@ from marking.situation import assess     # noqa: E402
 # why. The cap here is below that so the refusal comes from the gate, with a
 # reason, like every other refusal it makes.
 MAX_BYTES = 3 * 1024 * 1024
+
+# A URL is fetched by this function, so it is not bound by the 6 MB request cap and
+# an original full-size photo can be sent as it came off the phone. Only GitHub's
+# raw file host, https, no redirects, a size cap and a timeout: the endpoint must
+# not become a way to make AWS fetch arbitrary addresses.
+URL_HOSTS = {"raw.githubusercontent.com"}
+MAX_URL_BYTES = 15 * 1024 * 1024
+URL_TIMEOUT_S = 20
+
+
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *args, **kwargs):
+        return None
+
+
+def _fetch(url):
+    """Bytes of an allowed URL, or ValueError with the reason."""
+    u = urllib.parse.urlparse(url or "")
+    if u.scheme != "https" or u.hostname not in URL_HOSTS:
+        raise ValueError(f"only https URLs on {', '.join(sorted(URL_HOSTS))} are fetched")
+    opener = urllib.request.build_opener(_NoRedirect)
+    with opener.open(urllib.request.Request(url, headers={"User-Agent": "road116-gate"}),
+                     timeout=URL_TIMEOUT_S) as r:
+        data = r.read(MAX_URL_BYTES + 1)
+    if len(data) > MAX_URL_BYTES:
+        raise ValueError(f"the file is over {MAX_URL_BYTES // 1024 // 1024} MB")
+    return data
+
+
+def _decode(blob):
+    image = cv2.imdecode(np.frombuffer(blob, np.uint8), cv2.IMREAD_COLOR)
+    if image is None:
+        raise ValueError("the bytes did not decode as an image")
+    return image
 
 
 def _plain(value):
@@ -112,6 +160,16 @@ def handler(event, context):
                                         "no 30 s limit and takes about 2.5 "
                                         "minutes. Through API Gateway (30 s) "
                                         "a full-size photo times out",
+                        "image_url": "instead of image_base64: an https URL on "
+                                     "raw.githubusercontent.com, fetched by the "
+                                     "function (up to 15 MB, so an original photo "
+                                     "can be sent as it is). For example any photo "
+                                     "in the repository's evidence/ folder",
+                        "burst_base64 / burst_urls": "optional, up to 2 more photos "
+                                     "taken a second apart from the same spot. "
+                                     "For the repository's own photos they are "
+                                     "found by capture time without being sent",
+                        "burst": "optional, false to skip the second loop",
                         "fov_deg": "horizontal field of view of the lens",
                         "posted_kmh": "speed limit in force",
                         "lane_width_m": "optional. Without it the width "
@@ -119,6 +177,16 @@ def handler(event, context):
                                         "skipped; a photograph has no scale",
                     },
                     "returns": {
+                        "en": "first in every response: the summary, findings, what "
+                              "was measured and what was refused with the reason, "
+                              "and the next actions, in English. The fields after "
+                              "it keep the regulations' Traditional Chinese wording",
+                        "red_line_gap_burst": "the second loop: when the red-line "
+                              "gap is refused (or can be confirmed), the photos taken "
+                              "within 3 s are fetched, registered to the first with "
+                              "cv2.findTransformECCMultiScale (correlation >= 0.90), "
+                              "measured, and the gap is reported only if 2 or more "
+                              "agree within 5 cm; `trace` lists every step",
                         "scenario": "what a road user meets here. Every "
                                     "clause either quotes a value measured "
                                     "in this frame or names inline the "
@@ -158,16 +226,23 @@ def handler(event, context):
                                  "attached to every response",
                     },
                     "finding_codes": {
-                        "TAPER_TOO_STEEP": "車道縮減漸變段過陡 (守則 p.9)",
-                        "TAPER_BELOW_TABLE_4_2_7": "槽化線漸變率低於表 4.2.7 "
-                                                   "該速率的比例(表 4.2.7 僅作參考)",
-                        "TWO_RED_LINES": "新舊兩條紅線,量到兩者距離 (§169 線寬當尺)",
-                        "NO_LANE_CHANGE": "雙白實線，禁止變換車道 (§167)",
-                        "EDGE_NOT_CARRIAGEWAY": "路緣紅線，可行駛路面至此為止 (§169)",
-                        "SURFACE_IN_PIECES": "行車道內有新舊鋪面銜接處 (挖掘審查原則)",
-                        "LANE_TOO_NARROW": "汽機車並行不足法定間隔 (§101)",
-                        "CENTRE_LINE_SOLID": "雙黃實線，分向限制線 (§165)。"
-                                             "與 §167 不同:它禁止的是跨越對向",
+                        "TAPER_TOO_STEEP": "the lane-closing taper is steeper than the "
+                                           "works code's reference (code p.9)",
+                        "TAPER_BELOW_TABLE_4_2_7": "the painted island's taper is below "
+                                                   "design table 4.2.7's ratio for the speed "
+                                                   "(table 4.2.7 used as a reference only)",
+                        "TWO_RED_LINES": "new and old red lines, and the distance between "
+                                         "them (the line's 10 cm width as the ruler, §169)",
+                        "NO_LANE_CHANGE": "double white line: no lane changes (§167)",
+                        "EDGE_NOT_CARRIAGEWAY": "kerbside red line: the drivable road may "
+                                                "end here (§169)",
+                        "SURFACE_IN_PIECES": "joins between old and new paving in the "
+                                             "carriageway (excavation review rules)",
+                        "LANE_TOO_NARROW": "a car and a scooter side by side lack the "
+                                           "legal clearance (§101)",
+                        "CENTRE_LINE_SOLID": "double yellow line: the centre line (§165); "
+                                             "unlike §167, it forbids crossing into "
+                                             "oncoming traffic",
                     },
                     "not_needed": {
                         "pitch": "the angle measured is invariant to camera "
@@ -206,23 +281,30 @@ def handler(event, context):
     except Exception:
         return _bad("the request body is not JSON")
 
-    raw = req.get("image_base64")
-    if not raw:
-        return _bad("no image_base64 in the request")
+    raw, url = req.get("image_base64"), req.get("image_url")
+    if not raw and not url:
+        return _bad("send image_base64, or image_url (https, raw.githubusercontent.com)")
+    if raw:
+        try:
+            blob = base64.b64decode(raw)
+        except Exception:
+            return _bad("image_base64 is not base64")
+        if len(blob) > MAX_BYTES:
+            return _bad(f"the image is {len(blob)//1024} kB and the limit is "
+                        f"{MAX_BYTES//1024} kB - Lambda caps a synchronous "
+                        f"request at 6 MB and base64 adds a third. Re-save the "
+                        f"full-size photo at JPEG quality 90 (a 12 MP phone photo "
+                        f"is then about 2.2 MB), or send image_url; do not downscale it, because "
+                        f"red_line_gap and taper_table_4_2_7 refuse at 2000 px", 413)
+    else:
+        try:
+            blob = _fetch(url)
+        except Exception as exc:
+            return _bad(f"image_url: {exc}")
     try:
-        blob = base64.b64decode(raw)
-    except Exception:
-        return _bad("image_base64 is not base64")
-    if len(blob) > MAX_BYTES:
-        return _bad(f"the image is {len(blob)//1024} kB and the limit is "
-                    f"{MAX_BYTES//1024} kB - Lambda caps a synchronous "
-                    f"request at 6 MB and base64 adds a third. Re-save the "
-                    f"full-size photo at JPEG quality 90 (a 12 MP phone photo "
-                    f"is then about 2.2 MB); do not downscale it, because "
-                    f"red_line_gap and taper_table_4_2_7 refuse at 2000 px", 413)
-    image = cv2.imdecode(np.frombuffer(blob, np.uint8), cv2.IMREAD_COLOR)
-    if image is None:
-        return _bad("the bytes did not decode as an image")
+        image = _decode(blob)
+    except ValueError as exc:
+        return _bad(str(exc))
 
     missing = [k for k in ("fov_deg", "posted_kmh") if req.get(k) is None]
     if missing:
@@ -238,6 +320,37 @@ def handler(event, context):
 
     out["image_px"] = [int(image.shape[1]), int(image.shape[0])]
     out["opencv"] = cv2.__version__
+
+    # The second loop (src/marking/burst.py): if the red-line gap was refused, or
+    # can be confirmed, fetch the photos taken seconds apart and decide again.
+    if out.get("state") != "NOT_A_ROAD_PHOTOGRAPH" and req.get("burst", True) is not False:
+        source = None
+        try:                                       # the first loop's answer stands whatever happens here
+            extras = []
+            for i, b64 in enumerate((req.get("burst_base64") or [])[:burst.MAX_EXTRA]):
+                extras.append({"label": f"burst_base64[{i}]",
+                               "load": lambda b64=b64: _decode(base64.b64decode(b64))})
+                source = "attached by the caller"
+            for u in (req.get("burst_urls") or [])[:burst.MAX_EXTRA - len(extras)]:
+                extras.append({"label": str(u).rsplit("/", 1)[-1], "load": lambda u=u: _decode(_fetch(u))})
+                source = "attached by the caller"
+            if not extras:
+                me = burst.identify(INDEX, sha256=hashlib.sha256(blob).hexdigest(),
+                                    filename=(url or "").rsplit("/", 1)[-1] or None)
+                if me:
+                    for n in burst.neighbours(INDEX, me):
+                        extras.append({"label": f"{n['no']} ({n['seconds_apart']:.0f} s apart)",
+                                       "load": lambda u=n["url"]: _decode(_fetch(u))})
+                    source = f"found by capture time: this photo is {me['no']} in evidence/{me['set']}"
+            b = burst.run(image, out.get("red_line_gap") or {}, float(req["fov_deg"]), extras,
+                          attached=source == "attached by the caller")
+        except Exception as exc:
+            b = {"state": "ERROR", "why": f"{type(exc).__name__}: {exc}"}
+        b["extras_source"] = source
+        out["red_line_gap_burst"] = b
+        out["next_actions"] = (out.get("next_actions") or []) + burst.actions(b)
+
+    out = {"en": english(out), **out}
     return {"statusCode": 200,
             "headers": {"content-type": "application/json"},
             # `default=` because a numpy scalar anywhere in the result

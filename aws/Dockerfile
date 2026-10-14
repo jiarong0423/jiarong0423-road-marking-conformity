@@ -18,5 +18,10 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 COPY src/ ${LAMBDA_TASK_ROOT}/src/
 COPY aws/handler.py ${LAMBDA_TASK_ROOT}/
+# The evidence MANIFESTs (names, capture times, sha256; no photos), so the second
+# loop can recognise one of this project's photos and find the ones taken seconds
+# apart. The photos themselves are fetched from the public repository when needed.
+COPY evidence/field-2026-09-20/MANIFEST.csv ${LAMBDA_TASK_ROOT}/evidence_index/field-2026-09-20/MANIFEST.csv
+COPY evidence/field-2026-09-23/MANIFEST.csv ${LAMBDA_TASK_ROOT}/evidence_index/field-2026-09-23/MANIFEST.csv
 
 CMD [ "handler.handler" ]

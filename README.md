@@ -61,7 +61,21 @@ The decision step (perceive, decide, act) is drawn separately, with a trace and 
 
 Send one street photo. It checks the photo actually shows a road, runs its measurements, and only reports a number if at least three of four re-encoded versions of the image measure it and agree. It tells you what it measured, what it couldn't, and why. Then it tells you what to do next: which document to request from which office, tied to what it found in your photo. That step is `src/marking/actions.py`: a document request appears only when something in your photo calls for it, and it says what that was.
 
+**When it refuses, it goes and gets more evidence.** A phone takes a burst, so a refusal is not the end. If the red-line gap is refused on the photo sent but the red-line pair was seen, or if it was measured and can be confirmed, the system finds the photos taken within 3 seconds of it (from the evidence MANIFEST's capture times) or takes the ones you attached, fetches them, registers each to the first with OpenCV 5's `cv2.findTransformECCMultiScale`, and measures the gap on each. It reports the gap only if two or more photos agree within 5 cm. ECC alone is not trusted: on a photo of another place it still reports convergence, so a photo is used only if the correlation reaches 0.90 (same view a second apart: 0.993–0.996; another place: 0.70–0.75). Three cases, with every step traced, in `results/agentic_burst_2026-10-14.json` (`isolation/agentic/burst_demo.py`): F31 sent whole is confirmed on F30 and F32 (0.673, 0.680, 0.635 m); F31 shrunk to 2000 px is refused alone and measured across F30 and F32 (0.657 m); with P64 attached instead, ECC refuses P64 and the system asks for a retake. That loop is `src/marking/burst.py`.
+
+**Every answer starts in English.** The response opens with an `en` block: the summary, each finding, what was measured, what was refused and why, and the next actions. The fields after it keep the regulations' own Traditional Chinese wording, which the tests check against the documents.
+
 It runs on AWS Lambda (arm64) with OpenCV 5.0.0. `GET` on the endpoint describes the interface; `POST` needs an access token in the `x-access-token` header, which is provided to judges with the submission. A full-size photo (re-saved at JPEG 90, about 2.2 MB) takes about 2.5 minutes, longer than API Gateway waits, so send it to the second door, a Lambda Function URL with no 30 s limit: `https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/`. On F31 it returned the red-line gap 0.668 m in 145.5 s.
+
+Or send `image_url`: a photo's raw GitHub address, fetched by the function as it came off the phone (https on raw.githubusercontent.com only, up to 15 MB), so no re-saving and no base64:
+
+```sh
+curl -X POST https://cjy6l22ni2mh5gtc6wgjltz7bu0ehjjb.lambda-url.ap-southeast-2.on.aws/ \
+  -H "content-type: application/json" -H "x-access-token: <token>" \
+  -d '{"image_url":"https://raw.githubusercontent.com/jiarong0423/jiarong0423-road-marking-conformity/main/evidence/field-2026-09-20/IMG_20260920_160016.jpg","fov_deg":56.812,"posted_kmh":50}'
+```
+
+On image v17 that call took 221.7 s: F31 measured 0.673 m, and the second loop found F30 and F32 by capture time, registered them (ECC 0.996, 0.994), measured 0.680 and 0.635 m, and confirmed the gap (`results/agentic_burst_live_v17_2026-10-14.json`). The 0.668 m above came from the JPEG 90 re-save on v14; the two inputs are different bytes. The burst adds about a minute on Lambda, so a call takes about 4 of the 5 minutes allowed.
 
 ```sh
 pip install -r requirements.txt                # Python 3.12
@@ -72,8 +86,8 @@ python3 -B scripts/check_figures.py            # every published number vs. its 
 Deploy your own copy (AWS CLI and Docker with buildx; arm64 image):
 
 ```sh
-AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v16
-MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v16, set access token, throttling, logs, budget
+AWS_PROFILE=<profile> AWS_REGION=ap-southeast-2 ACCOUNT=<account> ./aws/build-and-push.sh v17
+MEMORY=3008 ./aws/harden.sh <email-for-budget-alert>   # point Lambda at v17, set access token, throttling, logs, budget; keeps the Function URL
 ```
 
 Technical report: [`docs/technical-report.md`](docs/technical-report.md). Deployment: [`docs/deployment.md`](docs/deployment.md). OpenCV calls behind each piece of evidence: [`docs/opencv5.md`](docs/opencv5.md).
