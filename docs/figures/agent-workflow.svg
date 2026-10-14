@@ -139,7 +139,7 @@
 <text x="36" y="1004" class="m sm">F31, full size</text><text x="360" y="1004" class="m sm">two red lines, gap 0.673 m (MEASURED)</text><text x="760" y="1004" class="m sm">request marking plans; request drain records; say which distances need a tape</text>
 <text x="36" y="1030" class="m sm">F31, same photo at 2000 px</text><text x="360" y="1030" class="m sm">red-line gap CANNOT_MEASURE; patched surface</text><text x="760" y="1030" class="m sm">request traffic plan; check dig permit; "no distance can be answered from this photo"</text>
 <text x="36" y="1056" class="m sm">F40, full size</text><text x="360" y="1056" class="m sm">double white line; patched surface</text><text x="760" y="1056" class="m sm">request traffic plan and marking plans; check dig permit; HUMAN_LOOK at the line's box</text>
-<text x="36" y="1082" class="m sm">F31 by URL (v17, live)</text><text x="360" y="1082" class="m sm">gap 0.673 m; F30, F32 fetched, ECC 0.996, 0.994</text><text x="760" y="1082" class="m sm">CONFIRMED_ACROSS_BURST (0.673, 0.680, 0.635 m) in 221.7 s</text>
+<text x="36" y="1082" class="m sm">F31 by URL (v18, live)</text><text x="360" y="1082" class="m sm">gap 0.673 m; F30, F32 fetched, ECC 0.996, 0.994</text><text x="760" y="1082" class="m sm">CONFIRMED_ACROSS_BURST (0.673, 0.680, 0.635 m) in 89.7 s</text>
 <text x="36" y="1104" class="m sm">F31 at 2000 px + P64, F30</text><text x="360" y="1104" class="m sm">refused; P64 refused by ECC (0.753); F30 0.680 m</text><text x="760" y="1104" class="m sm">one photo is too few: RETAKE_BURST</text>
 <text x="36" y="1134" class="tr xs">The same scene gives different next steps depending on whether the measurement held: the vision result, not a fixed script, decides.</text>
 </svg>

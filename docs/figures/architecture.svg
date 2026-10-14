@@ -214,7 +214,7 @@
 <text x="1148" y="961" class="m xs">code only, no data or keys</text>
 <path class="ar" d="M866,937 L886,937"/>
 <path class="ard" d="M1136,937 L1116,937"/>
-<text x="716" y="992" class="m xs">v17 live (3 GB): F31 by URL took 221.7 s, 0.673 m, confirmed on F30 and F32 by the 2nd loop</text>
+<text x="716" y="992" class="m xs">v18 live (3 GB): F31 by URL took 89.7 s (221.7 s on v17), 0.673 m, confirmed on F30 and F32 by the 2nd loop</text>
 <text x="716" y="1010" class="m xs">Bad requests, oversize photos and non-road photos all get a clear answer (tested live)</text>
 <text x="716" y="1030" class="m xs">Two doors: API Gateway (30 s) and a Function URL (300 s, 3 at a time). Logs 14 days. $5 budget alert. Rollback: v17</text>
 </svg>

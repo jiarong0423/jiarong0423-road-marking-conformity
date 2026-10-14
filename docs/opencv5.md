@@ -203,7 +203,9 @@ greys). A photo is used only if the correlation reaches 0.90: convergence alone 
 gate, for the reason above. The 0.90 is set on few pairs (0.70-0.75 for another view of the spot or another place,
 0.993-0.996 for the same view, in this trial and in `results/agentic_burst_2026-10-14.json`),
 so it is not the only guard: the gap is reported only if two or more photos measure it and
-all read within 5 cm of each other. Registration takes 0.0-0.3 s a photo on this machine.
+all read within 5 cm of each other. At most 2 extra photos are used, each only if about 45 s
+of the function's 300 s remain; a gap measured on the first photo stands when no other
+photo can confirm it. Registration takes 0.0-0.3 s a photo on this machine.
 
 | case | first photo | ECC correlation | gaps | decision |
 |---|---|---|---|---|

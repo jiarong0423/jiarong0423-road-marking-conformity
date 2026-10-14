@@ -99,7 +99,7 @@ A Lambda Function URL was created first, on 2026-09-20, and returned 403 to ever
 request even though its resource policy carried `lambda:InvokeFunctionUrl` for
 `Principal: "*"` with `FunctionUrlAuthType: NONE`. It was removed and API Gateway
 used instead. API Gateway answers within 30 s, and a full-size photo needs about
-2.5 minutes (about 4 with v17's burst check), so full-size photos always timed out through API Gateway.
+2.5 minutes on v14 (1.5–4 minutes on v18 with the burst check: 89.7 s and 221.7 s measured), so full-size photos always timed out through API Gateway.
 
 On 2026-10-14 the cause was found: a public Function URL now also needs
 `lambda:InvokeFunction` for `Principal: "*"`, conditioned on
@@ -126,7 +126,10 @@ payload is 6 MB and base64 adds a third, so API Gateway answers its own
 `413` for anything over about 4.4 MB. Re-save the photograph as JPEG at
 quality 90 rather than downscaling it, because `red_line_gap` and
 `taper_table_4_2_7` need the camera's original resolution and refuse at
-2000 px.
+2000 px. Since v17 a photo can instead be sent as `image_url`, which the function
+fetches itself: https on raw.githubusercontent.com only, up to 15 MB, no redirects.
+Photos attached for the burst (`burst_base64`) have the same 3 MB cap, and any
+decoded image over 50 MP is refused.
 
 ## Rebuilding
 
