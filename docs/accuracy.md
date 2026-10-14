@@ -4,9 +4,12 @@
 `scripts/accuracy_table.py` gathers from the result files named in each row. Nothing new is
 measured there.
 
-**There is no surveyed ground truth for this road.** Nobody has measured it with a tape
-or a total station. So accuracy is checked in the four ways a single rider with a phone
-can check it, and each one has its limits.
+**This is real data: one real road, photographed by one rider, in live traffic.** The road was
+not closed. Every photograph was taken from the kerb or the roadside between passing vehicles,
+so many angles could not be had, and no one stood in the carriageway with a tape. The ruler
+is the markings themselves: their sizes are fixed by regulation (a red line is 10 cm wide,
+a lane dash 4 m with a 6 m gap), and a card laid on the red line at the kerb is the one
+physical reference. Accuracy is checked in the four ways that allows, and each has its limits.
 
 ## 1. Sizes fixed by law or by a standard, measured back
 
@@ -79,7 +82,11 @@ photograph cannot show and what to do next. Where a detector's count has been ch
 person and found wrong, it asks a person to look instead (`docs/detectors.md`: for example, of
 23 "red lines" opened, 13 were something else).
 
-## What would make this better
+## Why no tape measure
 
-A tape measure on site: the lane widths and the red line's position, measured once by hand,
-would turn sections 1 and 2 into a real comparison against ground truth. That has not been done.
+Road markings have sizes fixed by regulation, so the markings themselves are the ruler, and
+section 1 checks that ruler against them. The one physical reference is a card laid on the red
+line at the kerb. Standing in the carriageway to measure is not safe for one person, and the
+road stays open to traffic. The same limit decides which angles exist: the old end of the
+island is seen from a usable angle on one photograph (P64), because that is where a rider
+could stand.
