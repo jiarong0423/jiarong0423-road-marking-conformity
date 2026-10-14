@@ -113,11 +113,13 @@ Standing on the road, the island's far end is foreshortened to a sliver, so the 
 
 **Perturbation results** (F40, after repainting): as received 12.1; JPEG 97, 91: 11.8, 11.7; crops of 8, 16, 24 px: 12.3, 12.2, 11.7. One run rejected (JPEG 94: 8.4, self-check off by 29°).
 
-**Other things tried and dropped**, each recorded in the notes: SIFT registration of an earlier view onto the phone photos (too few inliers), LSD in place of Hough (less stable), the horizon from the stripe pattern (stripes too short), black-hat and background-relative grate finders (fooled by rough concrete).
+**Other things tried and dropped**, each recorded in the notes: SIFT registration of an earlier view onto the phone photos (too few inliers), LSD in place of Hough (less stable), the horizon from the stripe pattern (stripes too short), black-hat and background-relative grate finders (fooled by rough concrete). On 14 October, OpenCV 5's ALIKED keypoints with the LightGlue matcher, and its multi-scale ECC alignment, were tried for registering my photographs onto each other: across views (P64 against F34/F35) none of the three methods, SIFT included, registers the road, and ECC reports convergence anyway; a second apart, all three agree within 9 px (`docs/opencv5.md`, last section).
 
 **Provenance.** `results/figure_registry.json` pins each published figure to the file and key that produced it; `scripts/check_figures.py` checks every registered figure against its source and must report that all match; the test suite must pass in full.
 
 **What is not measured.** The step between grate and road and its skid resistance (the Highway Act §72 sets ±0.6 cm for the flatness of repaired pavement, checked with a 3 m straightedge, and a skid-resistance floor for covers; measuring either needs a straightedge and a pendulum tester on site), anything at night, and the lane width a scooter can actually use. No figure has field-measured ground truth; the card is the only physical reference.
+
+**Accuracy, gathered.** `docs/accuracy.md` puts every check in one table, read from `results/accuracy_table.json`: against legal sizes (a lane dash 4.1 m against 4 m, +2.5 %; the red line 95.2–96.85 mm against 100 mm, −3 to −5 %), on repeat photographs (the red line's offset from the same grate's centre within 1.8 cm across three photos; the red-line gap 0.635–0.680 m across F30–F32), on re-saved copies (22 of 23 photographs keep their findings at 30 km/h, 20 of 23 at 50 km/h; every change is the taper verdict), and the refusals. What the detectors may claim, and the person-checked counts that took that right away, are in `docs/detectors.md`. CI runs the tests and the figure check on every push, on numpy 2.4.4 and 2.5.3.
 
 ## 6. Deployment and reproduction
 
